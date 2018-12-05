@@ -1,0 +1,229 @@
+.page-content.container-fluid
+  .widget
+    .widget-heading
+      h3.widget-title Vertical Form
+    .widget-body
+      form#form-vertical(method='post', novalidate='novalidate')
+        .form-group
+          label(for='txtEmail') Email
+          input#txtEmail.form-control(type='text', name='txtEmail', placeholder='Enter email', data-rule-required='true', data-rule-rangelength='[10,30]', data-rule-email='true')
+        .form-group
+          label(for='txtPassword') Password
+          input#txtPassword.form-control(type='password', name='txtPassword', placeholder='Enter password', data-rule-required='true', data-rule-rangelength='[10,30]')
+        .form-group
+          label(for='txtConfirmPassword') Confirm password
+          input#txtConfirmPassword.form-control(type='password', name='txtConfirmPassword', placeholder='Enter confirm password', data-rule-required='true', data-rule-equalto='#txtPassword')
+        .form-group
+          label(for='txtDatePicker') Date picker
+          .input-group(data-format='MM/DD/YYYY')
+            input#txtDatePicker.form-control(type='text', name='txtDatePicker', placeholder='Enter date', data-rule-required='true', data-rule-minlength='8', data-rule-date='true')
+            span.input-group-addon
+              i.ti-calendar
+        .form-group
+          label(for='txtWebsite') Website
+          input#txtWebsite.form-control(type='text', name='txtWebsite', placeholder='Enter website', data-rule-required='true', data-rule-url='true')
+        .form-group
+          label(for='txtCreditCard') Credit card
+          input#txtCreditCard.form-control(type='text', name='txtCreditCard', placeholder='Enter credit card', data-rule-required='true', data-rule-creditcard='true')
+        .form-group
+          label(for='fulImage') Image upload
+          input#fulImage.filestyle(type='file', name='fulImage', data-buttontext='Choose file', data-buttonname='btn-outline btn-primary', data-iconname='ti-image', data-rule-required='true', data-rule-accept='image/*')
+        .form-group
+          label(for='txtDecimalNumber') Decimal number
+          input#txtDecimalNumber.form-control(type='text', name='txtDecimalNumber', placeholder='Enter decimal number', data-rule-required='true', data-rule-number='true')
+        .form-group
+          label(for='txtDigits') Digits
+          input#txtDigits.form-control(type='text', name='txtDigits', placeholder='Enter digits', data-rule-required='true', data-rule-digits='true')
+        .form-group
+          label(for='txtPhoneUS') Phone US
+          input#txtPhoneUS.form-control(type='text', name='txtPhoneUS', placeholder='Enter phone US', data-rule-required='true', data-rule-phoneus='true')
+        .form-group
+          label(for='ddlCountry') Country
+          select#ddlCountry.form-control(name='ddlCountry', data-rule-required='true')
+            option(value='') -- Select a country --
+            option(value='US') United States
+            option(value='BG') Bulgaria
+            option(value='BR') Brazil
+            option(value='CN') China
+            option(value='CZ') Czech Republic
+            option(value='DK') Denmark
+            option(value='FR') France
+            option(value='DE') Germany
+            option(value='IN') India
+            option(value='MA') Morocco
+            option(value='NL') Netherlands
+            option(value='PK') Pakistan
+            option(value='RO') Romania
+            option(value='RU') Russia
+            option(value='SK') Slovakia
+            option(value='ES') Spain
+            option(value='TH') Thailand
+            option(value='AE') United Arab Emirates
+            option(value='GB') United Kingdom
+            option(value='VE') Venezuela
+        .form-group
+          label Gender
+          .radio
+            label
+              input(type='radio', name='rdbGender', value='male', data-rule-required='true')
+              |  Male
+          .radio
+            label
+              input(type='radio', name='rdbGender', value='female')
+              |  Female
+        .form-group
+          label Languages
+          .checkbox
+            label
+              input(type='checkbox', name='chkPrograms', value='net', data-rule-required='true')
+              |  .Net
+          .checkbox
+            label
+              input(type='checkbox', name='chkPrograms', value='java')
+              |  Java
+          .checkbox
+            label
+              input(type='checkbox', name='chkPrograms', value='php')
+              |  PHP
+          .checkbox
+            label
+              input(type='checkbox', name='chkPrograms', value='perl')
+              |  Perl
+          .checkbox
+            label
+              input(type='checkbox', name='chkPrograms', value='ruby')
+              |  Ruby
+        .form-group
+          label(for='msEditors') Editors
+          select#msEditors.form-control(name='msEditors', multiple='multiple', style='height: 180px; overflow-y: hidden', data-rule-required='true')
+            option(value='', disabled='disabled') Choose editors
+            option(value='atom') Atom
+            option(value='eclipse') Eclipse
+            option(value='netbeen') NetBean
+            option(value='nodepadplusplus') Nodepad++
+            option(value='phpstorm') PHP Storm
+            option(value='sublime') Sublime
+            option(value='webstorm') Web Storm
+        button.btn.btn-raised.btn-black(type='submit', name='btnSubmit') Submit
+  .widget
+    .widget-heading
+      h3.widget-title Horizontal Form
+    .widget-body
+      form#form-horizontal.form-horizontal(method='post', novalidate='novalidate')
+        .form-group
+          label.col-sm-2.control-label(for='txtEmailHor') Email
+          .col-sm-10
+            input#txtEmailHor.form-control(type='text', name='txtEmailHor', placeholder='Enter email', data-rule-required='true', data-rule-rangelength='[10,30]', data-rule-email='true')
+        .form-group
+          label.col-sm-2.control-label(for='txtPasswordHor') Password
+          .col-sm-10
+            input#txtPasswordHor.form-control(type='password', name='txtPasswordHor', placeholder='Enter password', data-rule-required='true', data-rule-rangelength='[10,30]')
+        .form-group
+          label.col-sm-2.control-label(for='txtConfirmPasswordHor') Confirm password
+          .col-sm-10
+            input#txtConfirmPasswordHor.form-control(type='password', name='txtConfirmPasswordHor', placeholder='Enter confirm password', data-rule-required='true', data-rule-equalto='#txtPasswordHor')
+        .form-group
+          label.col-sm-2.control-label(for='txtDatePickerHor') Date picker
+          .col-sm-10
+            .input-group(data-format='MM/DD/YYYY')
+              input#txtDatePickerHor.form-control(type='text', name='txtDatePickerHor', placeholder='Enter date', data-rule-required='true', data-rule-minlength='8', data-rule-date='true')
+              span.input-group-addon
+                i.ti-calendar
+        .form-group
+          label.col-sm-2.control-label(for='txtWebsiteHor') Website
+          .col-sm-10
+            input#txtWebsiteHor.form-control(type='text', name='txtWebsiteHor', placeholder='Enter website', data-rule-required='true', data-rule-url='true')
+        .form-group
+          label.col-sm-2.control-label(for='txtCreditCardHor') Credit card
+          .col-sm-10
+            input#txtCreditCardHor.form-control(type='text', name='txtCreditCardHor', placeholder='Enter credit card', data-rule-required='true', data-rule-creditcard='true')
+        .form-group
+          label.col-sm-2.control-label(for='fulImageHor') Image upload
+          .col-sm-10
+            input#fulImageHor.filestyle(type='file', name='fulImageHor', data-buttontext='Choose file', data-buttonname='btn-outline btn-primary', data-iconname='ti-image', data-rule-required='true', data-rule-accept='image/*')
+        .form-group
+          label.col-sm-2.control-label(for='txtDecimalNumberHor') Decimal number
+          .col-sm-10
+            input#txtDecimalNumberHor.form-control(type='text', name='txtDecimalNumberHor', placeholder='Enter decimal number', data-rule-required='true', data-rule-number='true')
+        .form-group
+          label.col-sm-2.control-label(for='txtDigitsHor') Digits
+          .col-sm-10
+            input#txtDigitsHor.form-control(type='text', name='txtDigitsHor', placeholder='Enter digits', data-rule-required='true', data-rule-digits='true')
+        .form-group
+          label.col-sm-2.control-label(for='txtPhoneUSHor') Phone US
+          .col-sm-10
+            input#txtPhoneUSHor.form-control(type='text', name='txtPhoneUSHor', placeholder='Enter phone US', data-rule-required='true', data-rule-phoneus='true')
+        .form-group
+          label.col-sm-2.control-label(for='ddlCountryHor') Country
+          .col-sm-10
+            select#ddlCountryHor.form-control(name='ddlCountryHor', data-rule-required='true')
+              option(value='') -- Select a country --
+              option(value='US') United States
+              option(value='BG') Bulgaria
+              option(value='BR') Brazil
+              option(value='CN') China
+              option(value='CZ') Czech Republic
+              option(value='DK') Denmark
+              option(value='FR') France
+              option(value='DE') Germany
+              option(value='IN') India
+              option(value='MA') Morocco
+              option(value='NL') Netherlands
+              option(value='PK') Pakistan
+              option(value='RO') Romania
+              option(value='RU') Russia
+              option(value='SK') Slovakia
+              option(value='ES') Spain
+              option(value='TH') Thailand
+              option(value='AE') United Arab Emirates
+              option(value='GB') United Kingdom
+              option(value='VE') Venezuela
+        .form-group
+          label.col-sm-2.control-label Gender
+          .col-sm-10
+            .radio
+              label
+                input(type='radio', name='rdbGenderHor', value='male', data-rule-required='true')
+                |  Male
+            .radio
+              label
+                input(type='radio', name='rdbGenderHor', value='female')
+                |  Female
+        .form-group
+          label.col-sm-2.control-label Languages
+          .col-sm-10
+            .checkbox
+              label
+                input(type='checkbox', name='chkProgramsHor', value='net', data-rule-required='true')
+                |  .Net
+            .checkbox
+              label
+                input(type='checkbox', name='chkProgramsHor', value='java')
+                |  Java
+            .checkbox
+              label
+                input(type='checkbox', name='chkProgramsHor', value='php')
+                |  PHP
+            .checkbox
+              label
+                input(type='checkbox', name='chkProgramsHor', value='perl')
+                |  Perl
+            .checkbox
+              label
+                input(type='checkbox', name='chkProgramsHor', value='ruby')
+                |  Ruby
+        .form-group
+          label.col-sm-2.control-label(for='msEditorsHor') Editors
+          .col-sm-10
+            select#msEditorsHor.form-control(name='msEditorsHor', multiple='multiple', style='height: 180px; overflow-y: hidden', data-rule-required='true')
+              option(value='', disabled='disabled') Choose editors
+              option(value='atom') Atom
+              option(value='eclipse') Eclipse
+              option(value='netbeen') NetBean
+              option(value='nodepadplusplus') Nodepad++
+              option(value='phpstorm') PHP Storm
+              option(value='sublime') Sublime
+              option(value='webstorm') Web Storm
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-raised.btn-black(type='submit', name='btnSubmit') Submit

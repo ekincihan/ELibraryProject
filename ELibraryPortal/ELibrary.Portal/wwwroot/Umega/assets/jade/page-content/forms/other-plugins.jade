@@ -1,0 +1,128 @@
+.page-content.container-fluid
+  h3.mt-0 Bootstrap Maxlength
+  .widget
+    .widget-heading
+      h3.widget-title Example
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Default usage
+            input#default-ml.form-control(type=text, maxlength='25')
+        .col-md-6
+          .form-group
+            label Change the threshold value
+            input#threshold-ml.form-control(type=text, maxlength='25')
+      .row
+        .col-md-6
+          .form-group
+            label Few options
+            input#few-ml.form-control(type=text, maxlength='25')
+        .col-md-6
+          .form-group
+            label All the options
+            input#all-ml.form-control(type=text, maxlength='25')
+      .row
+        .col-md-6
+          .form-group
+            label What about textareas?
+            textarea#textarea-ml.form-control(maxlength='25')
+        .col-md-6
+          .form-group
+            label Let's play with the position
+            textarea#position-ml.form-control(maxlength='25')
+  h3 Bootstrap TouchSpin
+  .widget
+    .widget-heading
+      h3.widget-title Example
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label With postfix
+            input#postfix-ts.form-control(type=text, value='55')
+        .col-md-6
+          .form-group
+            label With prefix
+            input#prefix-ts.form-control(type=text, value='0')
+      .row
+        .col-md-6
+          .form-group
+            label Vertical button alignment
+            input#vertical-ts.form-control(type=text)
+        .col-md-6
+          .form-group
+            label Vertical buttons with custom icons
+            input#icon-ts.form-control(type=text)
+      .row
+        .col-md-6
+          .form-group
+            label Init with empty value
+            input#empty-ts.form-control(type=text)
+        .col-md-6
+          .form-group
+            label Value attribute is not set 
+              small (applying settings.initval)
+            input#initval-ts.form-control(type=text)
+      .row
+        .col-md-6
+          .form-group
+            label Value is set explicitly to 33 
+              small (skipping settings.initval)
+            input#explicitly-ts.form-control(type=text, value='33')
+        .col-md-6
+          .form-group
+            label Button postfix (small)
+            input#small-ts.form-control.input-sm(type=text)
+      .row
+        .col-md-6
+          .form-group
+            label Button postfix (large)
+            input#large-ts.form-control.input-lg(type=text)
+        .col-md-6
+          .form-group
+            label Button group
+            .input-group
+              input#group-ts.form-control(type='text', value='50')
+              .input-group-btn
+                button.btn.btn-outline.btn-default(type='button') Action
+                button.btn.btn-outline.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                  span.caret
+                  span.sr-only Toggle Dropdown
+                ul.dropdown-menu.pull-right(role='menu')
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+  h3 Bootstrap Tags Input
+  .widget
+    .widget-heading
+      h3.widget-title Example
+    .widget-body
+      .form-group
+        label Basic
+        input.form-control(type='text', value='Amsterdam,Washington,Sydney,Beijing,Cairo', data-role='tagsinput')
+      .form-group
+        label True multi value
+        select.form-control(multiple='', data-role='tagsinput')
+          option(value='Amsterdam') Amsterdam
+          option(value='Washington') Washington
+          option(value='Sydney') Sydney
+          option(value='Beijing') Beijing
+          option(value='Cairo') Cairo
+      .form-group
+        label Typeahead
+        input#typeahead-ti.form-control(type='text', value='Amsterdam,Washington')
+      .form-group
+        label Categorizing tags
+        input#categorizing-ti.form-control(type='text', value='Amsterdam,Washington,Sydney,Beijing,Cairo')
+  h3 Bootstrap Context Menu
+  .widget
+    .widget-heading
+      h3.widget-title Right click anywhere inside this box
+    #basic-menu.widget-body(style='height: 300px')

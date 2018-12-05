@@ -1,0 +1,46 @@
+// Core variables and mixins
+@import 'lesshat';
+@import 'for';
+@import 'variables';
+@import 'bootstrap/_buttons';
+@import 'bootstrap/_scaffolding';
+@import 'bootstrap/_type';
+@import 'helper';
+
+.body-bg-full {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	text-align: center;
+	position: relative;
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: fade(@black-light, 80%);
+		z-index: -1;
+	}
+}
+
+header {
+	padding: 40px 0;
+	.logo {
+		margin-bottom: 30px;
+	}
+}
+
+section {
+	padding: 40px 0 20px 0;
+	.layout {
+		margin-bottom: 20px;
+		display: inline-block;
+	}
+}
+
+footer {
+	padding: 40px 0;
+}

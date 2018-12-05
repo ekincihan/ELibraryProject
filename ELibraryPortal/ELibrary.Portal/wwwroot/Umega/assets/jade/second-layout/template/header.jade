@@ -1,0 +1,117 @@
+// Header start
+header
+  .search-bar.closed
+    form
+      .input-group.input-group-lg
+        input.form-control(type='text', placeholder='Search for...')
+        span.input-group-btn
+          button.btn.btn-default.search-bar-toggle(type='button')
+            i.ti-close
+  a.brand.pull-left(href='index.html')
+    img.logo(src=build+'images/logo/logo-light.png', alt='', width='100')
+  a.hamburger-menu.pull-left.visible-xs(href='javascript:;', role='button')
+    span
+  form.search-form.pull-left.hidden-xs
+    .form-group.has-feedback.mb-0
+      input.form-control.rounded(type='text', aria-describedby='inputSearchFor', placeholder='Search for...', style='width: 200px')
+      span.ti-search.form-control-feedback(aria-hidden='true')
+      span#inputSearchFor.sr-only (default)
+  ul.notification-bar.list-inline.pull-right
+    li.visible-xs
+      a.header-icon.search-bar-toggle(href='javascript:;', role='button')
+        i.ti-search
+    li.dropdown
+      a#dropdownMenu1.dropdown-toggle.bubble.header-icon(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+        i.ti-world
+        span.badge.bg-danger 6
+      .dropdown-menu.dropdown-menu-right.dm-medium.fs-12.animated.fadeInDown(aria-labelledby='dropdownMenu1')
+        h5.dropdown-header You have 6 notifications
+        ul.media-list.mCustomScrollbar(data-mcs-theme='minimal-dark')
+          li.media
+            a(href='javascript:;')
+              .media-left.avatar
+                img.media-object.img-circle(src=build+'images/users/17.jpg', alt='')
+                span.status.bg-warning
+              .media-body
+                h6.media-heading William Carlson
+                p.text-muted.mb-0 Commented on your post
+              .media-right.text-nowrap
+                time.fs-11(datetime='2015-12-10T20:27:48+07:00') 5 mins
+          li.media
+            a(href='javascript:;')
+              .media-left.avatar
+                img.media-object.img-circle(src=build+'images/users/19.jpg', alt='')
+                span.status.bg-danger
+              .media-body
+                h6.media-heading Barbara Ortega
+                p.text-muted.mb-0 Sent you a new email
+              .media-right.text-nowrap
+                time.fs-11(datetime='2015-12-10T20:42:40+07:00') 8 mins
+          li.media
+            a(href='javascript:;')
+              .media-left.avatar
+                img.media-object.img-circle(src=build+'images/users/02.jpg', alt='')
+                span.status.bg-success
+              .media-body
+                h6.media-heading Mark Barnett
+                p.text-muted.mb-0 Sent you a new message
+              .media-right.text-nowrap
+                time.fs-11(datetime='2015-12-10T20:50:48+07:00') 9 mins
+          li.media
+            a(href='javascript:;')
+              .media-left.avatar
+                img.media-object.img-circle(src=build+'images/users/11.jpg', alt='')
+                span.status.bg-danger
+              .media-body
+                h6.media-heading Alexander Gilbert
+                p.text-muted.mb-0 Sent you a new email
+              .media-right.text-nowrap
+                time.fs-11(datetime='2015-12-10T20:42:40+07:00') 15 mins
+          li.media
+            a(href='javascript:;')
+              .media-left.avatar
+                img.media-object.img-circle(src=build+'images/users/12.jpg', alt='')
+                span.status.bg-success
+              .media-body
+                h6.media-heading Amanda Collins
+                p.text-muted.mb-0 You have 8 unread messages
+              .media-right.text-nowrap
+                time.fs-11(datetime='2015-12-10T20:35:35+07:00') 22 mins
+          li.media
+            a(href='javascript:;')
+              .media-left.avatar
+                img.media-object.img-circle(src=build+'images/users/13.jpg', alt='')
+                span.status.bg-warning
+              .media-body
+                h6.media-heading Christian Lane
+                p.text-muted.mb-0 Commented on your post
+              .media-right.text-nowrap
+                time.fs-11(datetime='2015-12-10T20:27:48+07:00') 30 mins
+        .dropdown-footer.text-center.p-10
+          a.fw-500.text-muted(href='javascript:;') See all notifications
+    li.dropdown.hidden-xs
+      a#dropdownMenu2.dropdown-toggle.header-icon.lh-1.pt-15.pb-15(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+        .media.mt-0
+          .media-left.avatar
+            img.media-object.img-circle(src=build+'images/users/04.jpg', alt='')
+            span.status.bg-success
+          .media-right.media-middle.pl-0
+            p.fs-12.mb-0 Hi, Matthew
+      ul.dropdown-menu.fs-12.animated.fadeInDown(aria-labelledby='dropdownMenu2')
+        li
+          a(href='profile.html')
+            i.ti-user.mr-5
+            |  My Profile
+        li
+          a(href='profile.html')
+            i.ti-settings.mr-5
+            |  Account Settings
+        li
+          a(href='login-v2.html')
+            i.ti-power-off.mr-5
+            |  Logout
+    li
+      a.right-sidebar-toggle.bubble.header-icon(href='javascript:;', role='button')
+        i.ti-layout-sidebar-right
+        span.dot.bg-danger
+// Header end

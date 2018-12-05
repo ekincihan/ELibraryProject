@@ -1,0 +1,56 @@
+.page-content.container-fluid
+  h3.mt-0 Basic Views
+  #basic-fc
+  h3 Internationalization
+  form.form-horizontal
+    .form-group
+      label.col-sm-2.col-md-2.control-label Language
+      .col-sm-10.col-md-4
+        select#lang-selector.form-control
+  #internationalization-fc
+  h3 Google Calendar
+  #google-fc
+  h3 Selecting Time Ranges
+  #time-ranges-fc
+  h3 Background Events
+  #bg-events-fc
+  h3 External Events
+  .row.row-0.bg-primary
+    .col-md-3
+      .events-header
+        i.ti-move
+        |  Draggable Events
+      .p-20
+        ul.list-unstyled.draggable
+          li Start with design project
+          li Lunch with family
+          li Birthday party
+          li Read a book
+          li Drink with Jessica
+          li Pay internet bills online
+          li Search for a job
+          li Meeting with dropbox
+        .checkbox-custom
+          input#drop-remove(type='checkbox', value='remove', checked='')
+          label(for='drop-remove') Remove after drop
+    .col-md-9
+      #fullcalendar
+  #addNewEvent.modal.fade(tabindex='-1', role='dialog', aria-labelledby='ModalEventLabel')
+    .modal-dialog
+      .modal-content
+        .modal-header.bg-black
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+          h4#ModalEventLabel.modal-title Add New Event
+        .modal-body
+          form
+            .form-group
+              input#inputTitleEvent.form-control(type='text', placeholder='Event Name')
+            .form-group
+              input#inputBackgroundEvent.form-control(type='text', value='#34495e')
+            input#start(type='hidden')
+            input#end(type='hidden')
+            input#allDay(type='hidden')
+        .modal-footer
+          button.btn.btn-raised.btn-default(type='button', data-dismiss='modal') Cancel
+          button#btnAddNewEvent.btn.btn-raised.btn-black(type='submit') Save

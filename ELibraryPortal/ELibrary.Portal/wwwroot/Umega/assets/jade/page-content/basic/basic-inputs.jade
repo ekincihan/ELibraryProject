@@ -1,0 +1,419 @@
+.page-content.container-fluid
+  .row
+    .col-lg-12
+      .widget
+        .widget-heading
+          h3.widget-title Basic Inputs
+        .widget-body
+          p.mb-20
+            | Most common form control, text-based input fields. Includes support for all HTML5 types: 
+            code text
+            | , 
+            code password
+            | , 
+            code datetime
+            | , 
+            code datetime-local
+            | , 
+            code date
+            | , 
+            code month
+            | , 
+            code time
+            | , 
+            code week
+            | , 
+            code number
+            | , 
+            code email
+            | , 
+            code url
+            | , 
+            code search
+            | , 
+            code tel
+            | , and 
+            code color
+            | .
+          .row
+            .col-md-6
+              form.form-horizontal
+                .form-group
+                  label.col-sm-3.control-label Default
+                  .col-sm-9
+                    input.form-control(type='text')
+                .form-group
+                  label.col-sm-3.control-label Rounded
+                  .col-sm-9
+                    input.form-control.rounded(type='text')
+                    span.help-block
+                      | Use bootstrap input with added class name of 
+                      code .rounded
+                .form-group
+                  label.col-sm-3.control-label Text area
+                  .col-sm-9
+                    textarea.form-control(rows='3')
+                .form-group
+                  label.col-sm-3.control-label File input
+                  .col-sm-9
+                    input.filestyle(type='file', data-buttonname='btn-primary', data-iconname='ti-zip')
+                    span.help-block
+                      | Add class 
+                      code .filestyle
+                      |  to make it.
+                .form-group
+                  label.col-sm-3.control-label Select
+                  .col-sm-9
+                    select.selectpicker(data-style='btn-outline btn-default')
+                      option HTML
+                      option CSS
+                      option Javascript
+                    span.help-block
+                      | Add class 
+                      code .selectpicker
+                      |  and 
+                      code data-style
+                      |  attribute to make it.
+                .form-group
+                  .col-sm-offset-3.col-sm-9
+                    p.form-control-static
+                      | Add class 
+                      code .checkbox-custom
+                      | , 
+                      code .radio-custom
+                      | , 
+                      code .switch
+                      |  to make it.
+                .form-group
+                  label.col-sm-3.control-label Checkbox
+                  .col-sm-9
+                    .checkbox-custom
+                      input#exampleCheckbox(type='checkbox', value='option1')
+                      label(for='exampleCheckbox') Checkbox
+                .form-group
+                  label.col-sm-3.control-label Radio
+                  .col-sm-9
+                    .radio-custom
+                      input#exampleRadio(type='radio', value='option1')
+                      label(for='exampleRadio') Radio
+                .form-group
+                  label.col-sm-3.control-label Switch
+                  .col-sm-9
+                    .switch
+                      input#exampleSwitch(type='checkbox', value='option1')
+                      label(for='exampleSwitch')
+            .col-md-6
+              form.form-horizontal
+                .form-group
+                  label.col-sm-3.control-label Disabled
+                  .col-sm-9
+                    input.form-control(type='text', placeholder='Disabled input here…', disabled='')
+                    span.help-block
+                      | Add the 
+                      code disabled
+                      |  attribute to make it.
+                .form-group
+                  label.col-sm-3.control-label Readonly
+                  .col-sm-9
+                    input.form-control(type='text', value='Readonly input here…', readonly='')
+                    span.help-block
+                      | Add the 
+                      code readonly
+                      |  attribute to 
+                      code &lt;input&gt;
+                      |  tag.
+                .form-group
+                  label.col-sm-3.control-label Focus
+                  .col-sm-9
+                    input.form-control.focus(type='text', value='Demonstrative focus state')
+                    span.help-block
+                      | Add the 
+                      code .focus
+                      |  class to 
+                      code &lt;input&gt;
+                      |  tag.
+                .form-group
+                  label.col-sm-3.control-label Static control
+                  .col-sm-9
+                    p.form-control-static email@example.com
+                    span.help-block
+                      | Use the 
+                      code .form-control-static
+                      |  class on a 
+                      code &lt;p&gt;
+                      | .
+                .form-group
+                  label.col-sm-3.control-label Help text
+                  .col-sm-9
+                    label.sr-only(for='inputHelpBlock') Input with help text
+                    input#inputHelpBlock.form-control(type='text', aria-describedby='helpBlock')
+                    span#helpBlock.help-block A block of help text that breaks onto a new line and may extend beyond one line.
+                .form-group
+                  label.col-sm-3.control-label Sizing
+                  .col-sm-9
+                    p.form-control-static
+                      | Add 
+                      code .input-lg
+                      | , 
+                      code .input-sm
+                      |  for additional sizes.
+                .form-group.form-group-lg
+                  label.col-sm-3.control-label Large
+                  .col-sm-9
+                    input.form-control.input-lg(type='text')
+                .form-group
+                  label.col-sm-3.control-label Default
+                  .col-sm-9
+                    input.form-control(type='text')
+                .form-group.form-group-sm
+                  label.col-sm-3.control-label Small
+                  .col-sm-9
+                    input.form-control.input-sm(type='text')
+      .widget
+        .widget-heading
+          h3.widget-title Input Groups
+        .widget-body
+          p.mb-20
+            | Extend form controls by adding text or buttons before, after, or on both sides of any text-based 
+            code &lt;input&gt;
+            | . Use 
+            code .input-group
+            |  with an 
+            code .input-group-addon
+            |  to prepend or append elements to a single 
+            code .form-control
+            | .
+          .row
+            .col-md-6
+              form.form-horizontal
+                .form-group
+                  label.col-sm-3.control-label Text addons
+                  .col-sm-9
+                    .input-group
+                      span#basic-addon1.input-group-addon @
+                      input.form-control(type='text', placeholder='Username', aria-describedby='basic-addon1')
+                .form-group
+                  .col-sm-offset-3.col-sm-9
+                    .input-group
+                      input.form-control(type='text', placeholder="Recipient's username", aria-describedby='basic-addon2')
+                      span#basic-addon2.input-group-addon @example.com
+                .form-group
+                  .col-sm-offset-3.col-sm-9
+                    .input-group
+                      span.input-group-addon $
+                      input.form-control(type='text', aria-label='Amount (to the nearest dollar)')
+                      span.input-group-addon .00
+                .form-group
+                  label.col-sm-3.control-label Icon addons
+                  .col-sm-9
+                    .input-group
+                      span#basic-addon3.input-group-addon
+                        i.ti-user
+                      input.form-control(type='text', placeholder='Username', aria-describedby='basic-addon3')
+                .form-group
+                  .col-sm-offset-3.col-sm-9
+                    .input-group
+                      input.form-control(type='text', placeholder='Email', aria-describedby='basic-addon4')
+                      span#basic-addon4.input-group-addon
+                        i.ti-email
+                .form-group
+                  .col-sm-offset-3.col-sm-9
+                    .input-group
+                      span.input-group-addon
+                        i.ti-email
+                      input.form-control(type='text', aria-label='Email to email')
+                      span.input-group-addon
+                        i.ti-email
+                .form-group
+                  label.col-sm-3.control-label Button addons
+                  .col-sm-9
+                    .input-group
+                      span.input-group-btn
+                        button.btn.btn-outline.btn-default(type='button') Go!
+                      input.form-control(type='text', placeholder='Search for...')
+                .form-group
+                  .col-sm-offset-3.col-sm-9
+                    .input-group
+                      input.form-control(type='text', placeholder='Search for...')
+                      span.input-group-btn
+                        button.btn.btn-outline.btn-default(type='button') Go!
+            .col-md-6
+              form.form-horizontal
+                .form-group
+                  label.col-sm-3.control-label Dropdowns
+                  .col-sm-9
+                    .input-group
+                      .input-group-btn
+                        button.btn.btn-outline.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                          | Action 
+                          span.caret
+                        ul.dropdown-menu
+                          li
+                            a(href='#') Action
+                          li
+                            a(href='#') Another action
+                          li
+                            a(href='#') Something else here
+                          li.divider(role='separator')
+                          li
+                            a(href='#') Separated link
+                      input.form-control(type='text', aria-label='Text input with dropdown button')
+                .form-group
+                  label.col-sm-3.control-label Segmented
+                  .col-sm-9
+                    .input-group
+                      .input-group-btn
+                        button.btn.btn-outline.btn-default(type='button') Action
+                        button.btn.btn-outline.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                          span.caret
+                        ul.dropdown-menu
+                          li
+                            a(href='#') Action
+                          li
+                            a(href='#') Another action
+                          li
+                            a(href='#') Something else here
+                          li.divider(role='separator')
+                          li
+                            a(href='#') Separated link
+                      input.form-control(type='text', aria-label='Text input with segmented button dropdown')
+                .form-group
+                  label.col-sm-3.control-label Sizing
+                  .col-sm-9
+                    p.form-control-static
+                      | Add 
+                      code .input-group-lg
+                      | , 
+                      code .input-group-sm
+                      |  for additional sizes.
+                .form-group.form-group-lg
+                  label.col-sm-3.control-label Large
+                  .col-sm-9
+                    .input-group.input-group-lg
+                      span#sizing-addon1.input-group-addon @
+                      input.form-control(type='text', aria-describedby='sizing-addon1')
+                .form-group
+                  label.col-sm-3.control-label Default
+                  .col-sm-9
+                    .input-group
+                      span#sizing-addon2.input-group-addon @
+                      input.form-control(type='text', aria-describedby='sizing-addon2')
+                .form-group.form-group-sm
+                  label.col-sm-3.control-label Small
+                  .col-sm-9
+                    .input-group.input-group-sm
+                      span#sizing-addon3.input-group-addon @
+                      input.form-control(type='text', aria-describedby='sizing-addon3')
+      .widget
+        .widget-heading
+          h3.widget-title Validation States
+        .widget-body
+          p.mb-20
+            | Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add 
+            code .has-warning
+            | , 
+            code .has-error
+            | , or 
+            code .has-success
+            |  to the parent element. Any 
+            code .control-label
+            | , 
+            code .form-control
+            | , and 
+            code .help-block
+            |  within that element will receive the validation styles.
+          .row
+            .col-md-6
+              form.form-horizontal
+                .form-group.has-success
+                  label.col-sm-3.control-label(for='inputSuccess1') Success
+                  .col-sm-9
+                    input#inputSuccess1.form-control(type='text')
+                .form-group.has-warning
+                  label.col-sm-3.control-label(for='inputWarning1') Warning
+                  .col-sm-9
+                    input#inputWarning1.form-control(type='text')
+                .form-group.has-error
+                  label.col-sm-3.control-label(for='inputError1') Error
+                  .col-sm-9
+                    input#inputError1.form-control(type='text')
+                .form-group.has-success.has-feedback
+                  label.col-sm-3.control-label(for='inputSuccess2') Success
+                  .col-sm-9
+                    input#inputSuccess2.form-control(type='text', aria-describedby='inputSuccess2Status')
+                    span.ti-check.form-control-feedback(aria-hidden='true')
+                    span#inputSuccess2Status.sr-only (success)
+                .form-group.has-warning.has-feedback
+                  label.col-sm-3.control-label(for='inputWarning2') Warning
+                  .col-sm-9
+                    input#inputWarning2.form-control(type='text', aria-describedby='inputWarning2Status')
+                    span.ti-alert.form-control-feedback(aria-hidden='true')
+                    span#inputWarning2Status.sr-only (warning)
+                .form-group.has-error.has-feedback
+                  label.col-sm-3.control-label(for='inputError2') Error
+                  .col-sm-9
+                    input#inputError2.form-control(type='text', aria-describedby='inputError2Status')
+                    span.ti-close.form-control-feedback(aria-hidden='true')
+                    span#inputError2Status.sr-only (error)
+                .form-group.has-success.has-feedback.form-group-lg
+                  label.col-sm-3.control-label(for='inputGroupSuccess1') Large
+                  .col-sm-9
+                    .input-group.input-group-lg
+                      span.input-group-addon @
+                      input#inputGroupSuccess1.form-control(type='text', aria-describedby='inputGroupSuccess1Status')
+                    span.ti-check.form-control-feedback(aria-hidden='true')
+                    span#inputGroupSuccess1Status.sr-only (success)
+                .form-group.has-warning.has-feedback
+                  label.col-sm-3.control-label(for='inputGroupWarning1') Default
+                  .col-sm-9
+                    .input-group
+                      span.input-group-addon @
+                      input#inputGroupWarning1.form-control(type='text', aria-describedby='inputGroupWarning1Status')
+                    span.ti-alert.form-control-feedback(aria-hidden='true')
+                    span#inputGroupWarning1Status.sr-only (warning)
+                .form-group.has-error.has-feedback.form-group-sm
+                  label.col-sm-3.control-label(for='inputGroupError1') Small
+                  .col-sm-9
+                    .input-group.input-group-sm
+                      span.input-group-addon @
+                      input#inputGroupError1.form-control(type='text', aria-describedby='inputGroupError1Status')
+                    span.ti-close.form-control-feedback(aria-hidden='true')
+                    span#inputGroupError1Status.sr-only (error)
+            .col-sm-offset-1.col-md-5
+              form
+                .has-success
+                  .checkbox-custom
+                    input#checkboxSuccess(type='checkbox', value='option1')
+                    label.checkbox-success(for='checkboxSuccess') Checkbox with success
+                .has-warning
+                  .checkbox-custom
+                    input#checkboxWarning(type='checkbox', value='option1')
+                    label.checkbox-warning(for='checkboxWarning') Checkbox with warning
+                .has-error
+                  .checkbox-custom
+                    input#checkboxError(type='checkbox', value='option1')
+                    label.checkbox-error(for='checkboxError') Checkbox with error
+                .has-success
+                  .radio-custom
+                    input#radioSuccess(type='radio', name='radioStates', value='option1')
+                    label.radio-success(for='radioSuccess') Radio with success
+                .has-warning
+                  .radio-custom
+                    input#radioWarning(type='radio', name='radioStates', value='option2')
+                    label.radio-warning(for='radioWarning') Radio with warning
+                .has-error
+                  .radio-custom
+                    input#radioError(type='radio', name='radioStates', value='option3')
+                    label.radio-error(for='radioError') Radio with error
+                .has-success
+                  .switch
+                    input#switchSuccess(type='checkbox', value='option1', checked='')
+                    label.switch-success(for='switchSuccess')
+                .has-warning
+                  .switch
+                    input#switchWarning(type='checkbox', value='option1')
+                    label.switch-warning(for='switchWarning')
+                .has-error
+                  .switch
+                    input#switchError(type='checkbox', value='option1')
+                    label.switch-error(for='switchError')

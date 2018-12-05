@@ -1,0 +1,52 @@
+//
+// Badges
+// --------------------------------------------------
+
+
+// Customize styles
+// -------------------------
+
+.badge {
+	font-size: @badge-font-size;
+	min-width: @badge-size;
+	height: @badge-size;
+	line-height: @badge-size;
+	padding: 0;
+	font-weight: 600;
+}
+
+.dot {
+	width: @dot-size;
+	height: @dot-size;
+	border-radius: 50%;
+	&:before {
+		content: "";
+		position: absolute;
+		top: -(@scale-dot-size / 2 - @dot-size / 2);
+		left: -(@scale-dot-size / 2 - @dot-size / 2);
+		width: @scale-dot-size;
+		height: @scale-dot-size;
+		border-radius: 50%;
+		border-width: 3px;
+		border-style: solid;
+		.animation(scaling 2s ease-out infinite);
+	}
+}
+
+.dot {
+	&.bg-success {
+		.dot-variant(@brand-success);
+	}
+	&.bg-warning {
+		.dot-variant(@brand-warning);
+	}
+	&.bg-danger {
+		.dot-variant(@brand-danger);
+	}
+}
+
+.dot-variant(@border-color) {
+	&:before {
+		border-color: @border-color;
+	}
+}

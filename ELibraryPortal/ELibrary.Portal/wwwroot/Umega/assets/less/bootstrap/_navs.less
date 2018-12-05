@@ -1,0 +1,67 @@
+.nav {
+	> li {
+		> a {
+			color: @black-lighter;
+			&:hover,
+			&:focus {
+				background-color: @white-base;
+			}
+		}
+	}
+	.open > a {
+		&,
+		&:hover,
+		&:focus {
+			background-color: @white-base;
+			border-color: @separator-border-color;
+			box-shadow: 3px -1px 3px rgba(0,0,0, 0.05);
+		}
+	}
+}
+
+.nav-tabs {
+	border-bottom: 1px solid @separator-border-color;
+	> li {
+		> a {
+			&:hover {
+				border-color: @separator-border-color @separator-border-color transparent @separator-border-color;
+			}
+		}
+		&.active > a {
+			&,
+			&:hover,
+			&:focus {
+				border: 1px solid @separator-border-color;
+				border-bottom-color: transparent;
+				box-shadow: 3px -1px 3px rgba(0,0,0, 0.05);
+				color: @black-lighter;
+			}
+		}
+	}
+}
+
+// Pills
+// -------------------------
+.nav-pills {
+	> li {
+		&.active > a {
+			&,
+			&:hover,
+			&:focus {
+				background-color: @black-lighter;
+			}
+		}
+	}
+}
+
+// Tabbable tabs
+// -------------------------
+
+.tab-content {
+	.tab-pane {
+		display: none;
+	}
+	.active {
+		display: block;
+	}
+}

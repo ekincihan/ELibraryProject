@@ -1,0 +1,669 @@
+// Flot Chart
+// -----------------------------
+
+.flotTip {
+	font-size: 12px;
+	background-color: @black-lighter;
+	color: @white-base;
+	padding: 5px 8px;
+	z-index: 900;
+	border-radius: 3px;
+}
+.legendColorBox {
+	div {
+		border-radius: 50%;
+	}
+}
+.legendLabel {
+	padding-left: 3px;
+	padding-right: 10px;
+	line-height: 2;
+}
+
+// Chartist
+// -----------------------------
+
+.ct-golden-section:before {
+	padding-bottom: 0;
+}
+
+.ct-label {
+	font-size: 11px;
+	color: @text-muted;
+}
+
+.ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {
+	stroke: @brand-primary;
+}
+
+.ct-series-a .ct-slice-pie, .ct-series-a .ct-area {
+	fill: @brand-primary;
+}
+
+.ct-series-b .ct-point, .ct-series-b .ct-line, .ct-series-b .ct-bar, .ct-series-b .ct-slice-donut {
+	stroke: @black-lighter;
+}
+
+.ct-series-b .ct-slice-pie, .ct-series-b .ct-area {
+	fill : @black-lighter;
+}
+
+.ct-series-c .ct-point, .ct-series-c .ct-line, .ct-series-c .ct-bar, .ct-series-c .ct-slice-donut {
+	stroke: @brand-success;
+}
+
+.ct-series-c .ct-slice-pie, .ct-series-c .ct-area {
+	fill: @brand-success;
+}
+
+.ct-series-d .ct-point, .ct-series-d .ct-line, .ct-series-d .ct-bar, .ct-series-d .ct-slice-donut {
+	stroke: @brand-purple;
+}
+
+.ct-series-d .ct-slice-pie, .ct-series-d .ct-area {
+	fill: @brand-purple;
+}
+
+.ct-series-e .ct-point, .ct-series-e .ct-line, .ct-series-e .ct-bar, .ct-series-e .ct-slice-donut {
+	stroke: @brand-danger;
+}
+
+.ct-series-e .ct-slice-pie, .ct-series-e .ct-area {
+	fill: @brand-danger;
+}
+
+.ct-series-f .ct-point, .ct-series-f .ct-line, .ct-series-f .ct-bar, .ct-series-f .ct-slice-donut {
+	stroke: @brand-warning;
+}
+
+.ct-series-f .ct-slice-pie, .ct-series-f .ct-area {
+	fill: @brand-warning;
+}
+
+.ct-series-g .ct-point, .ct-series-g .ct-line, .ct-series-g .ct-bar, .ct-series-g .ct-slice-donut {
+	stroke: @brand-info;
+}
+
+.ct-series-g .ct-slice-pie, .ct-series-g .ct-area {
+	fill: @brand-info;
+}
+
+// Morris Chart
+// -----------------------------
+
+.morris-hover.morris-default-style {
+	font-size: 12px;
+	background-color: @white-base;
+	padding: 5px 8px;
+	z-index: 900;
+	border: 1px solid @separator-border-color;
+	border-radius: 3px;
+}
+
+// Chart JS
+// -----------------------------
+
+.chartjs {
+	canvas {
+		width: 100% !important;
+		max-width: 1000px;
+		height: auto !important;
+	}
+}
+
+// Vector Map
+// -----------------------------
+
+.jvectormap-zoomout {
+	top: 35px;
+}
+
+.jvectormap-zoomin, .jvectormap-zoomout {
+	line-height: 24px;
+	width: 24px;
+	height: 24px;
+	color: @text-color;
+	background-color: @white-base;
+	font-size: 16px;
+	padding: 0;
+	border: 1px solid @separator-border-color;
+	border-radius: 0;
+	box-shadow: 0 1px 1px rgba(0,0,0, 0.05);
+}
+
+// Easy Pie Chart
+// -----------------------------
+
+.easy-pie-chart {
+	position: relative;
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	line-height: 80px;
+	padding: 20px;
+	text-align: center;
+	canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.percent {
+		position: absolute;
+		top: 35px;
+		left: 35px;
+		line-height: 40px;
+		width: 50px;
+		height: 50px;
+		background-color: @gray-lighter;
+		border: 5px solid @white-dark;
+		border-radius: 50%;
+	}
+}
+
+// Bootstrap Select
+// -----------------------------
+
+.bootstrap-select .dropdown-toggle:focus {
+	outline: 0 !important;
+}
+
+// jQuery MiniColors
+// -----------------------------
+
+.minicolors-swatch {
+	border: none;
+}
+
+// Multi Select
+// -----------------------------
+
+.ms-container {
+	width: 100%;
+}
+.ms-container .ms-list {
+	box-shadow: none;
+	border: 1px solid @separator-border-color;
+	height: 280px;
+}
+.ms-container .ms-selectable li.ms-elem-selectable, .ms-container .ms-selection li.ms-elem-selection{
+	padding: 5px 10px;
+}
+// Clockface
+// -----------------------------
+
+.clockface .inner.active:hover, .clockface .inner.active:hover:hover, .clockface .inner.active:active, .clockface .inner.active:hover:active, .clockface .inner.active.active, .clockface .inner.active:hover.active, .clockface .inner.active.disabled, .clockface .inner.active:hover.disabled, .clockface .inner.active[disabled], .clockface .inner.active:hover[disabled] {
+	background-color: @brand-primary;
+}
+.clockface .outer.active:hover, .clockface .outer.active:hover:hover, .clockface .outer.active:active, .clockface .outer.active:hover:active, .clockface .outer.active.active, .clockface .outer.active:hover.active, .clockface .outer.active.disabled, .clockface .outer.active:hover.disabled, .clockface .outer.active[disabled], .clockface .outer.active:hover[disabled]{
+	background-color: @brand-success;
+}
+.clockface .inner.active, .clockface .inner.active:hover {
+	background-image: none;
+}
+.clockface .outer.active, .clockface .outer.active:hover {
+	background-image: none;
+}
+.clockface .outer, .clockface .inner {
+	border-radius: 2px;
+}
+
+// DropzoneJS
+// -----------------------------
+
+.dropzone {
+	border: 2px dashed @separator-border-color;
+	background-color: @white-dark;
+}
+.dropzone .dz-message {
+	padding: 50px 0;
+	margin: 0;
+	color: @text-muted;
+	.icon-dz {
+		display: block;
+		font-size: 64px;
+		color: @gray-lighter;
+		margin-bottom: 15px;
+	}
+}
+
+// JQuery Drag and Drop Files
+// -----------------------------
+
+.uploader {
+	font-weight: 300;
+	font-size: 30px;
+	color: @gray-lighter;
+	border: 2px dashed @separator-border-color;
+	div.or {
+		color: @gray-lighter;
+		font-weight: 600;
+	}
+	div.browser label {
+		background-color: @black-lighter;
+		font-weight: 500;
+		padding: 8px 15px;
+		display: inline-block;
+		width: auto;
+		font-size: 13px;
+		border-radius: 4px;
+		box-shadow: 0 3px 0 0 darken(@black-lighter, 10%);
+		&:hover {
+			background-color: darken(@black-lighter, 5%);
+		}
+		&:focus {
+			background-color: darken(@black-lighter, 10%);
+			outline: 0;
+		}
+	}
+}
+
+// Date Range Picker
+// -----------------------------
+
+.daterangepicker .ranges li {
+	background-color: transparent;
+	border-color: transparent;
+	border-radius: 3px;
+	color: @text-color;
+}
+.daterangepicker .ranges li.active, .daterangepicker .ranges li:hover {
+	background-color: @black-lighter;
+	border-color: @black-lighter;
+}
+.daterangepicker .input-mini {
+	border-color: @separator-border-color;
+	&.active,
+	&:focus {
+		outline: 0;
+		border-color: #66afe9;
+	}
+}
+.daterangepicker td.active, .daterangepicker td.active:hover {
+	background-color: @black-lighter;
+}
+.daterangepicker td.start-date {
+	border-radius: 2px 0 0 2px;
+}
+.daterangepicker td.end-date {
+	border-radius: 0 2px 2px 0;
+}
+
+// Bootstrap Datetime Picker
+// -----------------------------
+
+.datepicker table tr td.active.active, .datepicker table tr td.active.disabled.active, .datepicker table tr td.active.disabled:active, .datepicker table tr td.active.disabled:focus, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.disabled:hover.active, .datepicker table tr td.active.disabled:hover:active, .datepicker table tr td.active.disabled:hover:focus, .datepicker table tr td.active.disabled:hover:hover, .datepicker table tr td.active:active, .datepicker table tr td.active:focus, .datepicker table tr td.active:hover, .datepicker table tr td.active:hover.active, .datepicker table tr td.active:hover:active, .datepicker table tr td.active:hover:focus, .datepicker table tr td.active:hover:hover, .open .dropdown-toggle.datepicker table tr td.active, .open .dropdown-toggle.datepicker table tr td.active.disabled, .open .dropdown-toggle.datepicker table tr td.active.disabled:hover, .open .dropdown-toggle.datepicker table tr td.active:hover {
+	background-color: @black-lighter;
+	border-radius: 2px;
+	border-color: @black-lighter;
+}
+.bootstrap-datetimepicker-widget table td span.active {
+	background-color: @black-lighter;
+	text-shadow: none;
+}
+.bootstrap-datetimepicker-widget a[data-action] {
+	color: @text-color;
+}
+
+// Summernote
+// -----------------------------
+
+.note-editor.note-frame {
+	border: 1px solid @separator-border-color;
+}
+
+// Bootstrap Markdown
+// -----------------------------
+
+.md-editor.active {
+	border-color: @separator-border-color;
+	box-shadow: none;
+}
+.md-editor {
+	> textarea,
+	> .md-preview {
+		background-color: @white-base;
+		border-top: 1px solid @separator-border-color;
+		border-bottom: none;
+		padding: 10px;
+	}
+}
+
+// Bootstrap Dual Listbox
+// -----------------------------
+
+.bootstrap-duallistbox-container select {
+	padding: 6px 12px;
+	overflow-y: auto;
+	&:focus {
+		border-color: @separator-border-color;
+	}
+}
+
+// Bootstrap Tags Input
+// -----------------------------
+
+.bootstrap-tagsinput {
+	border: 1px solid @separator-border-color;
+	box-shadow: none;
+	padding: 6px 12px;
+	line-height: 20px;
+	display: block;
+	.tag {
+		display: inline-block;
+	}
+}
+
+// Code Prettify
+// -----------------------------
+
+li.L0, li.L1, li.L2, li.L3,
+li.L5, li.L6, li.L7, li.L8 {
+	list-style-type: decimal !important
+}
+
+// Toastr
+// -----------------------------
+
+.toast-title {
+	font-weight: 600;
+}
+#toast-container {
+	> div {
+		border-radius: 0px;
+		box-shadow: none;
+		opacity: 1;
+		color: @text-color;
+		background-color: @white-base;
+		padding: 15px 15px 15px 65px;
+		width: 300px;
+		min-height: 74px;
+	}
+	> .toast {
+		background-image: none !important;
+	}
+}
+#toast-container>:hover {
+	box-shadow: 0 1px 1px rgba(0,0,0, 0.05);
+}
+.toast-close-button {
+	height: 20px;
+	width: 20px;
+	color: @text-color;
+	top: -5px;
+	right: -5px;
+	outline: 0;
+}
+.toast {
+	&:before {
+		font-family: "themify";
+		font-size: 30px;
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		border-radius: 50%;
+		color: @white-base;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+	}
+}
+.toast-success {
+	border: 2px solid @brand-success;
+	.toast-title {
+		color: @text-success;
+	}
+	.toast-progress {
+		background-color: @bg-success;
+	}
+	&:before {
+		content: "\e64d";
+		color: @text-success;
+	}
+}
+.toast-info {
+	border: 2px solid @brand-info;
+	.toast-title {
+		color: @text-info;
+	}
+	.toast-progress {
+		background-color: @bg-info;
+	}
+	&:before {
+		content: "\e717";
+		color: @text-info;
+	}
+}
+.toast-warning {
+	border: 2px solid @brand-warning;
+	.toast-title {
+		color: @text-warning;
+	}
+	.toast-progress {
+		background-color: @bg-warning;
+	}
+	&:before {
+		content: "\e6c5";
+		color: @text-warning;
+	}
+}
+.toast-error {
+	border: 2px solid @brand-danger;
+	.toast-title {
+		color: @text-danger;
+	}
+	.toast-progress {
+		background-color: @bg-danger;
+	}
+	&:before {
+		content: "\e6c5";
+		color: @text-danger;
+	}
+}
+
+// jQuery Steps
+// -----------------------------
+
+.wizard > .content > .body input {
+	border: 1px solid @separator-border-color;
+}
+.wizard > .content > .body label {
+	margin-bottom: 0;
+}
+.wizard > .steps a, .wizard > .steps a:hover, .wizard > .steps a:active {
+	margin: 3px;
+	border-radius: 0;
+	padding: 15px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active {
+	background-color: @black-lighter;
+	color: @white-base;
+	.number {
+		border: 2px solid @white-base;
+	}
+}
+.wizard > .steps .done a, .wizard > .steps .done a:hover, .wizard > .steps .done a:active {
+	background-color: @gray-lighter;
+	color: @gray-light;
+	.number {
+		border-color: @gray-light;
+	}
+}
+.wizard > .steps .disabled a, .wizard > .steps .disabled a:hover, .wizard > .steps .disabled a:active {
+	background-color: @gray-lighter;
+	color: @gray-light;
+	.number {
+		border-color: @gray-light;
+	}
+}
+.wizard > .content {
+	background-color: transparent;
+	margin: 0 5px;
+	border-radius: 0;
+	min-height: 150px;
+}
+.tabcontrol > .content {
+	overflow-y: auto;
+}
+.wizard > .content > .body {
+	width: 100%;
+	height: 100%;
+	padding: 15px 0 0 0;
+	position: static;
+}
+.wizard > .steps .number {
+	font-size: 16px;
+	padding: 5px;
+	border-radius: 50%;
+	border: 2px solid @white-base;
+	width: 36px;
+	display: inline-block;
+	font-weight: 600;
+	text-align: center;
+}
+.wizard > .actions .disabled a, .wizard > .actions .disabled a:hover, .wizard > .actions .disabled a:active {
+	opacity: .65;
+	background-color: @gray-lighter;
+	color: @text-color;
+	cursor: not-allowed;
+	box-shadow: 0 3px 0 0 darken(@gray-lighter, 10%);
+}
+.wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions a:active {
+	background-color: @black-lighter;
+	border-radius: 4px;
+	padding: 8px 15px;
+	box-shadow: 0 3px 0 0 darken(@black-lighter, 10%);
+}
+
+// Data Tables
+// -----------------------------
+
+table.dataTable tbody>tr.selected, table.dataTable tbody>tr>.selected {
+	background-color: @black-lighter;
+}
+
+// Image Cropper
+// -----------------------------
+
+.img-container,
+.img-preview {
+	background-color: #f7f7f7;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}
+.img-container {
+	min-height: 200px;
+	max-height: 554px;
+	margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+	.img-container {
+		min-height: 554px;
+	}
+}
+.img-container > img {
+	max-width: 100%;
+}
+.docs-preview {
+	margin-right: -15px;
+	margin-bottom: 10px;
+}
+.img-preview {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.img-preview > img {
+	max-width: 100%;
+}
+.preview-lg {
+	width: 263px;
+	height: 148px;
+}
+.preview-md {
+	width: 139px;
+	height: 78px;
+}
+.preview-sm {
+	width: 69px;
+	height: 39px;
+}
+.preview-xs {
+	width: 35px;
+	height: 20px;
+	margin-right: 0;
+}
+.docs-data > .input-group {
+	margin-bottom: 10px;
+}
+.docs-data > .input-group > label {
+	min-width: 80px;
+}
+.docs-data > .input-group > span {
+	min-width: 50px;
+}
+.docs-buttons > .btn,
+.docs-buttons > .btn-group,
+.docs-buttons > .form-control {
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+.docs-toggles > .btn,
+.docs-toggles > .btn-group,
+.docs-toggles > .dropdown {
+	margin-bottom: 10px;
+}
+.docs-tooltip {
+	display: block;
+	margin: -6px -12px;
+	padding: 6px 12px;
+}
+.docs-tooltip > .icon {
+	margin: 0 -3px;
+	vertical-align: top;
+}
+.tooltip-inner {
+	white-space: normal;
+}
+.btn-upload .tooltip-inner {
+	white-space: nowrap;
+}
+@media (max-width: 400px) {
+	.btn-group-crop {
+		margin-right: -15px!important;
+	}
+	.btn-group-crop > .btn {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.btn-group-crop .docs-tooltip {
+		margin-left: -5px;
+		margin-right: -5px;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+.docs-options .dropdown-menu {
+	width: 100%;
+}
+.docs-options .dropdown-menu > li {
+	padding: 5px 20px;
+	.checkbox {
+		margin: 5px 0;
+	}
+}
+.docs-options .dropdown-menu > li:hover {
+	background-color: #f7f7f7;
+}
+.docs-options .dropdown-menu > li > label {
+	display: block;
+}
+.docs-cropped .modal-body {
+	text-align: center;
+}
+.docs-cropped .modal-body > img,
+.docs-cropped .modal-body > canvas {
+	max-width: 100%;
+}

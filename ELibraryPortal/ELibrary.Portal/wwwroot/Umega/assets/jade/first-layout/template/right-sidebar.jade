@@ -1,0 +1,302 @@
+// Right Sidebar start
+aside.right-sidebar.closed
+  ul.nav.nav-tabs.nav-justified.nav-sidebar(role='tablist')
+    li.active(role='presentation')
+      a(href='#chat', aria-controls='chat', role='tab', data-toggle='tab')
+        i.ti-comment-alt
+    li(role='presentation')
+      a(href='#announcement', aria-controls='announcement', role='tab', data-toggle='tab')
+        i.ti-announcement
+    li(role='presentation')
+      a(href='#ticket', aria-controls='ticket', role='tab', data-toggle='tab')
+        i.ti-bookmark-alt
+    li(role='presentation')
+      a(href='#setting', aria-controls='setting', role='tab', data-toggle='tab')
+        i.ti-settings
+  .tab-content.nav-sidebar-content.mCustomScrollbar(data-mcs-theme='minimal-dark')
+    #chat.tab-pane.fade.in.active(role='tabpanel')
+      form
+        .form-group.has-feedback
+          input.form-control.rounded(type='text', aria-describedby='inputChatSearch', placeholder='Chat with...')
+          span.ti-search.form-control-feedback(aria-hidden='true')
+          span#inputChatSearch.sr-only (default)
+      ul.chat-list.mb-0.fs-12.media-list
+        li.media
+          a.conversation-toggle(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/20.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h6.media-heading Jane Curtis
+              p.text-muted.mb-0 Where are you from?
+            .media-right
+              span.badge.bg-danger 2
+        li.media
+          a.conversation-toggle(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/01.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h6.media-heading Edward Garcia
+              p.text-muted.mb-0 Nice to meet you.
+        li.media
+          a.conversation-toggle(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/02.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h6.media-heading Bruce Olson
+              p.text-muted.mb-0 What do you want to do?
+        li.media
+          a.conversation-toggle(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/03.jpg', alt='')
+              span.status.bg-warning
+            .media-body
+              h6.media-heading Martha Rodriguez
+              p.text-muted.mb-0 I'm hungry.
+            .media-right
+              span.badge.bg-danger 1
+        li.media
+          a.conversation-toggle(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/05.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h6.media-heading Hannah Williamson
+              p.text-muted.mb-0 Do you know the address?
+        li.media
+          a.conversation-toggle(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/06.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h6.media-heading Anthony Mills
+              p.text-muted.mb-0 No problem.
+        li.media
+          a.conversation-toggle(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/07.jpg', alt='')
+              span.status.bg-warning
+            .media-body
+              h6.media-heading Ethan Stanley
+              p.text-muted.mb-0 Hello?
+        li.media
+          a.conversation-toggle(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/08.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h6.media-heading Jonathan Castro
+              p.text-muted.mb-0 OK. Thanks.
+            .media-right
+              span.badge.bg-danger 1
+        li.media
+          a.conversation-toggle(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/09.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h6.media-heading Denise Rose
+              p.text-muted.mb-0 Bye bye.
+        li.media
+          a.conversation-toggle(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/10.jpg', alt='')
+              span.status.bg-danger
+            .media-body
+              h6.media-heading Eugene Meyer
+              p.text-muted.mb-0 How are you?
+    #announcement.tab-pane.fade(role='tabpanel')
+      ul.media-list.mb-0.fs-12
+        li.media
+          .media-left
+            i.ti-bar-chart-alt.media-object.mo-xs.img-circle.bg-primary.text-center
+          .media-body
+            h6.media-heading Market Trend Data
+            p.text-muted.mb-0 Mattis nam fringilla dui nostra, ad fames fusce venenatis massa.
+        li.media
+          .media-left
+            i.ti-package.media-object.mo-xs.img-circle.bg-success.text-center
+          .media-body
+            h6.media-heading Change Your Password!
+            p.text-muted.mb-0 Varius dolor condimentum hendrerit eleifend est urna neque fames faucibus?
+        li.media
+          .media-left
+            i.ti-gift.media-object.mo-xs.img-circle.bg-warning.text-center
+          .media-body
+            h6.media-heading We Apologize
+            p.text-muted.mb-0 Justo at mauris ridiculus conubia penatibus dis varius proin porttitor!
+        li.media
+          .media-left
+            i.ti-harddrives.media-object.mo-xs.img-circle.bg-info.text-center
+          .media-body
+            h6.media-heading Content Policy Update
+            p.text-muted.mb-0 Quis ante imperdiet a volutpat quam tellus condimentum blandit elementum.
+        li.media
+          .media-left
+            i.ti-mobile.media-object.mo-xs.img-circle.bg-purple.text-center
+          .media-body
+            h6.media-heading Mobile Apps
+            p.text-muted.mb-0 Ad iaculis at feugiat integer lobortis vivamus hac egestas venenatis.
+        li.media
+          .media-left
+            i.ti-alarm-clock.media-object.mo-xs.img-circle.bg-danger.text-center
+          .media-body
+            h6.media-heading New Features
+            p.text-muted.mb-0 Primis elementum facilisi tristique faucibus feugiat enim rutrum id himenaeos.
+    #ticket.tab-pane.fade(role='tabpanel')
+      form
+        .form-group
+          input.form-control(type='text', placeholder='Username')
+        .form-group
+          input.form-control(type='text', placeholder='Email')
+        .form-group
+          input.form-control(type='text', placeholder='Subject')
+        .form-group
+          textarea.form-control(rows='6', placeholder='Description')
+        button.btn.btn-block.btn-success(type='submit') Create Ticket
+    #setting.tab-pane.fade(role='tabpanel')
+      form.form-horizontal.fs-12
+        .clearfix
+          h6.pull-left Maintenance Mode
+          .switch.pull-right
+            input#setting-1(type='checkbox', checked='')
+            label.switch-success(for='setting-1')
+        p.text-muted Ipsum non tempor non nullam nisi congue nisi amet enim.
+        .clearfix
+          h6.pull-left Location Services
+          .switch.pull-right
+            input#setting-2(type='checkbox', checked='')
+            label.switch-success(for='setting-2')
+        p.text-muted Eleifend suscipit erat cursus viverra commodo nostra sit commodo mollis.
+        .clearfix
+          h6.pull-left Display Errors
+          .switch.pull-right
+            input#setting-3(type='checkbox', checked='')
+            label.switch-success(for='setting-3')
+        p.text-muted Amet per tortor adipiscing risus dolor orci diam curabitur senectus.
+        .clearfix
+          h6.pull-left Use SEO URLs
+          .switch.pull-right
+            input#setting-4(type='checkbox', checked='')
+            label.switch-success(for='setting-4')
+        p.text-muted Ullamcorper dignissim facilisis fames proin a leo diam amet urna.
+        .clearfix
+          h6.pull-left Enable History
+          .switch.pull-right
+            input#setting-5(type='checkbox', checked='')
+            label.switch-success(for='setting-5')
+        p.text-muted Consectetur cubilia varius vulputate fermentum non dolor cubilia torquent risus.
+aside.conversation.closed
+  h5.text-center.m-0.p-20 Edward Garcia
+    a.conversation-toggle.pull-left(href='javascript:;')
+      i.ti-arrow-left.text-muted
+    a.pull-right(href='javascript:;')
+      i.ti-pencil.text-muted
+  ul.media-list.chat-content.fs-12.pl-20.pr-20.mCustomScrollbar(data-mcs-theme='minimal-dark')
+    li.media
+      .media-left.avatar
+        img.media-object.img-circle(src=build+'images/users/04.jpg', alt='')
+        span.status.bg-success
+      .media-body
+        p Hello.
+        time.fs-11.text-muted(datetime='2015-12-10T20:50:48+07:00')
+          | 09:45 PM 
+          i.ti-check.text-success
+    li.media.other
+      .media-body
+        p Hi.
+        time.fs-11.text-muted.pull-right(datetime='2015-12-10T20:50:48+07:00')
+          | 09:46 PM 
+          i.ti-check.text-success
+      .media-right.avatar
+        img.media-object.img-circle(src=build+'images/users/18.jpg', alt='')
+        span.status.bg-success
+    li.media
+      .media-left.avatar
+        img.media-object.img-circle(src=build+'images/users/04.jpg', alt='')
+        span.status.bg-success
+      .media-body
+        p How are you?
+        time.fs-11.text-muted(datetime='2015-12-10T20:50:48+07:00')
+          | 09:47 PM 
+          i.ti-check.text-success
+    li.media.other
+      .media-body
+        p I'm good. How are you?
+        time.fs-11.text-muted.pull-right(datetime='2015-12-10T20:50:48+07:00')
+          | 09:50 PM 
+          i.ti-check.text-success
+      .media-right.avatar
+        img.media-object.img-circle(src=build+'images/users/18.jpg', alt='')
+        span.status.bg-success
+    li.media
+      .media-left.avatar
+        img.media-object.img-circle(src=build+'images/users/04.jpg', alt='')
+        span.status.bg-success
+      .media-body
+        p Good. Do you speak English?
+        time.fs-11.text-muted(datetime='2015-12-10T20:50:48+07:00')
+          | 09:55 PM 
+          i.ti-check.text-success
+    li.media.other
+      .media-body
+        p A little. Are you American?
+        time.fs-11.text-muted.pull-right(datetime='2015-12-10T20:50:48+07:00')
+          | 09:56 PM 
+          i.ti-check.text-success
+      .media-right.avatar
+        img.media-object.img-circle(src=build+'images/users/18.jpg', alt='')
+        span.status.bg-success
+    li.media
+      .media-left.avatar
+        img.media-object.img-circle(src=build+'images/users/04.jpg', alt='')
+        span.status.bg-success
+      .media-body
+        p Yes.
+        time.fs-11.text-muted(datetime='2015-12-10T20:50:48+07:00')
+          | 10:00 PM 
+          i.ti-check.text-success
+    li.media.other
+      .media-body
+        p Where are you from?
+        time.fs-11.text-muted.pull-right(datetime='2015-12-10T20:50:48+07:00')
+          | 10:01 PM 
+          i.ti-check.text-success
+      .media-right.avatar
+        img.media-object.img-circle(src=build+'images/users/18.jpg', alt='')
+        span.status.bg-success
+    li.media
+      .media-left.avatar
+        img.media-object.img-circle(src=build+'images/users/04.jpg', alt='')
+        span.status.bg-success
+      .media-body
+        p I'm from California.
+        time.fs-11.text-muted(datetime='2015-12-10T20:50:48+07:00')
+          | 10:03 PM 
+          i.ti-check.text-success
+    li.media.other
+      .media-body
+        p Nice to meet you.
+        time.fs-11.text-muted.pull-right(datetime='2015-12-10T20:50:48+07:00')
+          | 10:04 PM 
+          i.ti-check.text-success
+      .media-right.avatar
+        img.media-object.img-circle(src=build+'images/users/18.jpg', alt='')
+        span.status.bg-success
+    li.media
+      .media-left.avatar
+        img.media-object.img-circle(src=build+'images/users/04.jpg', alt='')
+        span.status.bg-success
+      .media-body
+        p Nice to meet you too.
+        time.fs-11.text-muted(datetime='2015-12-10T20:50:48+07:00')
+          | 10:05 PM 
+          i.ti-check.text-success
+  form.pl-20.pr-20
+    .form-group.has-feedback.mb-0
+      input.form-control.rounded(type='text', aria-describedby='inputSendMessage', placeholder='Sent a message')
+      span.ti-pencil-alt.form-control-feedback(aria-hidden='true')
+      span#inputSendMessage.sr-only (default)
+// Right Sidebar end

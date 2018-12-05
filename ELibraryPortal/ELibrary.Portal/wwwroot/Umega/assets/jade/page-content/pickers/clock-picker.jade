@@ -1,0 +1,147 @@
+.page-content.container-fluid
+  h3.mt-0 ClockPicker
+  .widget
+    .widget-heading
+      h3.widget-title Control Types
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Default
+            .input-group.clockpicker(data-donetext='Done')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+        .col-md-6
+          .form-group
+            label Auto close
+            .input-group.clockpicker(data-donetext='Done', data-autoclose='true')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+      .row
+        .col-md-6
+          .form-group
+            label AM &amp; PM buttons
+            .input-group.clockpicker(data-donetext='Done', data-twelvehour='true')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+  .widget
+    .widget-heading
+      h3.widget-title Input Modes
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label With icon
+            .input-group.clockpicker(data-donetext='Done')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+        .col-md-6
+          .form-group
+            label No icon
+            input.clockpicker.form-control(type='text', value='09:30', data-donetext='Done')
+  .widget
+    .widget-heading
+      h3.widget-title Positions
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Bottom right
+            .input-group.clockpicker(data-donetext='Done', data-placement='right', data-align='bottom')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+        .col-md-6
+          .form-group
+            label Bottom left
+            .input-group.clockpicker(data-donetext='Done', data-placement='left', data-align='bottom')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+      .row
+        .col-md-6
+          .form-group
+            label Top right
+            .input-group.clockpicker(data-donetext='Done', data-placement='right', data-align='top')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+        .col-md-6
+          .form-group
+            label Top left
+            .input-group.clockpicker(data-donetext='Done', data-placement='left', data-align='top')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+  .widget
+    .widget-heading
+      h3.widget-title Languages
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label English
+            .input-group.clockpicker(data-donetext='Done')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+        .col-md-6
+          .form-group
+            label Chinese
+            .input-group.clockpicker(data-donetext='完成')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+      .row
+        .col-md-6
+          .form-group
+            label French
+            .input-group.clockpicker(data-donetext='Terminé')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+        .col-md-6
+          .form-group
+            label Vietnamese
+            .input-group.clockpicker(data-donetext='Xong')
+              input.form-control(type='text', value='09:30')
+              span.input-group-addon
+                span.ti-time
+  h3 Clockface
+  .widget
+    .widget-heading
+      h3.widget-title Control Types
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Default
+            input.clock-face.form-control(type='text', value='14:30')
+        .col-md-6
+          .form-group
+            label AM &amp; PM
+            input.clock-face.form-control(type='text', value='02:30 PM', data-format='hh:mm A')
+  .widget
+    .widget-heading
+      h3.widget-title Control Types
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label With icon
+            .input-group
+              input#t2.form-control(type='text', value='14:30', readonly)
+              span.input-group-addon#toggle-clockface
+                span.ti-time
+          .form-group
+            label No icon
+            input.clock-face.form-control(type='text', value='14:30')
+        .col-md-6
+          .form-group
+            label Inline
+            br
+            #t3.well(style='padding: 0; float: left')

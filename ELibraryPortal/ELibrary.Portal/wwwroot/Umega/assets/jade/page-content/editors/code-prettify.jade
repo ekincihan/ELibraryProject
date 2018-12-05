@@ -1,0 +1,251 @@
+.page-content.container-fluid
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title HTML
+        .widget-body
+          pre.prettyprint.lang-html.linenums.
+            &lt;!-- Main Sidebar start--&gt;
+            &lt;aside class=&quot;main-sidebar pinned&quot;&gt;
+            &lt;/aside&gt;
+            &lt;!-- Main Sidebar end--&gt;
+            &lt;!-- Header start--&gt;
+            &lt;header&gt;
+            &lt;/header&gt;
+            &lt;!-- Header end--&gt;
+            &lt;!-- Work Here start--&gt;
+            &lt;section class=&quot;wrapper&quot;&gt;
+              &lt;div class=&quot;page-header clearfix&quot;&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;main-content container-fluid&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-lg-12&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/section&gt;
+            &lt;!-- Work Here end--&gt;
+            &lt;!-- Right Sidebar start--&gt;
+            &lt;aside class=&quot;right-sidebar closed&quot;&gt;
+            &lt;/aside&gt;
+            &lt;aside class=&quot;conversation closed&quot;&gt;
+            &lt;/aside&gt;
+            &lt;!-- Right Sidebar end--&gt;
+            &lt;!-- Demo Settings start--&gt;
+            &lt;div class=&quot;setting closed&quot;&gt;
+            &lt;/div&gt;
+            &lt;!-- Demo Settings end--&gt;
+      .widget
+        .widget-heading
+          h3.widget-title Javascript
+        .widget-body
+          pre.prettyprint.lang-js.linenums.
+            function showPlayer() {
+              // stop the ripples and note animations
+              stopListening();
+              // morph the listening button shape 
+              // into the audio player shape
+              // we are setting a timeout so that there's 
+              // a small delay (it looks nicer)
+              setTimeout(function() {
+                animatePath(shzPathEl, shzEl.getAttribute('data-path-player'), 450, [0.7, 0, 0.3, 1], function() {
+                  // show audio player
+                  classie.remove(playerEl, 'player--hidden');
+                });
+                // hide button
+                classie.add(shzCtrl, 'button--hidden');
+              }, 250);
+              // remove this class so the button content/text gets hidden
+              classie.remove(shzCtrl, 'button--listen');
+            }
+      .widget
+        .widget-heading
+          h3.widget-title Visual Basic
+        .widget-body
+          pre.prettyprint.lang-vb.linenums.
+            Dim studentname As String
+            Dim intMsg As String
+            Private Sub Command1_Click()
+            ‘To read the file 
+            Text1.Text = ""
+            Dim variable1 As String
+            On Error GoTo file_error
+            Open "D:\Liew Folder\sample.txt" For Input As #1
+            Do
+            Input #1, variable1
+            Text1.Text = Text1.Text & variable1 & vbCrLf
+            Loop While Not EOF(1)
+            Close #1
+            Exit Sub
+            file_error:
+            MsgBox (Err.Description)
+            End Sub
+            Private Sub Command2_Click()
+            ‘To delete the file
+            On Error GoTo delete_error
+            Kill "D:\Liew Folder\sample.txt"
+            Exit Sub
+            delete_error:
+            MsgBox (Err.Description)
+            End Sub - See more at: http://www.vbtutor.net/vb_sample/dbase1.htm#sthash.Y3GuCNk8.dpuf
+      .widget
+        .widget-heading
+          h3.widget-title XML
+        .widget-body
+          pre.prettyprint.lang-xml.linenums.
+            &lt;?xml version=&quot;1.0&quot;?&gt;
+            &lt;CATALOG&gt;
+              &lt;CD&gt;
+              &lt;TITLE&gt;Empire Burlesque&lt;/TITLE&gt;
+              &lt;ARTIST&gt;Bob Dylan&lt;/ARTIST&gt;
+              &lt;COUNTRY&gt;USA&lt;/COUNTRY&gt;
+              &lt;COMPANY&gt;Columbia&lt;/COMPANY&gt;
+              &lt;PRICE&gt;10.90&lt;/PRICE&gt;
+              &lt;YEAR&gt;1985&lt;/YEAR&gt;
+              &lt;ORACLE&gt;
+              select * from scott.dept;
+              &lt;/ORACLE&gt;
+              &lt;/CD&gt;
+              &lt;CD&gt;
+              &lt;TITLE&gt;Hide your heart&lt;/TITLE&gt;
+              &lt;ARTIST&gt;Bonnie Tyler&lt;/ARTIST&gt;
+              &lt;COUNTRY&gt;UK&lt;/COUNTRY&gt;
+              &lt;COMPANY&gt;CBS Records&lt;/COMPANY&gt;
+              &lt;PRICE&gt;9.90&lt;/PRICE&gt;
+              &lt;YEAR&gt;1988&lt;/YEAR&gt;
+              &lt;/CD&gt;
+              &lt;CD&gt;
+              &lt;TITLE&gt;Greatest Hits&lt;/TITLE&gt;
+              &lt;ARTIST&gt;Dolly Parton&lt;/ARTIST&gt;
+              &lt;COUNTRY&gt;USA&lt;/COUNTRY&gt;
+              &lt;COMPANY&gt;RCA&lt;/COMPANY&gt;
+              &lt;PRICE&gt;9.90&lt;/PRICE&gt;
+              &lt;YEAR&gt;1982&lt;/YEAR&gt;
+              &lt;ORACLE&gt;
+              begin
+              htp.p(&#39;This is the test data&#39;);
+              end;
+              &lt;/ORACLE&gt;
+            &lt;/CATALOG&gt;
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title CSS
+        .widget-body
+          pre.prettyprint.lang-css.linenums.
+            .button-content-start {
+              top: 0;
+              left: 0;
+              width: 100%;
+              padding: 1.2em;
+              text-indent: 1px;
+              letter-spacing: 1px;
+              -webkit-transform: translate3d(0, -25px, 0);
+              transform: translate3d(0, -25px, 0);
+              -webkit-transition-timing-function: cubic-bezier(0.8, -0.6, 0.2, 1);
+              transition-timing-function: cubic-bezier(0.8, -0.6, 0.2, 1);
+            }
+            .button-content-listen {
+              font-size: 1.75em;
+              line-height: 64px;
+              bottom: 0;
+              left: 50%;
+              width: 60px;
+              height: 60px;
+              margin: 0 0 0 -30px;
+              border-radius: 50%;
+              -webkit-transform: translate3d(0, 25px, 0);
+              transform: translate3d(0, 25px, 0);
+              -webkit-transition-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+              transition-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+            }
+      .widget
+        .widget-heading
+          h3.widget-title Less
+        .widget-body
+          pre.prettyprint.lang-css.linenums.
+            // Customize styles
+            // -------------------------
+            .dot {
+              width: @dot-size;
+              height: @dot-size;
+              border-radius: 50%;
+              &:before {
+                content: "";
+                position: absolute;
+                top: -(@scale-dot-size / 2 - @dot-size / 2);
+                left: -(@scale-dot-size / 2 - @dot-size / 2);
+                width: @scale-dot-size;
+                height: @scale-dot-size;
+                border-radius: 50%;
+                border-width: 3px;
+                border-style: solid;
+                .animation(scaling 2s ease-out infinite);
+              }
+            }
+      .widget
+        .widget-heading
+          h3.widget-title SQL
+        .widget-body
+          pre.prettyprint.lang-sql.linenums.
+            CREATE DATABASE my_db;
+            CREATE TABLE Persons (
+              PersonID int,
+              LastName varchar(255),
+              FirstName varchar(255),
+              Address varchar(255),
+              City varchar(255)
+            );
+            INSERT INTO Customers (CustomerName, City, Country)
+            VALUES ('Cardinal', 'Stavanger', 'Norway');
+            SELECT * FROM Customers
+            WHERE Country='Mexico';
+            UPDATE Customers
+            SET ContactName='Alfred Schmidt', City='Hamburg'
+            WHERE CustomerName='Alfreds Futterkiste';
+            DELETE FROM Customers
+            WHERE CustomerName='Alfreds Futterkiste'
+            AND ContactName='Maria Anders';
+      .widget
+        .widget-heading
+          h3.widget-title PHP
+        .widget-body
+          pre.prettyprint.lang-php.linenums.
+            &lt;?php
+            /*
+            * T_ML_COMMENT does not exist in PHP 5.
+            * The following three lines define it in order to
+            * preserve backwards compatibility.
+            *
+            * The next two lines define the PHP 5 only T_DOC_COMMENT,
+            * which we will mask as T_ML_COMMENT for PHP 4.
+            */
+            if (!defined(&#39;T_ML_COMMENT&#39;)) {
+                define(&#39;T_ML_COMMENT&#39;, T_COMMENT);
+            } else {
+                define(&#39;T_DOC_COMMENT&#39;, T_ML_COMMENT);
+            }
+            $source = file_get_contents(&#39;example.php&#39;);
+            $tokens = token_get_all($source);
+            foreach ($tokens as $token) {
+                if (is_string($token)) {
+                    // simple 1-character token
+                    echo $token;
+                } else {
+                    // token array
+                    list($id, $text) = $token;
+                    switch ($id) { 
+                        case T_COMMENT: 
+                        case T_ML_COMMENT: // we&#39;ve defined this
+                        case T_DOC_COMMENT: // and this
+                            // no action on comments
+                            break;
+                        default:
+                            // anything else -&gt; output &quot;as is&quot;
+                            echo $text;
+                            break;
+                    }
+                }
+            }
+            ?&gt;

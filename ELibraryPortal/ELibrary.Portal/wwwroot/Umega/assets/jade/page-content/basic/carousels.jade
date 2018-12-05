@@ -1,0 +1,98 @@
+.page-content.container-fluid
+  .widget
+    .widget-heading
+      h3.widget-title Bootstrap Carousel
+    .widget-body
+      .row
+        .col-md-6
+          p Basic
+          #carousel-example-generic.carousel.slide(data-ride='carousel', data-interval='3000')
+            ol.carousel-indicators
+              li.active(data-target='#carousel-example-generic', data-slide-to='0')
+              li(data-target='#carousel-example-generic', data-slide-to='1')
+              li(data-target='#carousel-example-generic', data-slide-to='2')
+            .carousel-inner(role='listbox')
+              .item.active
+                img(src=build+'images/backgrounds/01.jpg', alt='')
+              .item
+                img(src=build+'images/backgrounds/02.jpg', alt='')
+              .item
+                img(src=build+'images/backgrounds/03.jpg', alt='')
+            a.left.carousel-control(href='#carousel-example-generic', role='button', data-slide='prev')
+              span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+              span.sr-only Previous
+            a.right.carousel-control(href='#carousel-example-generic', role='button', data-slide='next')
+              span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+              span.sr-only Next
+        .col-md-6
+          p Captions
+          #carousel-example-captions.carousel.slide(data-ride='carousel', data-interval='3000')
+            ol.carousel-indicators
+              li.active(data-target='#carousel-example-captions', data-slide-to='0')
+              li(data-target='#carousel-example-captions', data-slide-to='1')
+              li(data-target='#carousel-example-captions', data-slide-to='2')
+            .carousel-inner(role='listbox')
+              .item.active
+                img(src=build+'images/backgrounds/02.jpg', alt='')
+                .carousel-caption
+                  h3 First slide label
+                  p Nulla vitae elit libero, a pharetra augue mollis interdum.
+              .item
+                img(src=build+'images/backgrounds/03.jpg', alt='')
+                .carousel-caption
+                  h3 Second slide label
+                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              .item
+                img(src=build+'images/backgrounds/01.jpg', alt='')
+                .carousel-caption
+                  h3 Third slide label
+                  p Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            a.left.carousel-control(href='#carousel-example-captions', role='button', data-slide='prev')
+              span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+              span.sr-only Previous
+            a.right.carousel-control(href='#carousel-example-captions', role='button', data-slide='next')
+              span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+              span.sr-only Next
+  .widget
+    .widget-heading
+      h3.widget-title Owl Carousel
+    .widget-body
+      p Basic
+      #basic-owl-carousel.owl-carousel.owl-theme
+        .item
+          img(src=build+'images/backgrounds/01.jpg', alt='')
+        .item
+          img(src=build+'images/backgrounds/02.jpg', alt='')
+        .item
+          img(src=build+'images/backgrounds/03.jpg', alt='')
+        .item
+          img(src=build+'images/backgrounds/04.jpg', alt='')
+      p Right to left
+      #rtl-owl-carousel.owl-carousel.owl-theme
+        .item
+          img(src=build+'images/backgrounds/01.jpg', alt='')
+        .item
+          img(src=build+'images/backgrounds/02.jpg', alt='')
+        .item
+          img(src=build+'images/backgrounds/03.jpg', alt='')
+        .item
+          img(src=build+'images/backgrounds/04.jpg', alt='')
+      .row
+        .col-md-6
+          p Animate
+          #animate-owl-carousel.owl-carousel.owl-theme
+            .item
+              img(src=build+'images/backgrounds/01.jpg', alt='')
+            .item
+              img(src=build+'images/backgrounds/02.jpg', alt='')
+            .item
+              img(src=build+'images/backgrounds/03.jpg', alt='')
+            .item
+              img(src=build+'images/backgrounds/04.jpg', alt='')
+        .col-md-6
+          p Lazy load
+          #retina-owl-carousel.owl-carousel.owl-theme
+            img.owl-lazy(data-src=build+'images/backgrounds/01.jpg', data-src-retina=build+'images/retina/01.jpg', alt='')
+            img.owl-lazy(data-src=build+'images/backgrounds/02.jpg', data-src-retina=build+'images/retina/02.jpg', alt='')
+            img.owl-lazy(data-src=build+'images/backgrounds/03.jpg', data-src-retina=build+'images/retina/03.jpg', alt='')
+            img.owl-lazy(data-src=build+'images/backgrounds/04.jpg', data-src-retina=build+'images/retina/04.jpg', alt='')

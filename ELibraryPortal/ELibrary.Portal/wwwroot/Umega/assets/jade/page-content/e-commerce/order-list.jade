@@ -1,0 +1,510 @@
+.page-content.container-fluid
+  .widget
+    .widget-heading
+      h3.widget-title Order List
+    .widget-body
+      form
+        .row
+          .col-md-4
+            .form-group
+              label(for='txtOrderID') Order ID
+              input#txtOrderID.form-control(type='text')
+          .col-md-4
+            .form-group
+              label(for='ddlStatus') Order Status
+              select#ddlStatus.form-control
+                option(value='*') Choose
+                option(value='0') Missing Orders
+                option(value='7') Canceled
+                option(value='9') Canceled Reversal
+                option(value='13') Chargeback
+                option(value='5') Complete
+                option(value='8') Denied
+                option(value='14') Expired
+                option(value='10') Failed
+                option(value='1') Pending
+                option(value='15') Processed
+                option(value='2') Processing
+                option(value='11') Refunded
+                option(value='12') Reversed
+                option(value='3') Shipped
+                option(value='16') Voided
+          .col-md-4
+            .form-group
+              label(for='date-added') Date Added
+              .input-group
+                input#date-added.form-control(type='text')
+                span.input-group-addon
+                  span.ti-calendar
+        .row
+          .col-md-4
+            .form-group
+              label(for='txtCustomer') Customer
+              input#txtCustomer.form-control(type='text')
+          .col-md-4
+            .form-group
+              label(for='txtTotal') Total
+              input#txtTotal.form-control(type='text')
+          .col-md-4
+            .form-group
+              label(for='date-modified') Date Modified
+              .input-group
+                input#date-modified.form-control(type='text')
+                span.input-group-addon
+                  span.ti-calendar
+        button.mb-15.btn.btn-raised.btn-success(type='submit') Filter
+      table#order-list.table.table-hover.dt-responsive.nowrap(style='width: 100%')
+        thead
+          tr
+            th.text-center
+              .checkbox-custom
+                input#checkAll(type='checkbox', value='option1')
+                label.pl-0(for='checkAll') &nbsp;
+            th Order ID
+            th Customer
+            th Status
+            th.text-right Total
+            th.text-center Date Added
+            th.text-center Date Modified
+            th.text-center Action
+        tbody
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-01(type='checkbox', value='01')
+                label.pl-0(for='product-01') &nbsp;
+            td #U00001
+            td Mildred Burton
+            td
+              span.label.label-warning Pending
+            td.text-right $214.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-02(type='checkbox', value='02')
+                label.pl-0(for='product-02') &nbsp;
+            td #U00002
+            td Brandon Contreras
+            td
+              span.label.label-warning Pending
+            td.text-right $300.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-03(type='checkbox', value='03')
+                label.pl-0(for='product-03') &nbsp;
+            td #U00003
+            td Linda Ramos
+            td
+              span.label.label-warning Pending
+            td.text-right $321.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-04(type='checkbox', value='04')
+                label.pl-0(for='product-04') &nbsp;
+            td #U00004
+            td Thomas Green
+            td
+              span.label.label-warning Pending
+            td.text-right $18.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-05(type='checkbox', value='05')
+                label.pl-0(for='product-05') &nbsp;
+            td #U00005
+            td Amy Douglas
+            td
+              span.label.label-warning Pending
+            td.text-right $89.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-06(type='checkbox', value='06')
+                label.pl-0(for='product-06') &nbsp;
+            td #U00006
+            td Raymond Stewart
+            td
+              span.label.label-warning Pending
+            td.text-right $46.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-07(type='checkbox', value='07')
+                label.pl-0(for='product-07') &nbsp;
+            td #U00007
+            td Ann Lewis
+            td
+              span.label.label-warning Pending
+            td.text-right $700.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-08(type='checkbox', value='08')
+                label.pl-0(for='product-08') &nbsp;
+            td #U00008
+            td Amber Howard
+            td
+              span.label.label-warning Pending
+            td.text-right $250.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-09(type='checkbox', value='09')
+                label.pl-0(for='product-09') &nbsp;
+            td #U00009
+            td Ralph White
+            td
+              span.label.label-warning Pending
+            td.text-right $20.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-10(type='checkbox', value='10')
+                label.pl-0(for='product-10') &nbsp;
+            td #U00010
+            td Bryan Stevens
+            td
+              span.label.label-warning Pending
+            td.text-right $20.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-11(type='checkbox', value='11')
+                label.pl-0(for='product-11') &nbsp;
+            td #U00011
+            td Dylan Holmes
+            td
+              span.label.label-warning Pending
+            td.text-right $90.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-12(type='checkbox', value='12')
+                label.pl-0(for='product-12') &nbsp;
+            td #U00012
+            td Jessica Peters
+            td
+              span.label.label-warning Pending
+            td.text-right $46.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-13(type='checkbox', value='13')
+                label.pl-0(for='product-13') &nbsp;
+            td #U00013
+            td Barbara Carpenter
+            td
+              span.label.label-warning Pending
+            td.text-right $80.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-14(type='checkbox', value='14')
+                label.pl-0(for='product-14') &nbsp;
+            td #U00014
+            td Diane Castillo
+            td
+              span.label.label-warning Pending
+            td.text-right $40.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-15(type='checkbox', value='15')
+                label.pl-0(for='product-15') &nbsp;
+            td #U00015
+            td Andrea Davis
+            td
+              span.label.label-warning Pending
+            td.text-right $60.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-16(type='checkbox', value='16')
+                label.pl-0(for='product-16') &nbsp;
+            td #U00016
+            td Adam Berry
+            td
+              span.label.label-warning Pending
+            td.text-right $32.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-17(type='checkbox', value='17')
+                label.pl-0(for='product-17') &nbsp;
+            td #U00017
+            td Sandra Evans
+            td
+              span.label.label-warning Pending
+            td.text-right $59.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-18(type='checkbox', value='18')
+                label.pl-0(for='product-18') &nbsp;
+            td #U00018
+            td Lori Cooper
+            td
+              span.label.label-warning Pending
+            td.text-right $80.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-19(type='checkbox', value='19')
+                label.pl-0(for='product-19') &nbsp;
+            td #U00019
+            td Willie Riley
+            td
+              span.label.label-warning Pending
+            td.text-right $80.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-20(type='checkbox', value='20')
+                label.pl-0(for='product-20') &nbsp;
+            td #U00020
+            td Betty Roberts
+            td
+              span.label.label-warning Pending
+            td.text-right $100.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-21(type='checkbox', value='21')
+                label.pl-0(for='product-21') &nbsp;
+            td #U00021
+            td Daniel Walsh
+            td
+              span.label.label-warning Pending
+            td.text-right $120.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-22(type='checkbox', value='22')
+                label.pl-0(for='product-22') &nbsp;
+            td #U00022
+            td Janice Jimenez
+            td
+              span.label.label-warning Pending
+            td.text-right $40.00
+            td.text-center 04/19/2016
+            td.text-center 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash

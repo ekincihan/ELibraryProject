@@ -1,0 +1,467 @@
+.page-content.container-fluid
+  .widget
+    .widget-heading
+      h3.widget-title Product List
+    .widget-body
+      form
+        .row
+          .col-md-4
+            .form-group
+              label(for='txtProductName') Product Name
+              input#txtProductName.form-control(type='text')
+          .col-md-4
+            .form-group
+              label(for='txtPrice') Price
+              input#txtPrice.form-control(type='text')
+          .col-md-4
+            .form-group
+              label(for='ddlStatus') Status
+              select#ddlStatus.form-control
+                option(value='') Choose
+                option(value='1') Enabled
+                option(value='0') Disabled
+        .row
+          .col-md-4
+            .form-group
+              label(for='txtModel') Model
+              input#txtModel.form-control(type='text')
+          .col-md-4
+            .form-group
+              label(for='txtPrice') Quantity
+              input#txtQuantity.form-control(type='text')
+        button.mb-15.btn.btn-raised.btn-success(type='submit') Filter
+      table#product-list.table.table-hover.dt-responsive.nowrap(style='width: 100%')
+        thead
+          tr
+            th.text-center
+              .checkbox-custom
+                input#checkAll(type='checkbox', value='option1')
+                label.pl-0(for='checkAll') &nbsp;
+            th Image
+            th Product Name
+            th Model
+            th.text-right Price
+            th.text-right Quantity
+            th Status
+            th.text-center Action
+        tbody
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-01(type='checkbox', value='01')
+                label.pl-0(for='product-01') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/01.jpg', width='50', alt='')
+            td Example Product #01
+            td Model #20
+            td.text-right $50.00
+            td.text-right 320
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-02(type='checkbox', value='02')
+                label.pl-0(for='product-02') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/02.jpg', width='50', alt='')
+            td Example Product #02
+            td Model #12
+            td.text-right $90.00
+            td.text-right 4
+            td
+              span.label.label-warning Low stock
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-03(type='checkbox', value='03')
+                label.pl-0(for='product-03') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/03.jpg', width='50', alt='')
+            td Example Product #03
+            td Model #20
+            td.text-right $20.00
+            td.text-right 56
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-04(type='checkbox', value='04')
+                label.pl-0(for='product-04') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/04.jpg', width='50', alt='')
+            td Example Product #04
+            td Model #14
+            td.text-right $150.00
+            td.text-right 30
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-05(type='checkbox', value='05')
+                label.pl-0(for='product-05') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/05.jpg', width='50', alt='')
+            td Example Product #05
+            td Model #64
+            td.text-right $41.00
+            td.text-right 63
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-06(type='checkbox', value='06')
+                label.pl-0(for='product-06') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/06.jpg', width='50', alt='')
+            td Example Product #06
+            td Model #20
+            td.text-right $65.00
+            td.text-right 62
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-07(type='checkbox', value='07')
+                label.pl-0(for='product-07') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/07.jpg', width='50', alt='')
+            td Example Product #07
+            td Model #54
+            td.text-right $24.00
+            td.text-right 75
+            td
+              span.label.label-danger Disabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-08(type='checkbox', value='08')
+                label.pl-0(for='product-08') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/08.jpg', width='50', alt='')
+            td Example Product #08
+            td Model #08
+            td.text-right $50.00
+            td.text-right 31
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-09(type='checkbox', value='09')
+                label.pl-0(for='product-09') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/09.jpg', width='50', alt='')
+            td Example Product #09
+            td Model #35
+            td.text-right $450.00
+            td.text-right 80
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-10(type='checkbox', value='10')
+                label.pl-0(for='product-10') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/10.jpg', width='50', alt='')
+            td Example Product #10
+            td Model #12
+            td.text-right $460.00
+            td.text-right 5
+            td
+              span.label.label-warning Low stock
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-11(type='checkbox', value='11')
+                label.pl-0(for='product-11') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/11.jpg', width='50', alt='')
+            td Example Product #11
+            td Model #20
+            td.text-right $240.00
+            td.text-right 320
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-12(type='checkbox', value='12')
+                label.pl-0(for='product-12') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/12.jpg', width='50', alt='')
+            td Example Product #12
+            td Model #20
+            td.text-right $50.00
+            td.text-right 320
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-13(type='checkbox', value='13')
+                label.pl-0(for='product-13') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/13.jpg', width='50', alt='')
+            td Example Product #13
+            td Model #31
+            td.text-right $100.00
+            td.text-right 24
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-14(type='checkbox', value='14')
+                label.pl-0(for='product-14') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/14.jpg', width='50', alt='')
+            td Example Product #14
+            td Model #09
+            td.text-right $140.00
+            td.text-right 200
+            td
+              span.label.label-danger Disabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-15(type='checkbox', value='15')
+                label.pl-0(for='product-15') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/15.jpg', width='50', alt='')
+            td Example Product #15
+            td Model #78
+            td.text-right $35.00
+            td.text-right 40
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-16(type='checkbox', value='16')
+                label.pl-0(for='product-16') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/16.jpg', width='50', alt='')
+            td Example Product #16
+            td Model #24
+            td.text-right $190.00
+            td.text-right 28
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-17(type='checkbox', value='17')
+                label.pl-0(for='product-17') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/17.jpg', width='50', alt='')
+            td Example Product #17
+            td Model #56
+            td.text-right $190.00
+            td.text-right 40
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-18(type='checkbox', value='18')
+                label.pl-0(for='product-18') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/18.jpg', width='50', alt='')
+            td Example Product #18
+            td Model #35
+            td.text-right $140.00
+            td.text-right 24
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-19(type='checkbox', value='19')
+                label.pl-0(for='product-19') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/19.jpg', width='50', alt='')
+            td Example Product #19
+            td Model #20
+            td.text-right $50.00
+            td.text-right 320
+            td
+              span.label.label-danger Disabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-20(type='checkbox', value='20')
+                label.pl-0(for='product-20') &nbsp;
+            td.text-center
+              img.img-thumbnail.img-responsive(src=build+'images/products/20.jpg', width='50', alt='')
+            td Example Product #20
+            td Model #18
+            td.text-right $480.00
+            td.text-right 180
+            td
+              span.label.label-success Enabled
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash

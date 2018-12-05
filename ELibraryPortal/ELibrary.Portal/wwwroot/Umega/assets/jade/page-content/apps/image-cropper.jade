@@ -1,0 +1,270 @@
+.page-content.container-fluid
+  .row
+    .col-lg-12
+      .widget
+        .widget-body
+          .row
+            .col-md-9
+              .img-container
+                img(src=build+'images/zoom/01.jpg', alt='Picture')
+            .col-md-3
+              .docs-preview.clearfix
+                .img-preview.preview-md
+                .img-preview.preview-sm
+                .img-preview.preview-xs
+              .docs-data
+                .form-group
+                  .input-group
+                    label.input-group-addon(for='dataX') X
+                    input#dataX.form-control(type='text', placeholder='x')
+                    span.input-group-addon px
+                .form-group
+                  .input-group
+                    label.input-group-addon(for='dataY') Y
+                    input#dataY.form-control(type='text', placeholder='y')
+                    span.input-group-addon px
+                .form-group
+                  .input-group
+                    label.input-group-addon(for='dataWidth') Width
+                    input#dataWidth.form-control(type='text', placeholder='width')
+                    span.input-group-addon px
+                .form-group
+                  .input-group
+                    label.input-group-addon(for='dataHeight') Height
+                    input#dataHeight.form-control(type='text', placeholder='height')
+                    span.input-group-addon px
+                .form-group
+                  .input-group
+                    label.input-group-addon(for='dataRotate') Rotate
+                    input#dataRotate.form-control(type='text', placeholder='rotate')
+                    span.input-group-addon deg
+                .form-group
+                  .input-group
+                    label.input-group-addon(for='dataScaleX') ScaleX
+                    input#dataScaleX.form-control(type='text', placeholder='scaleX')
+                .form-group
+                  .input-group
+                    label.input-group-addon(for='dataScaleY') ScaleY
+                    input#dataScaleY.form-control(type='text', placeholder='scaleY')
+          .row
+            .col-md-9.docs-buttons
+              .btn-group
+                button.btn.btn-raised.btn-black(type='button', data-method='setDragMode', data-option='move', title='Move')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("setDragMode", "move")')
+                    span.ti-move
+                button.btn.btn-raised.btn-black(type='button', data-method='setDragMode', data-option='crop', title='Crop')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("setDragMode", "crop")')
+                    span.ti-new-window
+              .btn-group
+                button.btn.btn-raised.btn-black(type='button', data-method='zoom', data-option='0.1', title='Zoom In')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("zoom", 0.1)')
+                    span.ti-zoom-in
+                button.btn.btn-raised.btn-black(type='button', data-method='zoom', data-option='-0.1', title='Zoom Out')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("zoom", -0.1)')
+                    span.ti-zoom-out
+              .btn-group
+                button.btn.btn-raised.btn-black(type='button', data-method='move', data-option='-10', data-second-option='0', title='Move Left')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("move", -10, 0)')
+                    span.ti-arrow-left
+                button.btn.btn-raised.btn-black(type='button', data-method='move', data-option='10', data-second-option='0', title='Move Right')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("move", 10, 0)')
+                    span.ti-arrow-right
+                button.btn.btn-raised.btn-black(type='button', data-method='move', data-option='0', data-second-option='-10', title='Move Up')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("move", 0, -10)')
+                    span.ti-arrow-up
+                button.btn.btn-raised.btn-black(type='button', data-method='move', data-option='0', data-second-option='10', title='Move Down')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("move", 0, 10)')
+                    span.ti-arrow-down
+              .btn-group
+                button.btn.btn-raised.btn-black(type='button', data-method='rotate', data-option='-45', title='Rotate Left')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("rotate", -45)')
+                    span.ti-back-left
+                button.btn.btn-raised.btn-black(type='button', data-method='rotate', data-option='45', title='Rotate Right')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("rotate", 45)')
+                    span.ti-back-right
+              .btn-group
+                button.btn.btn-raised.btn-black(type='button', data-flip='horizontal', data-method='scale', data-option='-1', data-second-option='1', title='Flip Horizontal')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("scale", -1, 1)')
+                    span.ti-arrows-horizontal
+                button.btn.btn-raised.btn-black(type='button', data-flip='vertical', data-method='scale', data-option='1', data-second-option='-1', title='Flip Vertical')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("scale", 1, -1)')
+                    span.ti-arrows-vertical
+              .btn-group
+                button.btn.btn-raised.btn-black(type='button', data-method='crop', title='Crop')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("crop")')
+                    span.ti-check
+                button.btn.btn-raised.btn-black(type='button', data-method='clear', title='Clear')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("clear")')
+                    span.ti-close
+              .btn-group
+                button.btn.btn-raised.btn-black(type='button', data-method='disable', title='Disable')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("disable")')
+                    span.ti-lock
+                button.btn.btn-raised.btn-black(type='button', data-method='enable', title='Enable')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("enable")')
+                    span.ti-unlock
+              .btn-group
+                button.btn.btn-raised.btn-black(type='button', data-method='reset', title='Reset')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("reset")')
+                    span.ti-reload
+                label.btn.btn-raised.btn-black.btn-upload(for='inputImage', title='Upload image file')
+                  input#inputImage.sr-only(type='file', name='file', accept='image/*')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='Import image with Blob URLs')
+                    span.ti-upload
+                button.btn.btn-raised.btn-black(type='button', data-method='destroy', title='Destroy')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("destroy")')
+                    span.ti-power-off
+              .btn-group.btn-group-crop
+                button.btn.btn-raised.btn-black(type='button', data-method='getCroppedCanvas')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("getCroppedCanvas")')
+                    | Get Cropped Canvas
+                button.btn.btn-raised.btn-black(type='button', data-method='getCroppedCanvas', data-option='{ "width": 160, "height": 90 }')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("getCroppedCanvas", { width: 160, height: 90 })')
+                    | 160×90
+                button.btn.btn-raised.btn-black(type='button', data-method='getCroppedCanvas', data-option='{ "width": 320, "height": 180 }')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("getCroppedCanvas", { width: 320, height: 180 })')
+                    | 320×180
+              // Show the cropped image in modal
+              #getCroppedCanvasModal.modal.fade.docs-cropped(aria-hidden='true', aria-labelledby='getCroppedCanvasTitle', role='dialog', tabindex='-1')
+                .modal-dialog
+                  .modal-content
+                    .modal-header
+                      button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                      h4#getCroppedCanvasTitle.modal-title Cropped
+                    .modal-body
+                    .modal-footer
+                      button.btn.btn-raised.btn-default(type='button', data-dismiss='modal') Close
+                      a#download.btn.btn-raised.btn-black(download='cropped.png', href='javascript:void(0);') Download
+              // /.modal
+              button.btn.btn-raised.btn-black(type='button', data-method='getData', data-option='', data-target='#putData')
+                span.docs-tooltip(data-toggle='tooltip', title='$().cropper("getData")')
+                  | Get Data
+              button.btn.btn-raised.btn-black(type='button', data-method='setData', data-target='#putData')
+                span.docs-tooltip(data-toggle='tooltip', title='$().cropper("setData", data)')
+                  | Set Data
+              button.btn.btn-raised.btn-black(type='button', data-method='getContainerData', data-option='', data-target='#putData')
+                span.docs-tooltip(data-toggle='tooltip', title='$().cropper("getContainerData")')
+                  | Get Container Data
+              button.btn.btn-raised.btn-black(type='button', data-method='getImageData', data-option='', data-target='#putData')
+                span.docs-tooltip(data-toggle='tooltip', title='$().cropper("getImageData")')
+                  | Get Image Data
+              button.btn.btn-raised.btn-black(type='button', data-method='getCanvasData', data-option='', data-target='#putData')
+                span.docs-tooltip(data-toggle='tooltip', title='$().cropper("getCanvasData")')
+                  | Get Canvas Data
+              button.btn.btn-raised.btn-black(type='button', data-method='setCanvasData', data-target='#putData')
+                span.docs-tooltip(data-toggle='tooltip', title='$().cropper("setCanvasData", data)')
+                  | Set Canvas Data
+              button.btn.btn-raised.btn-black(type='button', data-method='getCropBoxData', data-option='', data-target='#putData')
+                span.docs-tooltip(data-toggle='tooltip', title='$().cropper("getCropBoxData")')
+                  | Get Crop Box Data
+              button.btn.btn-raised.btn-black(type='button', data-method='setCropBoxData', data-target='#putData')
+                span.docs-tooltip(data-toggle='tooltip', title='$().cropper("setCropBoxData", data)')
+                  | Set Crop Box Data
+              input#putData.form-control(type='text', placeholder='Get data to here or set data with this value')
+            // /.docs-buttons
+            .col-md-3.docs-toggles
+              // <h3 class="page-header">Toggles:</h3>
+              .btn-group.btn-group-justified(data-toggle='buttons')
+                label.btn.btn-raised.btn-black.active(data-method='setAspectRatio', data-option='1.7777777777777777', title='Set Aspect Ratio')
+                  input#aspestRatio1.sr-only(type='radio', name='aspestRatio', value='1.7777777777777777', checked='')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("setAspectRatio", 16 / 9)')
+                    | 16:9
+                label.btn.btn-raised.btn-black(data-method='setAspectRatio', data-option='1.3333333333333333', title='Set Aspect Ratio')
+                  input#aspestRatio2.sr-only(type='radio', name='aspestRatio', value='1.3333333333333333')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("setAspectRatio", 4 / 3)')
+                    | 4:3
+                label.btn.btn-raised.btn-black(data-method='setAspectRatio', data-option='1', title='Set Aspect Ratio')
+                  input#aspestRatio3.sr-only(type='radio', name='aspestRatio', value='1')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("setAspectRatio", 1 / 1)')
+                    | 1:1
+                label.btn.btn-raised.btn-black(data-method='setAspectRatio', data-option='0.6666666666666666', title='Set Aspect Ratio')
+                  input#aspestRatio4.sr-only(type='radio', name='aspestRatio', value='0.6666666666666666')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("setAspectRatio", 2 / 3)')
+                    | 2:3
+                label.btn.btn-raised.btn-black(data-method='setAspectRatio', data-option='NaN', title='Set Aspect Ratio')
+                  input#aspestRatio5.sr-only(type='radio', name='aspestRatio', value='NaN')
+                  span.docs-tooltip(data-toggle='tooltip', data-container='body', title='$().cropper("setAspectRatio", NaN)')
+                    | Free
+              .dropdown.dropup.docs-options
+                button#toggleOptions.btn.btn-raised.btn-black.btn-block.dropdown-toggle(type='button', data-toggle='dropdown', aria-expanded='true')
+                  | Toggle Options 
+                  span.caret
+                ul.dropdown-menu(aria-labelledby='toggleOptions', role='menu')
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#strict(type='checkbox', name='option', value='strict', checked='')
+                      label(for='strict') strict
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#responsive(type='checkbox', name='option', value='responsive', checked='')
+                      label(for='responsive') responsive
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#checkImageOrigin(type='checkbox', name='option', value='checkImageOrigin', checked='')
+                      label(for='checkImageOrigin') checkImageOrigin
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#modal(type='checkbox', name='option', value='modal', checked='')
+                      label(for='modal') modal
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#guides(type='checkbox', name='option', value='guides', checked='')
+                      label(for='guides') guides
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#center(type='checkbox', name='option', value='center', checked='')
+                      label(for='center') center
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#highlight(type='checkbox', name='option', value='highlight', checked='')
+                      label(for='highlight') highlight
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#background(type='checkbox', name='option', value='background', checked='')
+                      label(for='background') background
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#autoCrop(type='checkbox', name='option', value='autoCrop', checked='')
+                      label(for='autoCrop') autoCrop
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#dragCrop(type='checkbox', name='option', value='dragCrop', checked='')
+                      label(for='dragCrop') dragCrop
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#movable(type='checkbox', name='option', value='movable', checked='')
+                      label(for='movable') movable
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#rotatable(type='checkbox', name='option', value='rotatable', checked='')
+                      label(for='rotatable') rotatable
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#scalable(type='checkbox', name='option', value='scalable', checked='')
+                      label(for='scalable') scalable
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#zoomable(type='checkbox', name='option', value='zoomable', checked='')
+                      label(for='zoomable') zoomable
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#mouseWheelZoom(type='checkbox', name='option', value='mouseWheelZoom', checked='')
+                      label(for='mouseWheelZoom') mouseWheelZoom
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#touchDragZoom(type='checkbox', name='option', value='touchDragZoom', checked='')
+                      label(for='touchDragZoom') touchDragZoom
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#cropBoxMovable(type='checkbox', name='option', value='cropBoxMovable', checked='')
+                      label(for='cropBoxMovable') cropBoxMovable
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#cropBoxResizable(type='checkbox', name='option', value='cropBoxResizable', checked='')
+                      label(for='cropBoxResizable') cropBoxResizable
+                  li(role='presentation')
+                    .checkbox-custom.mt-5.mb-5
+                      input#doubleClickToggle(type='checkbox', name='option', value='doubleClickToggle', checked='')
+                      label(for='doubleClickToggle') doubleClickToggle
+              // /.dropdown
+            // /.docs-toggles

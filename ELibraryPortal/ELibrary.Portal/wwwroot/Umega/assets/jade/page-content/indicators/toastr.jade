@@ -1,0 +1,107 @@
+.page-content.container-fluid
+  .widget
+    .widget-heading
+      h3.widget-title Toastr
+    .widget-body
+      .row
+        .col-md-3
+          .form-group
+            label(for='title') Title
+            input#title.form-control(type='text')
+          .form-group
+            label(for='message') Message
+            textarea#message.form-control(rows='3')
+          .checkbox-custom
+            input#closeButton(type='checkbox', value='checked')
+            label(for='closeButton') Close Button
+          .checkbox-custom
+            input#addBehaviorOnToastClick(type='checkbox', value='checked')
+            label(for='addBehaviorOnToastClick') Add behavior on toast click
+          .checkbox-custom
+            input#debugInfo(type='checkbox', value='checked')
+            label(for='debugInfo') Debug
+          .checkbox-custom
+            input#progressBar(type='checkbox', value='checked')
+            label(for='progressBar') Progress Bar
+          .checkbox-custom
+            input#preventDuplicates(type='checkbox', value='checked')
+            label(for='preventDuplicates') Prevent Duplicates
+          .checkbox-custom
+            input#addClear(type='checkbox', value='checked')
+            label(for='addClear') Add button to force clearing a toast, ignoring focus
+          .checkbox-custom
+            input#newestOnTop(type='checkbox', value='checked')
+            label(for='newestOnTop') Newest on top
+        .col-md-3
+          #toastTypeGroup
+            label Toast Type
+            .radio-custom
+              input#success(type='radio', name='toasts', value='success', checked='')
+              label(for='success') Success
+            .radio-custom
+              input#info(type='radio', name='toasts', value='info')
+              label(for='info') Info
+            .radio-custom
+              input#warning(type='radio', name='toasts', value='warning')
+              label(for='warning') Warning
+            .radio-custom
+              input#error(type='radio', name='toasts', value='error')
+              label(for='error') Error
+          #positionGroup
+            label Position
+            .radio-custom
+              input#toast-top-right(type='radio', name='positions', value='toast-top-right', checked='')
+              label(for='toast-top-right') Top Right
+            .radio-custom
+              input#toast-bottom-right(type='radio', name='positions', value='toast-bottom-right')
+              label(for='toast-bottom-right') Bottom Right
+            .radio-custom
+              input#toast-bottom-left(type='radio', name='positions', value='toast-bottom-left')
+              label(for='toast-bottom-left') Bottom Left
+            .radio-custom
+              input#toast-top-left(type='radio', name='positions', value='toast-top-left')
+              label(for='toast-top-left') Top Left
+            .radio-custom
+              input#toast-top-full-width(type='radio', name='positions', value='toast-top-full-width')
+              label(for='toast-top-full-width') Top Full Width
+            .radio-custom
+              input#toast-bottom-full-width(type='radio', name='positions', value='toast-bottom-full-width')
+              label(for='toast-bottom-full-width') Bottom Full Width
+            .radio-custom
+              input#toast-top-center(type='radio', name='positions', value='toast-top-center')
+              label(for='toast-top-center') Top Center
+            .radio-custom
+              input#toast-bottom-center(type='radio', name='positions', value='toast-bottom-center')
+              label(for='toast-bottom-center') Bottom Center
+        .col-md-3
+          .form-group
+            label(for='showEasing') Show Easing
+            input#showEasing.form-control(type='text', value='swing')
+          .form-group
+            label(for='hideEasing') Hide Easing
+            input#hideEasing.form-control(type='text', value='linear')
+          .form-group
+            label(for='showMethod') Show Method
+            input#showMethod.form-control(type='text', value='fadeIn')
+          .form-group
+            label(for='hideMethod') Hide Method
+            input#hideMethod.form-control(type='text', value='fadeOut')
+        .col-md-3
+          .form-group
+            label(for='showDuration') Show Duration
+            input#showDuration.form-control(type='text', value='300')
+          .form-group
+            label(for='hideDuration') Hide Duration
+            input#hideDuration.form-control(type='text', value='1000')
+          .form-group
+            label(for='timeOut') Time out
+            input#timeOut.form-control(type='text', value='5000')
+          .form-group
+            label(for='extendedTimeOut') Extended time out
+            input#extendedTimeOut.form-control(type='text', value='1000')
+      .row
+        .col-lg-12
+          button#showtoast.btn.btn-raised.btn-primary(type='button') Show Toast
+          button#cleartoasts.btn.btn-raised.btn-danger(type='button') Clear Toasts
+          button#clearlasttoast.btn.btn-raised.btn-danger(type='button') Clear Last Toast
+          pre#toastrOptions.mt-15(style='min-height: 200px').

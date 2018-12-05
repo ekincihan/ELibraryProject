@@ -1,0 +1,166 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+
+@black-light: darken(mix(@gray-base, @brand-primary, 50%), 30%);
+@black-lighter: darken(mix(@gray-base, @brand-primary, 50%), 25%);
+
+@white-base: #FFF;
+@white-blue: mix(@white-base, @brand-info, 98%);
+@white-dark: darken(@white-base, 2%);
+
+@gray-darker: darken(@gray-base, 15%);
+@gray-dark: darken(@gray-base, 5%);
+@gray-base: #808080;
+@gray-light: lighten(@gray-base, 10%);
+@gray-lighter: lighten(@gray-base, 40%);
+
+@brand-primary: #0667D6;
+@brand-success: #17A88B;
+@brand-info: #0FB3FF;
+@brand-warning: #FFB61E;
+@brand-danger: #E5343D;
+@brand-purple: #8E23E0;
+
+@text-muted: @gray-light;
+@text-primary: darken(@brand-primary, 5%);
+@text-success: darken(@brand-success, 5%);
+@text-info: darken(@brand-info, 5%);
+@text-warning: darken(@brand-warning, 5%);
+@text-danger: darken(@brand-danger, 5%);
+@text-purple: darken(@brand-purple, 5%);
+
+@bg-black: @black-lighter;
+@bg-default: @gray-lighter; 
+@bg-primary: lighten(@brand-primary, 5%);
+@bg-success: lighten(@brand-success, 5%);
+@bg-info: lighten(@brand-info, 5%);
+@bg-warning: lighten(@brand-warning, 5%);
+@bg-danger: lighten(@brand-danger, 5%);
+@bg-purple: lighten(@brand-purple, 5%);
+
+//== Scaffolding
+//
+
+@body-bg: @white-base;
+@text-color: @gray-dark;
+@link-color: @brand-primary;
+@link-hover-color: darken(@link-color, 10%);
+@font-family-base: "Poppins", sans-serif;
+@font-size-base: 14px;
+@separator-border-color: @gray-lighter;
+
+//== Animate
+//
+
+@animation-duration: 0.3s;
+
+//== Brand
+//
+
+@brand-icon-font-size: 30px;
+@brand-icon-margin-right: 8px;
+
+//== Header
+//
+
+@header-height: 64px;
+@header-height-lg: @header-height + @header-height;
+@zindex-header: 1040;
+
+// Header icons
+
+@header-icon-font-size: 14px;
+@header-icon-padding-horizontal: 20px;
+
+// Notification bubbles 
+
+@badge-font-size: 10px;
+@badge-size: 14px;
+@dot-size: 8px;
+@scale-dot-size: 26px;
+
+// Dropdown arrow
+
+@dropdown-arrow-width: 7px;
+@zindex-dropdown-arrow: 1020;
+
+//== Demo settings
+//
+
+@zindex-setting: 1020;
+
+//== Main Sidebar
+//
+
+@sidebar-lg: 250px;
+@sidebar-sm: 160px;
+@sidebar-xs: 80px;
+@zindex-sidebar: 1030;
+
+// Avatar Size
+
+@avatar-size: 34px;
+@status-size: 8px;
+
+// Profile
+
+@profile-avatar-size: 100px;
+@profile-avatar-sm: 80px;
+@profile-status-size: 14px;
+@profile-status-sm: 12px;
+
+// Nav sidebar content
+
+@nav-sb-content-padding: 15px;
+
+//== Navigation
+//
+
+// Navigation links
+
+@nav-link-padding-horizontal: 25px;
+@nav-link-line-height: 48px;
+@nav-link-icon-font-size: 14px;
+
+// Sub-menu
+
+@nav-link-sub-menu-line-height: 40px;
+@nav-link-sub-menu-padding-right: @nav-link-padding-horizontal;
+@nav-link-sub-menu-padding-left: @nav-link-sub-menu-line-height;
+@nav-link-sub-menu-dot-size: 5px;
+@nav-link-sub-menu-line-color: @gray-base;
+
+//== Page Content
+//
+
+@content-padding: 24px;
+@content-padding-xs: 12px;
+
+//== Right Sidebar
+//
+
+@right-sidebar-width: 260px;
+@right-sidebar-box-shadow: -1px 0 1px rgba(0, 0, 0, .05);
+@zindex-right-sidebar: 1030;
+
+//== Media Object
+//
+
+@mo-xs-size: 28px;
+@mo-sm-size: 34px;
+@mo-lg-size: 48px;
+
+// font-weight
+@font-weight: 300, 400, 500, 600, 700;
+
+// font-size 
+@font-size: 10, 11, 12, 13, 14, 16, 18, 20, 22, 24, 30, 36, 60, 100;
+
+// margin, margin-top, margin-right, margin-bottom, margin-left
+// padding, padding-top, padding-right, padding-bottom, padding-left
+@distance: 0, 5, 10, 15, 20, 25, 30;

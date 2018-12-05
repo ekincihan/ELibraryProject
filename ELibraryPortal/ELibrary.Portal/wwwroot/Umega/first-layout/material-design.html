@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Umega App - Material Design</title>
+    <!-- PACE-->
+    <link rel="stylesheet" type="text/css" href="../plugins/PACE/themes/blue/pace-theme-flash.css">
+    <script type="text/javascript" src="../plugins/PACE/pace.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Fonts-->
+    <link rel="stylesheet" type="text/css" href="../plugins/themify-icons/themify-icons.css">
+    <!-- Malihu Scrollbar-->
+    <link rel="stylesheet" type="text/css" href="../plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
+    <!-- Animo.js-->
+    <link rel="stylesheet" type="text/css" href="../plugins/animo.js/animate-animo.min.css">
+    <!-- Flag Icons-->
+    <link rel="stylesheet" type="text/css" href="../plugins/flag-icon-css/css/flag-icon.min.css">
+    <!-- Bootstrap Progressbar-->
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+    <!-- Material Design Iconic Font-->
+    <link rel="stylesheet" type="text/css" href="../plugins/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+    <!-- Primary Style-->
+    <link rel="stylesheet" type="text/css" href="../build/css/first-layout.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file://--> 
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body data-sidebar-color="sidebar-light" class="sidebar-light">
+    <!-- Header start-->
+    <header>
+      <div class="search-bar closed">
+        <form>
+          <div class="input-group input-group-lg">
+            <input type="text" placeholder="Search for..." class="form-control"><span class="input-group-btn">
+              <button type="button" class="btn btn-default search-bar-toggle"><i class="ti-close"></i></button></span>
+          </div>
+        </form>
+      </div><a href="index.html" class="brand pull-left"><img src="../build/images/logo/logo-light.png" alt="" width="100"></a><a href="javascript:;" role="button" class="hamburger-menu pull-left"><span></span></a>
+      <form class="search-form pull-left hidden-xs">
+        <div class="form-group has-feedback mb-0">
+          <input type="text" aria-describedby="inputSearchFor" placeholder="Search for..." style="width: 200px" class="form-control rounded"><span aria-hidden="true" class="ti-search form-control-feedback"></span><span id="inputSearchFor" class="sr-only">(default)</span>
+        </div>
+      </form>
+      <ul class="notification-bar list-inline pull-right">
+        <li class="visible-xs"><a href="javascript:;" role="button" class="header-icon search-bar-toggle"><i class="ti-search"></i></a></li>
+        <li class="visible-lg"><a href="javascript:;" role="button" class="header-icon sidebar-control"><i class="ti-pin-alt"></i></a></li>
+        <li class="dropdown"><a id="dropdownMenu1" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle bubble header-icon"><i class="ti-world"></i><span class="badge bg-danger">6</span></a>
+          <div aria-labelledby="dropdownMenu1" class="dropdown-menu dropdown-menu-right dm-medium fs-12 animated fadeInDown">
+            <h5 class="dropdown-header">You have 6 notifications</h5>
+            <ul data-mcs-theme="minimal-dark" class="media-list mCustomScrollbar">
+              <li class="media"><a href="javascript:;">
+                  <div class="media-left avatar"><img src="../build/images/users/17.jpg" alt="" class="media-object img-circle"><span class="status bg-warning"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">William Carlson</h6>
+                    <p class="text-muted mb-0">Commented on your post</p>
+                  </div>
+                  <div class="media-right text-nowrap">
+                    <time datetime="2015-12-10T20:27:48+07:00" class="fs-11">5 mins</time>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;">
+                  <div class="media-left avatar"><img src="../build/images/users/19.jpg" alt="" class="media-object img-circle"><span class="status bg-danger"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Barbara Ortega</h6>
+                    <p class="text-muted mb-0">Sent you a new email</p>
+                  </div>
+                  <div class="media-right text-nowrap">
+                    <time datetime="2015-12-10T20:42:40+07:00" class="fs-11">8 mins</time>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;">
+                  <div class="media-left avatar"><img src="../build/images/users/02.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Mark Barnett</h6>
+                    <p class="text-muted mb-0">Sent you a new message</p>
+                  </div>
+                  <div class="media-right text-nowrap">
+                    <time datetime="2015-12-10T20:50:48+07:00" class="fs-11">9 mins</time>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;">
+                  <div class="media-left avatar"><img src="../build/images/users/11.jpg" alt="" class="media-object img-circle"><span class="status bg-danger"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Alexander Gilbert</h6>
+                    <p class="text-muted mb-0">Sent you a new email</p>
+                  </div>
+                  <div class="media-right text-nowrap">
+                    <time datetime="2015-12-10T20:42:40+07:00" class="fs-11">15 mins</time>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;">
+                  <div class="media-left avatar"><img src="../build/images/users/12.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Amanda Collins</h6>
+                    <p class="text-muted mb-0">You have 8 unread messages</p>
+                  </div>
+                  <div class="media-right text-nowrap">
+                    <time datetime="2015-12-10T20:35:35+07:00" class="fs-11">22 mins</time>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;">
+                  <div class="media-left avatar"><img src="../build/images/users/13.jpg" alt="" class="media-object img-circle"><span class="status bg-warning"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Christian Lane</h6>
+                    <p class="text-muted mb-0">Commented on your post</p>
+                  </div>
+                  <div class="media-right text-nowrap">
+                    <time datetime="2015-12-10T20:27:48+07:00" class="fs-11">30 mins</time>
+                  </div></a></li>
+            </ul>
+            <div class="dropdown-footer text-center p-10"><a href="javascript:;" class="fw-500 text-muted">See all notifications</a></div>
+          </div>
+        </li>
+        <li class="dropdown visible-lg visible-md"><a id="dropdownMenu2" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle header-icon lh-1 pt-15 pb-15">
+            <div class="media mt-0">
+              <div class="media-left avatar"><img src="../build/images/users/04.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+              <div class="media-right media-middle pl-0">
+                <p class="fs-12 mb-0">Hi, Matthew</p>
+              </div>
+            </div></a>
+          <ul aria-labelledby="dropdownMenu2" class="dropdown-menu fs-12 animated fadeInDown">
+            <li><a href="profile.html"><i class="ti-user mr-5"></i> My Profile</a></li>
+            <li><a href="profile.html"><i class="ti-settings mr-5"></i> Account Settings</a></li>
+            <li><a href="login-v2.html"><i class="ti-power-off mr-5"></i> Logout</a></li>
+          </ul>
+        </li>
+        <li><a href="javascript:;" role="button" class="right-sidebar-toggle bubble header-icon"><i class="ti-layout-sidebar-right"></i><span class="dot bg-danger"></span></a></li>
+      </ul>
+    </header>
+    <!-- Header end-->
+    <div class="main-container">
+      <!-- Main Sidebar start-->
+      <aside data-mcs-theme="minimal-dark" style="background-image: url(../build/images/backgrounds/11.jpg)" class="main-sidebar mCustomScrollbar">
+        <div class="user">
+          <div id="esp-user-profile" data-percent="65" style="height: 130px; width: 130px; line-height: 100px; padding: 15px;" class="easy-pie-chart"><img src="../build/images/users/04.jpg" alt="" class="avatar img-circle"><span class="status bg-success"></span></div>
+          <h4 class="fs-16 text-muted mt-15 mb-5 fw-300">Matthew Gonzalez</h4>
+          <p class="mb-0 text-muted">Designer</p>
+        </div>
+        <ul class="list-unstyled navigation mb-0">
+          <li class="sidebar-category">Main</li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse1" aria-expanded="false" aria-controls="collapse1" class="bubble collapsed"><i class="ti-home"></i><span class="sidebar-title">Dashboard</span><span class="badge bg-danger">2</span></a>
+            <ul id="collapse1" class="list-unstyled collapse">
+              <li><a href="index.html">Dashboard v1</a></li>
+              <li><a href="index-v2.html">Dashboard v2</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a href="widgets.html"><i class="ti-panel"></i><span class="sidebar-title">Widgets </span><span class="label label-outline label-danger">Updated</span></a></li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse3" aria-expanded="false" aria-controls="collapse3" class="collapsed"><i class="ti-shopping-cart"></i><span class="sidebar-title">E-commerce</span></a>
+            <ul id="collapse3" class="list-unstyled collapse">
+              <li><a href="ecommerce-dashboard.html">Dashboard</a></li>
+              <li><a href="product-list.html">Product list</a></li>
+              <li><a href="edit-product.html">Edit product</a></li>
+              <li><a href="order-list.html">Order list</a></li>
+              <li><a href="edit-order.html">Edit order</a></li>
+              <li><a href="customer-list.html">Customer list</a></li>
+              <li><a href="edit-customer.html">Edit customer</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse4" aria-expanded="false" aria-controls="collapse4" class="collapsed"><i class="ti-paint-bucket"></i><span class="sidebar-title">Color system</span></a>
+            <ul id="collapse4" class="list-unstyled collapse">
+              <li><a href="green-system.html">Green</a></li>
+              <li><a href="blue-system.html">Blue</a></li>
+              <li><a href="purple-system.html">Purple</a></li>
+              <li><a href="red-system.html">Red</a></li>
+              <li><a href="yellow-system.html">Yellow</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse5" aria-expanded="false" aria-controls="collapse5" class="collapsed"><i class="ti-brush-alt"></i><span class="sidebar-title">Skins</span></a>
+            <ul id="collapse5" class="list-unstyled collapse">
+              <li><a href="green-dashboard.html">Green</a></li>
+              <li><a href="blue-dashboard.html">Blue</a></li>
+              <li><a href="purple-dashboard.html">Purple</a></li>
+              <li><a href="red-dashboard.html">Red</a></li>
+              <li><a href="yellow-dashboard.html">Yellow</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-category">Menu Levels</li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse20" aria-expanded="false" aria-controls="collapse20" class="collapsed"><i class="ti-folder"></i><span class="sidebar-title">Menu levels</span></a>
+            <ul id="collapse20" class="list-unstyled collapse">
+              <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#collapse201" aria-expanded="false" aria-controls="collapse201" class="collapsed">Menu level 2.1</a>
+                <ul id="collapse201" class="list-unstyled collapse">
+                  <li><a href="#">Menu level 3.1</a></li>
+                  <li><a href="#">Menu level 3.2</a></li>
+                  <li><a href="#">Menu level 3.3</a></li>
+                </ul>
+              </li>
+              <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#collapse202" aria-expanded="false" aria-controls="collapse202" class="collapsed">Menu level 2.2</a>
+                <ul id="collapse202" class="list-unstyled collapse">
+                  <li><a href="#">Menu level 3.4</a></li>
+                  <li><a role="button" data-toggle="collapse" data-parent="#collapse202" href="#collapse302" aria-expanded="false" aria-controls="collapse302" class="collapsed">Menu level 3.5</a>
+                    <ul id="collapse302" class="list-unstyled collapse">
+                      <li><a href="#">Menu level 4.1</a></li>
+                      <li><a role="button" data-toggle="collapse" data-parent="#collapse302" href="#collapse402" aria-expanded="false" aria-controls="collapse402" class="collapsed">Menu level 4.2</a>
+                        <ul id="collapse402" class="list-unstyled collapse">
+                          <li><a href="#">Menu level 5.1</a></li>
+                          <li><a href="#">Menu level 5.2</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Menu level 3.6</a></li>
+                </ul>
+              </li>
+              <li><a role="button" data-toggle="collapse" data-parent="#collapse20" href="#collapse203" aria-expanded="false" aria-controls="collapse203" class="collapsed">Menu level 2.3</a>
+                <ul id="collapse203" class="list-unstyled collapse">
+                  <li><a href="#">Menu level 3.7</a></li>
+                  <li><a href="#">Menu level 3.8</a></li>
+                  <li><a href="#">Menu level 3.9</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="sidebar-category">Components</li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse6" aria-expanded="false" aria-controls="collapse6" class="collapsed"><i class="ti-receipt"></i><span class="sidebar-title">Basic</span></a>
+            <ul id="collapse6" class="list-unstyled collapse">
+              <li><a href="buttons.html">Buttons</a></li>
+              <li><a href="carousels.html">Carousels</a></li>
+              <li><a href="containers.html">Containers</a></li>
+              <li><a href="dialogs.html">Dialogs</a></li>
+              <li><a href="basic-inputs.html">Inputs</a></li>
+              <li><a href="navigations.html">Navigations</a></li>
+              <li><a href="progress-bars.html">Progress bars</a></li>
+              <li><a href="typography.html">Typography</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse7" aria-expanded="false" aria-controls="collapse7" class="collapsed"><i class="ti-ruler-pencil"></i><span class="sidebar-title">Editors</span></a>
+            <ul id="collapse7" class="list-unstyled collapse">
+              <li><a href="summernote.html">Summernote</a></li>
+              <li><a href="bootstrap-markdown.html">Bootstrap markdown</a></li>
+              <li><a href="code-prettify.html">Code prettify</a></li>
+              <li><a href="ckeditor.html">CKEditor</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse8" aria-expanded="false" aria-controls="collapse8" class="collapsed"><i class="ti-location-arrow"></i><span class="sidebar-title">Pickers</span></a>
+            <ul id="collapse8" class="list-unstyled collapse">
+              <li><a href="color-picker.html">Color picker</a></li>
+              <li><a href="datetime-picker.html">Datetime picker</a></li>
+              <li><a href="clock-picker.html">Clock picker</a></li>
+              <li><a href="date-range-picker.html">Date range picker</a></li>
+              <li><a href="multi-select.html">Multi select</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse9" aria-expanded="false" aria-controls="collapse9" class="collapsed"><i class="ti-layers-alt"></i><span class="sidebar-title">Forms</span></a>
+            <ul id="collapse9" class="list-unstyled collapse">
+              <li><a href="forms-layouts.html">Layouts</a></li>
+              <li><a href="forms-validation.html">Validation</a></li>
+              <li><a href="forms-wizard.html">Wizard</a></li>
+              <li><a href="other-plugins.html">Other plugins</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse10" aria-expanded="false" aria-controls="collapse10" class="active collapsed"><i class="ti-face-smile"></i><span class="sidebar-title">Icons</span></a>
+            <ul id="collapse10" class="list-unstyled collapse">
+              <li><a href="glyphicons.html">Glyphicons</a></li>
+              <li><a href="font-awesome.html">Font awesome</a></li>
+              <li><a href="material-design.html" class="active">Material design</a></li>
+              <li><a href="themify.html">Themify</a></li>
+              <li><a href="weather-icons.html">Weather</a></li>
+              <li><a href="flag-icons.html">Flag</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse11" aria-expanded="false" aria-controls="collapse11" class="collapsed"><i class="ti-layout-grid2"></i><span class="sidebar-title">Tables</span></a>
+            <ul id="collapse11" class="list-unstyled collapse">
+              <li><a href="basic-tables.html">Basic tables</a></li>
+              <li><a href="data-tables.html">Data tables</a></li>
+              <li><a href="pricing-tables.html">Pricing tables</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse12" aria-expanded="false" aria-controls="collapse12" class="collapsed"><i class="ti-control-forward"></i><span class="sidebar-title">Animations</span></a>
+            <ul id="collapse12" class="list-unstyled collapse">
+              <li><a href="basic-animations.html">Basic</a></li>
+              <li><a href="loading-animations.html">Loading</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse13" aria-expanded="false" aria-controls="collapse13" class="collapsed"><i class="ti-upload"></i><span class="sidebar-title">File uploads</span></a>
+            <ul id="collapse13" class="list-unstyled collapse">
+              <li><a href="dropzone-js.html">Dropzone</a></li>
+              <li><a href="bootstrap-file-input.html">Bootstrap file input</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse14" aria-expanded="false" aria-controls="collapse14" class="collapsed"><i class="ti-info-alt"></i><span class="sidebar-title">Indicators</span></a>
+            <ul id="collapse14" class="list-unstyled collapse">
+              <li><a href="toastr.html">Toastr</a></li>
+              <li><a href="sweet-alert.html">Sweet alert</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-category">Data visualization</li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse15" aria-expanded="false" aria-controls="collapse15" class="collapsed"><i class="ti-bar-chart"></i><span class="sidebar-title">Charts</span></a>
+            <ul id="collapse15" class="list-unstyled collapse">
+              <li><a href="flot-charts.html">Flot charts</a></li>
+              <li><a href="morris-charts.html">Morris charts</a></li>
+              <li><a href="chart-js.html">Chart.js</a></li>
+              <li><a href="chartist.html">Chartist</a></li>
+              <li><a href="other-charts.html">Other charts</a></li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse16" aria-expanded="false" aria-controls="collapse16" class="collapsed"><i class="ti-location-pin"></i><span class="sidebar-title">Maps</span></a>
+            <ul id="collapse16" class="list-unstyled collapse">
+              <li><a href="vector-maps.html">Vector maps</a></li>
+              <li><a href="google-maps.html">Google maps</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-category">Page kits</li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse17" aria-expanded="false" aria-controls="collapse17" class="collapsed"><i class="ti-alert"></i><span class="sidebar-title">Error pages</span></a>
+            <ul id="collapse17" class="list-unstyled collapse">
+              <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse17" href="#collapse171" aria-expanded="false" aria-controls="collapse171" class="collapsed">Error pages v1</a>
+                <ul id="collapse171" class="list-unstyled collapse">
+                  <li><a href="error-400.html">Error 400</a></li>
+                  <li><a href="error-401.html">Error 401</a></li>
+                  <li><a href="error-403.html">Error 403</a></li>
+                  <li><a href="error-404.html">Error 404</a></li>
+                  <li><a href="error-500.html">Error 500</a></li>
+                  <li><a href="error-503.html">Error 503</a></li>
+                </ul>
+              </li>
+              <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse17" href="#collapse172" aria-expanded="false" aria-controls="collapse172" class="collapsed">Error pages v2</a>
+                <ul id="collapse172" class="list-unstyled collapse">
+                  <li><a href="error-400-v2.html">Error 400</a></li>
+                  <li><a href="error-401-v2.html">Error 401</a></li>
+                  <li><a href="error-403-v2.html">Error 403</a></li>
+                  <li><a href="error-404-v2.html">Error 404</a></li>
+                  <li><a href="error-500-v2.html">Error 500</a></li>
+                  <li><a href="error-503-v2.html">Error 503</a></li>
+                </ul>
+              </li>
+              <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse17" href="#collapse173" aria-expanded="false" aria-controls="collapse173" class="collapsed">Error pages v3</a>
+                <ul id="collapse173" class="list-unstyled collapse">
+                  <li><a href="error-400-v3.html">Error 400</a></li>
+                  <li><a href="error-401-v3.html">Error 401</a></li>
+                  <li><a href="error-403-v3.html">Error 403</a></li>
+                  <li><a href="error-404-v3.html">Error 404</a></li>
+                  <li><a href="error-500-v3.html">Error 500</a></li>
+                  <li><a href="error-503-v3.html">Error 503</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse18" aria-expanded="false" aria-controls="collapse18" class="collapsed"><i class="ti-user"></i><span class="sidebar-title">User pages</span></a>
+            <ul id="collapse18" class="list-unstyled collapse">
+              <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse18" href="#collapse181" aria-expanded="false" aria-controls="collapse181" class="collapsed">User pages v1</a>
+                <ul id="collapse181" class="list-unstyled collapse">
+                  <li><a href="login.html">Login</a></li>
+                  <li><a href="register.html">Register</a></li>
+                  <li><a href="forgot-password.html">Forgot password</a></li>
+                  <li><a href="lock-screen.html">Lock screen</a></li>
+                  <li><a href="profile.html">Profile</a></li>
+                </ul>
+              </li>
+              <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse18" href="#collapse182" aria-expanded="false" aria-controls="collapse182" class="collapsed">User pages v2</a>
+                <ul id="collapse182" class="list-unstyled collapse">
+                  <li><a href="login-v2.html">Login</a></li>
+                  <li><a href="register-v2.html">Register</a></li>
+                  <li><a href="forgot-password-v2.html">Forgot password</a></li>
+                  <li><a href="lock-screen-v2.html">Lock screen</a></li>
+                  <li><a href="profile-v2.html">Profile</a></li>
+                </ul>
+              </li>
+              <li class="panel"><a role="button" data-toggle="collapse" data-parent="#collapse18" href="#collapse183" aria-expanded="false" aria-controls="collapse183" class="collapsed">User pages v3</a>
+                <ul id="collapse183" class="list-unstyled collapse">
+                  <li><a href="login-v3.html">Login</a></li>
+                  <li><a href="register-v3.html">Register</a></li>
+                  <li><a href="forgot-password-v3.html">Forgot password</a></li>
+                  <li><a href="lock-screen-v3.html">Lock screen</a></li>
+                  <li><a href="profile-v3.html">Profile</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse19" aria-expanded="false" aria-controls="collapse19" class="collapsed"><i class="ti-blackboard"></i><span class="sidebar-title">Extra pages </span><span class="label label-outline label-success">Updated</span></a>
+            <ul id="collapse19" class="list-unstyled collapse">
+              <li><a href="chat-dashboard.html">Chat dashboard</a></li>
+              <li><a href="mailbox.html">Mailbox</a></li>
+              <li><a href="calendar.html">Calendar</a></li>
+              <li><a href="image-cropper.html">Image cropper</a></li>
+              <li><a href="invoice.html">Invoice</a></li>
+              <li><a href="timeline.html">Timeline</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="search-results.html">Search results</a></li>
+              <li><a href="blank-template.html">Blank template</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-category">Help</li>
+          <li class="panel"><a href="documentation.html"><i class="ti-help-alt"></i><span class="sidebar-title">Documentation</span></a></li>
+        </ul>
+        <div class="sidebar-category">Server Status</div>
+        <div class="sidebar-widget">
+          <ul class="list-unstyled pl-25 pr-25">
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left fs-12 text-muted">CPU Used</span><span class="pull-right label label-outline label-warning">65%</span></div>
+              <div class="progress progress-xs bg-light mb-0">
+                <div role="progressbar" data-transitiongoal="65" class="progress-bar progress-bar-warning"></div>
+              </div>
+            </li>
+            <li class="mb-20">
+              <div class="block clearfix mb-10"><span class="pull-left fs-12 text-muted">Bandwidth</span><span class="pull-right label label-outline label-danger">80%</span></div>
+              <div class="progress progress-xs bg-light mb-0">
+                <div role="progressbar" data-transitiongoal="80" class="progress-bar progress-bar-danger"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Sidebar end-->
+      <div class="page-container">
+        <div class="page-header clearfix">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4 class="mt-0 mb-5">Material Design</h4>
+              <ol class="breadcrumb mb-0">
+                <li><a href="#">Umega</a></li>
+                <li><a href="#">Icons</a></li>
+                <li class="active">Material Design</li>
+              </ol>
+            </div>
+            <div class="col-sm-6">
+              <div class="btn-group mt-5">
+                <button type="button" class="btn btn-default btn-outline"><i class="flag-icon flag-icon-us mr-5"></i> English</button>
+                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default btn-outline dropdown-toggle"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
+                <ul class="dropdown-menu dropdown-menu-right animated fadeInDown">
+                  <li><a href="#"><i class="flag-icon flag-icon-de mr-5"></i> German</a></li>
+                  <li><a href="#"><i class="flag-icon flag-icon-fr mr-5"></i> French</a></li>
+                  <li><a href="#"><i class="flag-icon flag-icon-es mr-5"></i> Spanish</a></li>
+                  <li><a href="#"><i class="flag-icon flag-icon-it mr-5"></i> Italian</a></li>
+                  <li><a href="#"><i class="flag-icon flag-icon-jp mr-5"></i> Japanese</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-content container-fluid">
+          <div class="icon-demo">
+            <h3 class="mt-0">Web Application</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-3d-rotation"></i> 3d-rotation</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airplane-off"></i> airplane-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airplane"></i> airplane</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-album"></i> album</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-archive"></i> archive</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-assignment-account"></i> assignment-account</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-assignment-alert"></i> assignment-alert</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-assignment-check"></i> assignment-check</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-assignment-o"></i> assignment-o</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-assignment-return"></i> assignment-return</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-assignment-returned"></i> assignment-returned</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-assignment"></i> assignment</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-attachment-alt"></i> attachment-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-attachment"></i> attachment</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-audio"></i> audio</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-badge-check"></i> badge-check</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-balance-wallet"></i> balance-wallet</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-balance"></i> balance</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-battery-alert"></i> battery-alert</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-battery-flash"></i> battery-flash</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-battery-unknown"></i> battery-unknown</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-battery"></i> battery</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-bike"></i> bike</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-block-alt"></i> block-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-block"></i> block</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-boat"></i> boat</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-book-image"></i> book-image</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-book"></i> book</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-bookmark-outline"></i> bookmark-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-bookmark"></i> bookmark</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-brush"></i> brush</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-bug"></i> bug</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-bus"></i> bus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cake"></i> cake</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-car-taxi"></i> car-taxi</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-car-wash"></i> car-wash</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-car"></i> car</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-card-giftcard"></i> card-giftcard</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-card-membership"></i> card-membership</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-card-travel"></i> card-travel</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-card"></i> card</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-case-check"></i> case-check</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-case-download"></i> case-download</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-case-play"></i> case-play</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-case"></i> case</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cast-connected"></i> cast-connected</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cast"></i> cast</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-chart-donut"></i> chart-donut</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-chart"></i> chart</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-city-alt"></i> city-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-city"></i> city</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-close-circle-o"></i> close-circle-o</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-close-circle"></i> close-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-close"></i> close</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cocktail"></i> cocktail</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-code-setting"></i> code-setting</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-code-smartphone"></i> code-smartphone</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-code"></i> code</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-coffee"></i> coffee</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-bookmark"></i> collection-bookmark</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-case-play"></i> collection-case-play</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-folder-image"></i> collection-folder-image</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-image-o"></i> collection-image-o</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-image"></i> collection-image</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item-1"></i> collection-item-1</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item-2"></i> collection-item-2</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item-3"></i> collection-item-3</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item-4"></i> collection-item-4</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item-5"></i> collection-item-5</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item-6"></i> collection-item-6</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item-7"></i> collection-item-7</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item-8"></i> collection-item-8</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item-9-plus"></i> collection-item-9-plus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item-9"></i> collection-item-9</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-item"></i> collection-item</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-music"></i> collection-music</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-pdf"></i> collection-pdf</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-plus"></i> collection-plus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-speaker"></i> collection-speaker</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-text"></i> collection-text</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-collection-video"></i> collection-video</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-compass"></i> compass</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cutlery"></i> cutlery</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-delete"></i> delete</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-dialpad"></i> dialpad</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-dns"></i> dns</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-drink"></i> drink</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-edit"></i> edit</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-email-open"></i> email-open</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-email"></i> email</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-eye-off"></i> eye-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-eye"></i> eye</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-eyedropper"></i> eyedropper</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-favorite-outline"></i> favorite-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-favorite"></i> favorite</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-filter-list"></i> filter-list</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-fire"></i> fire</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flag"></i> flag</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flare"></i> flare</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flash-auto"></i> flash-auto</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flash-off"></i> flash-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flash"></i> flash</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flip"></i> flip</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flower-alt"></i> flower-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flower"></i> flower</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-font"></i> font</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-fullscreen-alt"></i> fullscreen-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-fullscreen-exit"></i> fullscreen-exit</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-fullscreen"></i> fullscreen</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-functions"></i> functions</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-gas-station"></i> gas-station</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-gesture"></i> gesture</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-globe-alt"></i> globe-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-globe-lock"></i> globe-lock</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-globe"></i> globe</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-graduation-cap"></i> graduation-cap</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-group"></i> group</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-home"></i> home</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hospital-alt"></i> hospital-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hospital"></i> hospital</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hotel"></i> hotel</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hourglass-alt"></i> hourglass-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hourglass-outline"></i> hourglass-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hourglass"></i> hourglass</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-http"></i> http</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-image-alt"></i> image-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-image-o"></i> image-o</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-image"></i> image</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-inbox"></i> inbox</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-invert-colors-off"></i> invert-colors-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-invert-colors"></i> invert-colors</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-key"></i> key</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-label-alt-outline"></i> label-alt-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-label-alt"></i> label-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-label-heart"></i> label-heart</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-label"></i> label</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-labels"></i> labels</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-lamp"></i> lamp</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-landscape"></i> landscape</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-layers-off"></i> layers-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-layers"></i> layers</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-library"></i> library</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-link"></i> link</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-lock-open"></i> lock-open</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-lock-outline"></i> lock-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-lock"></i> lock</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mail-reply-all"></i> mail-reply-all</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mail-reply"></i> mail-reply</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mail-send"></i> mail-send</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mall"></i> mall</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-map"></i> map</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-menu"></i> menu</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-money-box"></i> money-box</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-money-off"></i> money-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-money"></i> money</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-more-vert"></i> more-vert</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-more"></i> more</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-movie-alt"></i> movie-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-movie"></i> movie</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-nature-people"></i> nature-people</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-nature"></i> nature</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-Main"></i> Main</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-open-in-browser"></i> open-in-browser</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-open-in-new"></i> open-in-new</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-palette"></i> palette</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-parking"></i> parking</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin-account"></i> pin-account</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin-assistant"></i> pin-assistant</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin-drop"></i> pin-drop</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin-help"></i> pin-help</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin-off"></i> pin-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin"></i> pin</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pizza"></i> pizza</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-plaster"></i> plaster</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-power-setting"></i> power-setting</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-power"></i> power</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-print"></i> print</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-puzzle-piece"></i> puzzle-piece</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-quote"></i> quote</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-railway"></i> railway</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-receipt"></i> receipt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-refresh-alt"></i> refresh-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-refresh-sync-alert"></i> refresh-sync-alert</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-refresh-sync-off"></i> refresh-sync-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-refresh-sync"></i> refresh-sync</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-refresh"></i> refresh</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-roller"></i> roller</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-ruler"></i> ruler</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-scissors"></i> scissors</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-screen-rotation-lock"></i> screen-rotation-lock</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-screen-rotation"></i> screen-rotation</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-search-for"></i> search-for</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-search-in-file"></i> search-in-file</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-search-in-page"></i> search-in-page</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-search-replace"></i> search-replace</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-search"></i> search</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-seat"></i> seat</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-settings-square"></i> settings-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-settings"></i> settings</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-shape"></i> shape</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-shield-check"></i> shield-check</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-shield-security"></i> shield-security</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-shopping-basket"></i> shopping-basket</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-shopping-cart-plus"></i> shopping-cart-plus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-shopping-cart"></i> shopping-cart</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-sign-in"></i> sign-in</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-sort-amount-asc"></i> sort-amount-asc</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-sort-amount-desc"></i> sort-amount-desc</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-sort-asc"></i> sort-asc</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-sort-desc"></i> sort-desc</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-spellcheck"></i> spellcheck</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-spinner"></i> spinner</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-storage"></i> storage</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-store-24"></i> store-24</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-store"></i> store</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-subway"></i> subway</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-sun"></i> sun</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tab-unselected"></i> tab-unselected</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tab"></i> tab</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tag-close"></i> tag-close</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tag-more"></i> tag-more</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tag"></i> tag</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-thumb-down"></i> thumb-down</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-thumb-up-down"></i> thumb-up-down</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-thumb-up"></i> thumb-up</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-ticket-star"></i> ticket-star</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-toll"></i> toll</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-toys"></i> toys</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-traffic"></i> traffic</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-translate"></i> translate</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-triangle-down"></i> triangle-down</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-triangle-up"></i> triangle-up</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-truck"></i> truck</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-turning-sign"></i> turning-sign</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-ungroup"></i> ungroup</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wallpaper"></i> wallpaper</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-washing-machine"></i> washing-machine</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-window-maximize"></i> window-maximize</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-window-minimize"></i> window-minimize</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-window-restore"></i> window-restore</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wrench"></i> wrench</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-zoom-in"></i> zoom-in</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-zoom-out"></i> zoom-out</div>
+            </div>
+            <h3>Notifications</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-alert-circle-o"></i> alert-circle-o</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-alert-circle"></i> alert-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-alert-octagon"></i> alert-octagon</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-alert-polygon"></i> alert-polygon</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-alert-triangle"></i> alert-triangle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-help-outline"></i> help-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-help"></i> help</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-info-outline"></i> info-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-info"></i> info</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-notifications-active"></i> notifications-active</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-notifications-add"></i> notifications-add</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-notifications-none"></i> notifications-none</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-notifications-off"></i> notifications-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-notifications-paused"></i> notifications-paused</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-notifications"></i> notifications</div>
+            </div>
+            <h3>Person</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-account-add"></i> account-add</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-account-box-mail"></i> account-box-mail</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-account-box-o"></i> account-box-o</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-account-box-phone"></i> account-box-phone</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-account-box"></i> account-box</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-account-calendar"></i> account-calendar</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-account-circle"></i> account-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-account-o"></i> account-o</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-account"></i> account</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-accounts-add"></i> accounts-add</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-accounts-alt"></i> accounts-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-accounts-list-alt"></i> accounts-list-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-accounts-list"></i> accounts-list</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-accounts-outline"></i> accounts-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-accounts"></i> accounts</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-face"></i> face</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-female"></i> female</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-male-alt"></i> male-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-male-female"></i> male-female</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-male"></i> male</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mood-bad"></i> mood-bad</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mood"></i> mood</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-run"></i> run</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-walk"></i> walk</div>
+            </div>
+            <h3>File</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cloud-box"></i> cloud-box</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cloud-circle"></i> cloud-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cloud-done"></i> cloud-done</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cloud-download"></i> cloud-download</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cloud-off"></i> cloud-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cloud-outline-alt"></i> cloud-outline-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cloud-outline"></i> cloud-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cloud-upload"></i> cloud-upload</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-cloud"></i> cloud</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-download"></i> download</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-file-plus"></i> file-plus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-file-text"></i> file-text</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-file"></i> file</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-folder-outline"></i> folder-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-folder-person"></i> folder-person</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-folder-star-alt"></i> folder-star-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-folder-star"></i> folder-star</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-folder"></i> folder</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-gif"></i> gif</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-upload"></i> upload</div>
+            </div>
+            <h3>Editor</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-all"></i><span>border-all</span></div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-bottom"></i> border-bottom</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-clear"></i> border-clear</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-color"></i> border-color</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-horizontal"></i> border-horizontal</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-inner"></i> border-inner</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-left"></i> border-left</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-outer"></i> border-outer</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-right"></i> border-right</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-style"></i> border-style</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-top"></i> border-top</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-border-vertical"></i> border-vertical</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-copy"></i> copy</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-crop"></i> crop</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-align-center"></i> format-align-center</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-align-justify"></i> format-align-justify</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-align-left"></i> format-align-left</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-align-right"></i> format-align-right</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-bold"></i> format-bold</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-clear-all"></i> format-clear-all</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-clear"></i> format-clear</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-color-fill"></i> format-color-fill</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-color-reset"></i> format-color-reset</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-color-text"></i> format-color-text</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-indent-decrease"></i> format-indent-decrease</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-indent-increase"></i> format-indent-increase</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-italic"></i> format-italic</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-line-spacing"></i> format-line-spacing</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-list-bulleted"></i> format-list-bulleted</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-list-numbered"></i> format-list-numbered</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-ltr"></i> format-ltr</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-rtl"></i> format-rtl</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-size"></i> format-size</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-strikethrough-s"></i> format-strikethrough-s</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-strikethrough"></i> format-strikethrough</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-subject"></i> format-subject</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-underlined"></i> format-underlined</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-valign-bottom"></i> format-valign-bottom</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-valign-center"></i> format-valign-center</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-format-valign-top"></i> format-valign-top</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-redo"></i> redo</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-select-all"></i> select-all</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-space-bar"></i> space-bar</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-text-format"></i> text-format</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-transform"></i> transform</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-undo"></i> undo</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wrap-text"></i> wrap-text</div>
+            </div>
+            <h3>Comment</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-alert"></i> comment-alert</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-alt-text"></i> comment-alt-text</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-alt"></i> comment-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-edit"></i> comment-edit</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-image"></i> comment-image</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-list"></i> comment-list</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-more"></i> comment-more</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-outline"></i> comment-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-text-alt"></i> comment-text-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-text"></i> comment-text</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment-video"></i> comment-video</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comment"></i> comment</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-comments"></i> comments</div>
+            </div>
+            <h3>Form</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-check-all"></i> check-all</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-check-circle-u"></i> check-circle-u</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-check-circle"></i> check-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-check-square"></i> check-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-check"></i> check</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-circle-o"></i> circle-o</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-circle"></i> circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-dot-circle-alt"></i> dot-circle-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-dot-circle"></i> dot-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-minus-circle-outline"></i> minus-circle-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-minus-circle"></i> minus-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-minus-square"></i> minus-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-minus"></i> minus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-plus-circle-o-duplicate"></i> plus-circle-o-duplicate</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-plus-circle-o"></i> plus-circle-o</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-plus-circle"></i> plus-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-plus-square"></i> plus-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-plus"></i> plus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-square-o"></i> square-o</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-star-circle"></i> star-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-star-half"></i> star-half</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-star-outline"></i> star-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-star"></i> star</div>
+            </div>
+            <h3>Hardware</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-bluetooth-connected"></i> bluetooth-connected</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-bluetooth-off"></i> bluetooth-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-bluetooth-search"></i> bluetooth-search</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-bluetooth-setting"></i> bluetooth-setting</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-bluetooth"></i> bluetooth</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-camera-add"></i> camera-add</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-camera-alt"></i> camera-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-camera-bw"></i> camera-bw</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-camera-front"></i> camera-front</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-camera-mic"></i> camera-mic</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-camera-party-mode"></i> camera-party-mode</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-camera-rear"></i> camera-rear</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-camera-roll"></i> camera-roll</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-camera-switch"></i> camera-switch</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-camera"></i> camera</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-card-alert"></i> card-alert</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-card-off"></i> card-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-card-sd"></i> card-sd</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-card-sim"></i> card-sim</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-desktop-mac"></i> desktop-mac</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-desktop-windows"></i> desktop-windows</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-device-hub"></i> device-hub</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-devices-off"></i> devices-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-devices"></i> devices</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-dock"></i> dock</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-floppy"></i> floppy</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-gamepad"></i> gamepad</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-gps-dot"></i> gps-dot</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-gps-off"></i> gps-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-gps"></i> gps</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-headset-mic"></i> headset-mic</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-headset"></i> headset</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-input-antenna"></i> input-antenna</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-input-composite"></i> input-composite</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-input-hdmi"></i> input-hdmi</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-input-power"></i> input-power</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-input-svideo"></i> input-svideo</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-keyboard-hide"></i> keyboard-hide</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-keyboard"></i> keyboard</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-laptop-chromebook"></i> laptop-chromebook</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-laptop-mac"></i> laptop-mac</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-laptop"></i> laptop</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mic-off"></i> mic-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mic-outline"></i> mic-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mic-setting"></i> mic-setting</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mic"></i> mic</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-mouse"></i> mouse</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-network-alert"></i> network-alert</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-network-locked"></i> network-locked</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-network-off"></i> network-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-network-outline"></i> network-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-network-setting"></i> network-setting</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-network"></i> network</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-bluetooth"></i> phone-bluetooth</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-end"></i> phone-end</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-forwarded"></i> phone-forwarded</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-in-talk"></i> phone-in-talk</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-locked"></i> phone-locked</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-missed"></i> phone-missed</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-msg"></i> phone-msg</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-paused"></i> phone-paused</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-ring"></i> phone-ring</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-setting"></i> phone-setting</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone-sip"></i> phone-sip</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-phone"></i> phone</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-portable-wifi-changes"></i> portable-wifi-changes</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-portable-wifi-off"></i> portable-wifi-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-portable-wifi"></i> portable-wifi</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-radio"></i> radio</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-reader"></i> reader</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-remote-control-alt"></i> remote-control-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-remote-control"></i> remote-control</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-router"></i> router</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-scanner"></i> scanner</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-android"></i> smartphone-android</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-download"></i> smartphone-download</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-erase"></i> smartphone-erase</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-info"></i> smartphone-info</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-iphone"></i> smartphone-iphone</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-landscape-lock"></i> smartphone-landscape-lock</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-landscape"></i> smartphone-landscape</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-lock"></i> smartphone-lock</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-portrait-lock"></i> smartphone-portrait-lock</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-ring"></i> smartphone-ring</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-setting"></i> smartphone-setting</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone-setup"></i> smartphone-setup</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-smartphone"></i> smartphone</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-speaker"></i> speaker</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tablet-android"></i> tablet-android</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tablet-mac"></i> tablet-mac</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tablet"></i> tablet</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tv-alt-play"></i> tv-alt-play</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tv-list"></i> tv-list</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tv-play"></i> tv-play</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tv"></i> tv</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-usb"></i> usb</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-videocam-off"></i> videocam-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-videocam-switch"></i> videocam-switch</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-videocam"></i> videocam</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-watch"></i> watch</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wifi-alt-2"></i> wifi-alt-2</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wifi-alt"></i> wifi-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wifi-info"></i> wifi-info</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wifi-lock"></i> wifi-lock</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wifi-off"></i> wifi-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wifi-outline"></i> wifi-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wifi"></i> wifi</div>
+            </div>
+            <h3>Directional</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-arrow-left-bottom"></i> arrow-left-bottom</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-arrow-left"></i> arrow-left</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-arrow-merge"></i> arrow-merge</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-arrow-missed"></i> arrow-missed</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-arrow-right-top"></i> arrow-right-top</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-arrow-right"></i> arrow-right</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-arrow-split"></i> arrow-split</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-arrows"></i> arrows</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-caret-down-circle"></i> caret-down-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-caret-down"></i> caret-down</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-caret-left-circle"></i> caret-left-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-caret-left"></i> caret-left</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-caret-right-circle"></i> caret-right-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-caret-right"></i> caret-right</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-caret-up-circle"></i> caret-up-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-caret-up"></i> caret-up</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-chevron-down"></i> chevron-down</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-chevron-left"></i> chevron-left</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-chevron-right"></i> chevron-right</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-chevron-up"></i> chevron-up</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-forward"></i> forward</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-long-arrow-down"></i> long-arrow-down</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-long-arrow-left"></i> long-arrow-left</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-long-arrow-return"></i> long-arrow-return</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-long-arrow-right"></i> long-arrow-right</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-long-arrow-tab"></i> long-arrow-tab</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-long-arrow-up"></i> long-arrow-up</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-rotate-ccw"></i> rotate-ccw</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-rotate-cw"></i> rotate-cw</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-rotate-left"></i> rotate-left</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-rotate-right"></i> rotate-right</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-square-down"></i> square-down</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-square-right"></i> square-right</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-swap-alt"></i> swap-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-swap-vertical-circle"></i> swap-vertical-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-swap-vertical"></i> swap-vertical</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-swap"></i> swap</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-trending-down"></i> trending-down</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-trending-flat"></i> trending-flat</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-trending-up"></i> trending-up</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-unfold-less"></i> unfold-less</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-unfold-more"></i> unfold-more</div>
+            </div>
+            <h3>Map (aliases)</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-directions-bike"></i> zmdi-directions-bike</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-directions-boat"></i> zmdi-directions-boat</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-directions-bus"></i> zmdi-directions-bus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-directions-car"></i> zmdi-directions-car</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-directions-railway"></i> zmdi-directions-railway</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-directions-run"></i> zmdi-directions-run</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-directions-subway"></i> zmdi-directions-subway</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-directions-walk"></i> zmdi-directions-walk</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-directions"></i> zmdi-directions</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-layers-off"></i> zmdi-layers-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-layers"></i> zmdi-layers</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-activity"></i> zmdi-local-activity</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-airport"></i> zmdi-local-airport</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-atm"></i> zmdi-local-atm</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-bar"></i> zmdi-local-bar</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-cafe"></i> zmdi-local-cafe</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-car-wash"></i> zmdi-local-car-wash</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-convenience-store"></i> zmdi-local-convenience-store</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-dining"></i> zmdi-local-dining</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-drink"></i> zmdi-local-drink</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-florist"></i> zmdi-local-florist</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-gas-station"></i> zmdi-local-gas-station</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-grocery-store"></i> zmdi-local-grocery-store</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-hospital"></i> zmdi-local-hospital</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-hotel"></i> zmdi-local-hotel</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-laundry-service"></i> zmdi-local-laundry-service</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-library"></i> zmdi-local-library</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-mall"></i> zmdi-local-mall</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-movies"></i> zmdi-local-movies</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-offer"></i> zmdi-local-offer</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-parking"></i> zmdi-local-parking</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-pharmacy"></i> zmdi-local-pharmacy</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-phone"></i> zmdi-local-phone</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-pizza"></i> zmdi-local-pizza</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-activity"></i> zmdi-local-activity</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-post-office"></i> zmdi-local-post-office</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-printshop"></i> zmdi-local-printshop</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-see"></i> zmdi-local-see</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-shipping"></i> zmdi-local-shipping</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-store"></i> zmdi-local-store</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-taxi"></i> zmdi-local-taxi</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-local-wc"></i> zmdi-local-wc</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-map"></i> zmdi-map</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-my-location"></i> zmdi-my-location</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-nature-people"></i> zmdi-nature-people</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-nature"></i> zmdi-nature</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-Main"></i> zmdi-Main</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin-account"></i> zmdi-pin-account</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin-assistant"></i> zmdi-pin-assistant</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin-drop"></i> zmdi-pin-drop</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin-help"></i> zmdi-pin-help</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin-off"></i> zmdi-pin-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pin"></i> zmdi-pin</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-traffic"></i> zmdi-traffic</div>
+            </div>
+            <h3>View</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-apps"></i> apps</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-grid-off"></i> grid-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-grid"></i> grid</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-agenda"></i> view-agenda</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-array"></i> view-array</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-carousel"></i> view-carousel</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-column"></i> view-column</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-comfy"></i> view-comfy</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-compact"></i> view-compact</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-dashboard"></i> view-dashboard</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-day"></i> view-day</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-headline"></i> view-headline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-list-alt"></i> view-list-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-list"></i> view-list</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-module"></i> view-module</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-quilt"></i> view-quilt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-stream"></i> view-stream</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-subtitles"></i> view-subtitles</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-toc"></i> view-toc</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-web"></i> view-web</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-view-week"></i> view-week</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-widgets"></i> widgets</div>
+            </div>
+            <h3>Date / Time</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-alarm-check"></i> alarm-check</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-alarm-off"></i> alarm-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-alarm-plus"></i> alarm-plus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-alarm-snooze"></i> alarm-snooze</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-alarm"></i> alarm</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-calendar-alt"></i> calendar-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-calendar-check"></i> calendar-check</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-calendar-close"></i> calendar-close</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-calendar-note"></i> calendar-note</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-calendar"></i> calendar</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-time-countdown"></i> time-countdown</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-time-interval"></i> time-interval</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-time-restore-setting"></i> time-restore-setting</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-time-restore"></i> time-restore</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-time"></i> time</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-timer-off"></i> timer-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-timer"></i> timer</div>
+            </div>
+            <h3>Social</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-android-alt"></i> android-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-android"></i> android</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-apple"></i> apple</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-behance"></i> behance</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-codepen"></i> codepen</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-dribbble"></i> dribbble</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-dropbox"></i> dropbox</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-evernote"></i> evernote</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-facebook-box"></i> facebook-box</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-facebook"></i> facebook</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-github-box"></i> github-box</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-github"></i> github</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-google-drive"></i> google-drive</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-google-earth"></i> google-earth</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-google-glass"></i> google-glass</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-google-maps"></i> google-maps</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-google-pages"></i> google-pages</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-google-play"></i> google-play</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-google-plus-box"></i> google-plus-box</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-google-plus"></i> google-plus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-google"></i> google</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-instagram"></i> instagram</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-language-css3"></i> language-css3</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-language-html5"></i> language-html5</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-language-javascript"></i> language-javascript</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-language-python-alt"></i> language-python-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-language-python"></i> language-python</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-lastfm"></i> lastfm</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-linkedin-box"></i> linkedin-box</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-paypal"></i> paypal</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pinterest-box"></i> pinterest-box</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pocket"></i> pocket</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-polymer"></i> polymer</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-rss"></i> rss</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-share"></i> share</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-stackoverflow"></i> stackoverflow</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-steam-square"></i> steam-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-steam"></i> steam</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-twitter-box"></i> twitter-box</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-twitter"></i> twitter</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-vk"></i> vk</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wikipedia"></i> wikipedia</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-windows"></i> windows</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-500px"></i> 500px</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-8tracks"></i> 8tracks</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-amazon"></i> amazon</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-blogger"></i> blogger</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-delicious"></i> delicious</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-disqus"></i> disqus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flattr"></i> flattr</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flickr"></i> flickr</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-github-alt"></i> github-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-google-old"></i> google-old</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-linkedin"></i> linkedin</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-odnoklassniki"></i> odnoklassniki</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-outlook"></i> outlook</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-paypal-alt"></i> paypal-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pinterest"></i> pinterest</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-playstation"></i> playstation</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-reddit"></i> reddit</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-skype"></i> skype</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-slideshare"></i> slideshare</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-soundcloud"></i> soundcloud</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tumblr"></i> tumblr</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-twitch"></i> twitch</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-vimeo"></i> vimeo</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-whatsapp"></i> whatsapp</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-xbox"></i> xbox</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-yahoo"></i> yahoo</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-youtube-play"></i> youtube-play</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-youtube"></i> youtube</div>
+            </div>
+            <h3>Image</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-aspect-ratio-alt"></i> aspect-ratio-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-aspect-ratio"></i> aspect-ratio</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-blur-circular"></i> blur-circular</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-blur-linear"></i> blur-linear</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-blur-off"></i> blur-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-blur"></i> blur</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-brightness-2"></i> brightness-2</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-brightness-3"></i> brightness-3</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-brightness-4"></i> brightness-4</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-brightness-5"></i> brightness-5</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-brightness-6"></i> brightness-6</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-brightness-7"></i> brightness-7</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-brightness-auto"></i> brightness-auto</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-brightness-setting"></i> brightness-setting</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-broken-image"></i> broken-image</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-center-focus-strong"></i> center-focus-strong</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-center-focus-weak"></i> center-focus-weak</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-compare"></i> compare</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-crop-16-9"></i> crop-16-9</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-crop-3-2"></i> crop-3-2</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-crop-5-4"></i> crop-5-4</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-crop-7-5"></i> crop-7-5</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-crop-din"></i> crop-din</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-crop-free"></i> crop-free</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-crop-landscape"></i> crop-landscape</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-crop-portrait"></i> crop-portrait</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-crop-square"></i> crop-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-exposure-alt"></i> exposure-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-exposure"></i> exposure</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-filter-b-and-w"></i> filter-b-and-w</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-filter-center-focus"></i> filter-center-focus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-filter-frames"></i> filter-frames</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-filter-tilt-shift"></i> filter-tilt-shift</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-gradient"></i> gradient</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-grain"></i> grain</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-graphic-eq"></i> graphic-eq</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hdr-off"></i> hdr-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hdr-strong"></i> hdr-strong</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hdr-weak"></i> hdr-weak</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hdr"></i> hdr</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-iridescent"></i> iridescent</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-leak-off"></i> leak-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-leak"></i> leak</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-looks"></i> looks</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-loupe"></i> loupe</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-panorama-horizontal"></i> panorama-horizontal</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-panorama-vertical"></i> panorama-vertical</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-panorama-wide-angle"></i> panorama-wide-angle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-photo-size-select-large"></i> photo-size-select-large</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-photo-size-select-small"></i> photo-size-select-small</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-picture-in-picture"></i> picture-in-picture</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-slideshow"></i> slideshow</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-texture"></i> texture</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tonality"></i> tonality</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-vignette"></i> vignette</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-wb-auto"></i> wb-auto</div>
+            </div>
+            <h3>Audio / Video</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-eject-alt"></i> eject-alt</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-eject"></i> eject</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-equalizer"></i> equalizer</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-fast-forward"></i> fast-forward</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-fast-rewind"></i> fast-rewind</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-forward-10"></i> forward-10</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-forward-30"></i> forward-30</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-forward-5"></i> forward-5</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hearing"></i> hearing</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pause-circle-outline"></i> pause-circle-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pause-circle"></i> pause-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-pause"></i> pause</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-play-circle-outline"></i> play-circle-outline</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-play-circle"></i> play-circle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-play"></i> play</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-playlist-audio"></i> playlist-audio</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-playlist-plus"></i> playlist-plus</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-repeat-one"></i> repeat-one</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-repeat"></i> repeat</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-replay-10"></i> replay-10</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-replay-30"></i> replay-30</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-replay-5"></i> replay-5</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-replay"></i> replay</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-shuffle"></i> shuffle</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-skip-next"></i> skip-next</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-skip-previous"></i> skip-previous</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-stop"></i> stop</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-surround-sound"></i> surround-sound</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tune"></i> tune</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-volume-down"></i> volume-down</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-volume-mute"></i> volume-mute</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-volume-off"></i> volume-off</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-volume-up"></i> volume-up</div>
+            </div>
+            <h3>Numbers</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-n-1-square"></i> n-1-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-n-2-square"></i> n-2-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-n-3-square"></i> n-3-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-n-4-square"></i> n-4-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-n-5-square"></i> n-5-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-n-6-square"></i> n-6-square</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-neg-1"></i> neg-1</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-neg-2"></i> neg-2</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-plus-1"></i> plus-1</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-plus-2"></i> plus-2</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-sec-10"></i> sec-10</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-sec-3"></i> sec-3</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-zero"></i> zero</div>
+            </div>
+            <h3>Other</h3>
+            <div class="row">
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airline-seat-flat-angled"></i> airline-seat-flat-angled</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airline-seat-flat"></i> airline-seat-flat</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airline-seat-individual-suite"></i> airline-seat-individual-suite</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airline-seat-legroom-extra"></i> airline-seat-legroom-extra</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airline-seat-legroom-normal"></i> airline-seat-legroom-normal</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airline-seat-legroom-reduced"></i> airline-seat-legroom-reduced</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airline-seat-recline-extra"></i> airline-seat-recline-extra</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airline-seat-recline-normal"></i> airline-seat-recline-normal</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-airplay"></i> airplay</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-closed-caption"></i> closed-caption</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-confirmation-number"></i> confirmation-number</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-developer-board"></i> developer-board</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-disc-full"></i> disc-full</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-explicit"></i> explicit</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flight-land"></i> flight-land</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flight-takeoff"></i> flight-takeoff</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flip-to-back"></i> flip-to-back</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-flip-to-front"></i> flip-to-front</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-group-work"></i> group-work</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hd"></i> hd</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-hq"></i> hq</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-markunread-mailbox"></i> markunread-mailbox</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-memory"></i> memory</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-nfc"></i> nfc</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-play-for-work"></i> play-for-work</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-power-input"></i> power-input</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-present-to-all"></i> present-to-all</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-satellite"></i> satellite</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-tap-and-play"></i> tap-and-play</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-vibration"></i> vibration</div>
+              <div class="col-md-4 col-sm-6"><i class="zmdi zmdi-voicemail"></i> voicemail</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">2016 &copy;  <a href="http://themeforest.net/item/umega-responsive-web-app-kit/15482080">Umega - Responsive Web App Kit</a> by <a href="http://themeforest.net/user/lethemes" target="_blank">Lethemes.</a></div>
+      </div>
+      <!-- Right Sidebar start-->
+      <aside class="right-sidebar closed">
+        <ul role="tablist" class="nav nav-tabs nav-justified nav-sidebar">
+          <li role="presentation" class="active"><a href="#chat" aria-controls="chat" role="tab" data-toggle="tab"><i class="ti-comment-alt"></i></a></li>
+          <li role="presentation"><a href="#announcement" aria-controls="announcement" role="tab" data-toggle="tab"><i class="ti-announcement"></i></a></li>
+          <li role="presentation"><a href="#ticket" aria-controls="ticket" role="tab" data-toggle="tab"><i class="ti-bookmark-alt"></i></a></li>
+          <li role="presentation"><a href="#setting" aria-controls="setting" role="tab" data-toggle="tab"><i class="ti-settings"></i></a></li>
+        </ul>
+        <div data-mcs-theme="minimal-dark" class="tab-content nav-sidebar-content mCustomScrollbar">
+          <div id="chat" role="tabpanel" class="tab-pane fade in active">
+            <form>
+              <div class="form-group has-feedback">
+                <input type="text" aria-describedby="inputChatSearch" placeholder="Chat with..." class="form-control rounded"><span aria-hidden="true" class="ti-search form-control-feedback"></span><span id="inputChatSearch" class="sr-only">(default)</span>
+              </div>
+            </form>
+            <ul class="chat-list mb-0 fs-12 media-list">
+              <li class="media"><a href="javascript:;" class="conversation-toggle">
+                  <div class="media-left avatar"><img src="../build/images/users/20.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Jane Curtis</h6>
+                    <p class="text-muted mb-0">Where are you from?</p>
+                  </div>
+                  <div class="media-right"><span class="badge bg-danger">2</span></div></a></li>
+              <li class="media"><a href="javascript:;" class="conversation-toggle">
+                  <div class="media-left avatar"><img src="../build/images/users/01.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Edward Garcia</h6>
+                    <p class="text-muted mb-0">Nice to meet you.</p>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;" class="conversation-toggle">
+                  <div class="media-left avatar"><img src="../build/images/users/02.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Bruce Olson</h6>
+                    <p class="text-muted mb-0">What do you want to do?</p>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;" class="conversation-toggle">
+                  <div class="media-left avatar"><img src="../build/images/users/03.jpg" alt="" class="media-object img-circle"><span class="status bg-warning"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Martha Rodriguez</h6>
+                    <p class="text-muted mb-0">I'm hungry.</p>
+                  </div>
+                  <div class="media-right"><span class="badge bg-danger">1</span></div></a></li>
+              <li class="media"><a href="javascript:;" class="conversation-toggle">
+                  <div class="media-left avatar"><img src="../build/images/users/05.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Hannah Williamson</h6>
+                    <p class="text-muted mb-0">Do you know the address?</p>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;" class="conversation-toggle">
+                  <div class="media-left avatar"><img src="../build/images/users/06.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Anthony Mills</h6>
+                    <p class="text-muted mb-0">No problem.</p>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;" class="conversation-toggle">
+                  <div class="media-left avatar"><img src="../build/images/users/07.jpg" alt="" class="media-object img-circle"><span class="status bg-warning"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Ethan Stanley</h6>
+                    <p class="text-muted mb-0">Hello?</p>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;" class="conversation-toggle">
+                  <div class="media-left avatar"><img src="../build/images/users/08.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Jonathan Castro</h6>
+                    <p class="text-muted mb-0">OK. Thanks.</p>
+                  </div>
+                  <div class="media-right"><span class="badge bg-danger">1</span></div></a></li>
+              <li class="media"><a href="javascript:;" class="conversation-toggle">
+                  <div class="media-left avatar"><img src="../build/images/users/09.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Denise Rose</h6>
+                    <p class="text-muted mb-0">Bye bye.</p>
+                  </div></a></li>
+              <li class="media"><a href="javascript:;" class="conversation-toggle">
+                  <div class="media-left avatar"><img src="../build/images/users/10.jpg" alt="" class="media-object img-circle"><span class="status bg-danger"></span></div>
+                  <div class="media-body">
+                    <h6 class="media-heading">Eugene Meyer</h6>
+                    <p class="text-muted mb-0">How are you?</p>
+                  </div></a></li>
+            </ul>
+          </div>
+          <div id="announcement" role="tabpanel" class="tab-pane fade">
+            <ul class="media-list mb-0 fs-12">
+              <li class="media">
+                <div class="media-left"><i class="ti-bar-chart-alt media-object mo-xs img-circle bg-primary text-center"></i></div>
+                <div class="media-body">
+                  <h6 class="media-heading">Market Trend Data</h6>
+                  <p class="text-muted mb-0">Mattis nam fringilla dui nostra, ad fames fusce venenatis massa.</p>
+                </div>
+              </li>
+              <li class="media">
+                <div class="media-left"><i class="ti-package media-object mo-xs img-circle bg-success text-center"></i></div>
+                <div class="media-body">
+                  <h6 class="media-heading">Change Your Password!</h6>
+                  <p class="text-muted mb-0">Varius dolor condimentum hendrerit eleifend est urna neque fames faucibus?</p>
+                </div>
+              </li>
+              <li class="media">
+                <div class="media-left"><i class="ti-gift media-object mo-xs img-circle bg-warning text-center"></i></div>
+                <div class="media-body">
+                  <h6 class="media-heading">We Apologize</h6>
+                  <p class="text-muted mb-0">Justo at mauris ridiculus conubia penatibus dis varius proin porttitor!</p>
+                </div>
+              </li>
+              <li class="media">
+                <div class="media-left"><i class="ti-harddrives media-object mo-xs img-circle bg-info text-center"></i></div>
+                <div class="media-body">
+                  <h6 class="media-heading">Content Policy Update</h6>
+                  <p class="text-muted mb-0">Quis ante imperdiet a volutpat quam tellus condimentum blandit elementum.</p>
+                </div>
+              </li>
+              <li class="media">
+                <div class="media-left"><i class="ti-mobile media-object mo-xs img-circle bg-purple text-center"></i></div>
+                <div class="media-body">
+                  <h6 class="media-heading">Mobile Apps</h6>
+                  <p class="text-muted mb-0">Ad iaculis at feugiat integer lobortis vivamus hac egestas venenatis.</p>
+                </div>
+              </li>
+              <li class="media">
+                <div class="media-left"><i class="ti-alarm-clock media-object mo-xs img-circle bg-danger text-center"></i></div>
+                <div class="media-body">
+                  <h6 class="media-heading">New Features</h6>
+                  <p class="text-muted mb-0">Primis elementum facilisi tristique faucibus feugiat enim rutrum id himenaeos.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="ticket" role="tabpanel" class="tab-pane fade">
+            <form>
+              <div class="form-group">
+                <input type="text" placeholder="Username" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" placeholder="Email" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" placeholder="Subject" class="form-control">
+              </div>
+              <div class="form-group">
+                <textarea rows="6" placeholder="Description" class="form-control"></textarea>
+              </div>
+              <button type="submit" class="btn btn-block btn-success">Create Ticket</button>
+            </form>
+          </div>
+          <div id="setting" role="tabpanel" class="tab-pane fade">
+            <form class="form-horizontal fs-12">
+              <div class="clearfix">
+                <h6 class="pull-left">Maintenance Mode</h6>
+                <div class="switch pull-right">
+                  <input id="setting-1" type="checkbox" checked="">
+                  <label for="setting-1" class="switch-success"></label>
+                </div>
+              </div>
+              <p class="text-muted">Ipsum non tempor non nullam nisi congue nisi amet enim.</p>
+              <div class="clearfix">
+                <h6 class="pull-left">Location Services</h6>
+                <div class="switch pull-right">
+                  <input id="setting-2" type="checkbox" checked="">
+                  <label for="setting-2" class="switch-success"></label>
+                </div>
+              </div>
+              <p class="text-muted">Eleifend suscipit erat cursus viverra commodo nostra sit commodo mollis.</p>
+              <div class="clearfix">
+                <h6 class="pull-left">Display Errors</h6>
+                <div class="switch pull-right">
+                  <input id="setting-3" type="checkbox" checked="">
+                  <label for="setting-3" class="switch-success"></label>
+                </div>
+              </div>
+              <p class="text-muted">Amet per tortor adipiscing risus dolor orci diam curabitur senectus.</p>
+              <div class="clearfix">
+                <h6 class="pull-left">Use SEO URLs</h6>
+                <div class="switch pull-right">
+                  <input id="setting-4" type="checkbox" checked="">
+                  <label for="setting-4" class="switch-success"></label>
+                </div>
+              </div>
+              <p class="text-muted">Ullamcorper dignissim facilisis fames proin a leo diam amet urna.</p>
+              <div class="clearfix">
+                <h6 class="pull-left">Enable History</h6>
+                <div class="switch pull-right">
+                  <input id="setting-5" type="checkbox" checked="">
+                  <label for="setting-5" class="switch-success"></label>
+                </div>
+              </div>
+              <p class="text-muted">Consectetur cubilia varius vulputate fermentum non dolor cubilia torquent risus.</p>
+            </form>
+          </div>
+        </div>
+      </aside>
+      <aside class="conversation closed">
+        <h5 class="text-center m-0 p-20">Edward Garcia<a href="javascript:;" class="conversation-toggle pull-left"><i class="ti-arrow-left text-muted"></i></a><a href="javascript:;" class="pull-right"><i class="ti-pencil text-muted"></i></a></h5>
+        <ul data-mcs-theme="minimal-dark" class="media-list chat-content fs-12 pl-20 pr-20 mCustomScrollbar">
+          <li class="media">
+            <div class="media-left avatar"><img src="../build/images/users/04.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+            <div class="media-body">
+              <p>Hello.</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted">09:45 PM <i class="ti-check text-success"></i></time>
+            </div>
+          </li>
+          <li class="media other">
+            <div class="media-body">
+              <p>Hi.</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted pull-right">09:46 PM <i class="ti-check text-success"></i></time>
+            </div>
+            <div class="media-right avatar"><img src="../build/images/users/18.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+          </li>
+          <li class="media">
+            <div class="media-left avatar"><img src="../build/images/users/04.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+            <div class="media-body">
+              <p>How are you?</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted">09:47 PM <i class="ti-check text-success"></i></time>
+            </div>
+          </li>
+          <li class="media other">
+            <div class="media-body">
+              <p>I'm good. How are you?</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted pull-right">09:50 PM <i class="ti-check text-success"></i></time>
+            </div>
+            <div class="media-right avatar"><img src="../build/images/users/18.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+          </li>
+          <li class="media">
+            <div class="media-left avatar"><img src="../build/images/users/04.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+            <div class="media-body">
+              <p>Good. Do you speak English?</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted">09:55 PM <i class="ti-check text-success"></i></time>
+            </div>
+          </li>
+          <li class="media other">
+            <div class="media-body">
+              <p>A little. Are you American?</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted pull-right">09:56 PM <i class="ti-check text-success"></i></time>
+            </div>
+            <div class="media-right avatar"><img src="../build/images/users/18.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+          </li>
+          <li class="media">
+            <div class="media-left avatar"><img src="../build/images/users/04.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+            <div class="media-body">
+              <p>Yes.</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted">10:00 PM <i class="ti-check text-success"></i></time>
+            </div>
+          </li>
+          <li class="media other">
+            <div class="media-body">
+              <p>Where are you from?</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted pull-right">10:01 PM <i class="ti-check text-success"></i></time>
+            </div>
+            <div class="media-right avatar"><img src="../build/images/users/18.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+          </li>
+          <li class="media">
+            <div class="media-left avatar"><img src="../build/images/users/04.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+            <div class="media-body">
+              <p>I'm from California.</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted">10:03 PM <i class="ti-check text-success"></i></time>
+            </div>
+          </li>
+          <li class="media other">
+            <div class="media-body">
+              <p>Nice to meet you.</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted pull-right">10:04 PM <i class="ti-check text-success"></i></time>
+            </div>
+            <div class="media-right avatar"><img src="../build/images/users/18.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+          </li>
+          <li class="media">
+            <div class="media-left avatar"><img src="../build/images/users/04.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+            <div class="media-body">
+              <p>Nice to meet you too.</p>
+              <time datetime="2015-12-10T20:50:48+07:00" class="fs-11 text-muted">10:05 PM <i class="ti-check text-success"></i></time>
+            </div>
+          </li>
+        </ul>
+        <form class="pl-20 pr-20">
+          <div class="form-group has-feedback mb-0">
+            <input type="text" aria-describedby="inputSendMessage" placeholder="Sent a message" class="form-control rounded"><span aria-hidden="true" class="ti-pencil-alt form-control-feedback"></span><span id="inputSendMessage" class="sr-only">(default)</span>
+          </div>
+        </form>
+      </aside>
+      <!-- Right Sidebar end-->
+    </div>
+    <!-- Demo Settings start-->
+    <div class="setting closed"><a href="javascript:;" class="setting-toggle fs-16"><i class="ti-palette text-muted"></i></a>
+      <h5 class="fs-16 mt-0 mb-20">Header Colors</h5>
+      <ul class="list-inline">
+        <li><a href="javascript:;" data-color="header-primary" class="mo-xs bg-primary inline-block img-circle header-color"></a></li>
+        <li><a href="javascript:;" data-color="header-green" class="mo-xs bg-success inline-block img-circle header-color"></a></li>
+        <li><a href="javascript:;" data-color="header-purple" class="mo-xs bg-purple inline-block img-circle header-color"></a></li>
+        <li><a href="javascript:;" data-color="header-yellow" class="mo-xs bg-warning inline-block img-circle header-color"></a></li>
+        <li><a href="javascript:;" data-color="header-red" class="mo-xs bg-danger inline-block img-circle header-color"></a></li>
+      </ul>
+      <h5 class="fs-16 mt-0 mb-20">Sidebar Style</h5>
+      <ul class="list-inline">
+        <li><a href="javascript:;" data-color="sidebar-dark" class="sidebar-color mo-xs bg-black inline-block img-circle"></a></li>
+        <li><a href="javascript:;" data-color="sidebar-light" class="sidebar-color mo-xs bg-default inline-block img-circle"></a></li>
+      </ul>
+      <form class="form-horizontal mb-20">
+        <div class="clearfix">
+          <p class="form-control-static pull-left">Background Image</p>
+          <div class="switch pull-right">
+            <input id="sidebar-bg" type="checkbox" checked="">
+            <label for="sidebar-bg" class="switch-success"></label>
+          </div>
+        </div>
+      </form>
+      <ul class="list-inline mb-0">
+        <li><a href="javascript:;" data-bg="10.jpg" class="inline-block sidebar-bg"><img src="../build/images/thumbnails/10.jpg" width="60" alt="" class="img-rounded"></a></li>
+        <li><a href="javascript:;" data-bg="11.jpg" class="inline-block sidebar-bg"><img src="../build/images/thumbnails/11.jpg" width="60" alt="" class="img-rounded"></a></li>
+        <li><a href="javascript:;" data-bg="12.jpg" class="inline-block sidebar-bg"><img src="../build/images/thumbnails/12.jpg" width="60" alt="" class="img-rounded"></a></li>
+      </ul>
+    </div>
+    <!-- Demo Settings end-->
+    <!-- jQuery-->
+    <script type="text/javascript" src="../plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript-->
+    <script type="text/javascript" src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Malihu Scrollbar-->
+    <script type="text/javascript" src="../plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Animo.js-->
+    <script type="text/javascript" src="../plugins/animo.js/animo.min.js"></script>
+    <!-- Bootstrap Progressbar-->
+    <script type="text/javascript" src="../plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- jQuery Easy Pie Chart-->
+    <script type="text/javascript" src="../plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <!-- Custom JS-->
+    <script type="text/javascript" src="../build/js/first-layout/app.js"></script>
+    <script type="text/javascript" src="../build/js/first-layout/demo.js"></script>
+  </body>
+</html>

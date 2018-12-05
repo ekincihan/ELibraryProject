@@ -1,0 +1,195 @@
+.page-content.container-fluid
+  h3.mt-0 Examples
+  .widget
+    .widget-heading
+      h3.widget-title Control Types
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Date range picker
+            input#date-range-picker.form-control(type='text', value='01/01/2015 - 02/15/2015')
+        .col-md-6
+          .form-group
+            label Date and time
+            input#date-time-picker.form-control(type='text', value='01/01/2015 1:30 PM - 01/01/2015 2:00 PM')
+      .row
+        .col-md-6
+          .form-group
+            label Single date picker
+            input#single-date-picker.form-control(type='text', value='01/01/2015 - 02/15/2015')
+        .col-md-6
+          .form-group
+            label Predefined ranges
+            .btn-toolbar
+              button#predefined-ranges-picker.btn.btn-raised.btn-black(type='button')
+                i.ti-calendar 
+                span
+  .widget
+    .widget-heading
+      h3.widget-title Input Modes
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label With icon
+            .input-group
+              input#with-icon-picker.form-control(type='text', value='01/01/2015 - 02/15/2015')
+              span.input-group-addon
+                span.ti-calendar
+        .col-md-6
+          .form-group
+            label No icon
+            input#no-icon-picker.form-control(type='text', value='01/01/2015 - 02/15/2015')
+  .widget
+    .widget-heading
+      h3.widget-title Positions
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Bottom right
+            input#bottom-right-picker.form-control(type='text', value='01/01/2015 - 02/15/2015')
+        .col-md-6
+          .form-group
+            label Bottom left
+            input#bottom-left-picker.form-control(type='text', value='01/01/2015 - 02/15/2015')
+      .row
+        .col-md-6
+          .form-group
+            label Bottom center
+            input#bottom-center-picker.form-control(type='text', value='01/01/2015 - 02/15/2015')
+        .col-md-6
+          .form-group
+            label Top center
+            input#top-center-picker.form-control(type='text', value='01/01/2015 - 02/15/2015')
+      .row
+        .col-md-6
+          .form-group
+            label Top right
+            input#top-right-picker.form-control(type='text', value='01/01/2015 - 02/15/2015')
+        .col-md-6
+          .form-group
+            label Top left
+            input#top-left-picker.form-control(type='text', value='01/01/2015 - 02/15/2015')
+  .widget
+    .widget-heading
+      h3.widget-title …and more!
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Input initially empty
+            input#input-initially-empty-picker.form-control(type='text')
+        .col-md-6
+          .form-group
+            label Auto apply
+            input#auto-apply-picker.form-control(type='text')
+      .row
+        .col-md-6
+          .form-group
+            label Show week numbers
+            input#show-week-number-picker.form-control(type='text')
+        .col-md-6
+          .form-group
+            label Custom button
+            input#custom-button-picker.form-control(type='text')
+  h3 Configuration Generator
+  .row
+    .col-md-4.demo
+      .form-group
+        label Your Date Range Picker
+        .input-group
+          input#config-demo.form-control(type='text')
+          span.input-group-addon
+            span.ti-calendar
+    .col-md-8
+      .form-group
+        label Configuration
+        textarea#config-text.form-control(style='height: 300px; width: 100%; padding: 10px')
+  .configurator
+    form
+      .row
+        .col-md-4
+          .form-group
+            label(for='parentEl') parentEl
+            input#parentEl.form-control(type='text', value='', placeholder='body')
+          .form-group
+            label(for='startDate') startDate
+            input#startDate.form-control(type='text', value='07/01/2015')
+          .form-group
+            label(for='endDate') endDate
+            input#endDate.form-control(type='text', value='07/15/2015')
+          .form-group
+            label(for='minDate') minDate
+            input#minDate.form-control(type='text', value='', placeholder='MM/DD/YYYY')
+          .form-group
+            label(for='maxDate') maxDate
+            input#maxDate.form-control(type='text', value='', placeholder='MM/DD/YYYY')
+        .col-md-4
+          .checkbox-custom
+            input#autoApply(type='checkbox')
+            label(for='autoApply') autoApply
+          .checkbox-custom
+            input#singleDatePicker(type='checkbox')
+            label(for='singleDatePicker') singleDatePicker
+          .checkbox-custom
+            input#showDropdowns(type='checkbox')
+            label(for='showDropdowns') showDropdowns
+          .checkbox-custom
+            input#showWeekNumbers(type='checkbox')
+            label(for='showWeekNumbers') showWeekNumbers
+          .checkbox-custom
+            input#showISOWeekNumbers(type='checkbox')
+            label(for='showISOWeekNumbers') showISOWeekNumbers
+          .checkbox-custom
+            input#timePicker(type='checkbox')
+            label(for='timePicker') timePicker
+          .checkbox-custom
+            input#timePicker24Hour(type='checkbox')
+            label(for='timePicker24Hour') timePicker24Hour
+          .form-group
+            label(for='timePickerIncrement') timePickerIncrement (in minutes)
+            input#timePickerIncrement.form-control(type='text', value='1')
+          .checkbox-custom
+            input#timePickerSeconds(type='checkbox')
+            label(for='timePickerSeconds') timePickerSeconds
+          .checkbox-custom
+            input#dateLimit(type='checkbox')
+            label(for='dateLimit') dateLimit (with example date range span)
+          .checkbox-custom
+            input#ranges(type='checkbox')
+            label(for='ranges') ranges (with example predefined ranges)
+          .checkbox-custom
+            input#locale(type='checkbox')
+            label(for='locale') locale (with example settings)
+          .checkbox-custom
+            input#linkedCalendars(type='checkbox', checked='checked')
+            label(for='linkedCalendars') linkedCalendars
+          .checkbox-custom
+            input#autoUpdateInput(type='checkbox', checked='checked')
+            label(for='autoUpdateInput') autoUpdateInput
+          .checkbox-custom
+            input#alwaysShowCalendars(type='checkbox')
+            label(for='alwaysShowCalendars') alwaysShowCalendars
+        .col-md-4
+          .form-group
+            label(for='opens') opens
+            select#opens.form-control
+              option(value='right', selected='') right
+              option(value='left') left
+              option(value='center') center
+          .form-group
+            label(for='drops') drops
+            select#drops.form-control
+              option(value='down', selected='') down
+              option(value='up') up
+          .form-group
+            label(for='buttonClasses') buttonClasses
+            input#buttonClasses.form-control(type='text', value='btn btn-sm')
+          .form-group
+            label(for='applyClass') applyClass
+            input#applyClass.form-control(type='text', value='btn-success')
+          .form-group
+            label(for='cancelClass') cancelClass
+            input#cancelClass.form-control(type='text', value='btn-default')

@@ -1,0 +1,23 @@
+.page-content.container-fluid
+  .row
+    .col-lg-12
+      .widget
+        .widget-heading
+          h3.widget-title Basic
+        .widget-body
+          textarea(data-provide='markdown', rows='10')
+      .widget
+        .widget-heading
+          h3.widget-title Hidden Button (bold)
+        .widget-body
+          textarea(data-provide='markdown', rows='10', data-hidden-buttons='cmdBold')
+      .widget
+        .widget-heading
+          h3.widget-title Savable
+        .widget-body
+          textarea(data-provide='markdown', rows='10', data-savable='true')
+      .widget
+        .widget-heading
+          h3.widget-title Font Awesome
+        .widget-body
+          textarea(data-provide='markdown', rows='10', data-iconlibrary='fa')

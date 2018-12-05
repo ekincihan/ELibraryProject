@@ -1,0 +1,64 @@
+//
+// Panels
+// --------------------------------------------------
+
+// Base class
+.panel {
+	margin-bottom: @content-padding;
+	box-shadow: 0 1px 1px rgba(0,0,0, 0.05);
+}
+
+.panel-body {
+	padding: 20px;
+}
+
+.panel-heading {
+	padding: 15px 20px;
+}
+
+.panel-title {
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: 13px;
+	> a,
+	> small,
+	> .small,
+	> small > a,
+	> .small > a {
+		color: inherit;
+	}
+}
+
+.panel {
+	> .panel-body + .table,
+	> .panel-body + .table-responsive,
+	> .table + .panel-body,
+	> .table-responsive + .panel-body {
+		border-top: 1px solid @separator-border-color;
+	}
+}
+
+.panel-group {
+	margin-bottom: @content-padding;
+}
+
+// Contextual variations
+.panel-default {
+	border-color: @separator-border-color;
+
+	& > .panel-heading {
+		border-color: @separator-border-color;
+		
+		+ .panel-collapse > .panel-body {
+			border-top-color: @separator-border-color;
+		}
+	}
+	& > .panel-footer {
+		+ .panel-collapse > .panel-body {
+			border-bottom-color: @separator-border-color;
+		}
+	}
+}
+
+
+	

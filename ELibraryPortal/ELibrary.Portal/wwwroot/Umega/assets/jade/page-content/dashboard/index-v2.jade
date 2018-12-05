@@ -1,0 +1,455 @@
+.page-content.container-fluid
+  .row
+    .col-md-8
+      .widget
+        .widget-heading.clearfix
+          h3.widget-title.pull-left Order Status
+          ul.widget-tools.pull-right.list-inline
+            li
+              a.widget-collapse(href='javascript:;')
+                i.ti-angle-up
+            li
+              a.widget-reload(href='javascript:;')
+                i.ti-reload
+            li
+              a.widget-remove(href='javascript:;')
+                i.ti-close
+        .widget-body
+          #flot-order(style='height: 302px')
+    .col-md-4
+      .row
+        .col-sm-6
+          .widget.no-border.p-15.bg-purple.media
+            .media-left.media-middle
+              i.media-object.ti-shopping-cart.fs-36
+            .media-body
+              h6.m-0 Transactions
+              .fs-20 685 
+                span.fs-12
+                  i.ti-arrow-up.fs-10
+                  |  8%
+        .col-sm-6
+          .widget.no-border.p-15.bg-success.media
+            .media-left.media-middle
+              i.media-object.ti-user.fs-36
+            .media-body
+              h6.m-0 Sales
+              .fs-20 532 
+                span.fs-12
+                  i.ti-arrow-up.fs-10
+                  |  4%
+        .col-sm-6
+          .widget.no-border.p-15.bg-danger.media
+            .media-left.media-middle
+              i.media-object.ti-trash.fs-36
+            .media-body
+              h6.m-0 Cancels
+              .fs-20 20 
+                span.fs-12
+                  i.ti-arrow-down.fs-10
+                  |  3%
+        .col-sm-6
+          .widget.no-border.p-15.bg-warning.media
+            .media-left.media-middle
+              i.media-object.ti-paint-bucket.fs-36
+            .media-body
+              h6.m-0 Refunds
+              .fs-20 20 
+                span.fs-12
+                  i.ti-arrow-down.fs-10
+                  |  4%
+        .col-sm-6
+          .widget.no-border.p-15.bg-info.media
+            .media-left.media-middle
+              i.media-object.ti-direction-alt.fs-36
+            .media-body
+              h6.m-0 Chargebacks
+              .fs-20 24 
+                span.fs-12
+                  i.ti-arrow-down.fs-10
+                  |  2%
+        .col-sm-6
+          .widget.no-border.p-15.bg-primary.media
+            .media-left.media-middle
+              i.media-object.ti-email.fs-36
+            .media-body
+              h6.m-0 Emails
+              .fs-20 6114 
+                span.fs-12
+                  i.ti-arrow-up.fs-10
+                  |  4%
+      .widget.no-border.p-20.bg-black
+        .media
+          .media-left.media-middle.pr-15
+            i.ti-pulse.fs-60
+          .media-body
+            ul.list-unstyled.fs-12.mb-0
+              li.pt-5.pb-5
+                .block.clearfix.mb-5
+                  span.pull-left.text-white Upload
+                  span.pull-right.text-white 1.457 MB/s
+                .progress.progress-xs.bg-light.mb-0
+                  .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='65', aria-valuenow='65', style='width: 65%;')
+              li.pt-5.pb-5
+                .block.clearfix.mb-5
+                  span.pull-left.text-white Download
+                  span.pull-right.text-white 2.864 MB/s
+                .progress.progress-xs.bg-light.mb-0
+                  .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='80', aria-valuenow='80', style='width: 80%;')
+  .row
+    .col-md-8
+      .widget
+        .widget-heading.clearfix
+          h3.widget-title.pull-left Referral Sources
+          ul.widget-tools.pull-right.list-inline
+            li
+              a.widget-collapse(href='javascript:;')
+                i.ti-angle-up
+            li
+              a.widget-reload(href='javascript:;')
+                i.ti-reload
+            li
+              a.widget-remove(href='javascript:;')
+                i.ti-close
+        .widget-body.p-0
+          .table-responsive
+            table.table.mb-0
+              thead
+                tr
+                  th Source
+                  th New sessions
+                  th New users
+                  th Bounce rate
+                  th Pages/session
+                  th Avg. session
+              tbody
+                tr
+                  td
+                    i.ti-google.mo-sm.img-circle.bg-danger.block.text-center
+                  td 33.95%
+                  td 1,620
+                  td 23.43%
+                  td 33.54
+                  td 00:20:28
+                tr
+                  td
+                    i.ti-tumblr-alt.mo-sm.img-circle.bg-black.block.text-center
+                  td 27.43%
+                  td 2,861 
+                  td 49.21%
+                  td 29.12
+                  td 00:14:49
+                tr
+                  td
+                    i.ti-facebook.mo-sm.img-circle.bg-primary.block.text-center
+                  td 50.29%
+                  td 1,790 
+                  td 15.68%
+                  td 50.78
+                  td 00:10:52
+                tr
+                  td
+                    i.ti-twitter-alt.mo-sm.img-circle.bg-info.block.text-center
+                  td 14.54%
+                  td 3,786 
+                  td 12.79%
+                  td 42.69
+                  td 00:28:12
+                tr
+                  td
+                    i.ti-soundcloud.mo-sm.img-circle.bg-warning.block.text-center
+                  td 30.12%
+                  td 1,823 
+                  td 32.93%
+                  td 63.19
+                  td 00:15:43
+      .widget
+        .widget-heading.clearfix
+          h3.widget-title.pull-left Monthly Sales
+          ul.widget-tools.pull-right.list-inline
+            li
+              a.widget-collapse(href='javascript:;')
+                i.ti-angle-up
+            li
+              a.widget-reload(href='javascript:;')
+                i.ti-reload
+            li
+              a.widget-remove(href='javascript:;')
+                i.ti-close
+        .widget-body
+          #flot-sales(style='height: 313px')
+    .col-md-4
+      .widget
+        .widget-heading.clearfix
+          h3.widget-title.pull-left Top 3 Categories
+          ul.widget-tools.pull-right.list-inline
+            li
+              a.widget-remove(href='javascript:;')
+                i.ti-close
+        .widget-body
+          #morris-category(style='height: 224px')
+          .table-responsive(style='margin: 0 -20px -20px -20px')
+            table.table.table-hover.mb-0
+              thead
+                tr
+                  th(style='width:40%') Categories
+                  th(style='width:30%') Sales
+                  th(style='width:30%') Up/Down
+              tbody
+                tr
+                  td Cosmetics
+                  td 4,325
+                  td.text-success +3.26%
+                tr
+                  td Accessories
+                  td 3,257
+                  td.text-danger -2.14%
+                tr
+                  td Books
+                  td 2,314
+                  td.text-success +2.92%
+      .widget
+        .widget-heading.clearfix.no-border
+          h3.widget-title.pull-left Recent Transactions
+          ul.widget-tools.pull-right.list-inline
+            li
+              a.widget-remove(href='javascript:;')
+                i.ti-close
+        .widget-body.p-0
+          .table-responsive
+            table.table.mb-0
+              tbody
+                tr
+                  td Advertising
+                  td
+                    span.text-muted 06/23/2016
+                  td
+                    span.text-success +2.34
+                tr
+                  td eBanking
+                  td
+                    span.text-muted 06/20/2016
+                  td
+                    span.text-danger -4.29
+                tr
+                  td Google
+                  td
+                    span.text-muted 06/18/2016
+                  td
+                    span.text-danger -1.32
+                tr
+                  td Facebook
+                  td
+                    span.text-muted 06/17/2016
+                  td
+                    span.text-success +3.56
+                tr
+                  td Youtube
+                  td
+                    span.text-muted 06/15/2016
+                  td
+                    span.text-danger -5.58
+                tr
+                  td Twitter
+                  td
+                    span.text-muted 06/14/2016
+                  td
+                    span.text-danger -2.18
+  .row
+    .col-lg-12
+      .widget.no-border
+        table#order-table.table.table-hover.dt-responsive.nowrap(style='width: 100%')
+          thead
+            tr
+              th(style='width:10%') Order ID
+              th(style='width:25%') Customer
+              th.text-center(style='width:15%') Date Added
+              th.text-center(style='width:15%') Date Modified
+              th.text-right(style='width:10%') Total
+              th.text-center(style='width:10%') Status
+              th.text-center(style='width:15%') Action
+          tbody
+            tr
+              td #6546
+              td
+                .media
+                  .media-left.avatar
+                    img.media-object.img-circle(src=build+'images/users/10.jpg', alt='')
+                    span.status.bg-success
+                  .media-body
+                    h5.media-heading Philip Fernandez
+                    p.text-muted.mb-0 489 Rhapsody Street
+              td.text-center 20 Jun 2016
+              td.text-center 20 Jun 2016
+              td.text-right $140.00
+              td.text-center
+                span.label.label-warning Pending
+              td.text-center
+                .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                  button.btn.btn-outline.btn-primary(type='button')
+                    i.ti-eye
+                  button.btn.btn-outline.btn-success(type='button')
+                    i.ti-pencil
+                  button.btn.btn-outline.btn-danger(type='button')
+                    i.ti-trash
+            tr
+              td #6941
+              td
+                .media
+                  .media-left.avatar
+                    img.media-object.img-circle(src=build+'images/users/20.jpg', alt='')
+                    span.status.bg-success
+                  .media-body
+                    h5.media-heading Mary Carr
+                    p.text-muted.mb-0 3611 West Fork Drive
+              td.text-center 20 Jun 2016
+              td.text-center 20 Jun 2016
+              td.text-right $120.00
+              td.text-center
+                span.label.label-warning Pending
+              td.text-center
+                .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                  button.btn.btn-outline.btn-primary(type='button')
+                    i.ti-eye
+                  button.btn.btn-outline.btn-success(type='button')
+                    i.ti-pencil
+                  button.btn.btn-outline.btn-danger(type='button')
+                    i.ti-trash
+            tr
+              td #3202
+              td
+                .media
+                  .media-left.avatar
+                    img.media-object.img-circle(src=build+'images/users/11.jpg', alt='')
+                    span.status.bg-danger
+                  .media-body
+                    h5.media-heading Joseph Salazar
+                    p.text-muted.mb-0 4489 Hart Ridge Road
+              td.text-center 20 Jun 2016
+              td.text-center 20 Jun 2016
+              td.text-right $590.00
+              td.text-center
+                span.label.label-warning Pending
+              td.text-center
+                .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                  button.btn.btn-outline.btn-primary(type='button')
+                    i.ti-eye
+                  button.btn.btn-outline.btn-success(type='button')
+                    i.ti-pencil
+                  button.btn.btn-outline.btn-danger(type='button')
+                    i.ti-trash
+            tr
+              td #8302
+              td
+                .media
+                  .media-left.avatar
+                    img.media-object.img-circle(src=build+'images/users/06.jpg', alt='')
+                    span.status.bg-warning
+                  .media-body
+                    h5.media-heading John Cruz
+                    p.text-muted.mb-0 3274 Lyndon Street
+              td.text-center 20 Jun 2016
+              td.text-center 20 Jun 2016
+              td.text-right $940.00
+              td.text-center
+                span.label.label-warning Pending
+              td.text-center
+                .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                  button.btn.btn-outline.btn-primary(type='button')
+                    i.ti-eye
+                  button.btn.btn-outline.btn-success(type='button')
+                    i.ti-pencil
+                  button.btn.btn-outline.btn-danger(type='button')
+                    i.ti-trash
+            tr
+              td #8943
+              td
+                .media
+                  .media-left.avatar
+                    img.media-object.img-circle(src=build+'images/users/19.jpg', alt='')
+                    span.status.bg-success
+                  .media-body
+                    h5.media-heading Jacqueline Rios
+                    p.text-muted.mb-0 559 Holly Street
+              td.text-center 20 Jun 2016
+              td.text-center 20 Jun 2016
+              td.text-right $490.00
+              td.text-center
+                span.label.label-warning Pending
+              td.text-center
+                .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                  button.btn.btn-outline.btn-primary(type='button')
+                    i.ti-eye
+                  button.btn.btn-outline.btn-success(type='button')
+                    i.ti-pencil
+                  button.btn.btn-outline.btn-danger(type='button')
+                    i.ti-trash
+            tr
+              td #8943
+              td
+                .media
+                  .media-left.avatar
+                    img.media-object.img-circle(src=build+'images/users/01.jpg', alt='')
+                    span.status.bg-success
+                  .media-body
+                    h5.media-heading Samuel Hayes
+                    p.text-muted.mb-0 716 Riverwood Drive
+              td.text-center 20 Jun 2016
+              td.text-center 20 Jun 2016
+              td.text-right $230.00
+              td.text-center
+                span.label.label-warning Pending
+              td.text-center
+                .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                  button.btn.btn-outline.btn-primary(type='button')
+                    i.ti-eye
+                  button.btn.btn-outline.btn-success(type='button')
+                    i.ti-pencil
+                  button.btn.btn-outline.btn-danger(type='button')
+                    i.ti-trash
+            tr
+              td #2357
+              td
+                .media
+                  .media-left.avatar
+                    img.media-object.img-circle(src=build+'images/users/15.jpg', alt='')
+                    span.status.bg-success
+                  .media-body
+                    h5.media-heading Tyler Hamilton
+                    p.text-muted.mb-0 1979 Monroe Street
+              td.text-center 20 Jun 2016
+              td.text-center 20 Jun 2016
+              td.text-right $319.00
+              td.text-center
+                span.label.label-warning Pending
+              td.text-center
+                .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                  button.btn.btn-outline.btn-primary(type='button')
+                    i.ti-eye
+                  button.btn.btn-outline.btn-success(type='button')
+                    i.ti-pencil
+                  button.btn.btn-outline.btn-danger(type='button')
+                    i.ti-trash
+            tr
+              td #5784
+              td
+                .media
+                  .media-left.avatar
+                    img.media-object.img-circle(src=build+'images/users/16.jpg', alt='')
+                    span.status.bg-success
+                  .media-body
+                    h5.media-heading Lawrence Castillo
+                    p.text-muted.mb-0 1704 Saints Alley
+              td.text-center 20 Jun 2016
+              td.text-center 20 Jun 2016
+              td.text-right $860.00
+              td.text-center
+                span.label.label-warning Pending
+              td.text-center
+                .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                  button.btn.btn-outline.btn-primary(type='button')
+                    i.ti-eye
+                  button.btn.btn-outline.btn-success(type='button')
+                    i.ti-pencil
+                  button.btn.btn-outline.btn-danger(type='button')
+                    i.ti-trash

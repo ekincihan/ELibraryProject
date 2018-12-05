@@ -1,0 +1,38 @@
+.avatar {
+	position: relative;
+	.media-object {
+		width: @avatar-size;
+		height: @avatar-size;
+		line-height: @avatar-size;
+	}
+	.status {
+		position: absolute;
+		top: 0;
+		left: @avatar-size - @status-size;
+		width: @status-size;
+		height: @status-size;
+		border-radius: 50%;
+		border: 1px solid @white-base;
+	}
+	&.media-right {
+		.status {
+			left: @avatar-size - @status-size + 10;
+		}
+	}
+}
+
+.mo-xs {
+	width: @mo-xs-size;
+	height: @mo-xs-size;
+	line-height: @mo-xs-size;
+}
+.mo-sm {
+	width: @mo-sm-size;
+	height: @mo-sm-size;
+	line-height: @mo-sm-size;
+}
+.mo-lg {
+	width: @mo-lg-size;
+	height: @mo-lg-size;;
+	line-height: @mo-lg-size;
+}

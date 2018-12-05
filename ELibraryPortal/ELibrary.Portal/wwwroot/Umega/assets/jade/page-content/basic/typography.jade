@@ -1,0 +1,491 @@
+.page-content.container-fluid
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Headings
+        .widget-body
+          p
+            | All HTML headings, 
+            code &lt;h1&gt;
+            |  through 
+            code &lt;h6&gt;
+            | , are available. 
+            code .h1
+            |  through 
+            code .h6
+            |  classes are also available, for when you want to match the font styling of a heading but still want your text to be displayed inline.
+          h1 h1. Bootstrap heading
+          h2 h2. Bootstrap heading
+          h3 h3. Bootstrap heading
+          h4 h4. Bootstrap heading
+          h5 h5. Bootstrap heading
+          h6 h6. Bootstrap heading
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Custom Headings
+        .widget-body
+          p
+            | Create lighter, secondary text in any heading with a generic 
+            code &lt;small&gt;
+            |  tag or the 
+            code .small
+            |  class.
+          h1
+            i.ti-notepad
+            |  Bootstrap heading 
+            small Secondary text
+          h2
+            i.ti-notepad
+            |  Bootstrap heading 
+            small Secondary text
+          h3
+            i.ti-notepad
+            |  Bootstrap heading 
+            small Secondary text
+          h4
+            i.ti-notepad
+            |  Bootstrap heading 
+            small Secondary text
+          h5
+            i.ti-notepad
+            |  Bootstrap heading 
+            small Secondary text
+          h6
+            i.ti-notepad
+            |  Bootstrap heading 
+            small Secondary text
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Body Copy
+        .widget-body
+          p
+            | Bootstrap's global default 
+            code font-size
+            |  is 
+            strong 14px
+            | , with a 
+            code line-height
+            |  of 
+            strong 1.428
+            | . This is applied to the 
+            code &lt;body&gt;
+            |  and all paragraphs. In addition, 
+            code &lt;p&gt;
+            |  (paragraphs) receive a bottom margin of half their computed line-height (10px by default).
+          p
+            | Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+          p
+            | Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Lead Body Copy
+        .widget-body
+          p
+            | Make a paragraph stand out by adding 
+            code .lead
+            | .
+          p.lead
+            | Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+  .row
+    .col-lg-12
+      .widget
+        .widget-heading
+          h3.widget-title Inline Text Elements
+        .widget-body
+          table.table.table-bordered
+            thead
+              tr
+                th #
+                th Text Type
+                th Example
+            tbody
+              tr
+                th(scope='row') 1
+                td
+                  h5 MARKED TEXT
+                  p
+                    | Use the 
+                    code &lt;mark&gt;
+                    |  tag.
+                td
+                  p
+                    | You can use the mark tag to 
+                    mark highlight
+                    |  text.
+              tr
+                th(scope='row') 2
+                td
+                  h5 DELETED TEXT
+                  p
+                    | Use the 
+                    code &lt;del&gt;
+                    |  tag.
+                td
+                  p
+                    del This line of text is meant to be treated as deleted text.
+              tr
+                th(scope='row') 3
+                td
+                  h5 STRIKETHROUGH TEXT
+                  p
+                    | Use the 
+                    code &lt;s&gt;
+                    |  tag.
+                td
+                  p
+                    s This line of text is meant to be treated as no longer accurate.
+              tr
+                th(scope='row') 4
+                td
+                  h5 INSERTED TEXT
+                  p
+                    | Use the 
+                    code &lt;ins&gt;
+                    |  tag.
+                td
+                  p
+                    ins This line of text is meant to be treated as an addition to the document.
+              tr
+                th(scope='row') 5
+                td
+                  h5 UNDERLINED TEXT
+                  p
+                    | Use the 
+                    code &lt;u&gt;
+                    |  tag.
+                td
+                  p
+                    u This line of text will render as underlined
+              tr
+                th(scope='row') 6
+                td
+                  h5 SMALL TEXT
+                  p
+                    | Use the 
+                    code &lt;small&gt;
+                    |  tag.
+                td
+                  p
+                    small This line of text is meant to be treated as fine print.
+              tr
+                th(scope='row') 7
+                td
+                  h5 BOLD
+                  p
+                    | Use the 
+                    code &lt;strong&gt;
+                    |  tag.
+                td
+                  p
+                    | The following snippet of text is 
+                    strong rendered as bold text
+                    | .
+              tr
+                th(scope='row') 8
+                td
+                  h5 ITALICS
+                  p
+                    | Use the 
+                    code &lt;em&gt;
+                    |  tag.
+                td
+                  p
+                    | The following snippet of text is 
+                    em rendered as italicized text
+                    | .
+  .row
+    .col-md-4
+      .widget
+        .widget-heading
+          h3.widget-title Alignment Classes
+        .widget-body
+          p
+            | Add class 
+            code .text-left
+            | , 
+            code .text-center
+            | , 
+            code .text-right
+            | , 
+            code .text-justify
+            | , 
+            code .text-nowrap
+            |  to make it.
+          p.text-left Left aligned text.
+          p.text-center Center aligned text.
+          p.text-right Right aligned text.
+          p.text-justify Justified text.
+          p.text-nowrap No wrap text.
+    .col-md-4
+      .widget
+        .widget-heading
+          h3.widget-title Transformation Classes
+        .widget-body
+          p
+            | Add class 
+            code .text-lowercase
+            | , 
+            code .text-uppercase
+            | , 
+            code .text-capitalize
+            |  to make it.
+          p.text-lowercase Lowercased text.
+          p.text-uppercase Uppercased text.
+          p.text-capitalize Capitalized text.
+    .col-md-4
+      .widget
+        .widget-heading
+          h3.widget-title ABBREVIATIONS
+        .widget-body
+          p
+            | Use the 
+            code &lt;abbr&gt;
+            |  tag.
+          h5 BASIC ABBREVIATION
+          p
+            | An abbreviation of the word attribute is 
+            abbr(title='attribute') attr
+            | .
+          h5 INITIALISM
+          p
+            | Add 
+            code .initialism
+            |  to an abbreviation for a slightly smaller font-size.
+          p
+            abbr.initialism(title='HyperText Markup Language') HTML
+            |  is the best thing since sliced bread.
+  .row
+    .col-md-4
+      .widget
+        .widget-heading
+          h3.widget-title Address
+        .widget-body
+          p
+            | Use the 
+            code &lt;address&gt;
+            |  tag.
+          address
+            strong Twitter, Inc.
+            br
+            | 795 Folsom Ave, Suite 600
+            br
+            | San Francisco, CA 94107
+            br
+            abbr(title='Phone') P:
+            |  (123) 456-7890
+          address
+            strong Full Name
+            br
+            a(href='mailto:#') first.last@example.com
+    .col-md-8
+      .widget
+        .widget-heading
+          h3.widget-title Blockquotes
+        .widget-body
+          p
+            | Wrap 
+            code &lt;blockquote&gt;
+            |  around any 
+            abbr(title='HyperText Markup Language') HTML
+            |  as the quote. For straight quotes, we recommend a 
+            code &lt;p&gt;
+            | .
+          blockquote
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+          h5 NAMING A SOURCE
+          p
+            | Add a 
+            code &lt;footer&gt;
+            |  for identifying the source. Wrap the name of the source work in 
+            code &lt;cite&gt;
+            | .
+          blockquote
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            footer
+              | Someone famous in 
+              cite(title='Source Title') Source Title
+          h5 ALTERNATE DISPLAYS
+          p
+            | Add 
+            code .blockquote-reverse
+            |  for a blockquote with right-aligned content.
+          blockquote.blockquote-reverse
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            footer
+              | Someone famous in 
+              cite(title='Source Title') Source Title
+  .row
+    .col-lg-12
+      .widget
+        .widget-heading
+          h3.widget-title Lists
+        .widget-body
+          .row
+            .col-md-4
+              h5 UNORDERED
+              ul
+                li Lorem ipsum dolor sit amet
+                li Consectetur adipiscing elit
+                li Integer molestie lorem at massa
+                li Facilisis in pretium nisl aliquet
+                li
+                  | Nulla volutpat aliquam velit
+                  ul
+                    li Phasellus iaculis neque
+                    li Purus sodales ultricies
+                    li Vestibulum laoreet porttitor sem
+                    li Ac tristique libero volutpat at
+                li Faucibus porta lacus fringilla vel
+                li Aenean sit amet erat nunc
+                li Eget porttitor lorem
+            .col-md-4
+              h5 ORDERED
+              ol
+                li Lorem ipsum dolor sit amet
+                li Consectetur adipiscing elit
+                li Integer molestie lorem at massa
+                li Facilisis in pretium nisl aliquet
+                li Nulla volutpat aliquam velit
+                li Faucibus porta lacus fringilla vel
+                li Aenean sit amet erat nunc
+                li Eget porttitor lorem
+              h5 INLINE
+              ul.list-inline
+                li Lorem ipsum
+                li Phasellus iaculis
+                li Nulla volutpat
+            .col-md-4
+              h5 UNSTYLED
+              ul.list-unstyled
+                li Lorem ipsum dolor sit amet
+                li Consectetur adipiscing elit
+                li Integer molestie lorem at massa
+                li Facilisis in pretium nisl aliquet
+                li
+                  | Nulla volutpat aliquam velit
+                  ul
+                    li Phasellus iaculis neque
+                    li Purus sodales ultricies
+                    li Vestibulum laoreet porttitor sem
+                    li Ac tristique libero volutpat at
+                li Faucibus porta lacus fringilla vel
+                li Aenean sit amet erat nunc
+                li Eget porttitor lorem
+          .row
+            .col-md-4
+              h5 DESCRIPTIONS
+              p A list of terms with their associated descriptions.
+              dl
+                dt Description lists
+                dd A description list is perfect for defining terms.
+                dt Euismod
+                dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                dd Donec id elit non mi porta gravida at eget metus.
+                dt Malesuada porta
+                dd Etiam porta sem malesuada magna mollis euismod.
+            .col-md-8
+              h5 HORIZONTAL DESCRIPTION
+              p
+                | Make terms and descriptions in 
+                code &lt;dl&gt;
+                |  line up side-by-side. Starts off stacked like default 
+                code &lt;dl&gt;
+                | s, but when the navbar expands, so do these.
+              dl.dl-horizontal
+                dt Description lists
+                dd A description list is perfect for defining terms.
+                dt Euismod
+                dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                dd Donec id elit non mi porta gravida at eget metus.
+                dt Malesuada porta
+                dd Etiam porta sem malesuada magna mollis euismod.
+                dt Felis euismod semper eget lacinia
+                dd
+                  | Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+  .row
+    .col-lg-12
+      .widget
+        .widget-heading
+          h3.widget-title Contextual
+        .widget-body
+          .row
+            .col-md-6
+              h5 TEXT COLORS
+              p.text-muted Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              p.text-primary Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              p.text-success Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              p.text-info Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              p.text-purple Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              p.text-warning Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              p.text-danger Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            .col-md-6
+              h5 BACKGROUNDS
+              p.pl-10.pr-10.pt-5.pb-5.bg-primary Primary
+              p.pl-10.pr-10.pt-5.pb-5.bg-success Success
+              p.pl-10.pr-10.pt-5.pb-5.bg-info Info
+              p.pl-10.pr-10.pt-5.pb-5.bg-purple Purple
+              p.pl-10.pr-10.pt-5.pb-5.bg-warning Warning
+              p.pl-10.pr-10.pt-5.pb-5.bg-danger Danger
+  .row
+    .col-lg-12
+      .widget
+        .widget-heading
+          h3.widget-title Code
+        .widget-body
+          .row
+            .col-md-4
+              h5 INLINE
+              p
+                | Wrap inline snippets of code with 
+                code &lt;code&gt;
+                | .
+              | For example, 
+              code &lt;section&gt;
+              |  should be wrapped as inline.
+              h5 SAMPLE OUTPUT
+              p
+                | For indicating blocks sample output from a program use the 
+                code &lt;samp&gt;
+                |  tag.
+              samp This text is meant to be treated as sample output from a computer program.
+            .col-md-4
+              h5 USER INPUT
+              p
+                | Use the 
+                code &lt;kbd&gt;
+                |  to indicate input that is typically entered via keyboard.
+              | To switch directories, type 
+              kbd cd
+              |  followed by the name of the directory.
+              br
+              | To edit settings, press 
+              kbd
+                kbd ctrl
+                |  + 
+                kbd ,
+              h5 VARIABLES
+              p
+                | For indicating variables use the 
+                code &lt;var&gt;
+                |  tag.
+              var y
+              |  = 
+              var m
+              var x
+              |  + 
+              var b
+            .col-md-4
+              h5 BASIC BLOCK
+              p
+                | Use 
+                code &lt;pre&gt;
+                |  for multiple lines of code. Be sure to escape any angle brackets in the code for proper rendering.
+              pre &lt;p&gt;Sample text here...&lt;/p&gt;

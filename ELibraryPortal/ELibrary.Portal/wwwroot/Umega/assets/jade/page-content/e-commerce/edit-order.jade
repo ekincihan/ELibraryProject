@@ -1,0 +1,489 @@
+.page-content.container-fluid
+  .widget
+    .widget-heading.clearfix
+      h3.widget-title.pull-left Edit Order
+      .pull-right
+        button.btn.btn-primary(type='button')
+          i.ti-save
+        button.btn.btn-default(type='button')
+          i.ti-share-alt
+    .widget-body
+      form.form-horizontal
+        ul.nav.nav-tabs.mb-15(role='tablist')
+          li.active(role='presentation')
+            a(href='#customer', aria-controls='customer', role='tab', data-toggle='tab') Customer
+          li(role='presentation')
+            a(href='#products', aria-controls='products', role='tab', data-toggle='tab') Products
+          li(role='presentation')
+            a(href='#payment', aria-controls='payment', role='tab', data-toggle='tab') Payment
+          li(role='presentation')
+            a(href='#shipping', aria-controls='shipping', role='tab', data-toggle='tab') Shipping
+          li(role='presentation')
+            a(href='#totals', aria-controls='totals', role='tab', data-toggle='tab') Totals
+        .tab-content
+          #customer.tab-pane.active(role='tabpanel')
+            .form-group
+              label.col-sm-3.control-label(for='txtCustomer') Customer
+              .col-sm-9
+                input#txtCustomer.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtCustomerGroup') Customer Group
+              .col-sm-9
+                input#txtCustomerGroup.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtFirstName') First Name
+              .col-sm-9
+                input#txtFirstName.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtLastName') Last Name
+              .col-sm-9
+                input#txtLastName.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtEmail') Email
+              .col-sm-9
+                input#txtEmail.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtTelephone') Telephone
+              .col-sm-9
+                input#txtTelephone.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtFax') Fax
+              .col-sm-9
+                input#txtFax.form-control(type='text')
+          #products.tab-pane(role='tabpanel')
+            table.table.table-hover(style='width: 100%')
+              thead
+                tr
+                  th.text-center
+                    .checkbox-custom
+                      input#checkAll(type='checkbox', value='option1')
+                      label.pl-0(for='checkAll') &nbsp;
+                  th Image
+                  th Product Name
+                  th Model
+                  th.text-right Price
+                  th.text-right Quantity
+                  th Status
+                  th.text-center Action
+              tbody
+                tr
+                  td.text-center
+                    .checkbox-custom
+                      input#product-01(type='checkbox', value='01')
+                      label.pl-0(for='product-01') &nbsp;
+                  td.text-center
+                    img.img-thumbnail.img-responsive(src=build+'images/products/01.jpg', width='50', alt='')
+                  td Example Product #01
+                  td Model #20
+                  td.text-right $50.00
+                  td.text-right 320
+                  td
+                    span.label.label-success Enabled
+                  td.text-center
+                    .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                      button.btn.btn-outline.btn-primary(type='button')
+                        i.ti-eye
+                      button.btn.btn-outline.btn-success(type='button')
+                        i.ti-pencil
+                      button.btn.btn-outline.btn-danger(type='button')
+                        i.ti-trash
+                tr
+                  td.text-center
+                    .checkbox-custom
+                      input#product-02(type='checkbox', value='02')
+                      label.pl-0(for='product-02') &nbsp;
+                  td.text-center
+                    img.img-thumbnail.img-responsive(src=build+'images/products/02.jpg', width='50', alt='')
+                  td Example Product #02
+                  td Model #12
+                  td.text-right $90.00
+                  td.text-right 4
+                  td
+                    span.label.label-warning Low stock
+                  td.text-center
+                    .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                      button.btn.btn-outline.btn-primary(type='button')
+                        i.ti-eye
+                      button.btn.btn-outline.btn-success(type='button')
+                        i.ti-pencil
+                      button.btn.btn-outline.btn-danger(type='button')
+                        i.ti-trash
+                tr
+                  td.text-center
+                    .checkbox-custom
+                      input#product-03(type='checkbox', value='03')
+                      label.pl-0(for='product-03') &nbsp;
+                  td.text-center
+                    img.img-thumbnail.img-responsive(src=build+'images/products/03.jpg', width='50', alt='')
+                  td Example Product #03
+                  td Model #20
+                  td.text-right $20.00
+                  td.text-right 56
+                  td
+                    span.label.label-success Enabled
+                  td.text-center
+                    .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                      button.btn.btn-outline.btn-primary(type='button')
+                        i.ti-eye
+                      button.btn.btn-outline.btn-success(type='button')
+                        i.ti-pencil
+                      button.btn.btn-outline.btn-danger(type='button')
+                        i.ti-trash
+          #payment.tab-pane(role='tabpanel')
+            .form-group
+              label.col-sm-3.control-label(for='txtFax') Method
+              .col-sm-9
+                .radio-inline.radio-custom
+                  input#rdbCreditCard(type='radio', name='rdbPayment', value='1')
+                  label(for='rdbCreditCard') Credit Card
+                .radio-inline.radio-custom
+                  input#rdbPaypal(type='radio', name='rdbPayment', value='1')
+                  label(for='rdbPaypal') Paypal
+            .form-group
+              label.col-sm-3.control-label(for='txtNameCard') Name on Card
+              .col-sm-9
+                input#txtNameCard.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtCardNumber') Card Number
+              .col-sm-9
+                input#txtCardNumber.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='ddlExpiryMonth') Expiry Month
+              .col-sm-9
+                select#ddlExpiryMonth.form-control
+                  option(value='') Choose
+                  option(value='01') 01 - Jan
+                  option(value='02') 02 - Feb
+                  option(value='03') 03 - Mar
+                  option(value='04') 04 - Apr
+                  option(value='05') 05 - May
+                  option(value='06') 06 - Jun
+                  option(value='07') 07 - Jul
+                  option(value='08') 08 - Aug
+                  option(value='09') 09 - Sep
+                  option(value='10') 10 - Oct
+                  option(value='11') 11 - Nov
+                  option(value='12') 12 - Dec
+            .form-group
+              label.col-sm-3.control-label(for='ddlExpiryYear') Expiry Year
+              .col-sm-9
+                select#ddlExpiryYear.form-control
+                  option(value='') Choose
+                  option(value='2014') 2014
+                  option(value='2015') 2015
+                  option(value='2016') 2016
+                  option(value='2017') 2017
+                  option(value='2018') 2018
+                  option(value='2019') 2019
+                  option(value='2020') 2020
+                  option(value='2021') 2021
+                  option(value='2022') 2022
+                  option(value='2023') 2023
+                  option(value='2024') 2024
+                  option(value='2025') 2025
+                  option(value='2026') 2026
+            .form-group
+              label.col-sm-3.control-label(for='txtSecurityNumber') Security Number
+              .col-sm-9
+                input#txtSecurityNumber.form-control(type='text')
+          #shipping.tab-pane(role='tabpanel')
+            .form-group
+              label.col-sm-3.control-label(for='txtStreetAddress') Street Address
+              .col-sm-9
+                input#txtStreetAddress.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='ddlCountry') Country
+              .col-sm-9
+                select#ddlCountry.form-control
+                  option(value='') Choose
+                  option(value='AF') Afghanistan
+                  option(value='AX') Åland Islands
+                  option(value='AL') Albania
+                  option(value='DZ') Algeria
+                  option(value='AS') American Samoa
+                  option(value='AD') Andorra
+                  option(value='AO') Angola
+                  option(value='AI') Anguilla
+                  option(value='AQ') Antarctica
+                  option(value='AG') Antigua and Barbuda
+                  option(value='AR') Argentina
+                  option(value='AM') Armenia
+                  option(value='AW') Aruba
+                  option(value='AU') Australia
+                  option(value='AT') Austria
+                  option(value='AZ') Azerbaijan
+                  option(value='BS') Bahamas
+                  option(value='BH') Bahrain
+                  option(value='BD') Bangladesh
+                  option(value='BB') Barbados
+                  option(value='BY') Belarus
+                  option(value='BE') Belgium
+                  option(value='BZ') Belize
+                  option(value='BJ') Benin
+                  option(value='BM') Bermuda
+                  option(value='BT') Bhutan
+                  option(value='BO') Bolivia
+                  option(value='BA') Bosnia and Herzegovina
+                  option(value='BW') Botswana
+                  option(value='BV') Bouvet Island
+                  option(value='BR') Brazil
+                  option(value='IO') British Indian Ocean Territory
+                  option(value='VG') British Virgin Islands
+                  option(value='BN') Brunei
+                  option(value='BG') Bulgaria
+                  option(value='BF') Burkina Faso
+                  option(value='BI') Burundi
+                  option(value='KH') Cambodia
+                  option(value='CM') Cameroon
+                  option(value='CA') Canada
+                  option(value='CV') Cape Verde
+                  option(value='KY') Cayman Islands
+                  option(value='CF') Central African Republic
+                  option(value='TD') Chad
+                  option(value='CL') Chile
+                  option(value='CN') China
+                  option(value='CX') Christmas Island
+                  option(value='CC') Cocos [Keeling] Islands
+                  option(value='CO') Colombia
+                  option(value='KM') Comoros
+                  option(value='CG') Congo - Brazzaville
+                  option(value='CD') Congo - Kinshasa
+                  option(value='CK') Cook Islands
+                  option(value='CR') Costa Rica
+                  option(value='CI') Côte d’Ivoire
+                  option(value='HR') Croatia
+                  option(value='CU') Cuba
+                  option(value='CY') Cyprus
+                  option(value='CZ') Czech Republic
+                  option(value='DK') Denmark
+                  option(value='DJ') Djibouti
+                  option(value='DM') Dominica
+                  option(value='DO') Dominican Republic
+                  option(value='EC') Ecuador
+                  option(value='EG') Egypt
+                  option(value='SV') El Salvador
+                  option(value='GQ') Equatorial Guinea
+                  option(value='ER') Eritrea
+                  option(value='EE') Estonia
+                  option(value='ET') Ethiopia
+                  option(value='FK') Falkland Islands
+                  option(value='FO') Faroe Islands
+                  option(value='FJ') Fiji
+                  option(value='FI') Finland
+                  option(value='FR') France
+                  option(value='GF') French Guiana
+                  option(value='PF') French Polynesia
+                  option(value='TF') French Southern Territories
+                  option(value='GA') Gabon
+                  option(value='GM') Gambia
+                  option(value='GE') Georgia
+                  option(value='DE') Germany
+                  option(value='GH') Ghana
+                  option(value='GI') Gibraltar
+                  option(value='GR') Greece
+                  option(value='GL') Greenland
+                  option(value='GD') Grenada
+                  option(value='GP') Guadeloupe
+                  option(value='GU') Guam
+                  option(value='GT') Guatemala
+                  option(value='GG') Guernsey
+                  option(value='GN') Guinea
+                  option(value='GW') Guinea-Bissau
+                  option(value='GY') Guyana
+                  option(value='HT') Haiti
+                  option(value='HM') Heard Island and McDonald Islands
+                  option(value='HN') Honduras
+                  option(value='HK') Hong Kong SAR China
+                  option(value='HU') Hungary
+                  option(value='IS') Iceland
+                  option(value='IN') India
+                  option(value='ID') Indonesia
+                  option(value='IR') Iran
+                  option(value='IQ') Iraq
+                  option(value='IE') Ireland
+                  option(value='IM') Isle of Man
+                  option(value='IL') Israel
+                  option(value='IT') Italy
+                  option(value='JM') Jamaica
+                  option(value='JP') Japan
+                  option(value='JE') Jersey
+                  option(value='JO') Jordan
+                  option(value='KZ') Kazakhstan
+                  option(value='KE') Kenya
+                  option(value='KI') Kiribati
+                  option(value='KW') Kuwait
+                  option(value='KG') Kyrgyzstan
+                  option(value='LA') Laos
+                  option(value='LV') Latvia
+                  option(value='LB') Lebanon
+                  option(value='LS') Lesotho
+                  option(value='LR') Liberia
+                  option(value='LY') Libya
+                  option(value='LI') Liechtenstein
+                  option(value='LT') Lithuania
+                  option(value='LU') Luxembourg
+                  option(value='MO') Macau SAR China
+                  option(value='MK') Macedonia
+                  option(value='MG') Madagascar
+                  option(value='MW') Malawi
+                  option(value='MY') Malaysia
+                  option(value='MV') Maldives
+                  option(value='ML') Mali
+                  option(value='MT') Malta
+                  option(value='MH') Marshall Islands
+                  option(value='MQ') Martinique
+                  option(value='MR') Mauritania
+                  option(value='MU') Mauritius
+                  option(value='YT') Mayotte
+                  option(value='MX') Mexico
+                  option(value='FM') Micronesia
+                  option(value='MD') Moldova
+                  option(value='MC') Monaco
+                  option(value='MN') Mongolia
+                  option(value='ME') Montenegro
+                  option(value='MS') Montserrat
+                  option(value='MA') Morocco
+                  option(value='MZ') Mozambique
+                  option(value='MM') Myanmar [Burma]
+                  option(value='NA') Namibia
+                  option(value='NR') Nauru
+                  option(value='NP') Nepal
+                  option(value='NL') Netherlands
+                  option(value='AN') Netherlands Antilles
+                  option(value='NC') New Caledonia
+                  option(value='NZ') New Zealand
+                  option(value='NI') Nicaragua
+                  option(value='NE') Niger
+                  option(value='NG') Nigeria
+                  option(value='NU') Niue
+                  option(value='NF') Norfolk Island
+                  option(value='MP') Northern Mariana Islands
+                  option(value='KP') North Korea
+                  option(value='NO') Norway
+                  option(value='OM') Oman
+                  option(value='PK') Pakistan
+                  option(value='PW') Palau
+                  option(value='PS') Palestinian Territories
+                  option(value='PA') Panama
+                  option(value='PG') Papua New Guinea
+                  option(value='PY') Paraguay
+                  option(value='PE') Peru
+                  option(value='PH') Philippines
+                  option(value='PN') Pitcairn Islands
+                  option(value='PL') Poland
+                  option(value='PT') Portugal
+                  option(value='PR') Puerto Rico
+                  option(value='QA') Qatar
+                  option(value='RE') Réunion
+                  option(value='RO') Romania
+                  option(value='RU') Russia
+                  option(value='RW') Rwanda
+                  option(value='BL') Saint Barthélemy
+                  option(value='SH') Saint Helena
+                  option(value='KN') Saint Kitts and Nevis
+                  option(value='LC') Saint Lucia
+                  option(value='MF') Saint Martin
+                  option(value='PM') Saint Pierre and Miquelon
+                  option(value='VC') Saint Vincent and the Grenadines
+                  option(value='WS') Samoa
+                  option(value='SM') San Marino
+                  option(value='ST') São Tomé and Príncipe
+                  option(value='SA') Saudi Arabia
+                  option(value='SN') Senegal
+                  option(value='RS') Serbia
+                  option(value='SC') Seychelles
+                  option(value='SL') Sierra Leone
+                  option(value='SG') Singapore
+                  option(value='SK') Slovakia
+                  option(value='SI') Slovenia
+                  option(value='SB') Solomon Islands
+                  option(value='SO') Somalia
+                  option(value='ZA') South Africa
+                  option(value='GS') South Georgia and the South Sandwich Islands
+                  option(value='KR') South Korea
+                  option(value='ES') Spain
+                  option(value='LK') Sri Lanka
+                  option(value='SD') Sudan
+                  option(value='SR') Suriname
+                  option(value='SJ') Svalbard and Jan Mayen
+                  option(value='SZ') Swaziland
+                  option(value='SE') Sweden
+                  option(value='CH') Switzerland
+                  option(value='SY') Syria
+                  option(value='TW') Taiwan
+                  option(value='TJ') Tajikistan
+                  option(value='TZ') Tanzania
+                  option(value='TH') Thailand
+                  option(value='TL') Timor-Leste
+                  option(value='TG') Togo
+                  option(value='TK') Tokelau
+                  option(value='TO') Tonga
+                  option(value='TT') Trinidad and Tobago
+                  option(value='TN') Tunisia
+                  option(value='TR') Turkey
+                  option(value='TM') Turkmenistan
+                  option(value='TC') Turks and Caicos Islands
+                  option(value='TV') Tuvalu
+                  option(value='UG') Uganda
+                  option(value='UA') Ukraine
+                  option(value='AE') United Arab Emirates
+                  option(value='GB') United Kingdom
+                  option(value='US') United States
+                  option(value='UY') Uruguay
+                  option(value='UM') U.S. Minor Outlying Islands
+                  option(value='VI') U.S. Virgin Islands
+                  option(value='UZ') Uzbekistan
+                  option(value='VU') Vanuatu
+                  option(value='VA') Vatican City
+                  option(value='VE') Venezuela
+                  option(value='VN') Vietnam
+                  option(value='WF') Wallis and Futuna
+                  option(value='EH') Western Sahara
+                  option(value='YE') Yemen
+                  option(value='ZM') Zambia
+                  option(value='ZW') Zimbabwe
+            .form-group
+              label.col-sm-3.control-label(for='txtZip') Zip
+              .col-sm-9
+                input#txtZip.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtCity') City
+              .col-sm-9
+                input#txtCity.form-control(type='text')
+          #totals.tab-pane(role='tabpanel')
+            table.table.table-bordered
+              thead
+                tr
+                  th(style='width:10%') #
+                  th(style='width:40%') Product Name
+                  th(style='width:15%') Price
+                  th(style='width:15%') Quantity
+                  th(style='width:20%') Subtotal
+              tbody
+                tr
+                  th(scope='row') 1
+                  td Example Product #01
+                  td.text-right $899.00
+                  td.text-right 1
+                  td.text-right $899.00
+                tr
+                  th(scope='row') 2
+                  td Example Product #02
+                  td.text-right $999.00
+                  td.text-right 1
+                  td.text-right $999.00
+                tr
+                  th(scope='row') 3
+                  td Example Product #03
+                  td.text-right $799.00
+                  td.text-right 1
+                  td.text-right $799.00
+                tr
+                  td.text-right(colspan='4') Subtotal
+                  td.text-right $2597.00
+                tr
+                  td.text-right(colspan='4') Shipping & Handling
+                  td.text-right $10.00
+                tr
+                  td.text-right(colspan='4') Grand Total
+                  td.text-right $2607.00

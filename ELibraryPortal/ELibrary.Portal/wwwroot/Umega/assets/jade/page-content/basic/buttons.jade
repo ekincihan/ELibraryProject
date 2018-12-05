@@ -1,0 +1,373 @@
+.page-content.container-fluid
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Default Buttons
+        .widget-body.btn-demo
+          p Use any of the available button classes to quickly create a styled button.
+          button.btn.btn-default(type='button') Default
+          button.btn.btn-primary(type='button') Primary
+          button.btn.btn-success(type='button') Success
+          button.btn.btn-info(type='button') Info
+          button.btn.btn-purple(type='button') Purple
+          button.btn.btn-warning(type='button') Warning
+          button.btn.btn-danger(type='button') Danger
+          button.btn.btn-black(type='button') Black
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Raised Buttons
+        .widget-body.btn-demo
+          p
+            | Use any of the bootstrap buttons with added class name of 
+            code .btn-raised
+          button.btn.btn-raised.btn-default(type='button') Default
+          button.btn.btn-raised.btn-primary(type='button') Primary
+          button.btn.btn-raised.btn-success(type='button') Success
+          button.btn.btn-raised.btn-info(type='button') Info
+          button.btn.btn-raised.btn-purple(type='button') Purple
+          button.btn.btn-raised.btn-warning(type='button') Warning
+          button.btn.btn-raised.btn-danger(type='button') Danger
+          button.btn.btn-raised.btn-black(type='button') Black
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Outline Buttons
+        .widget-body.btn-demo
+          p
+            | Use any of the bootstrap buttons with added class name of 
+            code .btn-outline
+          button.btn.btn-outline.btn-default(type='button') Default
+          button.btn.btn-outline.btn-primary(type='button') Primary
+          button.btn.btn-outline.btn-success(type='button') Success
+          button.btn.btn-outline.btn-info(type='button') Info
+          button.btn.btn-outline.btn-purple(type='button') Purple
+          button.btn.btn-outline.btn-warning(type='button') Warning
+          button.btn.btn-outline.btn-danger(type='button') Danger
+          button.btn.btn-outline.btn-black(type='button') Black
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Rounded Buttons
+        .widget-body.btn-demo
+          p
+            | Use any of the bootstrap buttons with added class name of 
+            code .btn-rounded
+          button.btn.btn-outline.btn-rounded.btn-default(type='button') Default
+          button.btn.btn-outline.btn-rounded.btn-primary(type='button') Primary
+          button.btn.btn-outline.btn-rounded.btn-success(type='button') Success
+          button.btn.btn-outline.btn-rounded.btn-info(type='button') Info
+          button.btn.btn-outline.btn-rounded.btn-purple(type='button') Purple
+          button.btn.btn-outline.btn-rounded.btn-warning(type='button') Warning
+          button.btn.btn-outline.btn-rounded.btn-danger(type='button') Danger
+          button.btn.btn-outline.btn-rounded.btn-black(type='button') Black
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Button Sizes
+        .widget-body.btn-demo
+          p
+            | Add 
+            code .btn-lg
+            | , 
+            code .btn-sm
+            | , or 
+            code .btn-xs
+            |  for additional sizes.
+          button.btn.btn-primary.btn-lg(type='button') Large
+          button.btn.btn-success.btn-primary(type='button') Default
+          button.btn.btn-info.btn-primary.btn-sm(type='button') Small
+          button.btn.btn-warning.btn-xs(type='button') Extra small
+      .widget
+        .widget-heading
+          h3.widget-title Buttons With Icon
+        .widget-body.btn-demo
+          button.btn.btn-primary(type='button')
+            i.ti-plus.mr-5
+            |  Add
+          button.btn.btn-outline.btn-success(type='button')
+            i.ti-alert.mr-5
+            |  10
+          button.btn.btn-rounded.btn-outline.btn-info(type='button')
+            i.ti-reload.mr-5
+            |  Update
+          button.btn.btn-raised.btn-warning(type='button')
+            i.ti-upload.mr-5
+            |  Upload
+      .widget
+        .widget-heading
+          h3.widget-title Button Groups
+        .widget-body
+          p
+            | Wrap a series of buttons with 
+            code .btn
+            |  in 
+            code .btn-group
+            | .
+          .btn-group(role='group', aria-label='Basic example')
+            button.btn.btn-raised.btn-info(type='button')
+              i.ti-control-pause
+            button.btn.btn-raised.btn-danger(type='button')
+              i.ti-control-stop
+            button.btn.btn-raised.btn-primary(type='button')
+              i.ti-control-play
+            button.btn.btn-raised.btn-success(type='button')
+              i.ti-control-shuffle
+            button.btn.btn-raised.btn-warning(type='button')
+              i.ti-volume
+          p.mt-10
+            | Combine sets of 
+            code btn-group
+            |  into a 
+            code btn-toolbar
+            |  for more complex components.
+          .btn-toolbar(role='toolbar', aria-label='Toolbar with button groups')
+            .btn-group(role='group', aria-label='First group')
+              button.btn.btn-outline.btn-success(type='button')
+                i.ti-align-left
+              button.btn.btn-outline.btn-success(type='button')
+                i.ti-align-center
+              button.btn.btn-outline.btn-success(type='button')
+                i.ti-align-right
+            .btn-group(role='group', aria-label='Second group')
+              button.btn.btn-outline.btn-success(type='button')
+                i.ti-list
+              button.btn.btn-outline.btn-success(type='button')
+                i.ti-list-ol
+          p.mt-10
+            | Place a 
+            code .btn-group
+            |  within another 
+            code .btn-group
+            |  when you want dropdown menus mixed with a series of buttons.
+          .btn-group(role='group', aria-label='Button group with nested dropdown')
+            button.btn.btn-primary(type='button') 1
+            button.btn.btn-primary(type='button') 2
+            .btn-group(role='group')
+              button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | Dropdown 
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') Dropdown link
+                li
+                  a(href='#') Dropdown link
+          p.mt-10 Make a set of buttons appear vertically stacked rather than horizontally.
+          .btn-group-vertical(aria-label='Vertical button group', role='group')
+            button.btn.btn-raised.btn-primary(type='button') 1
+            button.btn.btn-raised.btn-info(type='button') 2
+            button.btn.btn-raised.btn-success(type='button') 3
+          p.mt-10
+            | Just wrap a series of 
+            code .btn
+            | in 
+            code .btn-group.btn-group-justified
+            | .
+          .btn-group.btn-group-justified(role='group', aria-label='Justified button group')
+            a.btn.btn-outline.btn-info(href='#', role='button') Left
+            a.btn.btn-outline.btn-info(href='#', role='button') Middle
+            a.btn.btn-outline.btn-info(href='#', role='button') Right
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Block Level Buttons
+        .widget-body.btn-demo
+          p
+            | Create block level buttons,with by adding 
+            code .btn-block
+            | .
+          button.btn.btn-primary.btn-lg.btn-block(type='button') Block level button
+          button.btn.btn-success.btn-block(type='button') Block level button
+          button.btn.btn-info.btn-sm.btn-block(type='button') Block level button
+          button.btn.btn-warning.btn-xs.btn-block(type='button') Block level button
+      .widget
+        .widget-heading
+          h3.widget-title Button Dropdowns
+        .widget-body
+          p Turn a button into a dropdown toggle with some basic markup changes.
+          .btn-group.mr-10
+            button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | Primary 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+              li.divider(role='separator')
+              li
+                a(href='#') Separated link
+          .btn-group
+            button.btn.btn-success.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | Success 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+              li.divider(role='separator')
+              li
+                a(href='#') Separated link
+          p.mt-10
+            | Similarly, create split button dropdowns with the same markup changes, only with a separate button.
+          .btn-group.mr-10
+            button.btn.btn-primary(type='button') Primary
+            button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              span.caret
+              span.sr-only Toggle Dropdown
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+              li.divider(role='separator')
+              li
+                a(href='#') Separated link
+          .btn-group
+            button.btn.btn-success(type='button') Success
+            button.btn.btn-success.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              span.caret
+              span.sr-only Toggle Dropdown
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+              li.divider(role='separator')
+              li
+                a(href='#') Separated link
+          p.mt-10 Button dropdowns work with buttons of all sizes.
+          .btn-group.mr-10
+            button.btn.btn-primary.btn-lg.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | Large 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+              li.divider(role='separator')
+              li
+                a(href='#') Separated link
+          .btn-group.mr-10
+            button.btn.btn-success.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | Small 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+              li.divider(role='separator')
+              li
+                a(href='#') Separated link
+          .btn-group
+            button.btn.btn-info.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | Extra small 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+              li.divider(role='separator')
+              li
+                a(href='#') Separated link
+          p.mt-10
+            | Trigger dropdown menus above elements by adding 
+            code .dropup
+            |  to the parent.
+          .btn-group.dropup.mr-10
+            button.btn.btn-default(type='button') Dropup
+            button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              span.caret
+              span.sr-only Toggle Dropdown
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+              li.divider(role='separator')
+              li
+                a(href='#') Separated link
+          .btn-group.dropup
+            button.btn.btn-success(type='button') Right dropup
+            button.btn.btn-success.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              span.caret
+              span.sr-only Toggle Dropdown
+            ul.dropdown-menu.dropdown-menu-right
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+              li.divider(role='separator')
+              li
+                a(href='#') Separated link
+  .row
+    .col-lg-12
+      .widget
+        .widget-heading
+          h3.widget-title Ladda UI
+        .widget-body.btn-demo
+          .row
+            .col-md-4
+              p Expand
+              button.btn.btn-raised.btn-success.ladda-button(data-style='expand-left')
+                span.ladda-label Expand-left
+              br
+              button.btn.btn-raised.btn-info.ladda-button(data-style='expand-right')
+                span.ladda-label Expand-right
+              br
+              button.btn.btn-raised.btn-warning.ladda-button(data-style='expand-up')
+                span.ladda-label Expand-up
+              br
+              button.btn.btn-raised.btn-danger.ladda-button(data-style='expand-down')
+                span.ladda-label Expand-down
+            .col-md-4
+              p Contact
+              button.btn.btn-raised.btn-info.ladda-button(data-style='contract')
+                span.ladda-label Contract
+              p Zoom
+              button.btn.btn-raised.btn-success.ladda-button(data-style='zoom-in')
+                span.ladda-label Zoom-in
+              button.btn.btn-raised.btn-info.ladda-button(data-style='zoom-out')
+                span.ladda-label Zoom-out
+            .col-md-4
+              p Slide
+              button.btn.btn-outline.btn-primary.ladda-button(data-style='slide-left', data-spinner-color='#0091EA')
+                span.ladda-label Slide-left
+              button.btn.btn-outline.btn-success.ladda-button(data-style='slide-right', data-spinner-color='#44B6AE')
+                span.ladda-label Slide-right
+              button.btn.btn-outline.btn-warning.ladda-button(data-style='slide-up', data-spinner-color='#FFB74D')
+                span.ladda-label Slide-up
+              button.btn.btn-outline.btn-danger.ladda-button(data-style='slide-down', data-spinner-color='#FF5353')
+                span.ladda-label Slide-down
+              p Progress
+              button.btn.btn-primary.ladda-button.ladda-progress(data-style='zoom-in')
+                span.ladda-label Zoom-in
+              button.btn.btn-success.ladda-button.ladda-progress(data-style='expand-left')
+                span.ladda-label Expand-left
+              button.btn.btn-info.ladda-button.ladda-progress(data-style='slide-down')
+                span.ladda-label Slide-down

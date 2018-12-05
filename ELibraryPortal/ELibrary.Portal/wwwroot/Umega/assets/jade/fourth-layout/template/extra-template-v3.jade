@@ -1,0 +1,105 @@
+block config
+  include ../../config/config.jade
+
+doctype html
+html(lang='en', style='height: 100%')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    block title
+    // PACE
+    link(rel='stylesheet', type='text/css', href=plugins+'PACE/themes/blue/pace-theme-flash.css')
+    script(type='text/javascript', src=plugins+'PACE/pace.min.js')
+    // Bootstrap CSS
+    link(rel='stylesheet', type='text/css', href=plugins+'bootstrap/dist/css/bootstrap.min.css')
+    // Fonts
+    link(rel='stylesheet', type='text/css', href=plugins+'themify-icons/themify-icons.css')
+    block css
+    // Primary Style
+    link(rel='stylesheet', type='text/css', href=build+'css/fourth-layout.css')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    | 
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  body.body-bg-full.v3(style='background-image: url('+build+'images/backgrounds/16.jpg)')
+    .container.page-container
+      .page-content
+        .main-content
+          .v3
+            block page-content
+        .sub-content
+          ul.text-white.activity-list.list-unstyled.mb-0
+            li.activity-white
+              .media
+                .media-left
+                  time.fs-30.fw-500(datetime='2015-12-10T20:50:48+07:00') 08:20
+                    span.fs-14 PM
+                .media-body
+                  h5.media-heading Added
+                  p Morris charts page
+            li.activity-white
+              .media
+                .media-left
+                  time.fs-30.fw-500(datetime='2015-12-10T20:50:48+07:00') 07:30
+                    span.fs-14 PM
+                .media-body
+                  h5.media-heading Fixed
+                  p White header version & example pages
+            li.activity-white
+              .media
+                .media-left
+                  time.fs-30.fw-500(datetime='2015-12-10T20:50:48+07:00') 03:15
+                    span.fs-14 PM
+                .media-body
+                  h5.media-heading Updated
+                  p Visual composer 4.92 
+            li.activity-white
+              .media
+                .media-left
+                  time.fs-30.fw-500(datetime='2015-12-10T20:50:48+07:00') 10:50
+                    span.fs-14 AM
+                .media-body
+                  h5.media-heading Create workflow
+                  p Team member
+                  ul.list-inline
+                    li
+                      .avatar
+                        img.media-object.img-circle(src=build+'images/users/02.jpg', alt='')
+                        span.status.bg-success
+                    li
+                      .avatar
+                        img.media-object.img-circle(src=build+'images/users/03.jpg', alt='')
+                        span.status.bg-warning
+                    li
+                      .avatar
+                        img.media-object.img-circle(src=build+'images/users/07.jpg', alt='')
+                        span.status.bg-danger
+                    li
+                      .avatar
+                        img.media-object.img-circle(src=build+'images/users/05.jpg', alt='')
+                        span.status.bg-success
+                    li
+                      .avatar
+                        img.media-object.img-circle(src=build+'images/users/06.jpg', alt='')
+                        span.status.bg-danger
+            li.activity-white
+              .media
+                .media-left
+                  time.fs-30.fw-500(datetime='2015-12-10T20:50:48+07:00') 09:20
+                    span.fs-14 AM
+                .media-body
+                  h5.media-heading Fixed
+                  p Performance improvement
+    include extra-setting-v2.jade
+    // jQuery
+    script(type='text/javascript', src=plugins+'jquery/dist/jquery.min.js')
+    // Bootstrap JavaScript
+    script(type='text/javascript', src=plugins+'bootstrap/dist/js/bootstrap.min.js')
+    block js
+    // Custom JS
+    script(type='text/javascript', src=build+'js/fourth-layout/extra-demo.js')
+    block custom-js

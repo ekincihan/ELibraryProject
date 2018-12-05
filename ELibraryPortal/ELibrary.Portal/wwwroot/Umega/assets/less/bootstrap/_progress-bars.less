@@ -1,0 +1,78 @@
+//
+// Progress bars
+// --------------------------------------------------
+
+
+// Outer container
+.progress {
+	border-radius: 0;
+	box-shadow: none;
+}
+	
+// Bar of progress
+.progress-bar {
+    background-color: @brand-primary;
+	box-shadow: none;
+}
+
+// Size of progress
+.progress-xs {
+	height: 3px;
+    &.vertical {
+        width: 3px;
+    }
+}
+.progress-sm {
+    height: 12px;
+    .progress-bar {
+        line-height: 12px;
+        font-size: 10px;
+        .progressbar-front-text {
+            line-height: 12px;
+            font-size: 10px;
+        }
+    }
+    &.vertical {
+        width: 12px;
+    }
+}
+.progress-lg {
+    height: 30px;
+    .progress-bar {
+        line-height: 30px;
+        .progressbar-front-text {
+            line-height: 30px;
+        }
+    }
+    &.vertical {
+        width: 30px;
+    }
+}
+
+// Variations
+// -------------------------
+
+.progress-bar-white {
+    .progress-bar-variant(@white-base);
+}
+.progress-bar-success {
+    .progress-bar-variant(@brand-success);
+}
+.progress-bar-info {
+    .progress-bar-variant(@brand-info);
+}
+.progress-bar-purple {
+    .progress-bar-variant(@brand-purple);
+}
+.progress-bar-warning {
+    .progress-bar-variant(@brand-warning);
+}
+.progress-bar-danger {
+    .progress-bar-variant(@brand-danger);
+}
+
+// Progress bars
+
+.progress-bar-variant(@color) {
+    background-color: @color;
+}

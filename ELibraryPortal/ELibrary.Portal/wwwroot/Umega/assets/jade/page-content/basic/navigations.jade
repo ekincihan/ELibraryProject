@@ -1,0 +1,469 @@
+.page-content.container-fluid
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Tabs
+        .widget-body
+          p
+            | Note the 
+            code .nav-tabs
+            |  class requires the 
+            code .nav
+            |  base class.
+          div(role='tabpanel')
+            ul.nav.nav-tabs.mb-15(role='tablist')
+              li.active(role='presentation')
+                a#home-tab(href='#home', role='tab', data-toggle='tab', aria-controls='home', aria-expanded='true') Home
+              li(role='presentation')
+                a#profile-tab(href='#profile', role='tab', data-toggle='tab', aria-controls='profile', aria-expanded='false') Profile
+              li.dropdown(role='presentation')
+                a#myTabDrop1.dropdown-toggle(href='#', data-toggle='dropdown', aria-controls='myTabDrop1-contents', aria-expanded='false')
+                  | Dropdown 
+                  span.caret
+                ul#myTabDrop1-contents.dropdown-menu.animated.fadeInDown(role='menu', aria-labelledby='myTabDrop1')
+                  li
+                    a#dropdown1-tab(href='#dropdown1', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown1', aria-expanded='false') @fat
+                  li
+                    a#dropdown2-tab(href='#dropdown2', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown2', aria-expanded='false') @mdo
+            .tab-content
+              #home.tab-pane.fade.active.in(role='tabpanel', aria-labelledby='home-tab')
+                p
+                  | Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+              #profile.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab')
+                p
+                  | Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
+              #dropdown1.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown1-tab')
+                p
+                  | Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer.
+              #dropdown2.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown2-tab')
+                p
+                  | Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Pills
+        .widget-body
+          p
+            | Take that same HTML, but use 
+            code .nav-pills
+            |  instead:
+          div(role='tabpanel')
+            ul.nav.nav-pills.mb-15(role='tablist')
+              li.active(role='presentation')
+                a#home-tab2(href='#home2', role='tab', data-toggle='tab', aria-controls='home2', aria-expanded='true') Home
+              li(role='presentation')
+                a#profile-tab2(href='#profile2', role='tab', data-toggle='tab', aria-controls='profile2', aria-expanded='false') Profile
+              li.dropdown(role='presentation')
+                a#myTabDrop2.dropdown-toggle(href='#', data-toggle='dropdown', aria-controls='myTabDrop2-contents', aria-expanded='false')
+                  | Dropdown 
+                  span.caret
+                ul#myTabDrop2-contents.dropdown-menu(role='menu', aria-labelledby='myTabDrop2')
+                  li
+                    a#dropdown3-tab(href='#dropdown3', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown3', aria-expanded='false') @fat
+                  li
+                    a#dropdown4-tab(href='#dropdown4', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown4', aria-expanded='false') @mdo
+            .tab-content
+              #home2.tab-pane.fade.active.in(role='tabpanel', aria-labelledby='home-tab2')
+                p
+                  | Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+              #profile2.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab2')
+                p
+                  | Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
+              #dropdown3.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown3-tab')
+                p
+                  | Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer.
+              #dropdown4.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown4-tab')
+                p
+                  | Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY.
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Justified Tabs
+        .widget-body
+          p
+            | Add class 
+            code .nav-justified
+            |  to make it
+          div(role='tabpanel')
+            ul.nav.nav-tabs.nav-justified.mb-15(role='tablist')
+              li.active(role='presentation')
+                a#home-tab5(href='#home5', role='tab', data-toggle='tab', aria-controls='home5', aria-expanded='true') Home
+              li(role='presentation')
+                a#profile-tab5(href='#profile5', role='tab', data-toggle='tab', aria-controls='profile5', aria-expanded='false') Profile
+              li.dropdown(role='presentation')
+                a#myTabDrop5.dropdown-toggle(href='#', data-toggle='dropdown', aria-controls='myTabDrop5-contents', aria-expanded='false')
+                  | Dropdown 
+                  span.caret
+                ul#myTabDrop5-contents.dropdown-menu(role='menu', aria-labelledby='myTabDrop5')
+                  li
+                    a#dropdown9-tab(href='#dropdown9', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown9', aria-expanded='false') @fat
+                  li
+                    a#dropdown10-tab(href='#dropdown10', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown10', aria-expanded='false') @mdo
+            .tab-content
+              #home5.tab-pane.fade.active.in(role='tabpanel', aria-labelledby='home-tab5')
+                p
+                  | Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+              #profile5.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab5')
+                p
+                  | Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
+              #dropdown9.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown9-tab')
+                p
+                  | Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer.
+              #dropdown10.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown10-tab')
+                p
+                  | Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Justified Pills
+        .widget-body
+          p
+            | Add class 
+            code .nav-justified
+            |  to make it
+          div(role='tabpanel')
+            ul.nav.nav-pills.nav-justified.mb-15(role='tablist')
+              li.active(role='presentation')
+                a#home-tab6(href='#home6', role='tab', data-toggle='tab', aria-controls='home6', aria-expanded='true') Home
+              li(role='presentation')
+                a#profile-tab6(href='#profile6', role='tab', data-toggle='tab', aria-controls='profile6', aria-expanded='false') Profile
+              li.dropdown(role='presentation')
+                a#myTabDrop6.dropdown-toggle(href='#', data-toggle='dropdown', aria-controls='myTabDrop6-contents', aria-expanded='false')
+                  | Dropdown 
+                  span.caret
+                ul#myTabDrop6-contents.dropdown-menu(role='menu', aria-labelledby='myTabDrop6')
+                  li
+                    a#dropdown11-tab(href='#dropdown11', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown11', aria-expanded='false') @fat
+                  li
+                    a#dropdown12-tab(href='#dropdown12', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown12', aria-expanded='false') @mdo
+            .tab-content
+              #home6.tab-pane.fade.active.in(role='tabpanel', aria-labelledby='home-tab6')
+                p
+                  | Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+              #profile6.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab6')
+                p
+                  | Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
+              #dropdown11.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown11-tab')
+                p
+                  | Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer.
+              #dropdown12.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown12-tab')
+                p
+                  | Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY.
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Stacked Tabs
+        .widget-body
+          p
+            | Add class 
+            code .nav-stacked
+            |  to make it.
+          div(role='tabpanel')
+            ul.nav.nav-tabs.nav-stacked.mb-15(role='tablist')
+              li.active(role='presentation')
+                a#home-tab7(href='#home7', role='tab', data-toggle='tab', aria-controls='home7', aria-expanded='true') Home
+              li(role='presentation')
+                a#profile-tab7(href='#profile7', role='tab', data-toggle='tab', aria-controls='profile7', aria-expanded='false') Profile
+              li.dropdown(role='presentation')
+                a#myTabDrop7.dropdown-toggle(href='#', data-toggle='dropdown', aria-controls='myTabDrop7-contents', aria-expanded='false')
+                  | Dropdown 
+                  span.caret
+                ul#myTabDrop7-contents.dropdown-menu(role='menu', aria-labelledby='myTabDrop7')
+                  li
+                    a#dropdown13-tab(href='#dropdown13', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown13', aria-expanded='false') @fat
+                  li
+                    a#dropdown14-tab(href='#dropdown14', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown14', aria-expanded='false') @mdo
+            .tab-content
+              #home7.tab-pane.fade.active.in(role='tabpanel', aria-labelledby='home-tab7')
+                p
+                  | Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+              #profile7.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab7')
+                p
+                  | Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
+              #dropdown13.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown13-tab')
+                p
+                  | Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer.
+              #dropdown14.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown14-tab')
+                p
+                  | Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Stacked Pills
+        .widget-body
+          p
+            | Add class 
+            code .nav-stacked
+            |  to make it.
+          div(role='tabpanel')
+            ul.nav.nav-pills.nav-stacked.mb-15(role='tablist')
+              li.active(role='presentation')
+                a#home-tab8(href='#home8', role='tab', data-toggle='tab', aria-controls='home8', aria-expanded='true') Home
+              li(role='presentation')
+                a#profile-tab8(href='#profile8', role='tab', data-toggle='tab', aria-controls='profile8', aria-expanded='false') Profile
+              li.dropdown(role='presentation')
+                a#myTabDrop8.dropdown-toggle(href='#', data-toggle='dropdown', aria-controls='myTabDrop8-contents', aria-expanded='false')
+                  | Dropdown 
+                  span.caret
+                ul#myTabDrop8-contents.dropdown-menu(role='menu', aria-labelledby='myTabDrop8')
+                  li
+                    a#dropdown15-tab(href='#dropdown15', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown15', aria-expanded='false') @fat
+                  li
+                    a#dropdown16-tab(href='#dropdown16', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown16', aria-expanded='false') @mdo
+            #myTabContent.tab-content
+              #home8.tab-pane.fade.active.in(role='tabpanel', aria-labelledby='home-tab8')
+                p
+                  | Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+              #profile8.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab8')
+                p
+                  | Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
+              #dropdown15.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown15-tab')
+                p
+                  | Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer.
+              #dropdown16.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown16-tab')
+                p
+                  | Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY
+  .row
+    .col-lg-12
+      .widget
+        .widget-heading
+          h3.widget-title Pagination
+        .widget-body
+          .row
+            .col-md-6
+              p Default
+              nav
+                ul.pagination
+                  li
+                    a(href='#', aria-label='Previous')
+                      span(aria-hidden='true') &laquo;
+                  li
+                    a(href='#') 1
+                  li
+                    a(href='#') 2
+                  li
+                    a(href='#') 3
+                  li
+                    a(href='#') 4
+                  li
+                    a(href='#') 5
+                  li
+                    a(href='#', aria-label='Next')
+                      span(aria-hidden='true') &raquo;
+              p Disabled and active states
+              nav
+                ul.pagination
+                  li.disabled
+                    a(href='#', aria-label='Previous')
+                      span(aria-hidden='true') &laquo;
+                  li.active
+                    a(href='#')
+                      | 1 
+                      span.sr-only (current)
+                  li
+                    a(href='#') 2
+                  li
+                    a(href='#') 3
+                  li
+                    a(href='#') 4
+                  li
+                    a(href='#') 5
+                  li
+                    a(href='#', aria-label='Next')
+                      span(aria-hidden='true') &raquo;
+              p Responsive
+              nav
+                ul.pagination.responsive
+                  li.pagination-prev
+                    a(href='#', aria-label='Previous')
+                      span(aria-hidden='true') &laquo;
+                  li
+                    a(href='#') 1
+                  li
+                    a(href='#') 2
+                  li
+                    a(href='#') 3
+                  li
+                    a(href='#') 4
+                  li
+                    a(href='#') 5
+                  li
+                    a(href='#') 6
+                  li
+                    a(href='#') 7
+                  li
+                    a(href='#') 8
+                  li
+                    a(href='#') 9
+                  li.active
+                    a(href='#') 10
+                  li
+                    a(href='#') 12
+                  li
+                    a(href='#') 13
+                  li
+                    a(href='#') 14
+                  li
+                    a(href='#') 15
+                  li
+                    a(href='#') 16
+                  li
+                    a(href='#') 17
+                  li
+                    a(href='#') 18
+                  li
+                    a(href='#') 19
+                  li
+                    a(href='#') 20
+                  li
+                    a(href='#') 21
+                  li
+                    a(href='#') 22
+                  li
+                    a(href='#') 23
+                  li
+                    a(href='#') 24
+                  li
+                    a(href='#') 25
+                  li
+                    a(href='#') 26
+                  li
+                    a(href='#') 27
+                  li
+                    a(href='#') 28
+                  li
+                    a(href='#') 29
+                  li
+                    a(href='#') 30
+                  li.pagination-next
+                    a(href='#', aria-label='Next')
+                      span(aria-hidden='true') &raquo;
+            .col-md-6
+              p Sizing
+              nav
+                ul.pagination.pagination-lg
+                  li
+                    a(href='#', aria-label='Previous')
+                      span(aria-hidden='true') &laquo;
+                  li
+                    a(href='#') 1
+                  li
+                    a(href='#') 2
+                  li
+                    a(href='#') 3
+                  li
+                    a(href='#') 4
+                  li
+                    a(href='#') 5
+                  li
+                    a(href='#', aria-label='Next')
+                      span(aria-hidden='true') &raquo;
+              nav
+                ul.pagination
+                  li
+                    a(href='#', aria-label='Previous')
+                      span(aria-hidden='true') &laquo;
+                  li
+                    a(href='#') 1
+                  li
+                    a(href='#') 2
+                  li
+                    a(href='#') 3
+                  li
+                    a(href='#') 4
+                  li
+                    a(href='#') 5
+                  li
+                    a(href='#', aria-label='Next')
+                      span(aria-hidden='true') &raquo;
+              nav
+                ul.pagination.pagination-sm
+                  li
+                    a(href='#', aria-label='Previous')
+                      span(aria-hidden='true') &laquo;
+                  li
+                    a(href='#') 1
+                  li
+                    a(href='#') 2
+                  li
+                    a(href='#') 3
+                  li
+                    a(href='#') 4
+                  li
+                    a(href='#') 5
+                  li
+                    a(href='#', aria-label='Next')
+                      span(aria-hidden='true') &raquo;
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Breadcrumbs
+        .widget-body
+          ol.breadcrumb
+            li.active Home
+          ol.breadcrumb
+            li
+              a(href='#') Home
+            li.active Library
+          ol.breadcrumb
+            li
+              a(href='#') Home
+            li
+              a(href='#') Library
+            li.active Data
+          ol.breadcrumb
+            li.active
+              i.ti-home.mr-5
+              |  Home
+          ol.breadcrumb
+            li
+              a(href='#')
+                i.ti-home.mr-5
+                |  Home
+            li.active Library
+          ol.breadcrumb
+            li
+              a(href='#')
+                i.ti-home.mr-5
+                |  Home
+            li
+              a(href='#') Library
+            li.active Data
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Pager
+        .widget-body
+          p Default
+          nav
+            ul.pager
+              li
+                a(href='#') Previous
+              li
+                a(href='#') Next
+          p Aligned links
+          nav
+            ul.pager
+              li.previous
+                a(href='#')
+                  span(aria-hidden='true') &larr;
+                  |  Older
+              li.next
+                a(href='#')
+                  | Newer 
+                  span(aria-hidden='true') &rarr;
+          p Optional disabled state
+          nav
+            ul.pager
+              li.previous.disabled
+                a(href='#')
+                  span(aria-hidden='true') &larr;
+                  |  Older
+              li.next
+                a(href='#')
+                  | Newer 
+                  span(aria-hidden='true') &rarr;

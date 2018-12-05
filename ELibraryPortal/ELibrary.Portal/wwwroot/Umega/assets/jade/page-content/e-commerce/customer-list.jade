@@ -1,0 +1,440 @@
+.page-content.container-fluid
+  .widget
+    .widget-heading
+      h3.widget-title Customer List
+    .widget-body
+      form
+        .row
+          .col-md-4
+            .form-group
+              label(for='txtCustomerName') Customer Name
+              input#txtCustomerName.form-control(type='text')
+          .col-md-4
+            .form-group
+              label(for='ddlCustomerGroup') Customer Group
+              select#ddlCustomerGroup.form-control
+                option(value='') Choose
+                option(value='1') Group 1
+                option(value='2') Group 2
+                option(value='3') Group 3
+          .col-md-4
+            .form-group
+              label(for='ddlApproved') Approved
+              select#ddlApproved.form-control
+                option(value='') Choose
+                option(value='1') Yes
+                option(value='0') No
+        .row
+          .col-md-4
+            .form-group
+              label(for='txtEmail') Email
+              input#txtEmail.form-control(type='text')
+          .col-md-4
+            .form-group
+              label(for='ddlStatus') Status
+              select#ddlStatus.form-control
+                option(value='') Choose
+                option(value='1') Enabled
+                option(value='0') Disabled
+          .col-md-4
+            .form-group
+              label(for='date-added') Date Added
+              .input-group
+                input#date-added.form-control(type='text')
+                span.input-group-addon
+                  span.ti-calendar
+        button.mb-15.btn.btn-raised.btn-success(type='submit') Filter
+      table#customer-list.table.table-hover.dt-responsive.nowrap(style='width: 100%')
+        thead
+          tr
+            th.text-center
+              .checkbox-custom
+                input#checkAll(type='checkbox', value='option1')
+                label.pl-0(for='checkAll') &nbsp;
+            th Customer Name
+            th Email
+            th Customer Group
+            th Status
+            th Date Added
+            th.text-center Action
+        tbody
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-01(type='checkbox', value='01')
+                label.pl-0(for='product-01') &nbsp;
+            td Larry Elliott
+            td larry.elliott@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-02(type='checkbox', value='02')
+                label.pl-0(for='product-02') &nbsp;
+            td Harry Gardner
+            td harry.gardner@hotmail.fr
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-03(type='checkbox', value='03')
+                label.pl-0(for='product-03') &nbsp;
+            td Lori Cox
+            td lori.cox@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-04(type='checkbox', value='04')
+                label.pl-0(for='product-04') &nbsp;
+            td James Medina
+            td james.medina
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-05(type='checkbox', value='05')
+                label.pl-0(for='product-05') &nbsp;
+            td Lauren Perry
+            td Lauren.Perry@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-06(type='checkbox', value='06')
+                label.pl-0(for='product-06') &nbsp;
+            td Aaron Holmes
+            td aaron.holmes@hotmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/19/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-07(type='checkbox', value='07')
+                label.pl-0(for='product-07') &nbsp;
+            td Eric Santos
+            td eric.santos@gmail.com
+            td Default
+            td
+              span.label.label-danger Disabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-08(type='checkbox', value='08')
+                label.pl-0(for='product-08') &nbsp;
+            td Benjamin Ray
+            td benjamin.ray@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-09(type='checkbox', value='09')
+                label.pl-0(for='product-09') &nbsp;
+            td Virginia Baker
+            td virginia.baker@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-10(type='checkbox', value='10')
+                label.pl-0(for='product-10') &nbsp;
+            td Adam Vargas
+            td adam.vargas@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-11(type='checkbox', value='11')
+                label.pl-0(for='product-11') &nbsp;
+            td Dylan Chapman
+            td dylan.chapman@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-12(type='checkbox', value='12')
+                label.pl-0(for='product-12') &nbsp;
+            td Mildred Henry
+            td mildred.henry@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-13(type='checkbox', value='13')
+                label.pl-0(for='product-13') &nbsp;
+            td Brian Rogers
+            td brian.rogers@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-14(type='checkbox', value='14')
+                label.pl-0(for='product-14') &nbsp;
+            td Jennifer Valdez
+            td jennifer.valdez@gmail.com
+            td Default
+            td
+              span.label.label-danger Disabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-15(type='checkbox', value='15')
+                label.pl-0(for='product-15') &nbsp;
+            td James Perez
+            td james.perez@hotmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-16(type='checkbox', value='16')
+                label.pl-0(for='product-16') &nbsp;
+            td Joshua Tran
+            td joshua.tran@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-17(type='checkbox', value='17')
+                label.pl-0(for='product-17') &nbsp;
+            td Ryan Long
+            td ryan.long@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-18(type='checkbox', value='18')
+                label.pl-0(for='product-18') &nbsp;
+            td Walter Scott
+            td walter.scott@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-19(type='checkbox', value='19')
+                label.pl-0(for='product-19') &nbsp;
+            td Theresa Olson
+            td theresa.olson@gmail.com
+            td Default
+            td
+              span.label.label-danger Disabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash
+          tr
+            td.text-center
+              .checkbox-custom
+                input#product-20(type='checkbox', value='20')
+                label.pl-0(for='product-20') &nbsp;
+            td Helen Rose
+            td helen.rose@gmail.com
+            td Default
+            td
+              span.label.label-success Enabled
+            td 04/18/2016
+            td.text-center
+              .btn-group.btn-group-sm(role='group', aria-label='Basic example')
+                button.btn.btn-outline.btn-primary(type='button')
+                  i.ti-eye
+                button.btn.btn-outline.btn-success(type='button')
+                  i.ti-pencil
+                button.btn.btn-outline.btn-danger(type='button')
+                  i.ti-trash

@@ -1,0 +1,398 @@
+extends ../template/template.jade
+block css
+  include ../../core-css/indicators/toastr.jade
+block js
+  include ../../core-js/indicators/toastr.jade
+block custom-js
+  script(type='text/javascript', src=build+'js/page-content/indicators/toastr.js')
+block title
+  title Umega App - Toastr
+block navigation
+  ul.list-unstyled.navigation.mb-0
+    li.sidebar-category Main
+    li.panel
+      a.bubble.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse1', aria-expanded='false', aria-controls='collapse1')
+        i.ti-home
+        span.sidebar-title Dashboard
+        span.badge.bg-danger 2
+      ul#collapse1.list-unstyled.collapse
+        li
+          a(href='index.html') Dashboard v1
+        li
+          a(href='index-v2.html') Dashboard v2
+    li.panel
+      a(href='widgets.html')
+        i.ti-panel
+        span.sidebar-title Widgets 
+        span.label.label-outline.label-danger Updated
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse3', aria-expanded='false', aria-controls='collapse3')
+        i.ti-shopping-cart
+        span.sidebar-title E-commerce
+      ul#collapse3.list-unstyled.collapse
+        li
+          a(href='ecommerce-dashboard.html') Dashboard
+        li
+          a(href='product-list.html') Product list
+        li
+          a(href='edit-product.html') Edit product
+        li
+          a(href='order-list.html') Order list
+        li
+          a(href='edit-order.html') Edit order
+        li
+          a(href='customer-list.html') Customer list
+        li
+          a(href='edit-customer.html') Edit customer
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse4', aria-expanded='false', aria-controls='collapse4')
+        i.ti-paint-bucket
+        span.sidebar-title Color system
+      ul#collapse4.list-unstyled.collapse
+        li
+          a(href='green-system.html') Green
+        li
+          a(href='blue-system.html') Blue
+        li
+          a(href='purple-system.html') Purple
+        li
+          a(href='red-system.html') Red
+        li
+          a(href='yellow-system.html') Yellow
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse5', aria-expanded='false', aria-controls='collapse5')
+        i.ti-brush-alt
+        span.sidebar-title Skins
+      ul#collapse5.list-unstyled.collapse
+        li
+          a(href='green-dashboard.html') Green
+        li
+          a(href='blue-dashboard.html') Blue
+        li
+          a(href='purple-dashboard.html') Purple
+        li
+          a(href='red-dashboard.html') Red
+        li
+          a(href='yellow-dashboard.html') Yellow
+    li.sidebar-category Menu Levels
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse20', aria-expanded='false', aria-controls='collapse20')
+        i.ti-folder
+        span.sidebar-title Menu levels
+      ul#collapse20.list-unstyled.collapse
+        li
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse20', href='#collapse201', aria-expanded='false', aria-controls='collapse201') Menu level 2.1
+          ul#collapse201.list-unstyled.collapse
+            li
+              a(href='#') Menu level 3.1
+            li
+              a(href='#') Menu level 3.2
+            li
+              a(href='#') Menu level 3.3
+        li
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse20', href='#collapse202', aria-expanded='false', aria-controls='collapse202') Menu level 2.2
+          ul#collapse202.list-unstyled.collapse
+            li
+              a(href='#') Menu level 3.4
+            li
+              a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse202', href='#collapse302', aria-expanded='false', aria-controls='collapse302') Menu level 3.5
+              ul#collapse302.list-unstyled.collapse
+                li
+                  a(href='#') Menu level 4.1
+                li
+                  a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse302', href='#collapse402', aria-expanded='false', aria-controls='collapse402') Menu level 4.2
+                  ul#collapse402.list-unstyled.collapse
+                    li
+                      a(href='#') Menu level 5.1
+                    li
+                      a(href='#') Menu level 5.2
+            li
+              a(href='#') Menu level 3.6
+        li
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse20', href='#collapse203', aria-expanded='false', aria-controls='collapse203') Menu level 2.3
+          ul#collapse203.list-unstyled.collapse
+            li
+              a(href='#') Menu level 3.7
+            li
+              a(href='#') Menu level 3.8
+            li
+              a(href='#') Menu level 3.9
+    li.sidebar-category Components
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse6', aria-expanded='false', aria-controls='collapse6')
+        i.ti-receipt
+        span.sidebar-title Basic
+      ul#collapse6.list-unstyled.collapse
+        li
+          a(href='buttons.html') Buttons
+        li
+          a(href='carousels.html') Carousels
+        li
+          a(href='containers.html') Containers
+        li
+          a(href='dialogs.html') Dialogs
+        li
+          a(href='basic-inputs.html') Inputs
+        li
+          a(href='navigations.html') Navigations
+        li
+          a(href='progress-bars.html') Progress bars
+        li
+          a(href='typography.html') Typography
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse7', aria-expanded='false', aria-controls='collapse7')
+        i.ti-ruler-pencil
+        span.sidebar-title Editors
+      ul#collapse7.list-unstyled.collapse
+        li
+          a(href='summernote.html') Summernote
+        li
+          a(href='bootstrap-markdown.html') Bootstrap markdown
+        li
+          a(href='code-prettify.html') Code prettify
+        li
+          a(href='ckeditor.html') CKEditor
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse8', aria-expanded='false', aria-controls='collapse8')
+        i.ti-location-arrow
+        span.sidebar-title Pickers
+      ul#collapse8.list-unstyled.collapse
+        li
+          a(href='color-picker.html') Color picker
+        li
+          a(href='datetime-picker.html') Datetime picker
+        li
+          a(href='clock-picker.html') Clock picker
+        li
+          a(href='date-range-picker.html') Date range picker
+        li
+          a(href='multi-select.html') Multi select
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse9', aria-expanded='false', aria-controls='collapse9')
+        i.ti-layers-alt
+        span.sidebar-title Forms
+      ul#collapse9.list-unstyled.collapse
+        li
+          a(href='forms-layouts.html') Layouts
+        li
+          a(href='forms-validation.html') Validation
+        li
+          a(href='forms-wizard.html') Wizard
+        li
+          a(href='other-plugins.html') Other plugins
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse10', aria-expanded='false', aria-controls='collapse10')
+        i.ti-face-smile
+        span.sidebar-title Icons
+      ul#collapse10.list-unstyled.collapse
+        li
+          a(href='glyphicons.html') Glyphicons
+        li
+          a(href='font-awesome.html') Font awesome
+        li
+          a(href='material-design.html') Material design
+        li
+          a(href='themify.html') Themify
+        li
+          a(href='weather-icons.html') Weather
+        li
+          a(href='flag-icons.html') Flag
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse11', aria-expanded='false', aria-controls='collapse11')
+        i.ti-layout-grid2
+        span.sidebar-title Tables
+      ul#collapse11.list-unstyled.collapse
+        li
+          a(href='basic-tables.html') Basic tables
+        li
+          a(href='data-tables.html') Data tables
+        li
+          a(href='pricing-tables.html') Pricing tables
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse12', aria-expanded='false', aria-controls='collapse12')
+        i.ti-control-forward
+        span.sidebar-title Animations
+      ul#collapse12.list-unstyled.collapse
+        li
+          a(href='basic-animations.html') Basic
+        li
+          a(href='loading-animations.html') Loading
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse13', aria-expanded='false', aria-controls='collapse13')
+        i.ti-upload
+        span.sidebar-title File uploads
+      ul#collapse13.list-unstyled.collapse
+        li
+          a(href='dropzone-js.html') Dropzone
+        li
+          a(href='bootstrap-file-input.html') Bootstrap file input
+    li.panel
+      a.active.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse14', aria-expanded='false', aria-controls='collapse14')
+        i.ti-info-alt
+        span.sidebar-title Indicators
+      ul#collapse14.list-unstyled.collapse
+        li
+          a.active(href='toastr.html') Toastr
+        li
+          a(href='sweet-alert.html') Sweet alert
+    li.sidebar-category Data visualization
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse15', aria-expanded='false', aria-controls='collapse15')
+        i.ti-bar-chart
+        span.sidebar-title Charts
+      ul#collapse15.list-unstyled.collapse
+        li
+          a(href='flot-charts.html') Flot charts
+        li
+          a(href='morris-charts.html') Morris charts
+        li
+          a(href='chart-js.html') Chart.js
+        li
+          a(href='chartist.html') Chartist
+        li
+          a(href='other-charts.html') Other charts
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse16', aria-expanded='false', aria-controls='collapse16')
+        i.ti-location-pin
+        span.sidebar-title Maps
+      ul#collapse16.list-unstyled.collapse
+        li
+          a(href='vector-maps.html') Vector maps
+        li
+          a(href='google-maps.html') Google maps
+    li.sidebar-category Page kits
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse17', aria-expanded='false', aria-controls='collapse17')
+        i.ti-alert
+        span.sidebar-title Error pages
+      ul#collapse17.list-unstyled.collapse
+        li.panel
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse17', href='#collapse171', aria-expanded='false', aria-controls='collapse171') Error pages v1
+          ul#collapse171.list-unstyled.collapse
+            li
+              a(href='error-400.html') Error 400
+            li
+              a(href='error-401.html') Error 401
+            li
+              a(href='error-403.html') Error 403
+            li
+              a(href='error-404.html') Error 404
+            li
+              a(href='error-500.html') Error 500
+            li
+              a(href='error-503.html') Error 503
+        li.panel
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse17', href='#collapse172', aria-expanded='false', aria-controls='collapse172') Error pages v2
+          ul#collapse172.list-unstyled.collapse
+            li
+              a(href='error-400-v2.html') Error 400
+            li
+              a(href='error-401-v2.html') Error 401
+            li
+              a(href='error-403-v2.html') Error 403
+            li
+              a(href='error-404-v2.html') Error 404
+            li
+              a(href='error-500-v2.html') Error 500
+            li
+              a(href='error-503-v2.html') Error 503
+        li.panel
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse17', href='#collapse173', aria-expanded='false', aria-controls='collapse173') Error pages v3
+          ul#collapse173.list-unstyled.collapse
+            li
+              a(href='error-400-v3.html') Error 400
+            li
+              a(href='error-401-v3.html') Error 401
+            li
+              a(href='error-403-v3.html') Error 403
+            li
+              a(href='error-404-v3.html') Error 404
+            li
+              a(href='error-500-v3.html') Error 500
+            li
+              a(href='error-503-v3.html') Error 503
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse18', aria-expanded='false', aria-controls='collapse18')
+        i.ti-user
+        span.sidebar-title User pages
+      ul#collapse18.list-unstyled.collapse
+        li.panel
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse18', href='#collapse181', aria-expanded='false', aria-controls='collapse181') User pages v1
+          ul#collapse181.list-unstyled.collapse
+            li
+              a(href='login.html') Login
+            li
+              a(href='register.html') Register
+            li
+              a(href='forgot-password.html') Forgot password
+            li
+              a(href='lock-screen.html') Lock screen
+            li
+              a(href='profile.html') Profile
+        li.panel
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse18', href='#collapse182', aria-expanded='false', aria-controls='collapse182') User pages v2
+          ul#collapse182.list-unstyled.collapse
+            li
+              a(href='login-v2.html') Login
+            li
+              a(href='register-v2.html') Register
+            li
+              a(href='forgot-password-v2.html') Forgot password
+            li
+              a(href='lock-screen-v2.html') Lock screen
+            li
+              a(href='profile-v2.html') Profile
+        li.panel
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#collapse18', href='#collapse183', aria-expanded='false', aria-controls='collapse183') User pages v3
+          ul#collapse183.list-unstyled.collapse
+            li
+              a(href='login-v3.html') Login
+            li
+              a(href='register-v3.html') Register
+            li
+              a(href='forgot-password-v3.html') Forgot password
+            li
+              a(href='lock-screen-v3.html') Lock screen
+            li
+              a(href='profile-v3.html') Profile
+    li.panel
+      a.collapsed(role='button', data-toggle='collapse', data-parent='.navigation', href='#collapse19', aria-expanded='false', aria-controls='collapse19')
+        i.ti-blackboard
+        span.sidebar-title Extra pages 
+        span.label.label-outline.label-success Updated
+      ul#collapse19.list-unstyled.collapse
+        li
+          a(href='chat-dashboard.html') Chat dashboard
+        li
+          a(href='mailbox.html') Mailbox
+        li
+          a(href='calendar.html') Calendar
+        li
+          a(href='image-cropper.html') Image cropper
+        li
+          a(href='invoice.html') Invoice
+        li
+          a(href='timeline.html') Timeline
+        li
+          a(href='gallery.html') Gallery
+        li
+          a(href='search-results.html') Search results
+        li
+          a(href='blank-template.html') Blank template
+    li.sidebar-category Help
+    li.panel
+      a(href='documentation.html')
+        i.ti-help-alt
+        span.sidebar-title Documentation
+block page-header
+  | Toastr
+block breadcrumb
+  ol.breadcrumb.mb-0
+    li
+      a(href='#') Umega
+    li
+      a(href='#') Indicators
+    li.active Toastr
+block page-content
+  include ../../page-content/indicators/toastr.jade
+  include ../template/footer.jade

@@ -1,0 +1,118 @@
+.page-content.container-fluid
+  .widget
+    .widget-heading
+      h3.widget-title Basic
+    .widget-body
+      form.form-horizontal
+        .form-group
+          label.col-sm-2.control-label Example 1
+          .col-sm-10
+            input#input-1.file(type='file')
+            p.help-block
+              | Automatically convert a file input to a bootstrap file input widget by setting its class as 
+              code file
+              | .
+        .form-group
+          label.col-sm-2.control-label Example 2
+          .col-sm-10
+            input#input-2.file(type='file', data-show-preview='false')
+            p.help-block Hide file preview thumbnails.
+        .form-group
+          label.col-sm-2.control-label Example 3
+          .col-sm-10
+            input#input-3.file(name='input3[]', type='file', multiple='', data-show-upload='false', data-show-caption='true')
+            p.help-block Use file input attributes (e.g. multiple upload) for setting input behavior and data attributes to control plugin options. For example, hide/show display of upload button and caption.
+        .form-group
+          label.col-sm-2.control-label Example 4
+          .col-sm-10
+            input#input-4.file(type='file', disabled='true')
+            p.help-block Set the file input widget to be readonly or disabled.
+        .form-group
+          label.col-sm-2.control-label Example 5
+          .col-sm-10
+            input#input-5.file-loading(name='input5[]', type='file', multiple='')
+            p.help-block
+              | Initialize file input widget via javascript. Hide the caption and display widget with only buttons. You can add the 
+              code file-loading
+              |  class to show a spinning indicator, while the plugin loads.
+        .form-group
+          label.col-sm-2.control-label Example 6
+          .col-sm-10
+            input#input-6.file-loading(name='input6[]', type='file', multiple='')
+            p.help-block Change size of whole widget (e.g. bootstrap input group styling) and set max files count allowed to 10.
+        .form-group
+          label.col-sm-2.control-label Example 7
+          .col-sm-10
+            input#input-7.file.file-loading(name='input7[]', multiple='', type='file', data-allowed-file-extensions='["csv", "txt"]')
+            p.help-block
+              | Using data attributes to configure the entire widget. This example shows how you can pass json within data attributes in the HTML markup (check 
+              code data-allowed-file-extensions
+              |  which basically sets the plugin property 
+              code allowedFileExtensions
+              | )
+  .widget
+    .widget-heading
+      h3.widget-title Advanced
+    .widget-body
+      form.form-horizontal
+        .form-group
+          label.col-sm-2.control-label Example 8
+          .col-sm-10
+            input#input-8.file-loading(name='8[]', type='file', multiple='')
+            p.help-block
+              | Set maximum file upload size to 100 KB. Display preview on load with preset files/images and captions with 
+              code overwriteInitial
+              |  set to 
+              code false
+              | . So the initial preview is always displayed when additional files are overwritten (useful for multiple upload) scenario.
+        .form-group
+          label.col-sm-2.control-label Example 9
+          .col-sm-10
+            input#input-9.file-loading(name='input9[]', type='file', multiple='')
+            p.help-block
+              | Display preview on load with preset files/images and captions with 
+              code overwriteInitial
+              |  set to 
+              code true
+              | .
+        .form-group
+          label.col-sm-2.control-label Example 10
+          .col-sm-10
+            input#input-10.file-loading(type='file', accept='image/*')
+            p.help-block Show only image files for selection & preview. Control button labels, styles, and icons for the browse, upload, and remove buttons.
+        .form-group
+          label.col-sm-2.control-label Example 11
+          .col-sm-10
+            input#input-11.file-loading(name='input11[]', type='file', accept='text/plain', multiple='')
+            p.help-block Preview section control. Change preview background and allow text files ONLY for selection as well as preview.
+        .form-group
+          label.col-sm-2.control-label Example 12
+          .col-sm-10
+            input#input-12.file-loading(name='input12[]', type='file', multiple='')
+            p.help-block Advanced customization using templates. For example, change position of buttons from right to left.
+        .form-group
+          label.col-sm-2.control-label Example 13
+          .col-sm-8
+            input#input-13.file(name='input13[]', type='file', multiple='')
+            p.help-block Using plugin methods to alter input at runtime. For example, click the Modify button to disable the plugin and change plugin options.
+          .col-sm-2
+            button.btn.btn-block.btn-warning.btn-modify(type='button') Modify
+        .form-group
+          label.col-sm-2.control-label Example 14
+          .col-sm-10
+            input#input-14.file-loading(name='input14[]', type='file', multiple='')
+            p.help-block
+              | Allow only image and video file types to be uploaded. You can configure the condition for validating the file types using 
+              code fileTypeSettings
+              | .
+        .form-group
+          label.col-sm-2.control-label Example 15
+          .col-sm-10
+            input#input-15.file-loading(name='input15[]', type='file', multiple='')
+            p.help-block Allow only specific file extensions.
+        .form-group
+          label.col-sm-2.control-label Example 16
+          .col-sm-10
+            input#input-16.file-loading(name='input16[]', type='file', multiple='')
+            p.help-block Disable preview and customize your own error container and messages.
+            #errorBlock.help-block

@@ -1,0 +1,36 @@
+.logo
+  img(src=build+'images/logo/logo-sm-light.png', alt='', width='80')
+form.form-horizontal(method='get', action='index.html')
+  .form-group
+    .col-xs-12
+      input.form-control(type='text', placeholder='Username')
+  .form-group
+    .col-xs-12
+      input.form-control(type='text', placeholder='Email')
+  .form-group
+    .col-xs-12
+      input.form-control(type='password', placeholder='Password')
+  .form-group
+    .col-xs-12
+      input.form-control(type='password', placeholder='Confirm Password')
+  .form-group
+    .col-xs-12
+      .checkbox-inline.checkbox-custom(style='margin-bottom: 7px')
+        input#exampleCheckboxAgree(type='checkbox', value='remember')
+        label.checkbox-muted.text-muted(for='exampleCheckboxAgree') Agree the terms and policy
+  button.btn-lg.btn.btn-primary.btn-rounded.btn-block(type='submit') Sign up
+hr
+p.text-muted Sign up with your Facebook or Twitter accounts
+.clearfix
+  .pull-left
+    button.btn.btn-outline.btn-rounded.btn-primary(type='button', style='width: 130px')
+      i.ti-facebook.mr-5
+      |  Facebook
+  .pull-right
+    button.btn.btn-outline.btn-rounded.btn-info(type='button', style='width: 130px')
+      i.ti-twitter-alt.mr-5
+      |  Twitter
+hr
+.clearfix
+  p.text-muted.mb-0.pull-left Already have an account?    
+  a.inline-block.pull-right(href='login.html') Sign In

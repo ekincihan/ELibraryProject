@@ -1,0 +1,113 @@
+//
+// Typography
+// --------------------------------------------------
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-weight: 500;
+}
+
+// Contextual colors
+.text-base {
+    color: @text-color;
+}
+.text-muted {
+    color: @text-muted;
+}
+.text-white {
+    color: @white-base;
+}
+.text-primary {
+    .text-emphasis-variant(@text-primary);
+}
+.text-success {
+    .text-emphasis-variant(@text-success);
+}
+.text-info {
+    .text-emphasis-variant(@text-info);
+}
+.text-warning {
+    .text-emphasis-variant(@text-warning);
+}
+.text-danger {
+    .text-emphasis-variant(@text-danger);
+}
+.text-purple {
+    .text-emphasis-variant(@text-purple);
+}
+
+// Typography
+
+.text-emphasis-variant(@color) {
+    color: @color;
+    a&:hover,
+    a&:focus {
+        color: darken(@color, 10%);
+    }
+}
+
+// Contextual backgrounds
+.bg-light {
+    background-color: fade(@white-base, 10%);
+}
+.bg-dark {
+    background-color: fade(@black-lighter, 10%);
+}
+.bg-default {
+    .bg-variant(@bg-default);
+}
+.bg-black {
+    .bg-variant(@bg-black);
+}
+.bg-primary {
+    .bg-variant(@bg-primary);
+}
+.bg-success {
+    .bg-variant(@bg-success);
+}
+.bg-info {
+    .bg-variant(@bg-info);
+}
+.bg-warning {
+    .bg-variant(@bg-warning);
+}
+.bg-danger {
+    .bg-variant(@bg-danger);
+}
+.bg-purple {
+    .bg-variant(@bg-purple);
+}
+
+// Contextual backgrounds
+
+.bg-variant(@color) {
+    background-color: @color;
+    color: @white-base;
+    a&:hover,
+    a&:focus {
+        background-color: darken(@color, 10%);
+    }
+}
+
+// Page header
+// -------------------------
+
+.page-header {
+	border-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+// Dropcap
+// -------------------------
+
+.drop-cap:first-letter {
+    float: left;
+    margin: 0 10px -5px 0;
+    font-size: 450%;
+    line-height: 100%;
+    color: @text-primary;
+}

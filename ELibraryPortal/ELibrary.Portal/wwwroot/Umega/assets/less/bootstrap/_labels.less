@@ -1,0 +1,88 @@
+//
+// Labels
+// --------------------------------------------------
+
+
+.label {
+	border-radius: 2px;
+	font-weight: 500;
+    padding: 3px 6px;
+}
+
+
+// Colors
+// Contextual variations (linked labels get darker on :hover)
+
+.label-default {
+    .label-variant(@gray-light);
+}
+
+.label-primary {
+    .label-variant(@brand-primary);
+}
+
+.label-success {
+    .label-variant(@brand-success);
+}
+
+.label-purple {
+    .label-variant(@brand-purple);
+}
+
+.label-info {
+    .label-variant(@brand-info);
+}
+
+.label-warning {
+    .label-variant(@brand-warning);
+}
+
+.label-danger {
+    .label-variant(@brand-danger);
+}
+
+// Labels
+
+.label-variant(@color) {
+    background-color: @color;
+    &[href] {
+        &:hover,
+        &:focus {
+            background-color: darken(@color, 10%);
+        }
+    }
+}
+
+.label-outline.label-default {
+    .outline-label-variant(@gray-light);
+}
+
+.label-outline.label-primary {
+    .outline-label-variant(@brand-primary);
+}
+
+.label-outline.label-success {
+    .outline-label-variant(@brand-success);
+}
+
+.label-outline.label-purple {
+    .outline-label-variant(@brand-purple);
+}
+
+.label-outline.label-info {
+    .outline-label-variant(@brand-info);
+}
+
+.label-outline.label-warning {
+    .outline-label-variant(@brand-warning);
+}
+
+.label-outline.label-danger {
+    .outline-label-variant(@brand-danger);
+}
+
+.outline-label-variant(@color) {
+    background-color: transparent;
+    color: @color;
+    border: 1px solid @color;
+}

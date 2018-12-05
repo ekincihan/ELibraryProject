@@ -1,0 +1,42 @@
+//
+// Dropdown menus
+// --------------------------------------------------
+
+
+// The dropdown menu (ul)
+.dropdown-menu {
+	border: 1px solid @separator-border-color;
+	border-radius: 0;
+	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	> li > a {
+		padding: 7px 20px;
+		color: @text-color;
+		> img {
+			margin-right: 8px;
+		}
+	}
+}
+
+.dm-large {
+	width: 400px;
+}
+
+.dm-medium {
+	width: 340px;
+}
+
+.dm-small {
+	width: 280px;
+}
+
+// Active state
+.dropdown-menu > .active > a {
+	&,
+	&:hover,
+	&:focus {
+		background-color: @black-lighter;
+	}
+}
+.dropdown-header {
+	padding: 5px 20px;
+}

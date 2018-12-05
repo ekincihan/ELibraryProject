@@ -1,0 +1,291 @@
+.page-content.container-fluid
+  .widget
+    .widget-heading.clearfix
+      h3.widget-title.pull-left Edit Product
+      .pull-right
+        button.btn.btn-primary(type='button')
+          i.ti-save
+        button.btn.btn-default(type='button')
+          i.ti-share-alt
+    .widget-body
+      form.form-horizontal
+        ul.nav.nav-tabs.mb-15(role='tablist')
+          li.active(role='presentation')
+            a(href='#general', aria-controls='general', role='tab', data-toggle='tab') General
+          li(role='presentation')
+            a(href='#data', aria-controls='data', role='tab', data-toggle='tab') Data
+          li(role='presentation')
+            a(href='#discount', aria-controls='discount', role='tab', data-toggle='tab') Discount
+          li(role='presentation')
+            a(href='#image', aria-controls='image', role='tab', data-toggle='tab') Image
+        .tab-content
+          #general.tab-pane.active(role='tabpanel')
+            .form-group
+              label.col-sm-3.control-label(for='txtProductName') Product Name
+              .col-sm-9
+                input#txtProductName.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtMetaTagTitle') Meta Tag Title
+              .col-sm-9
+                input#txtMetaTagTitle.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtMetaTagDescription') Meta Tag Description
+              .col-sm-9
+                textarea#txtMetaTagDescription.form-control
+            .form-group
+              label.col-sm-3.control-label(for='txtMetaTagKeywords') Meta Tag Keywords
+              .col-sm-9
+                textarea#txtMetaTagKeywords.form-control
+            .form-group
+              label.col-sm-3.control-label(for='txtDescription') Description
+              .col-sm-9
+                textarea#txtDescription.form-control
+          #data.tab-pane(role='tabpanel')
+            .form-group
+              label.col-sm-3.control-label(for='txtModel') Model
+              .col-sm-9
+                input#txtModel.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtSKU') SKU
+              .col-sm-9
+                input#txtSKU.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtLocation') Location
+              .col-sm-9
+                input#txtLocation.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtPrice') Price
+              .col-sm-9
+                input#txtPrice.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtTaxClass') Tax Class
+              .col-sm-9
+                input#txtTaxClass.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtQuantity') Quantity
+              .col-sm-9
+                input#txtQuantity.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtMinQuantity') Minimum Quantity
+              .col-sm-9
+                input#txtMinQuantity.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='ddlStatus') Status
+              .col-sm-9
+                select#ddlStatus.form-control
+                  option(value='') Choose
+                  option(value='1') Enabled
+                  option(value='0') Disabled
+          #discount.tab-pane(role='tabpanel')
+            table#product-list.table.table-bordered
+              thead
+                tr
+                  th Group
+                  th Quantity
+                  th Price
+                  th(style='width: 20%') Date Start
+                  th(style='width: 20%') Date End
+                  th.text-center Action
+              tbody
+                tr
+                  td
+                    select.form-control
+                      option(selected='') Group 1
+                      option Group 2
+                      option Group 3
+                      option Group 4
+                  td
+                    input.txtQuantity.form-control(type='text', value='10')
+                  td
+                    input.txtPrice.form-control(type='text', value='28.00')
+                  td
+                    .input-group
+                      input.start-date.form-control(type='text')
+                      span.input-group-addon
+                        span.ti-calendar
+                  td
+                    .input-group
+                      input.end-date.form-control(type='text')
+                      span.input-group-addon
+                        span.ti-calendar
+                  td.text-center
+                    button.btn.btn-outline.btn-danger(type='button')
+                      i.ti-trash
+                tr
+                  td
+                    select.form-control
+                      option(selected='') Group 1
+                      option Group 2
+                      option Group 3
+                      option Group 4
+                  td
+                    input.txtQuantity.form-control(type='text', value='10')
+                  td
+                    input.txtPrice.form-control(type='text', value='28.00')
+                  td
+                    .input-group
+                      input.start-date.form-control(type='text')
+                      span.input-group-addon
+                        span.ti-calendar
+                  td
+                    .input-group
+                      input.end-date.form-control(type='text')
+                      span.input-group-addon
+                        span.ti-calendar
+                  td.text-center
+                    button.btn.btn-outline.btn-danger(type='button')
+                      i.ti-trash
+                tr
+                  td
+                    select.form-control
+                      option(selected='') Group 1
+                      option Group 2
+                      option Group 3
+                      option Group 4
+                  td
+                    input.txtQuantity.form-control(type='text', value='10')
+                  td
+                    input.txtPrice.form-control(type='text', value='28.00')
+                  td
+                    .input-group
+                      input.start-date.form-control(type='text')
+                      span.input-group-addon
+                        span.ti-calendar
+                  td
+                    .input-group
+                      input.end-date.form-control(type='text')
+                      span.input-group-addon
+                        span.ti-calendar
+                  td.text-center
+                    button.btn.btn-outline.btn-danger(type='button')
+                      i.ti-trash
+                tr
+                  td
+                    select.form-control
+                      option(selected='') Group 1
+                      option Group 2
+                      option Group 3
+                      option Group 4
+                  td
+                    input.txtQuantity.form-control(type='text', value='10')
+                  td
+                    input.txtPrice.form-control(type='text', value='28.00')
+                  td
+                    .input-group
+                      input.start-date.form-control(type='text')
+                      span.input-group-addon
+                        span.ti-calendar
+                  td
+                    .input-group
+                      input.end-date.form-control(type='text')
+                      span.input-group-addon
+                        span.ti-calendar
+                  td.text-center
+                    button.btn.btn-outline.btn-danger(type='button')
+                      i.ti-trash
+                tr
+                  td
+                    select.form-control
+                      option(selected='') Group 1
+                      option Group 2
+                      option Group 3
+                      option Group 4
+                  td
+                    input.txtQuantity.form-control(type='text', value='10')
+                  td
+                    input.txtPrice.form-control(type='text', value='28.00')
+                  td
+                    .input-group
+                      input.start-date.form-control(type='text')
+                      span.input-group-addon
+                        span.ti-calendar
+                  td
+                    .input-group
+                      input.end-date.form-control(type='text')
+                      span.input-group-addon
+                        span.ti-calendar
+                  td.text-center
+                    button.btn.btn-outline.btn-danger(type='button')
+                      i.ti-trash
+          #image.tab-pane(role='tabpanel')
+            table.table.table-bordered(style='width: 100%')
+              thead
+                tr
+                  th.text-center Image
+                  th Image Url
+                  th(style='width: 20%') Sort Order
+                  th.text-center Edit
+                  th.text-center Remove
+              tbody
+                tr
+                  td.text-center
+                    img.img-thumbnail.img-responsive(src=build+'images/products/01.jpg', width='100', alt='')
+                  td
+                    input.form-control(type='text', value='http://mydomain.com/images/product/01.jpg', disabled, name='txtImageUrl')
+                  td
+                    input.form-control(type='text', value='0', name='txtSortOrder')
+                  td.text-center
+                    input.filestyle(type='file', data-input='false', data-buttonText='', data-buttonName='btn-primary btn-outline btn-sm')
+                  td.text-center
+                    button.btn.btn-sm.btn-outline.btn-danger(type='button')
+                      i.ti-trash
+                tr
+                  td.text-center
+                    img.img-thumbnail.img-responsive(src=build+'images/products/02.jpg', width='100', alt='')
+                  td
+                    input.form-control(type='text', value='http://mydomain.com/images/product/02.jpg', disabled, name='txtImageUrl')
+                  td
+                    input.form-control(type='text', value='0', name='txtSortOrder')
+                  td.text-center
+                    input.filestyle(type='file', data-input='false', data-buttonText='', data-buttonName='btn-primary btn-outline btn-sm')
+                  td.text-center
+                    button.btn.btn-sm.btn-outline.btn-danger(type='button')
+                      i.ti-trash
+                tr
+                  td.text-center
+                    img.img-thumbnail.img-responsive(src=build+'images/products/03.jpg', width='100', alt='')
+                  td
+                    input.form-control(type='text', value='http://mydomain.com/images/product/03.jpg', disabled, name='txtImageUrl')
+                  td
+                    input.form-control(type='text', value='0', name='txtSortOrder')
+                  td.text-center
+                    input.filestyle(type='file', data-input='false', data-buttonText='', data-buttonName='btn-primary btn-outline btn-sm')
+                  td.text-center
+                    button.btn.btn-sm.btn-outline.btn-danger(type='button')
+                      i.ti-trash
+                tr
+                  td.text-center
+                    img.img-thumbnail.img-responsive(src=build+'images/products/04.jpg', width='100', alt='')
+                  td
+                    input.form-control(type='text', value='http://mydomain.com/images/product/04.jpg', disabled, name='txtImageUrl')
+                  td
+                    input.form-control(type='text', value='0', name='txtSortOrder')
+                  td.text-center
+                    input.filestyle(type='file', data-input='false', data-buttonText='', data-buttonName='btn-primary btn-outline btn-sm')
+                  td.text-center
+                    button.btn.btn-sm.btn-outline.btn-danger(type='button')
+                      i.ti-trash
+                tr
+                  td.text-center
+                    img.img-thumbnail.img-responsive(src=build+'images/products/05.jpg', width='100', alt='')
+                  td
+                    input.form-control(type='text', value='http://mydomain.com/images/product/05.jpg', disabled, name='txtImageUrl')
+                  td
+                    input.form-control(type='text', value='0', name='txtSortOrder')
+                  td.text-center
+                    input.filestyle(type='file', data-input='false', data-buttonText='', data-buttonName='btn-primary btn-outline btn-sm')
+                  td.text-center
+                    button.btn.btn-sm.btn-outline.btn-danger(type='button')
+                      i.ti-trash
+                tr
+                  td.text-center
+                    img.img-thumbnail.img-responsive(src=build+'images/products/06.jpg', width='100', alt='')
+                  td
+                    input.form-control(type='text', value='http://mydomain.com/images/product/06.jpg', disabled, name='txtImageUrl')
+                  td
+                    input.form-control(type='text', value='0', name='txtSortOrder')
+                  td.text-center
+                    input.filestyle(type='file', data-input='false', data-buttonText='', data-buttonName='btn-primary btn-outline btn-sm')
+                  td.text-center
+                    button.btn.btn-sm.btn-outline.btn-danger(type='button')
+                      i.ti-trash

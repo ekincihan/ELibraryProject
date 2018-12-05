@@ -1,0 +1,39 @@
+// Demo Settings start
+.setting.closed
+  a.setting-toggle.fs-16(href='javascript:;')
+    i.ti-palette.text-muted
+  h5.fs-16.mt-0.mb-20 Header Colors
+  ul.list-inline
+    li
+      a(href='javascript:;', data-color='header-primary').mo-xs.bg-primary.inline-block.img-circle.header-color
+    li
+      a(href='javascript:;', data-color='header-green').mo-xs.bg-success.inline-block.img-circle.header-color
+    li
+      a(href='javascript:;', data-color='header-purple').mo-xs.bg-purple.inline-block.img-circle.header-color
+    li
+      a(href='javascript:;', data-color='header-yellow').mo-xs.bg-warning.inline-block.img-circle.header-color
+    li
+      a(href='javascript:;', data-color='header-red').mo-xs.bg-danger.inline-block.img-circle.header-color
+  h5.fs-16.mt-0.mb-20 Sidebar Style
+  ul.list-inline
+    li
+      a(href='javascript:;', data-color='sidebar-dark').sidebar-color.mo-xs.bg-black.inline-block.img-circle
+    li
+      a(href='javascript:;', data-color='sidebar-light').sidebar-color.mo-xs.bg-default.inline-block.img-circle
+  form.form-horizontal.mb-20
+    .clearfix
+      p.form-control-static.pull-left Background Image
+      .switch.pull-right
+        input#sidebar-bg(type='checkbox', checked='')
+        label.switch-success(for='sidebar-bg')
+  ul.list-inline.mb-0
+    li
+      a(href='javascript:;', data-bg='10.jpg').inline-block.sidebar-bg
+        img.img-rounded(src=build+'images/thumbnails/10.jpg', width='60', alt='')
+    li
+      a(href='javascript:;', data-bg='11.jpg').inline-block.sidebar-bg
+        img.img-rounded(src=build+'images/thumbnails/11.jpg', width='60', alt='')
+    li
+      a(href='javascript:;', data-bg='12.jpg').inline-block.sidebar-bg
+        img.img-rounded(src=build+'images/thumbnails/12.jpg', width='60', alt='')
+// Demo Settings end

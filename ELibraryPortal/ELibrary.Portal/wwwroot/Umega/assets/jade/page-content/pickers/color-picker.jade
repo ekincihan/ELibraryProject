@@ -1,0 +1,178 @@
+.page-content.container-fluid
+  h3.mt-0 jQuery MiniColors
+  .widget
+    .widget-heading
+      h3.widget-title Control Types
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Hue (default)
+            input#hue-minicolors.form-control(type='text', value='#9b59b6')
+        .col-md-6
+          .form-group
+            label Brightness
+            input#brightness-minicolors.form-control(type='text', value='#2ecc71')
+      .row
+        .col-md-6
+          .form-group
+            label Saturation
+            input#saturation-minicolors.form-control(type='text', value='#3498db')
+        .col-md-6
+          .form-group
+            label Wheel
+            input#wheel-minicolors.form-control(type='text', value='#1abc9c')
+  .widget
+    .widget-heading
+      h3.widget-title Input Modes
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Text field
+            input#text-minicolors.form-control(type='text', value='#9b59b6')
+          .form-group
+            label Hidden input
+            input#hidden-minicolors(type='hidden', value='#bdc3c7')
+        .col-md-6
+          .form-group
+            label Inline
+            br
+            input#inline-minicolors.form-control(type='text', value='#bdc3c7')
+  .widget
+    .widget-heading
+      h3.widget-title Positions
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Bottom left
+            input#bottom-left-minicolors.form-control(type='text', value='#3498db')
+        .col-md-6
+          .form-group
+            label Bottom right
+            input#bottom-right-minicolors.form-control(type='text', value='#1abc9c')
+      .row
+        .col-md-6
+          .form-group
+            label Top left
+            input#top-left-minicolors.form-control(type='text', value='#2ecc71')
+        .col-md-6
+          .form-group
+            label Top right
+            input#top-right-minicolors.form-control(type='text', value='#9b59b6')
+  .widget
+    .widget-heading
+      h3.widget-title RGB(A)
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label RGB
+            input#rgb-minicolors.form-control(type='text', value='rgb(155, 89, 182)')
+        .col-md-6
+          .form-group
+            label RGB(A)
+            input#rgba-minicolors.form-control(type='text', value='rgba(22, 160, 133, 0.8)')
+  .widget
+    .widget-heading
+      h3.widget-title …and more!
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Opacity
+            input#opacity-minicolors.form-control(type='text', value='#9b59b6', data-opacity='0.8')
+        .col-md-6
+          .form-group
+            label Keywords
+            input#keywords-minicolors.form-control(type='text', value='transparent')
+      .row
+        .col-md-6
+          .form-group
+            label Default Value
+            input#default-value-minicolors.form-control(type='text')
+        .col-md-6
+          .form-group
+            label Letter Case
+            input#letter-case-minicolors.form-control(type='text', value='#9b59b6')
+      .row
+        .col-md-6
+          .form-group
+            label Input group
+            .input-group
+              input#input-group-minicolors.form-control(type='text', value='#1abc9c')
+              span.input-group-btn
+                button.btn.btn-outline.btn-default(type='button') Button
+        .col-md-6
+          .form-group
+            label More Input Groups
+            .input-group
+              span.input-group-addon Color
+              input#more-input-group-minicolors.form-control(type='text', value='#2ecc71')
+              span.input-group-btn
+                button.btn.btn-outline.btn-default(type='button') Button
+  h3 Bootstrap Color Picker Sliders
+  .widget
+    .widget-heading
+      h3.widget-title HSV Flat
+    .widget-body
+      #hsvflat
+  .widget
+    .widget-heading
+      h3.widget-title Positions
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Right
+            input#right.form-control(type='text', value='#9b59b6')
+        .col-md-6
+          .form-group
+            label Left
+            input#left.form-control(type='text', value='#2ecc71')
+      .row
+        .col-md-6
+          .form-group
+            label Top
+            input#top.form-control(type='text', value='#1abc9c')
+        .col-md-6
+          .form-group
+            label Bottom
+            input#bottom.form-control(type='text', value='#3498db')  
+  .widget
+    .widget-heading
+      h3.widget-title HSL and CIE Lch
+    .widget-body
+      #hslflat
+  .widget
+    .widget-heading
+      h3.widget-title Different sizes and color sliders
+    .widget-body
+      .row
+        .col-md-6
+          .form-group
+            label Small sized HSL
+            input#small.form-control(type='text', value='#9b59b6')
+        .col-md-6
+          .form-group
+            label Small sized HSV
+            input#smallhsv.form-control(type='text', value='#2ecc71')
+      .row
+        .col-md-6
+          .form-group
+            label Default sized RGB
+            input#default.form-control(type='text', value='#1abc9c')
+        .col-md-6
+          .form-group
+            label Large sized CIE Lch
+            input#large.form-control(type='text', value='rgb(52, 152, 219)')
+      .row
+        .col-md-6
+          .form-group
+            label Swatches only
+            input#swatchesonly.form-control(type='text')
+        .col-md-6
+          .form-group
+            label HSL with opdacity and swatches
+            input#hslswatches.form-control(type='text', value='hsl(180, 50%, 50%)')

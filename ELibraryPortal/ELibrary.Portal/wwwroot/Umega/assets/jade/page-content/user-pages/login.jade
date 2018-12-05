@@ -1,0 +1,32 @@
+.logo
+  img(src=build+'images/logo/logo-sm-light.png', alt='', width='80')
+form.form-horizontal(method='get', action='index.html')
+  .form-group
+    .col-xs-12
+      input.form-control(type='text', placeholder='Username')
+  .form-group
+    .col-xs-12
+      input.form-control(type='password', placeholder='Password')
+  .form-group
+    .col-xs-12
+      .checkbox-inline.checkbox-custom.pull-left
+        input#exampleCheckboxRemember(type='checkbox', value='remember')
+        label.checkbox-muted.text-muted(for='exampleCheckboxRemember') Remember me
+      .pull-right
+        a.inline-block.form-control-static(href='forgot-password.html') Forgot a Passowrd?
+  button.btn-lg.btn.btn-primary.btn-rounded.btn-block(type='submit') Sign in
+hr
+p.text-muted Sign in with your Facebook or Twitter accounts
+.clearfix
+  .pull-left
+    button.btn.btn-outline.btn-rounded.btn-primary(type='button', style='width: 130px')
+      i.ti-facebook.mr-5
+      |  Facebook
+  .pull-right
+    button.btn.btn-outline.btn-rounded.btn-info(type='button', style='width: 130px')
+      i.ti-twitter-alt.mr-5
+      |  Twitter
+hr
+.clearfix
+  p.text-muted.mb-0.pull-left Want new account?
+  a.inline-block.pull-right(href='register.html') Sign Up

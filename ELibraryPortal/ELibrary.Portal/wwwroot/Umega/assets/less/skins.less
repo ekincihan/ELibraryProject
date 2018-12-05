@@ -1,0 +1,169 @@
+.skin-variant(@brand; @color; @background) {
+	.chat-content {
+		.other {
+			.media-body {
+				p {
+					background-color: @background;
+				}
+			}
+		}
+	}
+	.list-group-item {
+		&.active,
+		&.active:hover,
+		&.active:focus {
+			background-color: @background;
+			border-color: @background;
+		}
+	}
+	.form-control {
+		&.focus,
+		&:focus {
+			border-color: @brand;
+		}
+	}
+	.nav-pills {
+		> li {
+			&.active > a {
+				&,
+				&:hover,
+				&:focus {
+					background-color: @background;
+				}
+			}
+		}
+	}
+	.dropdown-menu > .active > a {
+		&,
+		&:hover,
+		&:focus {
+			background-color: @background;
+		}
+	}
+	.pagination {
+		> .active > a,
+		> .active > span {
+			&,
+			&:hover,
+			&:focus {
+				background-color: @background;
+				border-color: @background;
+			}
+		}
+	}
+	.breadcrumb {
+		> .active {
+			color: @color;
+		}
+	}
+	.datepicker table tr td.active.active,
+	.datepicker table tr td.active.disabled.active,
+	.datepicker table tr td.active.disabled:active,
+	.datepicker table tr td.active.disabled:focus,
+	.datepicker table tr td.active.disabled:hover,
+	.datepicker table tr td.active.disabled:hover.active,
+	.datepicker table tr td.active.disabled:hover:active,
+	.datepicker table tr td.active.disabled:hover:focus,
+	.datepicker table tr td.active.disabled:hover:hover,
+	.datepicker table tr td.active:active,
+	.datepicker table tr td.active:focus,
+	.datepicker table tr td.active:hover,
+	.datepicker table tr td.active:hover.active,
+	.datepicker table tr td.active:hover:active,
+	.datepicker table tr td.active:hover:focus,
+	.datepicker table tr td.active:hover:hover,
+	.open .dropdown-toggle.datepicker table tr td.active,
+	.open .dropdown-toggle.datepicker table tr td.active.disabled,
+	.open .dropdown-toggle.datepicker table tr td.active.disabled:hover,
+	.open .dropdown-toggle.datepicker table tr td.active:hover {
+		background-color: @background;
+		border-color: @background;
+	}
+	.bootstrap-datetimepicker-widget table td span.active {
+		background-color: @background;
+	}
+	.daterangepicker .ranges li.active,
+	.daterangepicker .ranges li:hover {
+		background-color: @background;
+		border-color: @background;
+	}
+	.daterangepicker td.active,
+	.daterangepicker td.active:hover {
+		background-color: @background;
+	}
+	.wizard > .steps .current a,
+	.wizard > .steps .current a:hover,
+	.wizard > .steps .current a:active {
+		background-color: @background;
+	}
+	.wizard > .actions .disabled a,
+	.wizard > .actions .disabled a:hover,
+	.wizard > .actions .disabled a:active {
+		background-color: @gray-lighter;
+		box-shadow: 0 3px 0 0 darken(@gray-lighter, 10%);
+	}
+	.wizard > .actions a,
+	.wizard > .actions a:hover,
+	.wizard > .actions a:active {
+		background-color: @background;
+		box-shadow: 0 3px 0 0 darken(@background, 10%);
+	}
+	table.dataTable tbody>tr.selected,
+	table.dataTable tbody>tr>.selected {
+		background-color: @background;
+	}
+	.mailbox {
+		.inbox {
+			li {
+				&.active {
+					box-shadow: inset -5px 0 @background;
+				}
+			}
+		}
+	}
+	.sk-rotating-plane {
+		background-color: @background;
+	}
+
+	.sk-double-bounce .sk-child {
+		background-color: @background;
+	}
+
+	.sk-wave .sk-rect {
+		background-color: @background;
+	}
+
+	.sk-wandering-cubes .sk-cube {
+		background-color: @background;
+	}
+
+	.sk-spinner-pulse {
+		background-color: @background;
+	}
+
+	.sk-chasing-dots .sk-child {
+		background-color: @background;
+	}
+
+	.sk-three-bounce .sk-child {
+		background-color: @background;
+	}
+
+	.sk-circle .sk-child:before {
+		background-color: @background;
+	}
+
+	.sk-cube-grid .sk-cube {
+		background-color: @background;
+	}
+
+	.sk-fading-circle .sk-circle {
+		&:before {
+			background-color: @background;
+		}
+	}
+
+	.sk-folding-cube .sk-cube:before {
+		background-color: @background;
+	}
+}

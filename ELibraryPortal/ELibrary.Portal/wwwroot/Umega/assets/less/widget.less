@@ -1,0 +1,169 @@
+// Widget
+// -------------------------
+
+.widget {
+	margin-bottom: @content-padding;
+	border: 1px solid @separator-border-color;
+	&.clear {
+		border: none;
+		.widget-heading {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.widget-body {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+.widget-heading {
+	padding: 15px 20px;
+	border-bottom: 1px solid @separator-border-color;
+}
+.widget-tools {
+	margin-bottom: 0;
+	> li {
+		float: left;
+		padding: 0 10px;
+		&:last-child {
+			padding-right: 0;
+		}
+		a {
+			color: @gray-light;
+		}
+	}
+}
+.widget-title {
+	margin: 0;
+	font-weight: 400;
+	font-size: 18px;
+	color: @black-lighter;
+}
+.widget-body {
+	padding: 20px;
+}
+
+// Chat Content
+// -------------------------
+
+.chat-content {
+	.media-body {
+		p {
+			background-color: @gray-lighter;
+			padding: 10px;
+			border-top-left-radius: 15px;
+			border-top-right-radius: 15px;
+			border-bottom-right-radius: 15px;
+			margin-bottom: 5px;
+		}
+	}
+	.other {
+		.media-body {
+			p {
+				background-color: @black-lighter;
+				color: @white-base;
+				border-top-right-radius: 0;
+				border-bottom-left-radius: 15px;
+			}
+		}
+	}
+}
+
+// Activity List
+// -----------------------------
+
+.activity-list {
+	.media-left {
+		min-width: 140px;
+	}
+	> li {
+		position: relative;
+		padding: 10px 0 10px 41px;
+		&:before {
+			content: "";
+			position: absolute;
+			left: 5px;
+			top: 0;
+			height: 100%;
+			border-left: 1px solid @separator-border-color;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 18px;
+			height: 11px;
+			width: 11px;
+			border-radius: 50%;
+			border: 2px solid @gray-light;
+			background-color: @white-base;
+		}
+	}
+}
+
+.activity-list.activity-sm {
+	> li {
+		padding: 10px 0 10px 25px;
+	}
+}
+
+.activity-list {
+	> li {
+		&.activity-primary {
+			.activity-variant(@brand-primary);
+		}
+		&.activity-success {
+			.activity-variant(@brand-success);
+		}
+		&.activity-info {
+			.activity-variant(@brand-info);
+		}
+		&.activity-purple {
+			.activity-variant(@brand-purple);
+		}
+		&.activity-warning {
+			.activity-variant(@brand-warning);
+		}
+		&.activity-danger {
+			.activity-variant(@brand-danger);
+		}
+		&.activity-white {
+			.activity-variant(@white-base);
+		}
+	}
+}
+
+.activity-variant(@border-color) {
+	&:after {
+		border-color: @border-color;
+	}
+}
+
+// Upcoming Events
+// -----------------------------
+
+.events-header {
+	font-size: 20px;
+	font-weight: 300;
+	height: 60px;
+	line-height: 60px;
+	background-color: rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+.draggable {
+	li {
+		&:first-child {
+			padding-top: 0;
+		}
+		padding: 12px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		cursor: move;
+		&.ui-draggable-dragging {
+			padding: 12px 10px;
+			background-color: @white-base;
+			border-bottom: none;
+			color: @text-color;
+			box-shadow: 0 1px 1px rgba(0,0,0,.05);
+		}
+	}
+}

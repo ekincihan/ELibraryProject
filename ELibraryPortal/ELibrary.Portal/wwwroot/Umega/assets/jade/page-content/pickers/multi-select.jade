@@ -1,0 +1,218 @@
+.page-content.container-fluid
+  h3.mt-0 Bootstrap Dual Listbox
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Basic
+        .widget-body
+          form#basic-dl-form(action='#', method='post')
+            select#basic-dl(multiple='multiple', size='10')
+              option(value='HTML5') HTML5
+              option(value='CSS') CSS
+              option(value='Javascript') Javascript
+              option(value='PHP') PHP
+              option(value='ASP.NET') ASP.NET
+              option(value='Visual Basic') Visual Basic
+              option(value='Java') Java
+              option(value='Python') Python
+              option(value='Less') Less
+              option(value='Stylus') Stylus
+            button.btn.btn-default.btn-block.mt-15(type='submit') Submit data
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Pre-selected
+        .widget-body
+          form#pre-selected-dl-form(action='#', method='post')
+            select#pre-selected-dl(multiple='multiple', size='10')
+              option(value='HTML5') HTML5
+              option(value='CSS', selected) CSS
+              option(value='Javascript', selected) Javascript
+              option(value='PHP') PHP
+              option(value='ASP.NET') ASP.NET
+              option(value='Visual Basic', selected) Visual Basic
+              option(value='Java') Java
+              option(value='Python') Python
+              option(value='Less', selected) Less
+              option(value='Stylus') Stylus
+            button.btn.btn-default.btn-block.mt-15(type='submit') Submit data
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Filtered Results
+        .widget-body
+          form#filtered-results-dl-form(action='#', method='post')
+            select#filtered-results-dl(multiple='multiple', size='10')
+              option(value='HTML5') HTML5
+              option(value='CSS', selected) CSS
+              option(value='Javascript', selected) Javascript
+              option(value='PHP') PHP
+              option(value='ASP.NET') ASP.NET
+              option(value='Visual Basic', selected) Visual Basic
+              option(value='Java') Java
+              option(value='Python') Python
+              option(value='Less', selected) Less
+              option(value='Stylus') Stylus
+            button.btn.btn-default.btn-block.mt-15(type='submit') Submit data
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Disabled attribute
+        .widget-body
+          form#disabled-attribute-dl-form(action='#', method='post')
+            select#disabled-attribute-dl(multiple='multiple', size='10')
+              option(value='HTML5') HTML5
+              option(value='CSS', selected) CSS
+              option(value='Javascript', selected) Javascript
+              option(value='PHP', disabled) PHP
+              option(value='ASP.NET') ASP.NET
+              option(value='Visual Basic', selected) Visual Basic
+              option(value='Java', disabled) Java
+              option(value='Python', disabled) Python
+              option(value='Less', selected) Less
+              option(value='Stylus') Stylus
+            button.btn.btn-default.btn-block.mt-15(type='submit') Submit data
+  h3 Multi Select
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Basic
+        .widget-body
+          select#basic-ms(multiple='multiple')
+            option(value='HTML5') HTML5
+            option(value='CSS') CSS
+            option(value='Javascript') Javascript
+            option(value='PHP') PHP
+            option(value='ASP.NET') ASP.NET
+            option(value='Visual Basic') Visual Basic
+            option(value='Java') Java
+            option(value='Python') Python
+            option(value='Less') Less
+            option(value='Stylus') Stylus
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Pre-selected
+        .widget-body
+          select#pre-selected-ms(multiple='multiple')
+            option(value='HTML5') HTML5
+            option(value='CSS', selected) CSS
+            option(value='Javascript', selected) Javascript
+            option(value='PHP') PHP
+            option(value='ASP.NET') ASP.NET
+            option(value='Visual Basic', selected) Visual Basic
+            option(value='Java') Java
+            option(value='Python') Python
+            option(value='Less', selected) Less
+            option(value='Stylus') Stylus
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Callbacks
+        .widget-body
+          select#callbacks-ms(multiple='multiple')
+            option(value='HTML5') HTML5
+            option(value='CSS', selected) CSS
+            option(value='Javascript', selected) Javascript
+            option(value='PHP') PHP
+            option(value='ASP.NET') ASP.NET
+            option(value='Visual Basic', selected) Visual Basic
+            option(value='Java') Java
+            option(value='Python') Python
+            option(value='Less', selected) Less
+            option(value='Stylus') Stylus
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Keep Order
+        .widget-body
+          select#keep-order-ms(multiple='multiple')
+            option(value='HTML5') HTML5
+            option(value='CSS', selected) CSS
+            option(value='Javascript', selected) Javascript
+            option(value='PHP') PHP
+            option(value='ASP.NET') ASP.NET
+            option(value='Visual Basic', selected) Visual Basic
+            option(value='Java') Java
+            option(value='Python') Python
+            option(value='Less', selected) Less
+            option(value='Stylus') Stylus
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Optgroup
+        .widget-body
+          select#optgroup-ms(multiple='multiple')
+            optgroup(label='Group 1')
+              option(value='HTML5') HTML5
+              option(value='CSS', selected) CSS
+              option(value='Javascript', selected) Javascript
+              option(value='PHP') PHP
+              option(value='ASP.NET') ASP.NET
+            optgroup(label='Group 2')
+              option(value='Visual Basic', selected) Visual Basic
+              option(value='Java') Java
+              option(value='Python') Python
+              option(value='Less', selected) Less
+              option(value='Stylus') Stylus
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Disabled attribute
+        .widget-body
+          select#disabled-attribute-ms(multiple='multiple')
+            option(value='HTML5') HTML5
+            option(value='CSS', selected) CSS
+            option(value='Javascript', selected) Javascript
+            option(value='PHP', disabled) PHP
+            option(value='ASP.NET') ASP.NET
+            option(value='Visual Basic', selected) Visual Basic
+            option(value='Java', disabled) Java
+            option(value='Python') Python
+            option(value='Less', selected) Less
+            option(value='Stylus') Stylus
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Public methods
+        .widget-body
+          .btn-demo
+            a#select-all.btn.btn-sm.btn-outline.btn-success(href='#') select all
+            a#deselect-all.btn.btn-sm.btn-outline.btn-success(href='#') deselect all
+            a#select-html5-php.btn.btn-sm.btn-outline.btn-success(href='#') select html5 php
+            a#deselect-css-javascript.btn.btn-sm.btn-outline.btn-success(href='#') deselect css javascript
+            a#add-option.btn.btn-sm.btn-outline.btn-success(href='#') add option
+            a#refresh.btn.btn-sm.btn-outline.btn-success(href='#') refresh
+          select#public-methods-ms(multiple='multiple')
+            option(value='HTML5') HTML5
+            option(value='CSS', selected) CSS
+            option(value='Javascript', selected) Javascript
+            option(value='PHP') PHP
+            option(value='ASP.NET') ASP.NET
+            option(value='Visual Basic', selected) Visual Basic
+            option(value='Java') Java
+            option(value='Python') Python
+            option(value='Less', selected) Less
+            option(value='Stylus') Stylus
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Searchable
+        .widget-body
+          select#searchable-ms(multiple='multiple')
+            option(value='HTML5') HTML5
+            option(value='CSS', selected) CSS
+            option(value='Javascript', selected) Javascript
+            option(value='PHP') PHP
+            option(value='ASP.NET') ASP.NET
+            option(value='Visual Basic', selected) Visual Basic
+            option(value='Java') Java
+            option(value='Python') Python
+            option(value='Less', selected) Less
+            option(value='Stylus') Stylus

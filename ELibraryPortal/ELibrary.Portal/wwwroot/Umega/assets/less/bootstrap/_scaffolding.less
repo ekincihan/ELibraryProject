@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+
+//
+// Scaffolding
+// --------------------------------------------------
+
+// Body
+body {
+	font-family: @font-family-base;
+	font-size: @font-size-base;
+	color: @text-color;
+	background-color: @body-bg;
+	position: relative;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased !important;
+	moz-osx-font-smoothing: grayscale !important;
+}
+		
+// Links
+a {
+	color: @link-color;
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		outline: 0;
+		color: @link-hover-color;
+	}
+}

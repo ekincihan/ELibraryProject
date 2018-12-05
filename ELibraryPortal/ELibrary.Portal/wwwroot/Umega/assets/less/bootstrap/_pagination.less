@@ -1,0 +1,26 @@
+.pagination {
+	> li {
+		> a,
+		> span {
+			color: @text-color;
+			border: 1px solid @separator-border-color;
+		}
+	}
+	> li > a,
+	> li > span {
+		&:hover,
+		&:focus {
+			color: @text-color;
+			border-color: @separator-border-color;
+		}
+	}
+	> .active > a,
+	> .active > span {
+		&,
+		&:hover,
+		&:focus {
+			background-color: @black-lighter;
+			border-color: @black-lighter;
+		}
+	}
+}

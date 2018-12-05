@@ -1,0 +1,189 @@
+//
+// CSS Helper
+// --------------------------------------------------
+
+// Background-image color overlay
+
+.overlay-container {
+    position: relative;
+    overflow: hidden;
+    &.overlay-color {
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: fade(@black-light, 60%);
+        }
+    }
+    .overlay-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: -1;
+    }
+    .overlay-content {
+        color: @white-base;
+        background-color: fade(@black-light, 60%);
+    }
+    hr {
+        border-color: fade(@white-base, 20%);
+    }
+}
+
+// Line Height
+
+.lh-1 {
+    line-height: 1!important;
+}
+
+// Border
+
+.bd-t {
+    border-top: 1px solid @separator-border-color;
+}
+.bd-r {
+    border-right: 1px solid @separator-border-color;
+}
+.bd-b {
+    border-bottom: 1px solid @separator-border-color;
+}
+.bd-l {
+    border-left: 1px solid @separator-border-color;
+}
+
+// No Box-shadow
+
+.no-shadow {
+    box-shadow: none !important;
+}
+
+// No Border
+
+.no-border {
+    border: none !important;
+}
+
+// Display Element
+
+.inline-block {
+    display: inline-block !important;
+}
+.inline {
+    display: inline !important;
+}
+.block {
+    display: block !important;
+}
+
+
+// Font weight
+
+.fw- {
+    .for(@font-weight); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            font-weight: extract(@value, 1) !important;
+        }
+    }
+}
+
+// Font size
+
+.fs- {
+    .for(@font-size); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            font-size: unit(extract(@value, 1), px) !important;
+        }
+    }
+}
+
+// Margin, margin-top, margin-right, margin-bottom, margin-left
+// Padding, padding-top, padding-right, padding-bottom, padding-left
+
+.m- {
+    .for(@distance); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            margin: unit(extract(@value, 1), px) !important;
+        }
+    }
+}
+.mt- {
+    .for(@distance); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            margin-top: unit(extract(@value, 1), px) !important;
+        }
+    }
+}
+.mr- {
+    .for(@distance); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            margin-right: unit(extract(@value, 1), px) !important;
+        }
+    }
+}
+.mb- {
+    .for(@distance); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            margin-bottom: unit(extract(@value, 1), px) !important;
+        }
+    }
+}
+.ml- {
+    .for(@distance); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            margin-left: unit(extract(@value, 1), px) !important;
+        }
+    }
+}
+.p- {
+    .for(@distance); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            padding: unit(extract(@value, 1), px) !important;
+        }
+    }
+}
+.pt- {
+    .for(@distance); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            padding-top: unit(extract(@value, 1), px) !important;
+        }
+    }
+}
+.pr- {
+    .for(@distance); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            padding-right: unit(extract(@value, 1), px) !important;
+        }
+    }
+}
+.pb- {
+    .for(@distance); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            padding-bottom: unit(extract(@value, 1), px) !important;
+        }
+    }
+}
+.pl- {
+    .for(@distance); .-each(@value) {
+        @name: extract(@value, 1);
+        &@{name} {
+            padding-left: unit(extract(@value, 1), px) !important;
+        }
+    }
+}

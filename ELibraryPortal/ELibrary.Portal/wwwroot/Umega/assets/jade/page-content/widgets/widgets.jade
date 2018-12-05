@@ -1,0 +1,724 @@
+.page-content.container-fluid
+  .row
+    .col-md-3.col-sm-6
+      .widget.no-border.bg-success.clearfix.p-15
+        .pull-left
+          h5.m-0.text-uppercase Earning
+          .fs-18.fw-600 $3,290
+        #sp-bar.pull-right
+    .col-md-3.col-sm-6
+      .widget.no-border.bg-danger.clearfix.p-15
+        .pull-left
+          h5.m-0.text-uppercase Orders
+          .fs-18.fw-600 231
+        #sp-line.pull-right
+    .col-md-3.col-sm-6
+      .widget.no-border.bg-info.clearfix.p-15
+        .pull-left
+          h5.m-0.text-uppercase Tweets
+          .fs-18.fw-600 3,890
+        i.ti-twitter-alt.fs-36.pull-right
+    .col-md-3.col-sm-6
+      .widget.no-border.bg-primary.clearfix.p-15
+        .pull-left
+          h5.m-0.text-uppercase Likes
+          .fs-18.fw-600 4031
+        i.ti-facebook.fs-36.pull-right
+  .row
+    .col-md-3.col-sm-6
+      .widget
+        .widget-body
+          .clearfix
+            .pull-left New Comments
+            .pull-right
+              a.widget-reload(href='javascript:;')
+                i.ti-control-record.text-muted
+          .fs-30 1,206
+          .text-success
+            i.ti-arrow-up.fs-12
+            |  2.43%
+          #flot-comment(style='height: 60px; float: right; width: 70%; margin-top: -40px; margin-right: -20px')
+    .col-md-3.col-sm-6
+      .widget
+        .widget-body
+          .clearfix
+            .pull-left New Orders
+            .pull-right
+              a.widget-reload(href='javascript:;')
+                i.ti-control-record.text-muted
+          .fs-30 650
+          .text-success
+            i.ti-arrow-up.fs-12
+            |  5.28%
+          #flot-order(style='height: 60px; float: right; width: 70%; margin-top: -40px; margin-right: -20px')
+    .col-md-3.col-sm-6
+      .widget
+        .widget-body
+          .clearfix
+            .pull-left Total Revenue
+            .pull-right
+              a.widget-reload(href='javascript:;')
+                i.ti-control-record.text-muted
+          .fs-30 $20,320
+          .text-danger
+            i.ti-arrow-down.fs-12
+            |  1.06%
+          #flot-revenue(style='height: 60px; float: right; width: 70%; margin-top: -40px; margin-right: -20px')
+    .col-md-3.col-sm-6
+      .widget
+        .widget-body
+          .clearfix
+            .pull-left Task Completed
+            .pull-right
+              a.widget-reload(href='javascript:;')
+                i.ti-control-record.text-muted
+          .fs-30 278
+          .text-danger
+            i.ti-arrow-down.fs-12
+            |  3.76%
+          #flot-task(style='height: 60px; float: right; width: 70%; margin-top: -40px; margin-right: -20px')
+  .row
+    .col-md-3.col-sm-6
+      .widget.text-center
+        .widget-body
+          .clearfix
+            .pull-left
+              a.widget-reload(href='javascript:;')
+                i.ti-control-record.text-muted
+            .pull-right
+              a.widget-remove(href='javascript:;')
+                i.ti-trash.text-muted
+          h5.mb-5 New Comments
+          .fs-36.fw-600.mb-20.counter 1,206
+          #esp-comment.easy-pie-chart.fs-36(data-percent='75', style='height: 140px; width: 140px; line-height: 120px; padding: 10px;')
+            i.ti-comment-alt.text-muted
+          .clearfix.mt-20
+            .pull-left
+              .fs-12 Today
+              .text-success +2.43%
+            .pull-right
+              .fs-12 Yesterday
+              .text-danger -1.02%
+    .col-md-3.col-sm-6
+      .widget.text-center
+        .widget-body
+          .clearfix
+            .pull-left
+              a.widget-reload(href='javascript:;')
+                i.ti-control-record.text-muted
+            .pull-right
+              a.widget-remove(href='javascript:;')
+                i.ti-trash.text-muted
+          h5.mb-5 New Photos
+          .fs-36.fw-600.mb-20.counter 350
+          #esp-photo.easy-pie-chart.fs-36(data-percent='55', style='height: 140px; width: 140px; line-height: 120px; padding: 10px;')
+            i.ti-image.text-muted
+          .clearfix.mt-20
+            .pull-left
+              .fs-12 Today
+              .text-danger -0.23%
+            .pull-right
+              .fs-12 Yesterday
+              .text-success +1.02%
+    .col-md-3.col-sm-6
+      .widget.text-center
+        .widget-body
+          .clearfix
+            .pull-left
+              a.widget-reload(href='javascript:;')
+                i.ti-control-record.text-muted
+            .pull-right
+              a.widget-remove(href='javascript:;')
+                i.ti-trash.text-muted
+          h5.mb-5 New Users
+          .fs-36.fw-600.mb-20.counter 890
+          #esp-user.easy-pie-chart.fs-36(data-percent='30', style='height: 140px; width: 140px; line-height: 120px; padding: 10px;')
+            i.ti-user.text-muted
+          .clearfix.mt-20
+            .pull-left
+              .fs-12 Today
+              .text-success +0.09%
+            .pull-right
+              .fs-12 Yesterday
+              .text-danger -0.02%
+    .col-md-3.col-sm-6
+      .widget.text-center
+        .widget-body
+          .clearfix
+            .pull-left
+              a.widget-reload(href='javascript:;')
+                i.ti-control-record.text-muted
+            .pull-right
+              a.widget-remove(href='javascript:;')
+                i.ti-trash.text-muted
+          h5.mb-5 New Feedbacks
+          .fs-36.fw-600.mb-20.counter 1,609
+          #esp-feedback.easy-pie-chart.fs-36(data-percent='20', style='height: 140px; width: 140px; line-height: 120px; padding: 10px;')
+            i.ti-receipt.text-muted
+          .clearfix.mt-20
+            .pull-left
+              .fs-12 Today
+              .text-success +3.29%
+            .pull-right
+              .fs-12 Yesterday
+              .text-success +2.32%
+  .row
+    .col-md-4.col-sm-6
+      .widget.no-border
+        .overlay-container.overlay-color(style='height: 200px')
+          img.overlay-bg.img-responsive(src=build+'images/backgrounds/34.jpg', alt='')
+        div(style='position: relative')
+          a(href='#', style='position: absolute; top: -70px; left: 50%; margin-left: -50px; border-radius: 50%; padding: 3px; background-color: #FFF')
+            img.img-circle(src=build+'images/users/03.jpg', width='100', alt='')
+        .text-center.p-20.bd-l.bd-r
+          h4.text-success.mt-30.mb-5 Janice Hopkins
+          p Web Developer
+          p.mb-0 I am a freelance graphic designer with 20 years experience working in the Graphic Design industry.
+        .row.row-0.p-15.text-center.bg-black
+          .col-xs-4
+            .fs-20.fw-500 208
+            .text-muted Following
+          .col-xs-4
+            .fs-20.fw-500 560
+            .text-muted Likes
+          .col-xs-4
+            .fs-20.fw-500 95
+            .text-muted Photos
+      .widget
+        .widget-heading
+          h3.widget-title Recent Activities
+        .widget-body
+          ul.activity-list.activity-sm.list-unstyled.mb-0
+            li.activity-purple
+              time.fs-12.text-muted(datetime='2015-12-10T20:50:48+07:00') 9 minutes ago
+              p.mt-10.mb-0
+                | You 
+                span.label.label-success recommended
+                |  Karen Ortega
+            li.activity-danger
+              time.fs-12.text-muted(datetime='2015-12-10T20:42:40+07:00') 15 minutes ago
+              p.mt-10.mb-0 You followed Olivia Williamson
+            li.activity-warning
+              time.fs-12.text-muted(datetime='2015-12-10T20:35:35+07:00') 22 minutes ago
+              p.mt-10.mb-0
+                | You 
+                span.text-danger subscribed
+                |  to Harold Fuller
+            li.activity-success
+              time.fs-12.text-muted(datetime='2015-12-10T20:27:48+07:00') 30 minutes ago
+              p.mt-10.mb-0 You updated your profile picture
+            li.activity-primary
+              time.fs-12.text-muted(datetime='2015-12-10T20:22:48+07:00') 35 minutes ago
+              p.mt-10.mb-0 You deleted homepage.psd
+      .widget.no-border.overlay-container
+        img.overlay-bg.img-responsive(src=build+'images/backgrounds/11.jpg', alt='')
+        .overlay-content
+          .text-center.p-30
+            i.wi.wi-night-alt-cloudy-windy.fs-60.mr-20
+            span.fs-60.fw-300 76
+              sup o
+            p.h4.mb-0 Mostly Clear
+          hr.m-0
+          ul.list-unstyled.p-30.mb-0
+            li.mb-10 Local Time
+              span.pull-right Mon 03:06 PM
+            li.mb-10 Feels Like
+              span.pull-right 65
+                sup o
+            li.mb-10 Humidity
+              span.pull-right 91%
+            li.mb-10 Wind Speed
+              span.pull-right 8 kmh E
+            li.mb-10 Visibility
+              span.pull-right 9 im
+            li Pressure
+              span.pull-right 29.93 inHg
+          hr.m-0
+          .row.row-0.text-center.p-30
+            .col-xs-4
+              .mb-10 TUE
+              i.block.fs-24.wi.wi-day-fog
+              .mt-10 69
+                sup o
+            .col-xs-4
+              .mb-10 WED
+              i.block.fs-24.wi.wi-day-snow-wind
+              .mt-10 71
+                sup o
+            .col-xs-4
+              .mb-10 THU
+              i.block.fs-24.wi.wi-day-sprinkle
+              .mt-10 75
+                sup o
+    .col-md-4.col-sm-6
+      .widget.no-border
+        .overlay-container.overlay-color(style='height: 160px')
+          img.overlay-bg.img-responsive(src=build+'images/backgrounds/47.jpg', alt='')
+        .bd-l.bd-r.bd-b
+          div(style='position: relative; padding-left: 140px; padding-top: 20px')
+            a(href='#', style='position: absolute; top: -40px; left: 20px; border-radius: 50%; padding: 3px; background-color: #FFF')
+              img.img-circle(src=build+'images/users/16.jpg', width='100', alt='')
+            h4.mt-0.mb-5 William Harper
+            p.text-success Graphic Designer
+          .p-20.pt-0
+            p
+              | I am a freelance graphic designer with 20 years experience working in the Graphic Design industry.
+              | This consists of working for 10 years full time for design agencies.
+            a.btn.btn-outline.btn-success.btn-block(href='profile.html') PROFILE
+      .widget
+        .widget-body
+          ul#social.media-list.mb-0
+            li.media.mt-0
+              .media-left.media-middle.pr-15
+                i.media-object.text-danger.ti-google.fs-60
+              .media-body
+                h5.media-heading Positive Energy+
+                p.fs-16.fw-300.mb-0 I love those random memories that make me stop and just smile.
+                .text-right.fs-12.text-muted 48 minutes ago
+            li.media.mt-0
+              .media-left.media-middle.pr-15
+                i.media-object.text-primary.ti-facebook.fs-60
+              .media-body
+                h5.media-heading Positive Energy+
+                p.fs-16.fw-300.mb-0 You can't change someone who doesn't see an issue in their actions.
+                .text-right.fs-12.text-muted 35 minutes ago
+            li.media.mt-0
+              .media-left.media-middle.pr-15
+                i.media-object.text-info.ti-twitter-alt.fs-60
+              .media-body
+                h5.media-heading Positive Energy+
+                p.fs-16.fw-300.mb-0 May every sunrise bring you hope. May every sunset bring you peace.
+                .text-right.fs-12.text-muted 50 minutes ago
+      .widget.no-border.overlay-container
+        img.overlay-bg.img-responsive(src=build+'images/backgrounds/23.jpg', alt='')
+        .overlay-content.p-30
+          .media
+            .media-left
+              img.media-object.img-thumbnail(src=build+'images/users/11.jpg', alt='', width='80')
+            .media-body
+              p.fs-16.fw-300 I Just Wanna Dance
+              p.fs-12
+                i.ti-music
+                |  Who Are You
+              p.fs-12
+                i.ti-user
+                |  Various Artists
+              ul.list-inline.mb-0
+                li
+                  a(href='#')
+                    i.text-white.ti-control-skip-backward
+                li
+                  a(href='#')
+                    i.text-white.ti-control-pause
+                li
+                  a(href='#')
+                    i.text-white.ti-control-skip-forward
+      .widget.no-border.p-30.bg-black
+        .media
+          .media-left.media-middle.pr-20
+            i.ti-pulse.fs-60
+          .media-body
+            ul.list-unstyled.fs-12.mb-0
+              li.pt-5.pb-5
+                .block.clearfix.mb-5
+                  span.pull-left Upload
+                  span.pull-right 1.457 MB/s
+                .progress.progress-xs.bg-light.mb-0
+                  .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='65')
+              li.pt-5.pb-5
+                .block.clearfix.mb-5
+                  span.pull-left Download
+                  span.pull-right 2.864 MB/s
+                .progress.progress-xs.bg-light.mb-0
+                  .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='80')
+      .widget.no-border.p-30.bg-danger
+        .media
+          .media-left.media-middle.pr-20
+            i.ti-alarm-clock.fs-60
+          .media-body.media-middle
+            .fs-20.fw-300 Sun 30 May 2016
+            p.mb-0 08:39 PM
+      .widget.no-border.overlay-container
+        img.overlay-bg.img-responsive(src=build+'images/backgrounds/25.jpg', alt='')
+        .overlay-content.p-30.pb-15
+          .media.mb-20
+            .media-left
+              .fs-60.fw-300.lh-1 25%
+            .media-body.media-middle
+              p.mb-5 38
+                sup o
+                | C
+              p.mb-0 42
+                sup o
+                | C
+          ul.list-unstyled.fs-12.mb-0
+            li.mb-15
+              .block.clearfix.mb-5
+                span.pull-left RAM
+                span.pull-right 25.35%
+              .progress.progress-xs.mb-0.bg-light
+                .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='25')
+            li.mb-15
+              .progress.progress-xs.mb-0.bg-light
+                .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='32')
+              .block.clearfix.mt-5
+                span.pull-left SWAP
+                span.pull-right 31.67%
+      .widget.no-border.overlay-container
+        img.overlay-bg.img-responsive(src=build+'images/backgrounds/24.jpg', alt='')
+        .overlay-content.p-30
+          .media.mb-20
+            .media-left
+              .fs-60.fw-300.lh-1 C:/
+            .media-body.media-middle
+              p.mb-5 250 GB / 498 GB
+              p.mb-0 52.49% Used
+          p.fs-12 HDD Used
+          .progress.progress-xs.mb-10.bg-light
+            .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='35')
+          p.fs-12.mb-0 35.31%
+    .col-md-4.col-sm-6
+      #accordion.panel-group(role='tablist', aria-multiselectable='true')
+        .panel.panel-success
+          #headingOne.panel-heading(role='tab')
+            h4.panel-title
+              a.text-capitalize(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                | The First Testimonial
+          #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+            .panel-body
+              .media
+                .media-left
+                  img.media-object.mo-lg.img-circle(src=build+'images/users/09.jpg', alt='')
+                .media-body.media-middle
+                  h5.fs-16.media-heading Maria James
+                  p.text-muted.mb-0 United States
+              blockquote.mt-20.mb-0
+                p.fs-14.text-muted
+                  em
+                    | Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.
+        .panel.panel-danger
+          #headingTwo.panel-heading(role='tab')
+            h4.panel-title
+              a.text-capitalize.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+                | The Second Testimonial
+          #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+            .panel-body
+              .media
+                .media-left
+                  img.media-object.mo-lg.img-circle(src=build+'images/users/11.jpg', alt='')
+                .media-body.media-middle
+                  h5.fs-16.media-heading Harold Walsh
+                  p.text-muted.mb-0 United States
+              blockquote.mt-20.mb-0
+                p.fs-14.text-muted
+                  em Keep love in your heart. A life without it is like a sunless garden when the flowers are dead.
+        .panel.panel-info
+          #headingThree.panel-heading(role='tab')
+            h4.panel-title
+              a.text-capitalize.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+                | The Third Testimonial
+          #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
+            .panel-body
+              .media
+                .media-left
+                  img.media-object.mo-lg.img-circle(src=build+'images/users/17.jpg', alt='')
+                .media-body.media-middle
+                  h5.fs-16.media-heading Gregory White
+                  p.text-muted.mb-0 United States
+              blockquote.mt-20.mb-0
+                p.fs-14.text-muted
+                  em I have found the paradox, that if you love until it hurts, there can be no more hurt, only more love.
+      .widget.no-border
+        img.img-responsive(src=build+'images/backgrounds/35.jpg', alt='')
+        .bd-l.bd-r.bd-b
+          .p-20.bd-b
+            h4.mt-0 Lorem ipsum dolor sit amet.
+            p We're born alone, we live alone, we die alone. Only through our love and friendship can we create the illusion for the moment that we're not alone.
+            a.btn.btn-outline.btn-success(href='#') Read More
+          .clearfix.fs-12.text-muted.pt-15.pb-15.pl-20.pr-20
+            .pull-left
+              i.ti-time
+              |  June 30, 2016
+            .pull-right
+              i.ti-comment-alt
+              |  28 Comments
+      .widget
+        .p-25
+          .media
+            .media-left
+              img.media-object.img-thumbnail(src=build+'images/users/19.jpg', width='100', alt='')
+            .media-body
+              h4.media-heading Teresa Martinez
+              p @love.you.alex.89
+          h3.fw-300.mt-30.mb-15 News Feed
+          ul.media-list.mb-0
+            li.media
+              .media-left
+                img.media-object.mo-lg(src=build+'images/users/20.jpg', alt='')
+              .media-body
+                h4.fs-16.media-heading Rebecca Clark
+                p.mb-5 Lorem ipsum dolor sit amet, consectetur adipisicing elit 
+                  span.fw-500 #bootstrapAdmin
+                p
+                  span.text-muted.mr-20 10:20 AM 
+                  a(href='#') Like
+            li.media
+              .media-left
+                img.media-object.mo-lg(src=build+'images/users/10.jpg', alt='')
+              .media-body
+                h4.fs-16.media-heading Kevin Fisher
+                p.mb-5 Lorem ipsum dolor sit amet, consectetur adipisicing elit 
+                  span.fw-500 @PsdTemplate
+                p
+                  span.text-muted.mr-20 08:05 AM 
+                  a(href='#') Unlike
+            li.media
+              .media-left
+                img.media-object.mo-lg(src=build+'images/users/09.jpg', alt='')
+              .media-body
+                h4.fs-16.media-heading Janice Shaw
+                p.mb-5 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                .row.row-xs.grid.mb-5
+                  .col-xs-4
+                    img.img-responsive(src=build+'images/backgrounds/49.jpg', alt='')
+                  .col-xs-4
+                    img.img-responsive(src=build+'images/backgrounds/35.jpg', alt='')
+                  .col-xs-4
+                    img.img-responsive(src=build+'images/backgrounds/34.jpg', alt='')
+                p
+                  span.text-muted.mr-20 06:32 AM 
+                  a(href='#') Like
+  .row
+    .col-lg-5.col-md-6.col-sm-8
+      .thumbnail.p-20
+        img.img-responsive(src=build+'images/backgrounds/34.jpg', alt='')
+        .text-right.caption
+          ul.list-inline.mb-0
+            li
+              i.ti-comment.text-info
+              |  12
+            li
+              i.ti-heart.text-danger
+              |  324
+        blockquote.mb-0.fs-14
+          p
+            em
+              | I believe that imagination is stronger than knowledge. That myth is more potent than history. That dreams are more powerful than facts. That hope always triumphs over experience. That laughter is the only cure for grief. And I believe that love is stronger than death.
+          footer Robert Fulghum
+      .widget
+        .widget-heading 
+          h3.widget-title Quick Poll
+        .widget-body
+          p.fs-16.fw-500.mb-5 What do you think of the new design?
+          p.text-muted.mb-0 Results of 2,549 votes:
+          ul.list-unstyled.mb-0
+            li.mt-15
+              .block.clearfix.mb-5
+                span.pull-left.fs-12 Looks good!
+                span.pull-right.label.label-outline.label-success 65%
+              .progress.progress-xs.mb-0
+                .progress-bar.progress-bar-success(role='progressbar', data-transitiongoal='65')
+            li.mt-15
+              .block.clearfix.mb-5
+                span.pull-left.fs-12 Not too bad
+                span.pull-right.label.label-outline.label-purple 25%
+              .progress.progress-xs.mb-0
+                .progress-bar.progress-bar-purple(role='progressbar', data-transitiongoal='25')
+            li.mt-15
+              .block.clearfix.mb-5
+                span.pull-left.fs-12 The old design was better
+                span.pull-right.label.label-outline.label-primary 10%
+              .progress.progress-xs.mb-0
+                .progress-bar.progress-bar-primary(role='progressbar', data-transitiongoal='10')
+      .widget.no-border.p-30.bg-black
+        .media
+          .media-left.media-middle.pr-20
+            i.ti-harddrives.fs-100
+          .media-body
+            ul.list-unstyled.fs-12.mb-0
+              li.pt-5.pb-5
+                .block.clearfix.mb-5
+                  span.pull-left System (C:\)
+                  span.pull-right 20.64 GB
+                .progress.progress-xs.bg-light.mb-0
+                  .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='65')
+              li.pt-5.pb-5
+                .block.clearfix.mb-5
+                  span.pull-left Gamestation (D:\)
+                  span.pull-right 0.85 TB
+                .progress.progress-xs.bg-light.mb-0
+                  .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='80')
+              li.pt-5.pb-5
+                .block.clearfix.mb-5
+                  span.pull-left Warehouse (E:\)
+                  span.pull-right 10.94 GB
+                .progress.progress-xs.bg-light.mb-0
+                  .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='80')
+    .col-lg-5.col-md-6.col-sm-8
+      .widget.no-border
+        .bg-black.p-15.clearfix
+          p.mb-0.pull-left NEW YORK
+          p.mb-0.pull-right 05/20/2016 MON
+        .clearfix.p-30.bd-l.bd-b.bd-r
+          .pull-left
+            i.wi.wi-day-light-wind.fs-100
+          .pull-right
+            p Mostly Clear 
+              span.text-success
+                i.ti-arrow-up.fs-13
+                |  80
+                sup o
+              | 
+              span.text-danger
+                i.ti-arrow-down.fs-13
+                |  65
+                sup o
+            .fs-60.fw-300.lh-1 20:30
+      .widget.no-border.overlay-container
+        img.overlay-bg.img-responsive(src=build+'images/backgrounds/22.jpg', alt='')
+        .overlay-content.p-30
+          .clearfix
+            .pull-left
+              p.mb-0 NEW YORK
+              .fs-60.fw-300 20:30
+              p.fs-13.mb-5 Sunday, 20 May
+              p.fs-13.mb-0
+                i.wi.wi-raindrop
+                |  10% 
+                i.wi.wi-wind-direction
+                |  1.4m/s NW
+            .pull-right.text-center
+              .fs-30 76
+                sup o
+              i.wi.wi-day-cloudy-windy.fs-60.mt-15.mb-15
+              p.mb-0 Mostly Cloudy
+          hr
+          .row.row-0.text-center
+            .col-xs-3
+              .mb-10 Tue
+              i.block.fs-24.wi.wi-day-fog
+              .mt-10 69
+                sup o
+            .col-xs-3
+              .mb-10 Wed
+              i.block.fs-24.wi.wi-day-snow-wind
+              .mt-10 71
+                sup o
+            .col-xs-3
+              .mb-10 Thu
+              i.block.fs-24.wi.wi-day-sprinkle
+              .mt-10 75
+                sup o
+            .col-xs-3
+              .mb-10 Fri
+              i.block.fs-24.wi.wi-day-lightning
+              .mt-10 70
+                sup o
+      .widget.no-border.p-30.bg-primary
+        .media
+          .media-left.media-middle.pr-20
+            i.ti-settings.fs-100
+          .media-body
+            ul.list-unstyled.fs-12.mb-0
+              li.pt-5.pb-5
+                .block.clearfix.mb-5
+                  span.pull-left CPU Usage
+                  span.pull-right 36.45 %
+                .progress.progress-xs.bg-light.mb-0
+                  .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='65')
+              li.pt-5.pb-5
+                .block.clearfix.mb-5
+                  span.pull-left Physical Memory
+                  span.pull-right 1.76 GB
+                .progress.progress-xs.bg-light.mb-0
+                  .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='80')
+              li.pt-5.pb-5
+                .block.clearfix.mb-5
+                  span.pull-left Swap Memory
+                  span.pull-right 0.94 GB
+                .progress.progress-xs.bg-light.mb-0
+                  .progress-bar.progress-bar-white(role='progressbar', data-transitiongoal='80')
+      .bg-purple.p-30.widget.no-border
+        .clearfix
+          .pull-left
+            .fs-100.fw-300.lh-1 10:15
+          .pull-right
+            i.wi.wi-day-sprinkle.fs-100
+        p.mt-10.mb-0 05/20 | NEW YORK, 60
+          sup o
+          |  F
+  .row
+    .col-md-6
+      .widget.no-border.overlay-container
+        img.overlay-bg.img-responsive(src=build+'images/backgrounds/21.jpg', alt='')
+        .overlay-content
+          .text-center.p-30
+            i.wi.wi-night-alt-cloudy-windy.fs-60.mr-20
+            span.fs-60.fw-300 76
+              sup o
+            p.h4.mb-0 Mostly Clear
+          hr.m-0
+          .row.row-0
+            .col-xs-6
+              ul.list-unstyled.p-30.mb-0
+                li.mb-10 Local Time
+                  span.pull-right Mon 03:06 PM
+                li.mb-10 Feels Like
+                  span.pull-right 65
+                    sup o
+                li.mb-10 Humidity
+                  span.pull-right 91%
+                li.mb-10 Wind Speed
+                  span.pull-right 8 kmh E
+                li.mb-10 Visibility
+                  span.pull-right 9 im
+                li Pressure
+                  span.pull-right 29.93 inHg
+            .col-xs-6
+              ul.list-unstyled.p-30.mb-0
+                li.mb-10 UV Index
+                  span.pull-right 0
+                li.mb-10 Sunrise
+                  span.pull-right 5:53
+                li Sunset
+                  span.pull-right 20:30
+    .col-md-6
+      .widget.no-border.overlay-container
+        img.overlay-bg.img-responsive(src=build+'images/backgrounds/06.jpg', alt='')
+        .overlay-content.p-30
+          .clearfix
+            .pull-left
+              i.fs-60.wi.wi-day-cloudy-gusts
+              .mt-15.mb-5.fw-500.fs-22 Mostly Cloudy
+              .fs-18 New York
+            .pull-right.text-right
+              .fs-20 January 30, 2016
+              .fs-100.fw-700
+                span.counter 76
+                sup o
+          #flot-weather(style='height: 100px')
+          .row.row-0.text-center
+            .col-sm-2.col-xs-4.mt-10
+              .fs-18.fw-500 77
+                sup o
+              .fs-12 6 AM
+            .col-sm-2.col-xs-4.mt-10
+              .fs-18.fw-500 62
+                sup o
+              .fs-12 10 AM
+            .col-sm-2.col-xs-4.mt-10
+              .fs-18.fw-500 74
+                sup o
+              .fs-12 2 PM
+            .col-sm-2.col-xs-4.mt-10
+              .fs-18.fw-500 76
+                sup o
+              .fs-12 6 PM
+            .col-sm-2.col-xs-4.mt-10
+              .fs-18.fw-500 78
+                sup o
+              .fs-12 10 PM
+            .col-sm-2.col-xs-4.mt-10
+              .fs-18.fw-500 60
+                sup o
+              .fs-12 2 AM

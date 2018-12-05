@@ -1,0 +1,210 @@
+.page-content.container-fluid
+  .widget
+    .widget-heading
+      h3.widget-title Modals
+    .widget-body
+      .row
+        .col-md-3.col-sm-6
+          p Large
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='modal', data-target='.bs-example-modal-lg') Launch modal
+          .modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel')
+            .modal-dialog.modal-lg(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                  h4#myLargeModalLabel.modal-title Modal title
+                .modal-body
+                  p One fine body…
+                .modal-footer
+                  button.btn.btn-raised.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-raised.btn-black(type='button') Save changes
+        .col-md-3.col-sm-6
+          p Default
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='modal', data-target='.bs-example-modal') Launch modal
+          .modal.fade.bs-example-modal(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                  h4#myModalLabel.modal-title Modal title
+                .modal-body
+                  p One fine body…
+                .modal-footer
+                  button.btn.btn-raised.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-raised.btn-black(type='button') Save changes
+        .col-md-3.col-sm-6
+          p Small
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='modal', data-target='.bs-example-modal-sm') Launch modal
+          .modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
+            .modal-dialog.modal-sm(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                  h4#mySmallModalLabel.modal-title Modal title
+                .modal-body
+                  p One fine body…
+                .modal-footer
+                  button.btn.btn-raised.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-raised.btn-black(type='button') Save changes
+        .col-md-3.col-sm-6
+          p Animation
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='modal', data-target='.bs-example-modal-animation') Launch modal
+          .modal.animated.fadeInLeft.bs-example-modal-animation(tabindex='-1', role='dialog', aria-labelledby='myAnimationModalLabel')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                  h4#myAnimationModalLabel.modal-title Modal title
+                .modal-body
+                  p One fine body…
+                .modal-footer
+                  button.btn.btn-raised.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-raised.btn-black(type='button') Save changes
+      .row
+        .col-md-3.col-sm-6
+          p Form
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='modal', data-target='.bs-example-modal-form') Launch Modal
+          .modal.fade.bs-example-modal-form(tabindex='-1', role='dialog', aria-labelledby='modalWithForm')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                  h4#modalWithForm.modal-title Modal title
+                .modal-body
+                  form
+                    .form-group
+                      label(for='exampleInputEmail1') Email address
+                      input#exampleInputEmail1.form-control(type='text', placeholder='Enter email')
+                    .form-group
+                      label(for='exampleInputPassword1') Password
+                      input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+                .modal-footer
+                  button.btn.btn-raised.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-raised.btn-black(type='button') Save changes
+        .col-md-3.col-sm-6
+          p Tabs
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='modal', data-target='.bs-example-modal-tabs') Launch modal
+          .modal.fade.bs-example-modal-tabs(tabindex='-1', role='dialog', aria-labelledby='myTabsModalLabel')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                  h4#myTabsModalLabel.modal-title Modal title
+                .modal-body
+                  div(role='tabpanel')
+                    ul.nav.nav-tabs.mb-15(role='tablist')
+                      li.active(role='presentation')
+                        a#home-tab(href='#home', role='tab', data-toggle='tab', aria-controls='home', aria-expanded='true') Home
+                      li(role='presentation')
+                        a#profile-tab(href='#profile', role='tab', data-toggle='tab', aria-controls='profile', aria-expanded='false') Profile
+                      li.dropdown(role='presentation')
+                        a#myTabDrop1.dropdown-toggle(href='#', data-toggle='dropdown', aria-controls='myTabDrop1-contents', aria-expanded='false')
+                          | Dropdown 
+                          span.caret
+                        ul#myTabDrop1-contents.dropdown-menu.animated.fadeInDown(role='menu', aria-labelledby='myTabDrop1')
+                          li
+                            a#dropdown1-tab(href='#dropdown1', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown1', aria-expanded='false') @fat
+                          li
+                            a#dropdown2-tab(href='#dropdown2', tabindex='-1', role='tab', data-toggle='tab', aria-controls='dropdown2', aria-expanded='false') @mdo
+                    .tab-content
+                      #home.tab-pane.fade.active.in(role='tabpanel', aria-labelledby='home-tab')
+                        p
+                          | Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+                      #profile.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab')
+                        p
+                          | Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
+                      #dropdown1.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown1-tab')
+                        p
+                          | Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer.
+                      #dropdown2.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown2-tab')
+                        p
+                          | Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY
+                .modal-footer
+                  button.btn.btn-raised.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-raised.btn-black(type='button') Save changes
+        .col-md-3.col-sm-6
+          p Accordion
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='modal', data-target='.bs-example-modal-accordion') Launch modal
+          .modal.fade.bs-example-modal-accordion(tabindex='-1', role='dialog')
+            .modal-dialog(role='document')
+              .modal-content
+                #accordion.panel-group.mb-0(role='tablist', aria-multiselectable='true')
+                  .panel.panel-default
+                    #headingOne.panel-heading(role='tab')
+                      h4.panel-title
+                        a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                          | Collapsible Group Item #1
+                    #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+                      .panel-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  .panel.panel-default
+                    #headingTwo.panel-heading(role='tab')
+                      h4.panel-title
+                        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+                          | Collapsible Group Item #2
+                    #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+                      .panel-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  .panel.panel-default
+                    #headingThree.panel-heading(role='tab')
+                      h4.panel-title
+                        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+                          | Collapsible Group Item #3
+                    #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
+                      .panel-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        .col-md-3.col-sm-6
+          p Panel
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='modal', data-target='.bs-example-modal-panel') Launch modal
+          .modal.fade.bs-example-modal-panel(tabindex='-1', role='dialog', aria-labelledby='myPanelModalLabel')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header.bg-black
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                  h4#myPanelModalLabel.modal-title Modal title
+                .modal-body
+                  p One fine body…
+                .modal-footer
+                  button.btn.btn-raised.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-raised.btn-black(type='button') Save changes
+  .widget
+    .widget-heading
+      h3.widget-title Tooltips
+    .widget-body
+      .row
+        .col-md-3.col-sm-6
+          p Top
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='tooltip', data-placement='top', title='Tooltip on top') Show tooltip
+        .col-md-3.col-sm-6
+          p Right
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='tooltip', data-placement='right', title='Tooltip on right') Show tooltip
+        .col-md-3.col-sm-6
+          p Bottom
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='tooltip', data-placement='bottom', title='Tooltip on bottom') Show tooltip
+        .col-md-3.col-sm-6
+          p Left
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-toggle='tooltip', data-placement='left', title='Tooltip on left') Show tooltip
+  .widget
+    .widget-heading
+      h3.widget-title Popovers
+    .widget-body
+      .row
+        .col-md-3.col-sm-6
+          p Top
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-container='body', data-toggle='popover', data-placement='top', data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.') Show popover
+        .col-md-3.col-sm-6
+          p Right
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-container='body', data-toggle='popover', data-placement='right', data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.') Show popover
+        .col-md-3.col-sm-6
+          p Bottom
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-container='body', data-toggle='popover', data-placement='bottom', data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.') Show popover
+        .col-md-3.col-sm-6
+          p Left
+          button.btn.btn-raised.btn-primary.mr-10.mb-10(type='button', data-container='body', data-toggle='popover', data-placement='left', data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.') Show popover

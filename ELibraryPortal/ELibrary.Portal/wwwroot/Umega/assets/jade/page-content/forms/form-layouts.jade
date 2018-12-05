@@ -1,0 +1,345 @@
+.page-content.container-fluid
+  h3.mt-0 Vertical
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Basic Form
+        .widget-body
+          form
+            .form-group
+              label(for='textInput') Text input
+              input#textInput.form-control(type='text')
+            .form-group
+              label(for='passwordInput') Password input
+              input#passwordInput.form-control(type='password')
+            .form-group
+              label(for='textArea') Text area
+              textarea#textArea.form-control(rows='3')
+            .form-group
+              label(for='fileInput') File input
+              input#fileInput.filestyle(type='file', data-buttonname='btn-outline btn-primary', data-iconname='ti-zip')
+            .form-group
+              label(for='selectBasic') Select basic
+              select#selectBasic.form-control
+                option(value='1') Option one
+                option(value='2') Option two
+                option(value='3') Option three
+            .form-group
+              label(for='selectMultiple') Select multiple
+              select#selectMultiple.form-control(multiple='multiple', style='height: 100px; overflow-y: auto')
+                option(value='1') Option one
+                option(value='2') Option two
+                option(value='3') Option three
+            .checkbox-custom
+              input#multipleCheckbox1(type='checkbox', value='1')
+              label(for='multipleCheckbox1') Option one
+            .checkbox-custom
+              input#multipleCheckbox2(type='checkbox', value='2')
+              label(for='multipleCheckbox2') Option two
+            .checkbox-custom
+              input#multipleCheckbox3(type='checkbox', value='3')
+              label(for='multipleCheckbox3') Option three
+            .radio-custom
+              input#optionsRadios1(type='radio', name='optionsRadios', value='1', checked)
+              label(for='optionsRadios1') Option one
+            .radio-custom
+              input#optionsRadios2(type='radio', name='optionsRadios', value='2')
+              label(for='optionsRadios2') Option two
+            .radio-custom
+              input#optionsRadios3(type='radio', name='optionsRadios', value='3')
+              label(for='optionsRadios3') Option three
+            button.btn.btn-outline.btn-success(type='submit') Submit
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Contact Form
+        .widget-body
+          form
+            .form-group
+              label(for='txtFullName') Full name
+              input#txtFullName.form-control(type='text')
+            .form-group
+              label(for='txtPhoneNumber') Phone number
+              input#txtPhoneNumber.form-control(type='text')
+            .form-group
+              label(for='txtEmailAddress') Email Address
+              input#txtEmailAddress.form-control(type='text')
+            .form-group
+              label(for='txtMessage') Message
+              textarea#txtMessage.form-control(rows='2')
+            .form-group
+              label(for='txtCaptcha') 94 + 125
+              input#txtCaptcha.form-control(type='text')
+            .text-right
+              button.btn.btn-outline.btn-success(type='submit') Submit
+              button.btn.btn-outline.btn-black(type='reset') Reset
+      .widget
+        .widget-heading
+          h3.widget-title Login Form
+        .widget-body
+          form
+            .form-group
+              label(for='txtUsername') Username
+              input#txtUsername.form-control(type='text')
+            .form-group
+              label(for='txtPassword') Password
+              input#txtPassword.form-control(type='password')
+            .checkbox-custom
+              input#chkRememberMe(type='checkbox', value='1')
+              label(for='chkRememberMe') Remember me
+            button.btn.btn-outline.btn-success(type='submit') Login
+            button.btn.btn-outline.btn-black(type='reset') Reset
+  .row
+    .col-lg-12
+      .widget
+        .widget-heading
+          h3.widget-title Complex form
+        .widget-body
+          form
+            .row
+              .col-md-8
+                .form-group
+                  label(for='txtMovieTitle') Movie title
+                  input#txtMovieTitle.form-control(type='text')
+              .col-md-4
+                .form-group
+                  label(for='ddlGenge') Genre
+                  select#ddlGenge.form-control
+                    option(value='') Choose a genre
+                    option(value='action') Action
+                    option(value='comedy') Comedy
+                    option(value='horror') Horror
+                    option(value='romance') Romance
+            .row
+              .col-md-4
+                .form-group
+                  label(for='txtDirector') Director
+                  input#txtDirector.form-control(type='text')
+              .col-md-4
+                .form-group
+                  label(for='txtWriter') Writer
+                  input#txtWriter.form-control(type='text')
+              .col-md-4
+                .form-group
+                  label(for='txtProducer') Producer
+                  input#txtProducer.form-control(type='text')
+            .row
+              .col-md-6
+                .form-group
+                  label(for='txtWebsite') Website
+                  input#txtWebsite.form-control(type='text')
+              .col-md-6
+                .form-group  
+                  label(for='txtYoutubeTrailer') Youtube trailer
+                  input#txtYoutubeTrailer.form-control(type='text')
+            .row
+              .col-lg-12
+                .form-group
+                  label(for='txtReview') Review
+                  textarea#txtReview.form-control(name='review', rows='8')
+            .row
+              .col-lg-12
+                .form-group
+                  label Rating
+                  div
+                    .radio-custom.radio-inline
+                      input#rdbTerrible(type='radio', name='rdbRating', value='terrible')
+                      label(for='rdbTerrible') Terrible
+                    .radio-custom.radio-inline
+                      input#rdbWatchable(type='radio', name='rdbRating', value='watchable')
+                      label(for='rdbWatchable') Watchable
+                    .radio-custom.radio-inline
+                      input#rdbBest(type='radio', name='rdbRating', value='best')
+                      label(for='rdbBest') Best ever
+            button.btn.btn-outline.btn-success(type='submit') Submit
+  h3 Horizontal
+  .row
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Basic Form
+        .widget-body
+          form.form-horizontal
+            .form-group
+              label.col-sm-3.control-label(for='textInputHor') Text input
+              .col-sm-9
+                input#textInputHor.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='passwordInputHor') Password input
+              .col-sm-9
+                input#passwordInputHor.form-control(type='password')
+            .form-group
+              label.col-sm-3.control-label(for='textAreaHor') Text area
+              .col-sm-9
+                textarea#textAreaHor.form-control(rows='3')
+            .form-group
+              label.col-sm-3.control-label(for='fileInputHor') File input
+              .col-sm-9
+                input#fileInputHor.filestyle(type='file', data-buttonname='btn-outline btn-primary', data-iconname='ti-zip')
+            .form-group
+              label.col-sm-3.control-label(for='selectBasicHor') Select basic
+              .col-sm-9
+                select#selectBasicHor.form-control
+                  option(value='1') Option one
+                  option(value='2') Option two
+                  option(value='3') Option three
+            .form-group
+              label.col-sm-3.control-label(for='selectMultipleHor') Select multiple
+              .col-sm-9
+                select#selectMultipleHor.form-control(multiple='multiple', style='height: 100px; overflow-y: auto')
+                  option(value='1') Option one
+                  option(value='2') Option two
+                  option(value='3') Option three
+            .form-group
+              .col-sm-offset-3.col-sm-9
+                .checkbox-custom
+                  input#multipleCheckbox1Hor(type='checkbox', value='1')
+                  label(for='multipleCheckbox1Hor') Option one
+                .checkbox-custom
+                  input#multipleCheckbox2Hor(type='checkbox', value='2')
+                  label(for='multipleCheckbox2Hor') Option two
+                .checkbox-custom
+                  input#multipleCheckbox3Hor(type='checkbox', value='3')
+                  label(for='multipleCheckbox3Hor') Option three
+            .form-group
+              .col-sm-offset-3.col-sm-9
+                .radio-custom
+                  input#optionsRadios1Hor(type='radio', name='optionsRadiosHor', value='1', checked)
+                  label(for='optionsRadios1Hor') Option one
+                .radio-custom
+                  input#optionsRadios2Hor(type='radio', name='optionsRadiosHor', value='2')
+                  label(for='optionsRadios2Hor') Option two
+                .radio-custom
+                  input#optionsRadios3Hor(type='radio', name='optionsRadiosHor', value='3')
+                  label(for='optionsRadios3Hor') Option three
+            .form-group
+              .col-sm-offset-3.col-sm-9
+                button.btn.btn-outline.btn-success(type='submit') Submit
+    .col-md-6
+      .widget
+        .widget-heading
+          h3.widget-title Contact Form
+        .widget-body
+          form.form-horizontal
+            .form-group
+              label.col-sm-3.control-label(for='txtFullNameHor') Full name
+              .col-sm-9
+                input#txtFullNameHor.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtPhoneNumberHor') Phone number
+              .col-sm-9
+                input#txtPhoneNumberHor.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtEmailAddressHor') Email Address
+              .col-sm-9
+                input#txtEmailAddressHor.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtMessageHor') Message
+              .col-sm-9
+                textarea#txtMessageHor.form-control(rows='2')
+            .form-group
+              label.col-sm-3.control-label(for='txtCaptchaHor') 94 + 125
+              .col-sm-9
+                input#txtCaptchaHor.form-control(type='text')
+            .form-group
+              .col-sm-offset-3.col-sm-9
+                button.btn.btn-outline.btn-success(type='submit') Submit
+                button.btn.btn-outline.btn-black(type='reset') Reset
+      .widget
+        .widget-heading
+          h3.widget-title Login Form
+        .widget-body
+          form.form-horizontal
+            .form-group
+              label.col-sm-3.control-label(for='txtUsernameHor') Username
+              .col-sm-9
+                input#txtUsernameHor.form-control(type='text')
+            .form-group
+              label.col-sm-3.control-label(for='txtPasswordHor') Password
+              .col-sm-9
+                input#txtPasswordHor.form-control(type='password')
+            .form-group
+              .col-sm-offset-3.col-sm-9
+                .checkbox-custom
+                  input#chkRememberMeHor(type='checkbox', value='1')
+                  label(for='chkRememberMeHor') Remember me
+            .form-group
+              .col-sm-offset-3.col-sm-9
+                button.btn.btn-outline.btn-success(type='submit') Login
+                button.btn.btn-outline.btn-black(type='reset') Reset
+  .row
+    .col-lg-12
+      .widget
+        .widget-heading
+          h3.widget-title Complex form
+        .widget-body
+          form.form-horizontal
+            .row
+              .col-md-8
+                .form-group
+                  label.col-sm-3.control-label(for='txtMovieTitleHor') Movie title
+                  .col-sm-9
+                    input#txtMovieTitleHor.form-control(type='text')
+              .col-md-4
+                .form-group
+                  label.col-sm-3.control-label(for='ddlGengeHor') Genre
+                  .col-sm-9
+                    select#ddlGengeHor.form-control
+                      option(value='') Choose a genre
+                      option(value='action') Action
+                      option(value='comedy') Comedy
+                      option(value='horror') Horror
+                      option(value='romance') Romance
+            .row
+              .col-md-4
+                .form-group
+                  label.col-sm-3.control-label(for='txtDirectorHor') Director
+                  .col-sm-9
+                    input#txtDirectorHor.form-control(type='text')
+              .col-md-4
+                .form-group
+                  label.col-sm-3.control-label(for='txtWriterHor') Writer
+                  .col-sm-9
+                    input#txtWriterHor.form-control(type='text')
+              .col-md-4
+                .form-group
+                  label.col-sm-3.control-label(for='txtProducerHor') Producer
+                  .col-sm-9
+                    input#txtProducerHor.form-control(type='text')
+            .row
+              .col-md-6
+                .form-group
+                  label.col-sm-3.control-label(for='txtWebsiteHor') Website
+                  .col-sm-9
+                    input#txtWebsiteHor.form-control(type='text')
+              .col-md-6
+                .form-group  
+                  label.col-sm-3.control-label(for='txtYoutubeTrailerHor') Youtube trailer
+                  .col-sm-9
+                    input#txtYoutubeTrailerHor.form-control(type='text')
+            .row
+              .col-lg-12
+                .form-group
+                  label.col-sm-3.col-md-2.control-label(for='txtReviewHor') Review
+                  .col-sm-9.col-md-10
+                    textarea#txtReviewHor.form-control(name='review', rows='8')
+            .row
+              .col-lg-12
+                .form-group
+                  label.col-sm-3.col-md-2.control-label Rating
+                  .col-sm-9.col-md-10
+                    .radio-custom.radio-inline
+                      input#rdbTerribleHor(type='radio', name='rdbRatingHor', value='terrible')
+                      label(for='rdbTerribleHor') Terrible
+                    .radio-custom.radio-inline
+                      input#rdbWatchableHor(type='radio', name='rdbRatingHor', value='watchable')
+                      label(for='rdbWatchableHor') Watchable
+                    .radio-custom.radio-inline
+                      input#rdbBestHor(type='radio', name='rdbRatingHor', value='best')
+                      label(for='rdbBestHor') Best ever
+            .row
+              .col-lg-12
+                .form-group
+                  .col-sm-offset-3.col-sm-9.col-md-offset-2.col-md-10
+                    button.btn.btn-outline.btn-success(type='submit') Submit

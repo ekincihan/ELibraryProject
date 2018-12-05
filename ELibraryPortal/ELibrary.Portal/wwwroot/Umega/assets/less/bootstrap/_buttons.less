@@ -1,0 +1,203 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Customize styles
+// --------------------------------------------------
+
+.btn {
+	outline: 0 !important;
+    padding: 6px 15px;
+    font-size: @font-size-base;
+    &:active,
+    &.active {
+        box-shadow: none;
+    }
+}
+
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-lg {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.btn-sm {
+    padding: 5px 12px;
+    font-size: 12px;
+}
+.btn-xs {
+    padding: 1px 5px;
+    font-size: 12px;
+}
+
+// Alternate buttons
+// --------------------------------------------------
+
+.btn-default {
+    .button-variant(@text-color; @gray-lighter; @gray-lighter);
+}
+.btn-primary {
+    .button-variant(@white-base; @brand-primary; @brand-primary);
+}
+.btn-success {
+    .button-variant(@white-base; @brand-success; @brand-success);
+}
+.btn-info {
+    .button-variant(@white-base; @brand-info; @brand-info);
+}
+.btn-purple {
+    .button-variant(@white-base; @brand-purple; @brand-purple);
+}
+.btn-warning {
+    .button-variant(@white-base; @brand-warning; @brand-warning);
+}
+.btn-danger {
+    .button-variant(@white-base; @brand-danger; @brand-danger);
+}
+.btn-black {
+    .button-variant(@white-base; @black-lighter; @black-lighter);
+}
+// Button variants
+
+.button-variant(@color; @background; @border) {
+    color: @color;
+    background-color: @background;
+    border-color: @border;
+    &:focus,
+    &.focus {
+        color: @color !important;
+        background-color: darken(@background, 10%) !important;
+        border-color: darken(@border, 10%) !important;
+    }
+    &:hover {
+        color: @color !important;
+        background-color: darken(@background, 5%) !important;
+        border-color: darken(@border, 5%) !important;
+    }
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+        color: @color;
+        background-color: darken(@background, 10%);
+        border-color: darken(@border, 10%);
+        &:hover,
+        &:focus,
+        &.focus {
+            color: @color;
+            background-color: darken(@background, 10%);
+            border-color: darken(@border, 10%);
+        }
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            background-color: @background;
+            border-color: @border;
+        }
+    }
+    .badge {
+        color: @background;
+    }
+}
+
+
+// Alternate outline buttons
+// --------------------------------------------------
+
+.btn-outline.btn-default {
+    .outline-button-variant(@text-color, @gray-lighter);
+}
+
+.btn-outline.btn-primary {
+    .outline-button-variant(@brand-primary, @brand-primary);
+}
+
+.btn-outline.btn-success {
+    .outline-button-variant(@brand-success, @brand-success);
+}
+
+.btn-outline.btn-info {
+    .outline-button-variant(@brand-info, @brand-info);
+}
+
+.btn-outline.btn-purple {
+    .outline-button-variant(@brand-purple, @brand-purple);
+}
+
+.btn-outline.btn-warning {
+    .outline-button-variant(@brand-warning, @brand-warning);
+}
+
+.btn-outline.btn-danger {
+    .outline-button-variant(@brand-danger, @brand-danger);
+}
+
+.btn-outline.btn-black {
+    .outline-button-variant(@black-lighter, @black-lighter);
+}
+
+// Outline button variants
+.outline-button-variant(@color, @border) {
+    background-color: transparent;
+    color: @color;
+    border-color: @border;
+}
+
+// Alternate raised buttons
+// --------------------------------------------------
+
+.btn-raised.btn-default {
+    .raised-button-variant(@gray-lighter);
+}
+.btn-raised.btn-primary {
+    .raised-button-variant(@brand-primary);
+}
+
+.btn-raised.btn-success {
+    .raised-button-variant(@brand-success);
+}
+
+.btn-raised.btn-info {
+    .raised-button-variant(@brand-info);
+}
+
+.btn-raised.btn-purple {
+    .raised-button-variant(@brand-purple);
+}
+
+.btn-raised.btn-warning {
+    .raised-button-variant(@brand-warning);
+}
+
+.btn-raised.btn-danger {
+    .raised-button-variant(@brand-danger);
+}
+
+.btn-raised.btn-black {
+    .raised-button-variant(@black-lighter);
+}
+
+// Raised button variants
+.raised-button-variant(@border) {
+    box-shadow: 0 3px 0 0 darken(@border, 10%);
+    &:focus,
+    &.focus {
+        box-shadow: 0 3px 0 0 darken(@border, 15%);
+    }
+}
+
+// Rounded buttons
+// --------------------------------------------------
+.btn-rounded {
+    border-radius: 100px !important;
+}

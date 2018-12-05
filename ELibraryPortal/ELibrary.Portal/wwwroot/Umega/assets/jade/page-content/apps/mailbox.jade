@@ -1,0 +1,208 @@
+.page-content.container-fluid.p-0
+  .row.row-0.mailbox
+    .col-md-5
+      ul.media-list.inbox
+        li.media
+          .pull-left
+            .form-group.has-feedback.mb-0
+              input.form-control.rounded(type='text', aria-describedby='inputSearchInbox', placeholder='Search inbox...')
+              span.ti-search.form-control-feedback(aria-hidden='true')
+              span#inputSearchInbox.sr-only (default)
+          .pull-right
+            .btn-toolbar(role='toolbar', aria-label='Toolbar with button groups')
+              .btn-group(role='group', aria-label='First group')
+                button.btn.btn-outline.btn-default(type='button')
+                  i.ti-archive
+                button.btn.btn-outline.btn-default(type='button')
+                  i.ti-heart
+                button.btn.btn-outline.btn-default(type='button')
+                  i.ti-trash
+        li.media
+          .checkbox-custom.pull-left
+            input#mailboxCheckbox1(type='checkbox', value='value1')
+            label(for='mailboxCheckbox1')
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/02.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h6.media-heading Mark Barnett
+              h5.title Posuere convallis sociis nisi euismod
+              p.summary Arcu sed in tortor non convallis laoreet commodo ullamcorper ultrices...
+            .media-right.text-nowrap
+              time.fs-11(datetime='2015-12-10T20:50:48+07:00') 9 mins
+        li.media
+          .checkbox-custom.pull-left
+            input#mailboxCheckbox2(type='checkbox', value='value2')
+            label(for='mailboxCheckbox2')
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/11.jpg', alt='')
+              span.status.bg-danger
+            .media-body
+              h6.media-heading Alexander Gilbert
+              h5.title Posuere convallis sociis nisi euismod
+              p.summary Arcu sed in tortor non convallis laoreet commodo ullamcorper ultrices...
+            .media-right.text-nowrap
+              i.ti-clip
+              time.fs-11(datetime='2015-12-10T20:42:40+07:00') 15 mins
+        li.media.read
+          .checkbox-custom.pull-left
+            input#mailboxCheckbox3(type='checkbox', value='value3')
+            label(for='mailboxCheckbox3')
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/12.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h6.media-heading Amanda Collins
+              h5.title Posuere convallis sociis nisi euismod
+              p.summary Arcu sed in tortor non convallis laoreet commodo ullamcorper ultrices...
+            .media-right.text-nowrap
+              time.fs-11(datetime='2015-12-10T20:35:35+07:00') 22 mins
+        li.media.active
+          .checkbox-custom.pull-left
+            input#mailboxCheckbox4(type='checkbox', value='value4')
+            label(for='mailboxCheckbox4')
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/13.jpg', alt='')
+              span.status.bg-warning
+            .media-body
+              h6.media-heading Christian Lane
+              h5.title Posuere convallis sociis nisi euismod
+              p.summary Arcu sed in tortor non convallis laoreet commodo ullamcorper ultrices...
+            .media-right.text-nowrap
+              i.ti-clip
+              time.fs-11(datetime='2015-12-10T20:27:48+07:00') 30 mins
+        li.media.read
+          .checkbox-custom.pull-left
+            input#mailboxCheckbox5(type='checkbox', value='value5')
+            label(for='mailboxCheckbox5')
+          a(href='javascript:;')
+            .media-left.avatar
+              img.media-object.img-circle(src=build+'images/users/01.jpg', alt='')
+              span.status.bg-success
+            .media-body
+              h6.media-heading Edward Garcia
+              h5.title Posuere convallis sociis nisi euismod
+              p.summary Arcu sed in tortor non convallis laoreet commodo ullamcorper ultrices...
+            .media-right.text-nowrap
+              time.fs-11(datetime='2015-12-10T20:35:35+07:00') Yesterday
+    .col-md-7
+      .single-mail
+        .clearfix
+          .pull-left
+            .media
+              .media-left.avatar
+                img.media-object.img-circle(src=build+'images/users/13.jpg', alt='')
+                span.status.bg-warning
+              .media-body(style='width:auto')
+                h6.media-heading Christian Lane
+                p.text-muted.mb-0
+                  a(href='#') christian.lane@gmail.com
+                  |  to me
+          .pull-right
+            .btn-toolbar(role='toolbar', aria-label='Toolbar with button groups')
+              .btn-group
+                button.btn.btn-outline.btn-default(type='button') Reply
+                button.btn.btn-outline.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-expanded='false')
+                  span.caret
+                  span.sr-only Toggle Dropdown
+                ul.dropdown-menu.pull-right.animated.fadeInDown(role='menu')
+                  li
+                    a(href='#') Reply
+                  li
+                    a(href='#') Reply To All
+                  li
+                    a(href='#') Forward
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Print
+                  li
+                    a(href='#') Mark as spam
+                  li
+                    a(href='#') Mark as unread
+                  li
+                    a(href='#') Delete this message
+              .btn-group(role='group', aria-label='Second group')
+                button.btn.btn-outline.btn-default(type='button')
+                  i.ti-angle-left
+                button.btn.btn-outline.btn-default(type='button')
+                  i.ti-angle-right
+        h3.fw-300 Lorem ipsum dolor sit amet, consectetur adipisicing.
+        p.drop-cap
+          | Morem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          | cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          | proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        img.img-responsive.mb-10(src=build+'images/backgrounds/01.jpg', alt='')
+        p
+          | Prey dick shrike abattoir huntress thomas collector; red amanda lillian superman. Mask amanda scorn batmobile creeper.
+          | Tally, deadshot flash bullock catwoman hatter society society bullock dent hammer. Kyle martha zucco kobra moth the
+          | hood drake rumor aiko hammer. Katana deathstroke society of al catwoman tumbler thorne harvey quinn lazarus, spoiler
+          | drake. Bane firefly strange toymaker kane amanda rhino chimera. Abbott thorne league nocturna flash. Cypher lazarus
+          | wayne mugsy gleeson black wayne clayface lantern society gleeson cluemaster. Society vicki society shiva sinestro.
+        hr
+        ul.media-list
+          li.media
+            a(href='#')
+              .media-left
+                i.fa.fa-file-text-o
+              .media-body template-text-file.txt
+              .media-right 2.5MB
+          li.media
+            a(href='#')
+              .media-left
+                i.fa.fa-file-pdf-o
+              .media-body template-pdf-file.pdf
+              .media-right 4.0MB
+          li.media
+            a(href='#')
+              .media-left
+                i.fa.fa-file-word-o
+              .media-body template-word-file.pdf
+              .media-right 462KB
+        hr
+        .row
+          .col-sm-4
+            .thumbnail
+              img(src=build+'images/backgrounds/07.jpg', alt='')
+              .text-right.caption.pb-0
+                ul.list-inline.mb-0
+                  li
+                    a(href='#')
+                      i.ti-save.text-info
+                  li
+                    a(href='#')
+                      i.ti-shield.text-danger
+          .col-sm-4
+            .thumbnail
+              img(src=build+'images/backgrounds/08.jpg', alt='')
+              .text-right.caption.pb-0
+                ul.list-inline.mb-0
+                  li
+                    a(href='#')
+                      i.ti-save.text-info
+                  li
+                    a(href='#')
+                      i.ti-shield.text-danger
+          .col-sm-4
+            .thumbnail
+              img(src=build+'images/backgrounds/09.jpg', alt='')
+              .text-right.caption.pb-0
+                ul.list-inline.mb-0
+                  li
+                    a(href='#')
+                      i.ti-save.text-info
+                  li
+                    a(href='#')
+                      i.ti-shield.text-danger
+        hr
+        textarea#email-editor
+        .text-right
+          button.btn.btn-raised.btn-success(type='button') Send

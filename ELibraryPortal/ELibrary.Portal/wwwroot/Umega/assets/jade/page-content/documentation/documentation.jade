@@ -1,0 +1,1062 @@
+.page-content.container-fluid.p-0
+  .row.row-0
+    .col-lg-12
+      .clearfix.p-25.bg-demo
+        .pull-left
+          h1 Umega App
+            span.fs-20  v1.6
+          p.lead Responsive Web App Kit
+        blockquote.pull-right.mb-0
+          p created: Apr 06, 2016
+          p by: LeThemes
+          p web: 
+            a(href='http://www.lethemes.net/', target='_blank') lethemes.net
+          p email: 
+            a(href='mailto:lethemes@gmail.com') lethemes@gmail.com
+      .p-25
+        h2 Overview
+        p.lead
+          | Umega is a fully responsive admin dashboard template, easy customization and lightweight which is basically designed for the developers. It follows the best practices using the latest technologies and I really hope that you will enjoy working with it.
+        h2 Features
+        ul
+          li Clean and simple
+          li Powerful layouts
+          li Valid HTML5 and CSS3
+          li Built with bootstrap 3.3.6
+          li Uses LESS, Jade, Gulp, Browser Sync, Bower, Git
+          li Easy to understand HTML Structure, CSS Classes & Javascript markup
+          li Fully responsive design, supported for desktops, laptops, smartphones and tablets
+          li And much more…
+        h2#comming-soon Coming Soon
+        ul
+          li Chat dashboard
+          li Profile page v2, v3
+          li Bootstrap 4 alpha
+        h2#changelog Changelog
+        p
+          strong 1.6 - Aug 01, 2016
+        ul
+          li Added: Fourth layout
+          li Added: E-commerce dashboard
+          li Added: Gallery page
+          li Added: Timeline page
+          li Added: Error pages v3(400, 401, 403, 404, 500, 503)
+          li Added: User pages v3(login, register, lock screen, forgot password)
+          li Updated: Widgets page
+          li Fixed: Menu levels
+        p
+          strong 1.5 - Jun 08, 2016
+        ul
+          li Added: Third layout
+          li Added: Flag icons page
+          li Added: Weather icons page
+          li Added: Chartist page
+          li Added: Error pages v2(400, 401, 403, 404, 500, 503)
+          li Added: User pages v2(login, register, lock screen, forgot password)
+          li Improved: Performance
+        p
+          strong 1.4.1 - May 25, 2016
+        ul
+          li Fixed: First layout
+        p
+          strong 1.4 - May 24, 2016
+        ul
+          li Added: Widgets page
+          li Updated: First layout
+          li Updated: Second layout
+          li Improved: Performance
+          li Fixed: Small issues
+        p
+          strong 1.3 - May 11, 2016
+        ul
+          li Added: Purple skin
+          li Added: First layout
+          li Added: Second layout
+          li Improved: Error pages (400, 401, 403, 404, 500, 503)
+          li Improved: User pages (login, register, lock screen, forgot password)
+          li Improved: Demo settings
+        p
+          strong 1.2 - Apr 21, 2016
+        ul
+          li Fixed: Login, register, lock screen and forgot password pages on iPad (iOS 9.2)
+          li Added: Product list page
+          li Added: Edit product page
+          li Added: Order list page
+          li Added: Edit order page
+          li Added: Customer list page
+          li Added: Edit customer page
+        p
+          strong 1.1 - Apr 15, 2016
+        ul
+          li Fixed: Contrast text colors
+          li Added: Color system page
+          li Improved: Skins (blue, green, red, yellow)
+          li Improved: jQuery custom content scroller plugin
+          li Changed: 
+            code .icon
+            |  change to 
+            code .header-icon
+          li Changed: 
+            code .wrapper
+            |  change to 
+            code .page-container
+          li Changed: 
+            code .main-content
+            |  change to 
+            code .page-content
+        p
+          strong 1.0 - Apr 06, 2016
+        ul
+          li Initial Release
+        h2 Install
+        ol
+          li
+            a(href='http://www.wampserver.com/en/', target='_blank') Install a local server
+          li
+            a(href='https://nodejs.org/en/download', target='_blank') Install Node.js
+          li
+            a(href='https://git-scm.com', target='_blank') Install Git
+          li Install 
+            a(href='https://bower.io/', target='_blank') Bower
+            |  and 
+            a(href='http://gulpjs.com/', target='_blank') Gulp
+            |  - Run 
+            code npm install -g bower gulp-cli
+          li Install node modules (
+            a(href='https://www.npmjs.com/package/gulp', target='_blank') gulp
+            | , 
+            a(href='https://www.npmjs.com/package/gulp-jade/', target='_blank') gulp-jade
+            | , 
+            a(href='https://www.npmjs.com/package/gulp-less/', target='_blank') gulp-less
+            | , 
+            a(href='https://www.npmjs.com/package/gulp-uglify', target='_blank') gulp-uglify
+            | , 
+            a(href='https://www.npmjs.com/package/gulp-clean-css/', target='_blank') gulp-clean-css
+            | )
+          li Run 
+            code gulp
+            |  to start server
+        p 
+          strong Note: Run Cmd as Administrator in Windows
+        p I have defined all the task by default. Gulp will compile less, js and jade files. You can modify or add your task in 
+          code gulpfile.js
+        p Commands list:
+        ul
+          li
+            strong gulp:
+            |  start server
+          li
+            strong gulp jade:
+            |  complied jade file and beautify them
+          li
+            strong gulp less:
+            |  complied less file and minify them
+          li
+            strong gulp js:
+            |  minify js file
+        h2 Folder Structure
+        pre.
+          Umega/
+            |-- assets/
+            |   |-- data/
+            |   |-- images/
+            |   |-- jade/
+            |   |-- js/
+            |   |-- less/
+            |-- build/
+            |   |-- css/
+            |   |-- images/
+            |   |-- js/
+            |-- node_modules/
+            |   |-- .bin/
+            |   |-- browser-sync/
+            |   |-- gulp/
+            |   |-- gulp-jade/
+            |   |-- gulp-less/
+            |   |-- gulp-minify-css/
+            |   |-- gulp-uglify/
+            |-- plugins/
+            |-- first-layout/
+            |-- second-layout/
+            |-- third-layout/
+            |-- fourth-layout/
+            |-- .bowerrc
+            |-- bower.json
+            |-- gulpfile.js
+            |-- index.html
+        h2 CSS Helper
+        div(role='tabpanel')
+          ul.nav.nav-tabs(role='tablist', style='margin-bottom: 25px')
+            li.active(role='presentation')
+              a#font-tab(href='#font', role='tab', data-toggle='tab', aria-controls='font', aria-expanded='true') Font
+            li(role='presentation')
+              a#text-tab(href='#text', role='tab', data-toggle='tab', aria-controls='text', aria-expanded='true') Text
+            li(role='presentation')
+              a#background-tab(href='#background', role='tab', data-toggle='tab', aria-controls='background', aria-expanded='true') Background
+            li(role='presentation')
+              a#padding-tab(href='#padding', role='tab', data-toggle='tab', aria-controls='padding', aria-expanded='true') Padding
+            li(role='presentation')
+              a#margin-tab(href='#margin', role='tab', data-toggle='tab', aria-controls='margin', aria-expanded='false') Margin
+            li(role='presentation')
+              a#box-shadow-tab(href='#box-shadow', role='tab', data-toggle='tab', aria-controls='box-shadow', aria-expanded='true') Box Shadow
+            li(role='presentation')
+              a#responsive-tab(href='#responsive', role='tab', data-toggle='tab', aria-controls='responsive', aria-expanded='false') Responsive
+            li(role='presentation')
+              a#other-tab(href='#other', role='tab', data-toggle='tab', aria-controls='other', aria-expanded='true') Other
+          .tab-content
+            #font.tab-pane.fade.active.in(role='tabpanel', aria-labelledby='font-tab')
+              table.table.table-bordered
+                thead
+                  tr
+                    th.text-center #
+                    th Class
+                    th Description
+                tbody
+                  tr
+                    th.text-center(scope='row', rowspan='13') 1
+                    td
+                      code .fs-10
+                    td Sets font size to 10px
+                  tr
+                    td
+                      code .fs-11
+                    td Sets font size to 11px
+                  tr
+                    td
+                      code .fs-12
+                    td Sets font size to 12px
+                  tr
+                    td
+                      code .fs-13
+                    td Sets font size to 13px
+                  tr
+                    td
+                      code .fs-14
+                    td Sets font size to 14px
+                  tr
+                    td
+                      code .fs-16
+                    td Sets font size to 16px
+                  tr
+                    td
+                      code .fs-18
+                    td Sets font size to 18px
+                  tr
+                    td
+                      code .fs-20
+                    td Sets font size to 20px
+                  tr
+                    td
+                      code .fs-24
+                    td Sets font size to 24px
+                  tr
+                    td
+                      code .fs-30
+                    td Sets font size to 30px
+                  tr
+                    td
+                      code .fs-36
+                    td Sets font size to 36px
+                  tr
+                    td
+                      code .fs-60
+                    td Sets font size to 60px
+                  tr
+                    td
+                      code .fs-100
+                    td Sets font size to 100px
+                  tr
+                    th.text-center(scope='row', rowspan='5') 2
+                    td
+                      code .fw-300
+                    td Sets font weight to 300
+                  tr
+                    td
+                      code .fw-400
+                    td Sets font weight to 400
+                  tr
+                    td
+                      code .fw-500
+                    td Sets font weight to 500
+                  tr
+                    td
+                      code .fw-600
+                    td Sets font weight to 600
+                  tr
+                    td
+                      code .fw-700
+                    td Sets font weight to 700
+                  tr
+                    th.text-center(scope='row', rowspan='6') 3
+                    td
+                      code .h1
+                    td Sets font style to match with h1 tag
+                  tr
+                    td
+                      code .h2
+                    td Sets font style to match with h2 tag
+                  tr
+                    td
+                      code .h3
+                    td Sets font style to match with h3 tag
+                  tr
+                    td
+                      code .h4
+                    td Sets font style to match with h4 tag
+                  tr
+                    td
+                      code .h5
+                    td Sets font style to match with h5 tag
+                  tr
+                    td
+                      code .h6
+                    td Sets font style to match with h6 tag
+            #text.tab-pane.fade(role='tabpanel', aria-labelledby='text-tab')
+              table.table.table-bordered
+                thead
+                  tr
+                    th.text-center #
+                    th Class
+                    th Description
+                tbody
+                  tr
+                    th.text-center(scope='row', rowspan='8') 1
+                    td
+                      code .text-left
+                    td Indicates left-aligned text
+                  tr
+                    td
+                      code .text-center
+                    td Indicates center-aligned text
+                  tr
+                    td
+                      code .text-right
+                    td Indicates right-aligned text
+                  tr
+                    td
+                      code .text-justify
+                    td Indicates justified text
+                  tr
+                    td
+                      code .text-nowrap
+                    td Indicates no wrap text
+                  tr
+                    td
+                      code .text-lowercase
+                    td Indicates lowercased text
+                  tr
+                    td
+                      code .text-uppercase
+                    td Indicates uppercased text
+                  tr
+                    td
+                      code .text-capitalize
+                    td Indicates capitalized text
+                  tr
+                    th.text-center(scope='row', rowspan='14') 2
+                    td
+                      code .text-muted
+                    td Sets font color to dark gray
+                  tr
+                    td
+                      code .text-primary
+                    td Sets font color to blue
+                  tr
+                    td
+                      code .text-success
+                    td Sets font color to teal
+                  tr
+                    td
+                      code .text-info
+                    td Sets font color to light blue
+                  tr
+                    td
+                      code .text-warning
+                    td Sets font color to yellow
+                  tr
+                    td
+                      code .text-danger
+                    td Sets font color to red
+            #background.tab-pane.fade(role='tabpanel', aria-labelledby='background-tab')
+              table.table.table-bordered
+                thead
+                  tr
+                    th.text-center #
+                    th Class
+                    th Description
+                tbody
+                  tr
+                    th.text-center(scope='row', rowspan='13') 2
+                    td
+                      code .bg-primary
+                    td Sets background color to blue
+                  tr
+                    td
+                      code .bg-success
+                    td Sets background color to teal
+                  tr
+                    td
+                      code .bg-info
+                    td Sets background color to light blue
+                  tr
+                    td
+                      code .bg-warning
+                    td Sets background color to yellow
+                  tr
+                    td
+                      code .bg-danger
+                    td Sets background color to red
+            #padding.tab-pane.fade(role='tabpanel', aria-labelledby='padding-tab')
+              table.table.table-bordered
+                thead
+                  tr
+                    th.text-center #
+                    th Class
+                    th Description
+                tbody
+                  tr
+                    th.text-center(scope='row', rowspan='5') 1
+                    td
+                      code .p-0
+                    td Sets padding to zero
+                  tr
+                    td
+                      code .pt-0
+                    td Sets top padding to zero
+                  tr
+                    td
+                      code .pr-0
+                    td Sets right padding to zero
+                  tr
+                    td
+                      code .pb-0
+                    td Sets bottom padding to zero
+                  tr
+                    td
+                      code .pl-0
+                    td Sets left padding to zero
+                  tr
+                    th.text-center(scope='row', rowspan='5') 2
+                    td
+                      code .p-5
+                    td Adds 5px of padding on all sides
+                  tr
+                    td
+                      code .pt-5
+                    td Adds 5px of padding to the top
+                  tr
+                    td
+                      code .pr-5
+                    td Adds 5px of padding to the right
+                  tr
+                    td
+                      code .pb-5
+                    td Adds 5px of padding to the bottom
+                  tr
+                    td
+                      code .pl-5
+                    td Adds 5px of padding to the left
+                  tr
+                    th.text-center(scope='row', rowspan='5') 3
+                    td
+                      code .p-10
+                    td Adds 10px of padding on all sides
+                  tr
+                    td
+                      code .pt-10
+                    td Adds 10px of padding to the top
+                  tr
+                    td
+                      code .pr-10
+                    td Adds 10px of padding to the right
+                  tr
+                    td
+                      code .pb-10
+                    td Adds 10px of padding to the bottom
+                  tr
+                    td
+                      code .pl-10
+                    td Adds 10px of padding to the left
+                  tr
+                    th.text-center(scope='row', rowspan='5') 4
+                    td
+                      code .p-15
+                    td Adds 15px of padding on all sides
+                  tr
+                    td
+                      code .pt-15
+                    td Adds 15px of padding to the top
+                  tr
+                    td
+                      code .pr-15
+                    td Adds 15px of padding to the right
+                  tr
+                    td
+                      code .pb-15
+                    td Adds 15px of padding to the bottom
+                  tr
+                    td
+                      code .pl-15
+                    td Adds 15px of padding to the left
+                  tr
+                    th.text-center(scope='row', rowspan='5') 5
+                    td
+                      code .p-20
+                    td Adds 20px of padding on all sides
+                  tr
+                    td
+                      code .pt-20
+                    td Adds 20px of padding to the top
+                  tr
+                    td
+                      code .pr-20
+                    td Adds 20px of padding to the right
+                  tr
+                    td
+                      code .pb-20
+                    td Adds 20px of padding to the bottom
+                  tr
+                    td
+                      code .pl-20
+                    td Adds 20px of padding to the left
+                  tr
+                    th.text-center(scope='row', rowspan='5') 6
+                    td
+                      code .p-25
+                    td Adds 25px of padding on all sides
+                  tr
+                    td
+                      code .pt-25
+                    td Adds 25px of padding to the top
+                  tr
+                    td
+                      code .pr-25
+                    td Adds 25px of padding to the right
+                  tr
+                    td
+                      code .pb-25
+                    td Adds 25px of padding to the bottom
+                  tr
+                    td
+                      code .pl-25
+                    td Adds 25px of padding to the left
+                  tr
+                    th.text-center(scope='row', rowspan='5') 7
+                    td
+                      code .p-30
+                    td Adds 30px of padding on all sides
+                  tr
+                    td
+                      code .pt-30
+                    td Adds 30px of padding to the top
+                  tr
+                    td
+                      code .pr-30
+                    td Adds 30px of padding to the right
+                  tr
+                    td
+                      code .pb-30
+                    td Adds 30px of padding to the bottom
+                  tr
+                    td
+                      code .pl-30
+                    td Adds 30px of padding to the left
+            #margin.tab-pane.fade(role='tabpanel', aria-labelledby='margin-tab')
+              table.table.table-bordered
+                thead
+                  tr
+                    th.text-center #
+                    th Class
+                    th Description
+                tbody
+                  tr
+                    th.text-center(scope='row', rowspan='5') 1
+                    td
+                      code .m-0
+                    td Sets margin to zero
+                  tr
+                    td
+                      code .mt-0
+                    td Sets top margin to zero
+                  tr
+                    td
+                      code .mr-0
+                    td Sets right margin to zero
+                  tr
+                    td
+                      code .mb-0
+                    td Sets bottom margin to zero
+                  tr
+                    td
+                      code .ml-0
+                    td Sets left margin to zero
+                  tr
+                    th.text-center(scope='row', rowspan='5') 2
+                    td
+                      code .m-5
+                    td Adds 5px of margin on all sides
+                  tr
+                    td
+                      code .mt-5
+                    td Adds 5px of margin to the top
+                  tr
+                    td
+                      code .mr-5
+                    td Adds 5px of margin to the right
+                  tr
+                    td
+                      code .mb-5
+                    td Adds 5px of margin to the bottom
+                  tr
+                    td
+                      code .ml-5
+                    td Adds 5px of margin to the left
+                  tr
+                    th.text-center(scope='row', rowspan='5') 3
+                    td
+                      code .m-10
+                    td Adds 10px of margin on all sides
+                  tr
+                    td
+                      code .mt-10
+                    td Adds 10px of margin to the top
+                  tr
+                    td
+                      code .mr-10
+                    td Adds 10px of margin to the right
+                  tr
+                    td
+                      code .mb-10
+                    td Adds 10px of margin to the bottom
+                  tr
+                    td
+                      code .ml-10
+                    td Adds 10px of margin to the left
+                  tr
+                    th.text-center(scope='row', rowspan='5') 4
+                    td
+                      code .m-15
+                    td Adds 15px of margin on all sides
+                  tr
+                    td
+                      code .mt-15
+                    td Adds 15px of margin to the top
+                  tr
+                    td
+                      code .mr-15
+                    td Adds 15px of margin to the right
+                  tr
+                    td
+                      code .mb-15
+                    td Adds 15px of margin to the bottom
+                  tr
+                    td
+                      code .ml-15
+                    td Adds 15px of margin to the left
+                  tr
+                    th.text-center(scope='row', rowspan='5') 5
+                    td
+                      code .m-20
+                    td Adds 20px of margin on all sides
+                  tr
+                    td
+                      code .mt-20
+                    td Adds 20px of margin to the top
+                  tr
+                    td
+                      code .mr-20
+                    td Adds 20px of margin to the right
+                  tr
+                    td
+                      code .mb-20
+                    td Adds 20px of margin to the bottom
+                  tr
+                    td
+                      code .ml-20
+                    td Adds 20px of margin to the left
+                  tr
+                    th.text-center(scope='row', rowspan='5') 6
+                    td
+                      code .m-25
+                    td Adds 25px of margin on all sides
+                  tr
+                    td
+                      code .mt-25
+                    td Adds 25px of margin to the top
+                  tr
+                    td
+                      code .mr-25
+                    td Adds 25px of margin to the right
+                  tr
+                    td
+                      code .mb-25
+                    td Adds 25px of margin to the bottom
+                  tr
+                    td
+                      code .ml-25
+                    td Adds 25px of margin to the left
+                  tr
+                    th.text-center(scope='row', rowspan='5') 7
+                    td
+                      code .m-30
+                    td Adds 30px of margin on all sides
+                  tr
+                    td
+                      code .mt-30
+                    td Adds 30px of margin to the top
+                  tr
+                    td
+                      code .mr-30
+                    td Adds 30px of margin to the right
+                  tr
+                    td
+                      code .mb-30
+                    td Adds 30px of margin to the bottom
+                  tr
+                    td
+                      code .ml-30
+                    td Adds 30px of margin to the left
+            #box-shadow.tab-pane.fade(role='tabpanel', aria-labelledby='box-shadow-tab')
+              table.table.table-bordered
+                thead
+                  tr
+                    th.text-center #
+                    th Class
+                    th Description
+                tbody
+                  tr
+                    th.text-center(scope='row', rowspan='2') 1
+                    td
+                      code .no-shadow
+                    td Removes box-shadow from the element
+                  tr
+                    td
+                      code .no-border
+                    td Removes border from the element
+                  tr
+                    th.text-center(scope='row', rowspan='4') 2
+                    td
+                      code .bd-t
+                    td Sets top border to the element
+                  tr
+                    td
+                      code .bd-r
+                    td Sets right border to the element
+                  tr
+                    td
+                      code .bd-b
+                    td Sets bottom border to the element
+                  tr
+                    td
+                      code .bd-l
+                    td Sets left border to the element
+            #responsive.tab-pane.fade(role='tabpanel', aria-labelledby='responsive-tab')
+              table.table.table-bordered
+                tbody
+                  tr
+                    td Class
+                    td
+                      | Extra small devices
+                      small.block.text-muted Phones (<768px)
+                    td
+                      | Small devices
+                      small.block.text-muted Tablets (≥768px)
+                    td
+                      | Medium devices
+                      small.block.text-muted Desktops (≥992px)
+                    td
+                      | Large devices
+                      small.block.text-muted Desktops (≥1200px)
+                  tr
+                    td
+                      code .visible-xs
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-close.text-danger
+                  tr
+                    td
+                      code .visible-sm
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-close.text-danger
+                  tr
+                    td
+                      code .visible-md
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-close.text-danger
+                  tr
+                    td
+                      code .visible-lg
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-check.text-success
+                  tr
+                    td
+                      code .hidden-xs
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-check.text-success
+                  tr
+                    td
+                      code .hidden-sm
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-check.text-success
+                  tr
+                    td
+                      code .hidden-md
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-close.text-danger
+                    td.text-center
+                      i.ti-check.text-success
+                  tr
+                    td
+                      code .hidden-lg
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-check.text-success
+                    td.text-center
+                      i.ti-close.text-danger
+            #other.tab-pane.fade(role='tabpanel', aria-labelledby='other-tab')
+              table.table.table-bordered
+                thead
+                  tr
+                    th.text-center #
+                    th Class
+                    th Description
+                tbody
+                  tr
+                    th.text-center(scope='row', rowspan='4') 1
+                    td
+                      code .pull-left
+                    td Floats the element to the left
+                  tr
+                    td
+                      code .pull-right
+                    td Floats the element to the right
+                  tr
+                    td
+                      code .center-block
+                    td Sets the element to display:block and center
+                  tr
+                    td
+                      code .clearfix
+                    td Clears all floats in the element
+                  tr
+                    th.text-center(scope='row', rowspan='5') 2
+                    td
+                      code .show
+                    td Forces the element to be shown
+                  tr
+                    td
+                      code .hidden
+                    td Forces the element to be hidden
+                  tr
+                    td
+                      code .sr-only
+                    td Hides the element to all devices except screen readers
+                  tr
+                    td
+                      code .sr-only-focusable
+                    td Combine with .sr-only to show the element again when it is focused
+                  tr
+                    td
+                      code .text-hide
+                    td Helps replace the element's text content with a background image
+                  tr
+                    th.text-center(scope='row', rowspan='2') 3
+                    td
+                      code .close
+                    td Indicates a close icon
+                  tr
+                    td
+                      code .caret
+                    td Indicates dropdown functionality
+        h2 Credits
+        ul
+          li
+            a(href='http://getbootstrap.com/', target='_blank') Bootstrap 3.3.6
+          li
+            a(href='https://jquery.com/', target='_blank') jQuery 2.2.1
+          li
+            a(href='http://bower.io/', target='_blank') Bower
+          li
+            a(href='https://nodejs.org/', target='_blank') Node.js
+          li
+            a(href='https://git-scm.com/', target='_blank') Git
+          li
+            a(href='http://gulpjs.com/', target='_blank') Gulp
+          li
+            a(href='http://lesscss.org/', target='_blank') Less
+          li
+            a(href='https://www.browsersync.io/', target='_blank') Browser Sync
+        h3 Images
+        ul
+          li
+            a(href='http://www.pexels.com/', target='_blank') PEXELS
+          li
+            a(href='http://uifaces.com/', target='_blank') uiFaces
+          li
+            a(href='http://www.iconarchive.com/show/world-cup-2014-teams-icons-by-designbolts.html', target='_blank') Flag icons
+        h3 Data Generator
+        ul
+          li
+            a(href='http://www.freedatagenerator.com/', target='_blank') Free Data Generator
+          li
+            a(href='http://uinames.com/', target='_blank') uiNames
+        h3 Fonts & Icons
+        ul
+          li
+            a(href='http://fortawesome.github.io/Font-Awesome/', target='_blank') Font Awesome
+          li
+            a(href='http://zavoloklom.github.io/material-design-iconic-font/', target='_blank') Material Design Iconic Font
+          li
+            a(href='https://themify.me/themify-icons', target='_blank') Themify Icons
+          li
+            a(href='https://github.com/erikflowers/weather-icons', target='_blank') Weather Icons
+          li
+            a(href='https://www.google.com/fonts/specimen/Poppins', target='_blank') Poppins
+        h3 Plugins
+        ul
+          li
+            a(href='http://labs.bigroomstudios.com/libraries/animo-js', target='_blank') Animo.js
+          li
+            a(href='https://github.com/malsup/blockui', target='_blank') BlockUI
+          li
+            a(href='https://github.com/istvan-ujjmeszaros/bootstrap-colorpickersliders', target='_blank') Bootstrap Color Picker Sliders
+          li
+            a(href='http://www.daterangepicker.com', target='_blank') Bootstrap Date Range Picker
+          li
+            a(href='http://www.virtuosoft.eu/code/bootstrap-duallistbox/', target='_blank') Bootstrap Dual Listbox
+          li
+            a(href='http://plugins.krajee.com/file-input', target='_blank') Bootstrap File Input
+          li
+            a(href='http://markusslima.github.io/bootstrap-filestyle', target='_blank') Bootstrap FileStyle
+          li
+            a(href='http://www.codingdrama.com/bootstrap-markdown', target='_blank') Bootstrap Markdown
+          li
+            a(href='http://mimo84.github.io/bootstrap-maxlength', target='_blank') Bootstrap Maxlength
+          li
+            a(href='https://github.com/dgoguerra/bootstrap-menu', target='_blank') Bootstrap Context Menu
+          li
+            a(href='http://www.minddust.com/project/bootstrap-progressbar/demo/bootstrap-3-3-4', target='_blank') Bootstrap Progressbar
+          li
+            a(href='http://silviomoreto.github.io/bootstrap-select', target='_blank') Bootstrap Select
+          li
+            a(href='http://lipis.github.io/bootstrap-sweetalert', target='_blank') Bootstrap SweetAlert
+          li
+            a(href='http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/', target='_blank') Bootstrap Tags Input
+          li
+            a(href='http://www.virtuosoft.eu/code/bootstrap-touchspin', target='_blank') Bootstrap TouchSpin
+          li
+            a(href='https://github.com/mindmup/bootstrap-wysiwyg', target='_blank') Bootstrap Wysiwyg
+          li
+            a(href='https://github.com/Kunstmaan/BootstrapCK4-Skin', target='_blank') CKEditor
+          li
+            a(href='http://www.chartjs.org', target='_blank') Chart.js
+          li
+            a(href='https://github.com/vitalets/clockface', target='_blank') Clockface
+          li
+            a(href='https://github.com/weareoutman/clockpicker', target='_blank') ClockPicker
+          li
+            a(href='https://github.com/codemirror/CodeMirror', target='_blank') Code Mirror
+          li
+            a(href='https://github.com/bfintal/Counter-Up', target='_blank') Counter-Up
+          li
+            a(href='http://fengyuanchen.github.io/cropper', target='_blank') Cropper
+          li
+            a(href='https://www.datatables.net', target='_blank') DataTables
+          li
+            a(href='http://www.dropzonejs.com', target='_blank') DropzoneJS
+          li
+            a(href='https://eonasdan.github.io/bootstrap-datetimepicker', target='_blank') Bootstrap Datetime Picker
+          li
+            a(href='http://www.flotcharts.org', target='_blank') Flot
+          li
+            a(href='http://fullcalendar.io', target='_blank') FullCalendar
+          li
+            a(href='http://ubilabs.github.io/geocomplete', target='_blank') Geocomplete
+          li
+            a(href='https://github.com/risq/jquery-advanced-news-ticker', target='_blank') JQuery Advanced News Ticker
+          li
+            a(href='https://rendro.github.io/easy-pie-chart', target='_blank') jQuery Easy Pie Chart
+          li
+            a(href='http://mbut.github.io/jquery.mlkeyboard', target='_blank') jQuery MultiLanguage Keyboard
+          li
+            a(href='http://www.jquery-steps.com/Examples', target='_blank') jQuery Steps
+          li
+            a(href='http://labs.abeautifulsite.net/jquery-minicolors', target='_blank') jQuery MiniColors
+          li
+            a(href='https://github.com/jquery/jquery-mousewheel', target='_blank') jQuery Mousewheel
+          li
+            a(href='http://omnipotent.net/jquery.sparkline', target='_blank') jQuery Sparklines
+          li
+            a(href='https://jqueryui.com', target='_blank') jQuery UI
+          li
+            a(href='http://jqueryvalidation.org', target='_blank') jQuery Validation
+          li
+            a(href='https://github.com/carhartl/jquery-cookie', target='_blank') jQuery Cookie
+          li
+            a(href='http://msurguy.github.io/ladda-bootstrap', target='_blank') Ladda UI
+          li
+            a(href='http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/scrollbar_themes_demo.html', target='_blank') Malihu Custom Scrollbar
+          li
+            a(href='https://mochajs.org', target='_blank') Mocha
+          li
+            a(href='http://morrisjs.github.io/morris.js', target='_blank') Morris.js
+          li
+            a(href='http://owlgraphic.com/owlcarousel', target='_blank') Owl Carousel
+          li
+            a(href='http://auxiliary.github.io/rpage', target='_blank') Responsive Pagination
+          li
+            a(href='http://tobiasahlin.com/spinkit', target='_blank') Spinkit
+          li
+            a(href='http://summernote.org', target='_blank') Summernote
+          li
+            a(href='https://github.com/CodeSeven/toastr', target='_blank') Toastr
+          li
+            a(href='http://github.hubspot.com/pace/docs/welcome', target='_blank') PACE
+          li
+            a(href='http://imakewebthings.com/waypoints', target='_blank') Waypoints
+          li
+            a(href='https://github.com/google/code-prettify', target='_blank') Code Prettify
+          li
+            a(href='http://tympanus.net/codrops/2015/11/19/some-inspiration-for-pricing-tables/', target='_blank') Pricing Tables

@@ -1,0 +1,25 @@
+// Main Sidebar start
+aside.main-sidebar.mCustomScrollbar(data-mcs-theme='minimal-dark')
+  .user
+    #esp-user-profile.easy-pie-chart(data-percent='65', style='height: 104px; width: 104px; line-height: 80px; padding: 12px;')
+      img.avatar.img-circle(src=build+'images/users/04.jpg', alt='')
+      span.status.bg-success
+    h4.fs-14.text-muted.mt-15.mb-5.fw-300 Matthew Gonzalez
+    p.fs-13.mb-0.text-muted Designer
+  block navigation
+  .sidebar-category Server Status
+  .sidebar-widget
+    ul.list-unstyled.pl-20.pr-20
+      li.mb-20
+        .block.clearfix.mb-10
+          span.pull-left.fs-12.text-muted CPU Used
+          span.pull-right.label.label-outline.label-warning 65%
+        .progress.progress-xs.bg-light.mb-0
+          .progress-bar.progress-bar-warning(role='progressbar', data-transitiongoal='65')
+      li.mb-20
+        .block.clearfix.mb-10
+          span.pull-left.fs-12.text-muted Bandwidth
+          span.pull-right.label.label-outline.label-danger 80%
+        .progress.progress-xs.bg-light.mb-0
+          .progress-bar.progress-bar-danger(role='progressbar', data-transitiongoal='80')
+// Main Sidebar end

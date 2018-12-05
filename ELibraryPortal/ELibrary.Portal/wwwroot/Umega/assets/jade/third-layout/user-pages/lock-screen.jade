@@ -1,0 +1,9 @@
+extends ../template/extra-template.jade
+block js
+  include ../../core-js/user-pages/lock-screen.jade
+block custom-js
+  script(type='text/javascript', src=build+'js/page-content/user-pages/lock-screen.js')
+block title
+  title Umega App - Lock Screen
+block page-content
+  include ../../page-content/user-pages/lock-screen.jade
