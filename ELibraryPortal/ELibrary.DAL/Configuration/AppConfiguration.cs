@@ -1,0 +1,39 @@
+﻿using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+namespace ELibrary.DAL.Configuration
+{
+    public class AppConfiguration 
+    {
+        private readonly string _sqlConnection;
+        private static AppConfiguration _instance;
+        public static AppConfiguration Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new AppConfiguration();
+                }
+                return _instance;
+            }
+        }
+        public AppConfiguration()
+        {
+            var configurationBuilder = new ConfigurationBuilder();
+            var appsettings = Path.Combine($"{ Directory.GetParent(Directory.GetCurrentDirectory()).FullName}\\ELibrary.API", "appsettings.json");
+            configurationBuilder.AddJsonFile(appsettings, false);
+
+            var root = configurationBuilder.Build();
+            _sqlConnection = root.GetConnectionString("SqlConnection");
+        }
+
+        public string SqlDataConnection
+        {
+            get => _sqlConnection;
+        }
+    }
+}
