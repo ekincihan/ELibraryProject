@@ -1,5 +1,6 @@
 ﻿using ELibrary.DAL.Configuration;
 using ELibrary.Entities.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,12 +12,19 @@ namespace ELibrary.DAL.Concrete.EntityFramework
     public class ELibraryDBContext : IdentityDbContext<ApplicationUser> 
     {
         public virtual DbSet<Author> Authors { get; set; }
+        public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public virtual DbSet<AppIdentityRole> AppIdentityRoles { get; set; }
         public ELibraryDBContext(DbContextOptions<ELibraryDBContext> options) : base(options)
+        {
+
+        }
+        public ELibraryDBContext()
         {
 
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
             base.OnModelCreating(builder);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
