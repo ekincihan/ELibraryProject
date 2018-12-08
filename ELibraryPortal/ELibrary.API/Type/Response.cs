@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ELibrary.API.Type
 {
-    public class Response<T> : IResponse
+    public class Response<T> : IResponse where T: new()
     {
         #region Constructor
         public Response(T value)
@@ -13,7 +13,11 @@ namespace ELibrary.API.Type
             this.Message = string.Empty;
             this.Value = value;
         }
-
+        public Response()
+        {
+            this.IsSuccess = true;
+            this.Message = string.Empty;
+        }
         public Response(Exception ex = null)
         {
             Exception = ex;

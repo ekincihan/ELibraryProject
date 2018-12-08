@@ -33,6 +33,7 @@ namespace ELibrary.API.Controllers
             Response<List<PublisherModel>> publisherResponse = new Response<List<PublisherModel>>();
             List<Publisher> entityList = _publisher.GetList();
             publisherResponse.Value = _mapper.Map<List<PublisherModel>>(entityList);
+            publisherResponse.IsSuccess = true;
 
             return publisherResponse;
         }
