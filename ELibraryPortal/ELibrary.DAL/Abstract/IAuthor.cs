@@ -8,5 +8,6 @@ namespace ELibrary.DAL.Abstract
 {
     public interface IAuthor : IEntityRepository<Author>
     {
+
     }
 }

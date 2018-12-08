@@ -7,11 +7,12 @@ using System.Text;
 
 namespace ELibrary.Entities.Concrete
 {
-   public class Books:EntityBase<Guid>
+   public class Book:EntityBase<Guid>
     {
         [Required]
         [StringLength(maximumLength:100)]
         public string BookName { get; set; }
+        public string ISBN { get; set; }
         [StringLength(maximumLength: 4000)]
         public string BookSummary { get; set; }
         public DateTime? EditionDate { get; set; }
