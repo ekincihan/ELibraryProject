@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ELibrary.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Publisher")]
     [ApiController]
     public class PublisherController : APIControllerBase
     {
@@ -26,16 +26,27 @@ namespace ELibrary.API.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet]
+        [Route("List")]
+        public Response<List<PublisherModel>> Get()
+        {
+            Response<List<PublisherModel>> publisherResponse = new Response<List<PublisherModel>>();
+            List<Publisher> entityList = _publisher.GetList();
+            publisherResponse.Value = _mapper.Map<List<PublisherModel>>(entityList);
+
+            return publisherResponse;
+        }
+
         [HttpPost]
+        [Route("Add")]
         public async Task<Response<PublisherModel>> Post([FromBody]PublisherModel model)
         {
             Response<PublisherModel> publisherResponseModel = new Response<PublisherModel>();
             try
             {
                 Publisher entity = _mapper.Map<Publisher>(model);
-                entity= await _publisher.AddAsync(entity);
+                entity = await _publisher.AddAsync(entity);
                 publisherResponseModel.Value = _mapper.Map<PublisherModel>(entity);
-
             }
             catch (Exception e)
             {
