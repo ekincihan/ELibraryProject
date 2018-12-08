@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using ELibrary.API.Configuration;
+using ELibrary.DAL.Abstract;
 using ELibrary.DAL.Concrete.EntityFramework;
 using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Builder;
@@ -47,7 +48,7 @@ namespace ELibrary.API
             services.AddIdentity<ApplicationUser, AppIdentityRole>()
                 .AddEntityFrameworkStores<ELibraryDBContext>()
                 .AddDefaultTokenProviders();
-
+            services.AddTransient<IPublisher, EFPublisher>();
             DIManager.Instance.Builder.Populate(services);
             DIManager.Instance.Builder.RegisterType<SecurityContext>();
             DIManager.Instance.Build();

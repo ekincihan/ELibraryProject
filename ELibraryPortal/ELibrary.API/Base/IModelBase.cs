@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 
 namespace ELibrary.API.Base
 {
-    public abstract class ModelBase<T>
+    public interface IModelBase
     {
-        public T Id { get; set; }
     }
-  
 }

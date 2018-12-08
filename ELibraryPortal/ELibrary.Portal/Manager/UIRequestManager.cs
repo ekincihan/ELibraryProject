@@ -162,14 +162,14 @@ namespace ELibrary.Portal.Manager
             }
         }
 
-        public T Post<T>(string ControllerName, string actionName, ModelBase Data)
+        public T Post<T>(string ControllerName, string actionName, IModelBase Data)
         {
             string json = JsonConvert.SerializeObject(Data);
             T obj = this.Post<T>(ControllerName, actionName, json);
             return obj;
         }
 
-        public List<T> PostList<T>(string ControllerName, string actionName, ModelBase Data)
+        public List<T> PostList<T>(string ControllerName, string actionName, IModelBase Data)
         {
             string json = JsonConvert.SerializeObject(Data);
             List<T> obj = this.PostList<T>(ControllerName, actionName, json);

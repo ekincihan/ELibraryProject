@@ -14,8 +14,6 @@ namespace ELibrary.Portal.Controllers
     {
         public IActionResult Index()
         {
-            var personelBudgetDailyModel = JsonConvert.DeserializeObject<Values>(UiRequestManager.Instance.Get(string.Format("Value"),"Get"));
-
             return View();
         }
        
