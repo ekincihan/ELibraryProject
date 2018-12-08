@@ -8,7 +8,12 @@ namespace ELibrary.API.Models
 {
     public class PublisherModel : ModelBase<Guid>,IModelBase
     {
+        public PublisherModel()
+        {
+            Id = Guid.Empty;
+        }
         public string Name { get; set; }
         public string Email { get; set; }
+        
     }
 }

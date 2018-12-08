@@ -21,6 +21,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using AutoMapper;
 
 namespace ELibrary.API
 {
@@ -49,6 +50,7 @@ namespace ELibrary.API
                 .AddEntityFrameworkStores<ELibraryDBContext>()
                 .AddDefaultTokenProviders();
             services.AddTransient<IPublisher, EFPublisher>();
+            services.AddAutoMapper();
             DIManager.Instance.Builder.Populate(services);
             DIManager.Instance.Builder.RegisterType<SecurityContext>();
             DIManager.Instance.Build();

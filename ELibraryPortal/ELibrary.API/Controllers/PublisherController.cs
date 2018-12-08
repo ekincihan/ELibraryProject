@@ -26,6 +26,7 @@ namespace ELibrary.API.Controllers
             _mapper = mapper;
         }
 
+        [HttpPost]
         public async Task<Response<PublisherModel>> Post([FromBody]PublisherModel model)
         {
             Response<PublisherModel> publisherResponseModel = new Response<PublisherModel>();
@@ -38,11 +39,11 @@ namespace ELibrary.API.Controllers
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                publisherResponseModel.Exception = e;
+                publisherResponseModel.IsSuccess = false;
             }
 
-            return null;
+            return publisherResponseModel;
         }
     }
 }
