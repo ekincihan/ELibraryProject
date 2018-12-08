@@ -1,74 +1,125 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ELibrary.Portal</title>
-
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Umega App - Responsive web app kit</title>
+    <!-- PACE-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/PACE/themes/blue/pace-theme-flash.css">
+    <script type="text/javascript" src="~/Umega/plugins/PACE/pace.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Fonts-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/themify-icons/themify-icons.css">
+    <!-- Malihu Scrollbar-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
+    <!-- Animo.js-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/animo.js/animate-animo.min.css">
+    <!-- Flag Icons-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/flag-icon-css/css/flag-icon.min.css">
+    <!-- Bootstrap Progressbar-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+    <!-- SpinKit-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/SpinKit/css/spinners/7-three-bounce.css">
+    <!-- Morris Chart-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/morris.js/morris.css">
+    <!-- DataTables-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/datatables.net-colreorder-bs/css/colReorder.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
+    <!-- Primary Style-->
+    <link href="~/Umega/build/css/first-layout.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ELibrary.Portal</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-            </div>
+<body data-sidebar-color="sidebar-light" class="sidebar-light">
+    <!-- Header start-->
+    @await Html.PartialAsync("_Header")
+    <div class="main-container">
+        <!-- Main Sidebar start-->
+        @await Html.PartialAsync("_Sidebar")
+        <!-- Main Sidebar end-->
+        <div class="page-container">
+            @RenderBody()
         </div>
-    </nav>
-
-    <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - ELibrary.Portal</p>
-        </footer>
+        <!-- Right Sidebar start-->
+        <!-- Right Sidebar end-->
     </div>
-
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
-
-    @RenderSection("Scripts", required: false)
+    <!-- Demo Settings start-->
+    <div class="setting closed">
+        <a href="javascript:;" class="setting-toggle fs-16"><i class="ti-palette text-muted"></i></a>
+        <h5 class="fs-16 mt-0 mb-20">Header Colors</h5>
+        <ul class="list-inline">
+            <li><a href="javascript:;" data-color="header-primary" class="mo-xs bg-primary inline-block img-circle header-color"></a></li>
+            <li><a href="javascript:;" data-color="header-green" class="mo-xs bg-success inline-block img-circle header-color"></a></li>
+            <li><a href="javascript:;" data-color="header-purple" class="mo-xs bg-purple inline-block img-circle header-color"></a></li>
+            <li><a href="javascript:;" data-color="header-yellow" class="mo-xs bg-warning inline-block img-circle header-color"></a></li>
+            <li><a href="javascript:;" data-color="header-red" class="mo-xs bg-danger inline-block img-circle header-color"></a></li>
+        </ul>
+        <h5 class="fs-16 mt-0 mb-20">Sidebar Style</h5>
+        <ul class="list-inline">
+            <li><a href="javascript:;" data-color="sidebar-dark" class="sidebar-color mo-xs bg-black inline-block img-circle"></a></li>
+            <li><a href="javascript:;" data-color="sidebar-light" class="sidebar-color mo-xs bg-default inline-block img-circle"></a></li>
+        </ul>
+        <form class="form-horizontal mb-20">
+            <div class="clearfix">
+                <p class="form-control-static pull-left">Background Image</p>
+                <div class="switch pull-right">
+                    <input id="sidebar-bg" type="checkbox" checked="">
+                    <label for="sidebar-bg" class="switch-success"></label>
+                </div>
+            </div>
+        </form>
+        <ul class="list-inline mb-0">
+            <li><a href="javascript:;" data-bg="10.jpg" class="inline-block sidebar-bg"><img src="../build/images/thumbnails/10.jpg" width="60" alt="" class="img-rounded"></a></li>
+            <li><a href="javascript:;" data-bg="11.jpg" class="inline-block sidebar-bg"><img src="../build/images/thumbnails/11.jpg" width="60" alt="" class="img-rounded"></a></li>
+            <li><a href="javascript:;" data-bg="12.jpg" class="inline-block sidebar-bg"><img src="../build/images/thumbnails/12.jpg" width="60" alt="" class="img-rounded"></a></li>
+        </ul>
+    </div>
+    <!-- Demo Settings end-->
+    <!-- jQuery-->
+    <script type="text/javascript" src="~/Umega/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript-->
+    <script src="~/Umega/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Malihu Scrollbar-->
+    <script type="text/javascript" src="~/Umega/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Animo.js-->
+    <script type="text/javascript" src="~/Umega/plugins/animo.js/animo.min.js"></script>
+    <!-- Bootstrap Progressbar-->
+    <script type="text/javascript" src="~/Umega/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- jQuery Easy Pie Chart-->
+    <script type="text/javascript" src="~/Umega/plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <!-- jQuery BlockUI-->
+    <script type="text/javascript" src="~/Umega/plugins/blockUI/jquery.blockUI.js"></script>
+    <!-- Flot Charts-->
+    <script type="text/javascript" src="~/Umega/plugins/flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/flot/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <!-- Morris Chart-->
+    <script type="text/javascript" src="~/Umega/plugins/raphael/raphael-min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/morris.js/morris.min.js"></script>
+    <!-- DataTables-->
+    <script type="text/javascript" src="~/Umega/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/jszip/dist/jszip.min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/pdfmake/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/pdfmake/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/datatables.net-colreorder/js/dataTables.colReorder.min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Umega/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <!-- Custom JS-->
+    <script src="~/Umega/assets/js/first-layout/app.js"></script>
+    <script src="~/Umega/assets/js/first-layout/demo.js"></script>
+    <script src="~/Umega/assets/js/page-content/dashboard/index-v2.js"></script>
 </body>
 </html>

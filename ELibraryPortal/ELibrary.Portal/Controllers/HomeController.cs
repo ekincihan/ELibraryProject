@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using ELibrary.Portal.Manager;
 using Microsoft.AspNetCore.Mvc;
 using ELibrary.Portal.Models;
+using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
@@ -12,32 +14,20 @@ namespace ELibrary.Portal.Controllers
     {
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
+            var personelBudgetDailyModel = JsonConvert.DeserializeObject<Values>(UiRequestManager.Instance.Get(string.Format("Value"),"Get"));
 
             return View();
         }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+       
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+    }
+
+    public class Values
+    {
+         
     }
 }

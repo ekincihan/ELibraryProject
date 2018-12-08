@@ -68,6 +68,13 @@ namespace ELibrary.API
 
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
 
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action}/{id?}");
+            });
+
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseSwagger();
