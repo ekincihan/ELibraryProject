@@ -40,7 +40,6 @@ namespace ELibrary.API.Security
                 expires: expires,
                 signingCredentials: creds
             );
-
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }

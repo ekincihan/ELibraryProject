@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +25,8 @@ namespace ELibrary.API
 {
     public class Startup
     {
+        private RoleManager<AppIdentityRole> _roleManager;
+        private UserManager<ApplicationUser> _userManager;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -48,6 +51,7 @@ namespace ELibrary.API
             DIManager.Instance.Builder.Populate(services);
             DIManager.Instance.Builder.RegisterType<SecurityContext>();
             DIManager.Instance.Build();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,6 +86,40 @@ namespace ELibrary.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ELibrayAPI V1");
             });
+            CreateRolesandUsers();
+        }
+        private void CreateRolesandUsers()
+        {
+            _roleManager = DIManager.Instance.Provider.GetService<RoleManager<AppIdentityRole>>();
+            _userManager = DIManager.Instance.Provider.GetService<UserManager<ApplicationUser>>();
+
+            // In Startup iam creating first Admin Role and creating a default Admin User    
+            if (!_roleManager.RoleExistsAsync("SUPERADMIN").Result)
+            {
+                // first we create Admin rool   
+                var role = new AppIdentityRole();
+                role.Name = "SUPERADMIN";
+                _roleManager.CreateAsync(role);
+
+                //Here we create a Admin super user who will maintain the website                  
+            }
+            if (_userManager.Users.FirstOrDefault(x => x.Email == "admin@mail.com") == null)
+            {
+                var user = new ApplicationUser();
+                user.UserName = "superadmin";
+                user.Email = "admin@mail.com";
+                user.Gender = 1;
+
+                string userPWD = "Elibrary1!";
+
+                var chkUser = _userManager.CreateAsync(user, userPWD);
+
+                //Add default User to Role Admin   
+                if (chkUser.Result.Succeeded)
+                {
+                    var result1 = _userManager.AddToRoleAsync(user, "SuperAdmin");
+                }
+            }
         }
     }
 }

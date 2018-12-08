@@ -24,7 +24,7 @@ namespace ELibrary.DAL.Configuration
         public AppConfiguration()
         {
             var configurationBuilder = new ConfigurationBuilder();
-            var appsettings = Path.Combine($"{ Directory.GetParent(Directory.GetCurrentDirectory()).FullName}\\ELibrary.API", "appsettings.json");
+            var appsettings = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
             configurationBuilder.AddJsonFile(appsettings, false);
 
             var root = configurationBuilder.Build();
