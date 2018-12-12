@@ -31,23 +31,23 @@ namespace ELibrary.API.Controllers
         public Response<List<PublisherModel>> Get()
         {
             Response<List<PublisherModel>> publisherResponse = new Response<List<PublisherModel>>();
-            List<Publisher> entityList = _publisher.GetList();
+            List<Publisher> entityList = _publisher.GetList(x=>x.IsActive==true);
             publisherResponse.Value = _mapper.Map<List<PublisherModel>>(entityList);
-            publisherResponse.IsSuccess = true;
 
             return publisherResponse;
         }
 
         [HttpPost]
-        [Route("Add")]
+        [Route("Save")]
         public async Task<Response<PublisherModel>> Post([FromBody]PublisherModel model)
         {
             Response<PublisherModel> publisherResponseModel = new Response<PublisherModel>();
             try
             {
                 Publisher entity = _mapper.Map<Publisher>(model);
-                entity = await _publisher.AddAsync(entity);
+                entity = await (model.Id != Guid.Empty ? _publisher.UpdateAsync(entity) : _publisher.AddAsync(entity));
                 publisherResponseModel.Value = _mapper.Map<PublisherModel>(entity);
+                publisherResponseModel.IsSuccess = true;
             }
             catch (Exception e)
             {
@@ -57,5 +57,19 @@ namespace ELibrary.API.Controllers
 
             return publisherResponseModel;
         }
+
+        [HttpGet]
+        [Route("GetOne/{id}")]
+        public Response<PublisherModel> GetOne(Guid id)
+        {
+            Response<PublisherModel> publisherResponse = new Response<PublisherModel>();
+            Publisher entityList = _publisher.GetT(x => x.Id == id);
+            publisherResponse.Value = _mapper.Map<PublisherModel>(entityList);
+
+            return publisherResponse;
+        }
+
+
     }
+
 }

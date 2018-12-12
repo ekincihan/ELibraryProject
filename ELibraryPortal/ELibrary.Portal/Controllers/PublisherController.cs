@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ELibrary.API.Models;
 using ELibrary.API.Type;
+using ELibrary.Portal.Custom;
 using ELibrary.Portal.Manager;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -14,30 +15,38 @@ namespace ELibrary.Portal.Controllers
     {
         public ActionResult Index()
         {
-            var publishers = JsonConvert.DeserializeObject<Response<List<PublisherModel>>>(UiRequestManager.Instance.Get("Publisher","List"));
+            var publishers = JsonConvert.DeserializeObject<Response<List<PublisherModel>>>(UiRequestManager.Instance.Get("Publisher", "List"));
 
             return View(publishers);
         }
 
-        public ActionResult Create()
+        public ActionResult Save(Guid? id)
         {
-            return View();
+            PublisherModel model = new PublisherModel();
+
+            if (Guid.Empty != id && id.HasValue)
+            {
+                Response<PublisherModel> responseSaving = JsonConvert.DeserializeObject<Response<PublisherModel>>(UiRequestManager.Instance.Get("Publisher", "GetOne", id));
+                model = responseSaving.Value;
+            }
+
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult Create(PublisherModel model)
+        public ActionResult Save(PublisherModel model)
         {
-            try
-            {
-                Response<PublisherModel> responseSaving = JsonConvert.DeserializeObject<Response<PublisherModel>>(UiRequestManager.Instance.Post("Publisher", "Add", JsonConvert.SerializeObject(model)));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            Response<PublisherModel> responseSaving = JsonConvert.DeserializeObject<Response<PublisherModel>>(UiRequestManager.Instance.Post("Publisher", "Save", JsonConvert.SerializeObject(model)));
 
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult Delete(PublisherModel model)
+        {
+            Response<PublisherModel> responseSaving = JsonConvert.DeserializeObject<Response<PublisherModel>>(UiRequestManager.Instance.Post("Publisher", "Save", JsonConvert.SerializeObject(model)));
+
+            return Json(new ResultJson { Message = responseSaving.Message, Success = responseSaving.IsSuccess });
         }
     }
 }

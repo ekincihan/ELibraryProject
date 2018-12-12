@@ -31,7 +31,7 @@ namespace ELibrary.Portal.Manager
 
         }
 
-        public string Get(string ControllerName, string actionName, int? Id = null)
+        public string Get(string ControllerName, string actionName, Guid? Id = null)
         {
             string url = this.BaseApiUrl + "/" + ControllerName + "/" + actionName;
 
@@ -67,7 +67,7 @@ namespace ELibrary.Portal.Manager
             return response;
         }
 
-        public T Get<T>(string ControllerName, string actionName,int Id)
+        public T Get<T>(string ControllerName, string actionName,Guid Id)
         {
             string response = this.Get(ControllerName,actionName, Id);
             try

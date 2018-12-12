@@ -36,7 +36,13 @@
     <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]>
     <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+           <!-- jQuery-->
+    <script type="text/javascript" src="~/Umega/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript-->
+    <script src="~/Umega/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="~/css/sweetalert.css" rel="stylesheet" />
+    <script src="~/js/sweetalert.min.js"></script>
     <![endif]-->
 </head>
 <body data-sidebar-color="sidebar-light" class="sidebar-light">
@@ -46,49 +52,15 @@
         <!-- Main Sidebar start-->
         @await Html.PartialAsync("_Sidebar")
         <!-- Main Sidebar end-->
-        <div class="page-container">
+        <div class="page-container container-fluid">
             @RenderBody()
         </div>
         <!-- Right Sidebar start-->
         <!-- Right Sidebar end-->
     </div>
     <!-- Demo Settings start-->
-    <div class="setting closed">
-        <a href="javascript:;" class="setting-toggle fs-16"><i class="ti-palette text-muted"></i></a>
-        <h5 class="fs-16 mt-0 mb-20">Header Colors</h5>
-        <ul class="list-inline">
-            <li><a href="javascript:;" data-color="header-primary" class="mo-xs bg-primary inline-block img-circle header-color"></a></li>
-            <li><a href="javascript:;" data-color="header-green" class="mo-xs bg-success inline-block img-circle header-color"></a></li>
-            <li><a href="javascript:;" data-color="header-purple" class="mo-xs bg-purple inline-block img-circle header-color"></a></li>
-            <li><a href="javascript:;" data-color="header-yellow" class="mo-xs bg-warning inline-block img-circle header-color"></a></li>
-            <li><a href="javascript:;" data-color="header-red" class="mo-xs bg-danger inline-block img-circle header-color"></a></li>
-        </ul>
-        <h5 class="fs-16 mt-0 mb-20">Sidebar Style</h5>
-        <ul class="list-inline">
-            <li><a href="javascript:;" data-color="sidebar-dark" class="sidebar-color mo-xs bg-black inline-block img-circle"></a></li>
-            <li><a href="javascript:;" data-color="sidebar-light" class="sidebar-color mo-xs bg-default inline-block img-circle"></a></li>
-        </ul>
-        <form class="form-horizontal mb-20">
-            <div class="clearfix">
-                <p class="form-control-static pull-left">Background Image</p>
-                <div class="switch pull-right">
-                    <input id="sidebar-bg" type="checkbox" checked="">
-                    <label for="sidebar-bg" class="switch-success"></label>
-                </div>
-            </div>
-        </form>
-        <ul class="list-inline mb-0">
-            <li><a href="javascript:;" data-bg="10.jpg" class="inline-block sidebar-bg"><img src="../build/images/thumbnails/10.jpg" width="60" alt="" class="img-rounded"></a></li>
-            <li><a href="javascript:;" data-bg="11.jpg" class="inline-block sidebar-bg"><img src="../build/images/thumbnails/11.jpg" width="60" alt="" class="img-rounded"></a></li>
-            <li><a href="javascript:;" data-bg="12.jpg" class="inline-block sidebar-bg"><img src="../build/images/thumbnails/12.jpg" width="60" alt="" class="img-rounded"></a></li>
-        </ul>
-    </div>
     <!-- Demo Settings end-->
-    <!-- jQuery-->
-    <script type="text/javascript" src="~/Umega/plugins/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap JavaScript-->
-    <script src="~/Umega/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Malihu Scrollbar-->
+
     <script type="text/javascript" src="~/Umega/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Animo.js-->
     <script type="text/javascript" src="~/Umega/plugins/animo.js/animo.min.js"></script>
@@ -118,6 +90,7 @@
     <script type="text/javascript" src="~/Umega/plugins/datatables.net-colreorder/js/dataTables.colReorder.min.js"></script>
     <script type="text/javascript" src="~/Umega/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Umega/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Custom/Custom.js"></script>
     <!-- Custom JS-->
     <script src="~/Umega/assets/js/first-layout/app.js"></script>
     <script src="~/Umega/assets/js/first-layout/demo.js"></script>
