@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ELibrary.DAL.Concrete.EntityFramework
 {
-    public class EFAuthor : EfEntityRepositoryBase<Author, ELibraryDBContext>
+    public class EFAuthor : EfEntityRepositoryBase<Author, ELibraryDBContext>, IAuthor
     {
 
     }

@@ -20,7 +20,7 @@ namespace ELibrary.DAL.Concrete.EntityFramework
         public virtual DbSet<Entities.Concrete.Type> Types { get; set; }
         public virtual DbSet<Publisher> Publishers { get; set; }
         public virtual DbSet<CategoryTagAssignment> CategoryTagAssignments { get; set; }
-
+        public virtual DbSet<AppFile> AppFiles { get; set; }
         public ELibraryDBContext(DbContextOptions<ELibraryDBContext> options) : base(options)
         {
 
@@ -31,7 +31,9 @@ namespace ELibrary.DAL.Concrete.EntityFramework
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
+            builder.Entity<AppFile>()
+                .HasIndex(u => u.UniqueName)
+                .IsUnique();
             base.OnModelCreating(builder);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
