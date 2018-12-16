@@ -30,7 +30,7 @@ namespace ELibrary.API.Controllers
         public async Task<Response<List<BookModel>>> AsyncGet()
         {
             Response<List<BookModel>> bookResponse = new Response<List<BookModel>>();
-            List<Book> entityList = await _book.AsyncGetList(x => x.IsActive == true);
+            List<Book> entityList = await _book.GetListAsync(x => x.IsActive == true);
             bookResponse.Value = _mapper.Map<List<BookModel>>(entityList);
             return bookResponse;
         }
@@ -64,7 +64,7 @@ namespace ELibrary.API.Controllers
         public async Task<Response<BookModel>> GetOne(Guid id)
         {
             Response<BookModel> bookResponse = new Response<BookModel>();
-            Book entityList = await _book.AsyncGetT(x => x.Id == id);
+            Book entityList = await _book.GetTAsync(x => x.Id == id);
             bookResponse.Value = _mapper.Map<BookModel>(entityList);
 
             return bookResponse;

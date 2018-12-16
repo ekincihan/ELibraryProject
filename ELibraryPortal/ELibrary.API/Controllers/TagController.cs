@@ -31,7 +31,7 @@ namespace ELibrary.API.Controllers
         public async Task<Response<List<TagModel>>> AsyncGet()
         {
             Response<List<TagModel>> tagResponse = new Response<List<TagModel>>();
-            List<Tag> entityList = await _tag.AsyncGetList(x => x.IsActive == true);
+            List<Tag> entityList = await _tag.GetListAsync(x => x.IsActive == true);
             tagResponse.Value = _mapper.Map<List<TagModel>>(entityList);
             return tagResponse;
         }
@@ -65,7 +65,7 @@ namespace ELibrary.API.Controllers
         public async Task<Response<TagModel>> GetOne(Guid id)
         {
             Response<TagModel> tagResponse = new Response<TagModel>();
-            Tag entityList = await _tag.AsyncGetT(x => x.Id == id);
+            Tag entityList = await _tag.GetTAsync(x => x.Id == id);
             tagResponse.Value = _mapper.Map<TagModel>(entityList);
 
             return tagResponse;

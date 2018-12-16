@@ -23,6 +23,7 @@ namespace ELibrary.Core.DataAccess.EntityFramework
             }
         }
 
+
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             using (var context = new TContext())
@@ -62,11 +63,27 @@ namespace ELibrary.Core.DataAccess.EntityFramework
             }
         }
 
+        public async Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> filter = null)
+        {
+            using (var context = new TContext())
+            {
+                return filter ==  null ? await context.Set<TEntity>().ToListAsync() : await context.Set<TEntity>().Where(filter).ToListAsync();
+            }
+        }
+
         public TEntity GetT(Expression<Func<TEntity, bool>> filter = null)
         {
             using (var context = new TContext())
             {
                 return context.Set<TEntity>().SingleOrDefault(filter);
+            }
+        }
+
+        public async Task<TEntity> GetTAsync(Expression<Func<TEntity, bool>> filter = null)
+        {
+            using (var context = new TContext())
+            {
+                return await context.Set<TEntity>().SingleOrDefaultAsync(filter);
             }
         }
 

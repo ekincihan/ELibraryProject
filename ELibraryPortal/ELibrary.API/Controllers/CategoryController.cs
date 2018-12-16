@@ -31,7 +31,7 @@ namespace ELibrary.API.Controllers
         public async Task<Response<List<CategoryModel>>> AsyncGet()
         {
             Response<List<CategoryModel>> categoryResponse = new Response<List<CategoryModel>>();
-            List<Category> entityList = await _category.AsyncGetList(x => x.IsActive == true);
+            List<Category> entityList = await _category.GetListAsync(x => x.IsActive == true);
             categoryResponse.Value =   _mapper.Map<List<CategoryModel>>(entityList);
             return categoryResponse;
         }
@@ -63,7 +63,7 @@ namespace ELibrary.API.Controllers
         public async Task<Response<CategoryModel>> GetOne(Guid id)
         {
             Response<CategoryModel> categoryResponse = new Response<CategoryModel>();
-            Category entityList = await _category.AsyncGetT(x => x.Id == id);
+            Category entityList = await _category.GetTAsync(x => x.Id == id);
             categoryResponse.Value = _mapper.Map<CategoryModel>(entityList);
 
             return categoryResponse;
