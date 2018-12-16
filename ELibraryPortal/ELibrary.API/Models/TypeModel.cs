@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace ELibrary.API.Models
 {
-    public class Type : ModelBase<Guid>, IModelBase
+    public class TypeModel : ModelBase<Guid>, IModelBase
     {
-        public Type()
+        public TypeModel()
         {
             Id = Guid.Empty;
         }
         [Required]
         public string Name { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

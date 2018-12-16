@@ -1,10 +1,10 @@
 ﻿using ELibrary.Core.DataAccess.EntityFramework;
 using ELibrary.DAL.Abstract;
-using Type = ELibrary.Entities.Concrete.Type;
+using ELibrary.Entities.Concrete;
 
 namespace ELibrary.DAL.Concrete.EntityFramework
 {
-    public class EFType : EfEntityRepositoryBase<Type, ELibraryDBContext>, IType
+    public class EFType : EfEntityRepositoryBase<AppType, ELibraryDBContext>, IType
     {
 
     }

@@ -2,7 +2,7 @@
 
 namespace ELibrary.DAL.Abstract
 {
-    public interface IType : IEntityRepository<Entities.Concrete.Type>
+    public interface IType : IEntityRepository<Entities.Concrete.AppType>
     {
 
     }

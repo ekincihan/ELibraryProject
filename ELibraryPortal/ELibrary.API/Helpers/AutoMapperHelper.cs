@@ -26,6 +26,12 @@ namespace ELibrary.API.Helpers
             CreateMap<AppFile, AppFileModel>();
             CreateMap<AppFileModel, AppFile>();
             #endregion
+
+            #region TypeController
+            CreateMap<AppType, TypeModel>();
+            CreateMap<TypeModel, AppType>();
+            #endregion
+
         }
     }
 }

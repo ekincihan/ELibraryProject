@@ -1,7 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+   
   </PropertyGroup>
 
   <ItemGroup>
@@ -79,6 +80,8 @@
     <Content Include="wwwroot\Umega\node_modules\browser-sync\node_modules\browser-sync-ui\package.json" />
     <Content Include="wwwroot\Umega\node_modules\browser-sync\package.json" />
     <Content Include="wwwroot\Umega\plugins\bootstrap-maxlength\bower_components\qunit\qunit\qunit.css" />
+  
+  
   </ItemGroup>
 
   <ItemGroup>
@@ -348,8 +351,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" />
   </ItemGroup>
 
   <ItemGroup>
