@@ -37,7 +37,7 @@ namespace ELibrary.Portal.Controllers
         [HttpPost]
         public ActionResult Save(CategoryModel model)
         {
-            Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Get("Category", "Save", JsonConvert.SerializeObject(model)));
+            Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Post("Category", "Save", JsonConvert.SerializeObject(model)));
 
             return RedirectToAction("Index");
         }
@@ -45,7 +45,7 @@ namespace ELibrary.Portal.Controllers
         [HttpPost]
         public JsonResult Delete(CategoryModel model)
         {
-            Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Get("Category", "Save", JsonConvert.SerializeObject(model)));
+            Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Post("Category", "Save", JsonConvert.SerializeObject(model)));
 
             return Json(new ResultJson { Message = responseSaving.Message, Success = responseSaving.IsSuccess });
         }
