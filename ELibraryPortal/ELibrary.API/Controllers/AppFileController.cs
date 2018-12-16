@@ -38,7 +38,7 @@ namespace ELibrary.API.Controllers
                 if (string.IsNullOrEmpty(appFile.BlobPath))
                 {
                     CloudBlockBlob cloudBlockBlob = await manager.UploadFileAsync(container, appFile);
-                    appFile.BlobPath = $"{cloudBlockBlob.Container.Name}/{cloudBlockBlob.Parent.Prefix}";
+                    appFile.BlobPath = $"{cloudBlockBlob.Name}";
                 }
 
                 appFile = await (appFileModel.Id != Guid.Empty ? _appFile.UpdateAsync(appFile) : _appFile.AddAsync(appFile));

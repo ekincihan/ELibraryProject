@@ -4,21 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 
 namespace ELibrary.API.Configuration
 {
     public class ConfigurationManager
     {
         #region Fields
-        private IConfiguration configuration;
+        private IConfiguration _configuration;
         private GlobalSettings _globalSettings;
         #endregion
 
         #region Properties
-        public IConfiguration Configuration
-        {
-            get { return configuration; }
-        }
 
         public GlobalSettings GlobalSettings
         {
@@ -31,8 +29,8 @@ namespace ELibrary.API.Configuration
 
         private ConfigurationManager()
         {
-            var appsettings= Path.Combine($"{ Directory.GetParent(Directory.GetCurrentDirectory()).FullName}ELibrary.API", "appsettings.json");
-            configuration = new ConfigurationBuilder().AddJsonFile(appsettings, false).Build();
+            var appsettings = Path.Combine($"{ Directory.GetCurrentDirectory()}", "appsettings.json");
+            _configuration = new ConfigurationBuilder().AddJsonFile(appsettings, false).Build();
         }
 
         public static ConfigurationManager Instance
@@ -51,11 +49,11 @@ namespace ELibrary.API.Configuration
         #region Methods
         public string GetConnectionString(string key)
         {
-            return Configuration.GetConnectionString(key).ToString();
+            return _configuration.GetConnectionString(key).ToString();
         }
         public string GetValue(string key)
         {
-            return Configuration[key].ToString();
+            return _configuration[key].ToString();
         }
         #endregion
     }

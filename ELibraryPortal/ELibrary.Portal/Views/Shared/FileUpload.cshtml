@@ -1,0 +1,53 @@
+﻿@model AppFileFilterModel
+@{
+    ViewBag.Title = "FileUpload";
+}
+
+<div class="col-md-12">
+    <div class="widget">
+        <div class="widget-heading">
+            <h3 class="widget-title">File Upload</h3>
+        </div>
+        <div class="widget-body">
+            <form asp-controller="AppFile" asp-action="UploadFile" method="post"
+                  enctype="multipart/form-data">
+                <input type="hidden" name="AppFileModuleId" id="AppFileModuleId" value="" />
+                <input type="hidden" name="ModuleType"  value="@Model.ModuleType" />
+                <input id="File" type="file" class="File" name="file" />
+                <button type="submit"  class="btn btn-primary">Upload File</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("form").submit(function (e) {
+            e.preventDefault();
+            var fdata = new FormData();
+            var fileInput = $('#File')[0];
+            $.each(fileInput.files, function (key, file) {
+                fdata.append("File", file);
+            });
+
+            var AppFileFilterModel = {
+                File = fdata,
+                AppFileModuleId = $("#AppFileModuleId").val(),
+                ModuleType = Number('@Model.ModuleType')
+            };
+
+            console.log(AppFileFilterModel);
+
+            $.ajax({
+                type: "POST",
+                url: "/AppFile/UploadFile",
+                //content: "application/json; charset=utf-8",
+                //dataType: 'json',
+                data: AppFileFilterModel,
+                processData: false,
+                contentType: false
+            }).done(function (result) {
+                console.log(result);
+            });
+        });
+    });
+</script>
