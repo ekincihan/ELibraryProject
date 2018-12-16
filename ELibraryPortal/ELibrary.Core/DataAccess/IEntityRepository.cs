@@ -10,7 +10,9 @@ namespace ELibrary.Core.DataAccess
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
         T GetT(Expression<Func<T, bool>> filter = null);
+        Task<T> AsyncGetT(Expression<Func<T, bool>> filter = null);
         List<T> GetList(Expression<Func<T, bool>> filter = null);
+        Task<List<T>> AsyncGetList(Expression<Func<T, bool>> filter = null);
         T Add(T entity);
         Task<T> AddAsync(T entity);
         T Update(T entity);
