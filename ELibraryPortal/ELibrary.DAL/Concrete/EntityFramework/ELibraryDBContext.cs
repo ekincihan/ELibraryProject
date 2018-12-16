@@ -17,7 +17,7 @@ namespace ELibrary.DAL.Concrete.EntityFramework
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Entities.Concrete.Type> Types { get; set; }
+        public virtual DbSet<Entities.Concrete.AppType> Types { get; set; }
         public virtual DbSet<Publisher> Publishers { get; set; }
         public virtual DbSet<CategoryTagAssignment> CategoryTagAssignments { get; set; }
         public virtual DbSet<AppFile> AppFiles { get; set; }
