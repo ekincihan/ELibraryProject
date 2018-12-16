@@ -13,7 +13,6 @@ namespace ELibrary.API.Models
         {
             Id = Guid.Empty;
         }
-        [Required]
         public string Name { get; set; }
         public bool IsActive { get; set; } = true;
     }

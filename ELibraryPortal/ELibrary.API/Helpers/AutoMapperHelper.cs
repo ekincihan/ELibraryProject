@@ -30,6 +30,12 @@ namespace ELibrary.API.Helpers
             #region TypeController
             CreateMap<AppType, TypeModel>();
             CreateMap<TypeModel, AppType>();
+
+            #endregion
+            #region TypeController
+            CreateMap<Tag, TagModel>();
+            CreateMap<TagModel, Tag>();
+
             #endregion
 
         }

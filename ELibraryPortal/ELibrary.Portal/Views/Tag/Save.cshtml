@@ -1,0 +1,29 @@
+﻿@model ELibrary.API.Models.TagModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-md-12">
+    <div class="widget">
+
+        <div class="widget-heading">
+            <h3 class="widget-title">Tag</h3>
+        </div>
+        <div class="widget-body">
+            <form asp-action="Save">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Oluştur" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

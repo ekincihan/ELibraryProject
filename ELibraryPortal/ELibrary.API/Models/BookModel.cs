@@ -20,7 +20,7 @@ namespace ELibrary.API.Models
         public DateTime EditionDate { get; set; }
         public int NumberPage { get; set; }
         public Base64FormattingOptions BooksPhoto { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         public PublisherModel publisherModel { get; set; }
 
