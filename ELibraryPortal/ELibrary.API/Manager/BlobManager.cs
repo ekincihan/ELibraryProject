@@ -13,6 +13,7 @@ namespace ELibrary.API.Manager
 {
     public class BlobManager<T> : IBlobContainer<T> where T : AppFile
     {
+        public readonly IConfiguration _configuration;
         public async Task<CloudBlobContainer> CreateFolderAsync(T tmodel)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.Instance.GetConnectionString("StorageConnection"));

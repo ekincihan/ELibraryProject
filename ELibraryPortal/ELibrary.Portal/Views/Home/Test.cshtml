@@ -1,0 +1,20 @@
+﻿@model AppFileFilterModel
+@{
+    ViewBag.Title = "FileUpload";
+}
+
+<h2>Test</h2>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="widget no-border">
+            @{
+                await Html.RenderPartialAsync("~/Views/Shared/FileUpload.cshtml", new AppFileFilterModel { ModuleType = (ELibrary.API.Models.Enum.Enum.Module.Book)});
+            }
+        </div>
+    </div>
+</div>
+<script>
+    $("#AppFileModuleId").val('@Guid.NewGuid()');
+</script>
