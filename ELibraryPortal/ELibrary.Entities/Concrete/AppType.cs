@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ELibrary.Entities.Concrete
 {
-     public  class Type:EntityBase<Guid>
+     public  class AppType:EntityBase<Guid>
     {
         [StringLength(maximumLength: 100)]
         public string Name { get; set; }
