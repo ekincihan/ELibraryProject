@@ -18,7 +18,7 @@ namespace ELibrary.API.Controllers
     public class PublisherController : APIControllerBase
     {
         private readonly IPublisher _publisher;
-        private IMapper _mapper;
+        private readonly IMapper _mapper;
 
         public PublisherController(IPublisher publisher, IMapper mapper)
         {

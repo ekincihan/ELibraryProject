@@ -53,6 +53,10 @@ namespace ELibrary.API.Configuration
         {
             return Configuration.GetConnectionString(key).ToString();
         }
+        public string GetValue(string key)
+        {
+            return Configuration[key].ToString();
+        }
         #endregion
     }
 }

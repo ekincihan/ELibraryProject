@@ -15,5 +15,6 @@ namespace ELibrary.API.Models
         public string BlobPath { get; set; }
         public Guid ModuleId { get; set; }
         public Module ModuleType { get; set; }
+        public string FilePath { get; set; }
     }
 }
