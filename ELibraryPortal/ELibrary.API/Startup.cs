@@ -50,6 +50,7 @@ namespace ELibrary.API
                 .AddEntityFrameworkStores<ELibraryDBContext>()
                 .AddDefaultTokenProviders();
             services.AddTransient<IPublisher, EFPublisher>();
+            services.AddTransient<IAuthor, EFAuthor>();
             services.AddAutoMapper();
             DIManager.Instance.Builder.Populate(services);
             DIManager.Instance.Builder.RegisterType<SecurityContext>();

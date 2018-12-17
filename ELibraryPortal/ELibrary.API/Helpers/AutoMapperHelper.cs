@@ -14,8 +14,13 @@ namespace ELibrary.API.Helpers
         {
             CreateMap<PublisherModel, Publisher>();
             CreateMap<Publisher, PublisherModel>();
+
             CreateMap<Category, CategoryModel>();
             CreateMap<CategoryModel, Category>();
+
+            CreateMap<Author, AuthorModel>();
+            CreateMap<AuthorModel, Author>();
+
         }
     }
 }

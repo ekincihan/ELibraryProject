@@ -21,6 +21,6 @@ namespace ELibrary.API.Models
         public Base64FormattingOptions AuthorPhoto { get; set; }
         public ICollection<BookModel> Books { get; set; }
         public DateTime? Birthdate { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } 
     }
 }

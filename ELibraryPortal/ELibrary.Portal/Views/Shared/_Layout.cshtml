@@ -53,6 +53,31 @@
         @await Html.PartialAsync("_Sidebar")
         <!-- Main Sidebar end-->
         <div class="page-container container-fluid">
+            <div class="page-header clearfix">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4 class="mt-0 mb-5">Form Layouts</h4>
+                        <ol class="breadcrumb mb-0">
+                            <li><a href="#">Umega</a></li>
+                            <li><a href="#">Forms</a></li>
+                            <li class="active">Layouts</li>
+                        </ol>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="btn-group mt-5">
+                            <button type="button" class="btn btn-default btn-outline"><i class="flag-icon flag-icon-us mr-5"></i> English</button>
+                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default btn-outline dropdown-toggle"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
+                            <ul class="dropdown-menu dropdown-menu-right animated fadeInDown">
+                                <li><a href="#"><i class="flag-icon flag-icon-de mr-5"></i> German</a></li>
+                                <li><a href="#"><i class="flag-icon flag-icon-fr mr-5"></i> French</a></li>
+                                <li><a href="#"><i class="flag-icon flag-icon-es mr-5"></i> Spanish</a></li>
+                                <li><a href="#"><i class="flag-icon flag-icon-it mr-5"></i> Italian</a></li>
+                                <li><a href="#"><i class="flag-icon flag-icon-jp mr-5"></i> Japanese</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @RenderBody()
         </div>
         <!-- Right Sidebar start-->
@@ -90,6 +115,7 @@
     <script type="text/javascript" src="~/Umega/plugins/datatables.net-colreorder/js/dataTables.colReorder.min.js"></script>
     <script type="text/javascript" src="~/Umega/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Umega/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Custom/bootstrap-datepicker.min.js"></script>
     <script src="~/Custom/Custom.js"></script>
     <!-- Custom JS-->
     <script src="~/Umega/assets/js/first-layout/app.js"></script>
