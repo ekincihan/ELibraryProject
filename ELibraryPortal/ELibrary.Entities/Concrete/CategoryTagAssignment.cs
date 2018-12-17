@@ -14,5 +14,10 @@ namespace ELibrary.Entities.Concrete
         [Required]
         public Guid TagId { get; set; }
         public Tag Tag { get; set; }
+
+
+        [Required]
+        public Guid BookId { get; set; }
+        public Book Book { get; set; }
     }
 }
