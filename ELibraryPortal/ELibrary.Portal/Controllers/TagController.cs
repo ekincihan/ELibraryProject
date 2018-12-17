@@ -44,7 +44,7 @@ namespace ELibrary.Portal.Controllers
         [HttpPost]
         public JsonResult Delete(TagModel model)
         {
-            Response<TagModel> responseSaving = JsonConvert.DeserializeObject<Response<TagModel>>(UiRequestManager.Instance.Post("Type", "Save", JsonConvert.SerializeObject(model)));
+            Response<TagModel> responseSaving = JsonConvert.DeserializeObject<Response<TagModel>>(UiRequestManager.Instance.Post("Tag", "Save", JsonConvert.SerializeObject(model)));
 
             return Json(new ResultJson { Message = responseSaving.Message, Success = responseSaving.IsSuccess });
         }

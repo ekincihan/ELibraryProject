@@ -50,12 +50,14 @@
 
 
         $("td div #delete").click(function () {
-            var model = $(this).attr('data-model');
+            var model = JSON.parse($(this).attr('data-model'));
             model.IsActive = false;
             var btn = this;
+           
+
             swal({
                     title: "Kaydı silmek istediginizden emin misiniz?",
-                    //  text: "Deze actie is niet meer te herstellen",
+                    // text: "Deze actie is niet meer te herstellen",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "evet",
@@ -74,15 +76,13 @@
                             success: function (d) {
                                 if (d.success) {
                                     swal("Basarili!", "Kayıt silindi", "success");
-                                    table.row($(btn).parents('tr')).remove().draw(false);                                }
+                                    table.row($(btn).parents('tr')).remove().draw(false); }
                             }
                         });
                     } else {
                         swal.close();
                     }
                 });
-
-
         });
 
     });
