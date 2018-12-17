@@ -11,13 +11,14 @@ using System.Threading.Tasks;
 
 namespace ELibrary.API.Manager
 {
-    public class BlobContainer<T> : IBlobContainer<T> where T : AppFile
+    public class BlobManager<T> : IBlobContainer<T> where T : AppFile
     {
+        public readonly IConfiguration _configuration;
         public async Task<CloudBlobContainer> CreateFolderAsync(T tmodel)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.Instance.GetConnectionString("StorageConnection"));
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference($"fileuploads");
+            CloudBlobContainer container = blobClient.GetContainerReference(ConfigurationManager.Instance.GetValue("FileUploadBlobContainer"));
             await container.CreateIfNotExistsAsync();
 
             return container;
@@ -25,7 +26,7 @@ namespace ELibrary.API.Manager
 
         public async Task<CloudBlockBlob> UploadFileAsync(CloudBlobContainer container, T tmodel)
         {
-            CloudBlockBlob blob = container.GetBlockBlobReference($"files{tmodel.ModuleType}/{tmodel.ModuleId}/{tmodel.UniqueName.ToLower()}");
+            CloudBlockBlob blob = container.GetBlockBlobReference(string.Format(ConfigurationManager.Instance.GetValue("FileUploadBlobPath"), tmodel.ModuleType, tmodel.ModuleId, tmodel.UniqueName.ToLower()));
 
             using (var fileStream = System.IO.File.OpenRead(tmodel.FilePath))
             {

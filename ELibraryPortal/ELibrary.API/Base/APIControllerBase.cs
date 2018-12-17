@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace ELibrary.API.Base
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class APIControllerBase : ControllerBase
     {
     }

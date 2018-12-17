@@ -49,8 +49,16 @@ namespace ELibrary.API
             services.AddIdentity<ApplicationUser, AppIdentityRole>()
                 .AddEntityFrameworkStores<ELibraryDBContext>()
                 .AddDefaultTokenProviders();
+
             services.AddTransient<IPublisher, EFPublisher>();
+            services.AddTransient<IAppFile, EFAppFile>();
+            services.AddTransient<IBooks, EFBook>();
+            services.AddTransient<ITag, EFTag>();
+            services.AddTransient<ICategory, EFCategory>();
             services.AddTransient<IAuthor, EFAuthor>();
+            services.AddTransient<IType, EFType>();
+
+
             services.AddAutoMapper();
             DIManager.Instance.Builder.Populate(services);
             DIManager.Instance.Builder.RegisterType<SecurityContext>();

@@ -12,15 +12,39 @@ namespace ELibrary.API.Helpers
     {
         public AutoMapperHelper()
         {
+            #region PublisherController
             CreateMap<PublisherModel, Publisher>();
             CreateMap<Publisher, PublisherModel>();
+            #endregion
 
+            #region CategoryController
             CreateMap<Category, CategoryModel>();
             CreateMap<CategoryModel, Category>();
+            #endregion
 
+            #region AppFileController
+            CreateMap<AppFile, AppFileModel>();
+            CreateMap<AppFileModel, AppFile>();
+            #endregion
+
+            #region TypeController
+            CreateMap<AppType, TypeModel>();
+            CreateMap<TypeModel, AppType>();
+
+            #endregion
+
+            #region TypeController
+            CreateMap<Tag, TagModel>();
+            CreateMap<TagModel, Tag>();
+
+            #endregion
+
+            #region Author
             CreateMap<Author, AuthorModel>();
             CreateMap<AuthorModel, Author>();
+            #endregion
 
+        
         }
     }
 }
