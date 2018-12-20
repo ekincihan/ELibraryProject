@@ -1,6 +1,8 @@
 ﻿@using ELibrary.API.Models
 @using ELibrary.API.Type
-@model ELibrary.API.Type.Response<List<ELibrary.API.Models.BookModel>>
+@*@model ELibrary.API.Type.Response<List<ELibrary.API.Models.BookModel>>*@
+
+@model ELibrary.Portal.Models.BookPageModel
 
 
 <div class="row">
@@ -19,11 +21,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Value)
+                    @foreach (var item in Model.BookList)
                     {
                     <tr>
                         <td class="text-center">@item.Name</td>
-                        <td class="text-center">@item.Biography</td>
                         <td class="text-center">@item.ISBN</td>
                         <td class="text-center">@item.BookSummary</td>
                         <td class="text-center">@item.EditionDate</td>

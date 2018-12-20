@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Umega App - Responsive web app kit</title>
+    <title>Elibrary App</title>
     <!-- PACE-->
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/PACE/themes/blue/pace-theme-flash.css">
     <script type="text/javascript" src="~/Umega/plugins/PACE/pace.min.js"></script>
@@ -20,27 +20,29 @@
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/flag-icon-css/css/flag-icon.min.css">
     <!-- Bootstrap Progressbar-->
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+    <link href="~/Umega/plugins/jquery.steps/demo/css/jquery.steps.css" rel="stylesheet" />
+    <link href="~/Umega/build/css/first-layout.css" rel="stylesheet" />
+
     <!-- SpinKit-->
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/SpinKit/css/spinners/7-three-bounce.css">
     <!-- Morris Chart-->
-    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/morris.js/morris.css">
-    <script src="~/Umega/plugins/flot/jquery.flot.js"></script>
     <!-- DataTables-->
+    <link href="~/Umega/plugins/dropzone/dist/min/dropzone.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/datatables.net-colreorder-bs/css/colReorder.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/morris.js/morris.css">
+
+
     <!-- Primary Style-->
-    <link href="~/Umega/build/css/first-layout.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]>
     <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
            <!-- jQuery-->
-    <script type="text/javascript" src="~/Umega/plugins/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap JavaScript-->
-    <script src="~/Umega/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
     <link href="~/css/sweetalert.css" rel="stylesheet" />
     <script src="~/js/sweetalert.min.js"></script>
     <![endif]-->
@@ -73,6 +75,10 @@
     <!-- Demo Settings start-->
     <!-- Demo Settings end-->
 
+    <script type="text/javascript" src="~/Umega/plugins/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/Umega/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <script type="text/javascript" src="~/Umega/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Animo.js-->
     <script type="text/javascript" src="~/Umega/plugins/animo.js/animo.min.js"></script>
@@ -81,15 +87,15 @@
     <!-- jQuery Easy Pie Chart-->
     <script type="text/javascript" src="~/Umega/plugins/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
     <!-- jQuery BlockUI-->
-    <script type="text/javascript" src="~/Umega/plugins/blockUI/jquery.blockUI.js"></script>
     <!-- Flot Charts-->
-    <script type="text/javascript" src="~/Umega/plugins/flot/jquery.flot.js"></script>
-    <script type="text/javascript" src="~/Umega/plugins/flot/jquery.flot.resize.js"></script>
-    <script type="text/javascript" src="~/Umega/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <!-- Morris Chart-->
-    <script type="text/javascript" src="~/Umega/plugins/raphael/raphael-min.js"></script>
-    <script type="text/javascript" src="~/Umega/plugins/morris.js/morris.min.js"></script>
-    <!-- DataTables-->
+    <script src="~/Umega/plugins/jquery.steps/build/jquery.steps.min.js"></script>
+
+    <script src="~/Custom/Custom.js"></script>
+    <!-- Custom JS-->
+    <script src="~/Umega/assets/js/first-layout/app.js"></script>
+    <script src="~/Umega/assets/js/first-layout/demo.js"></script>
+    <script src="~/Umega/assets/js/page-content/forms/forms-wizard.js"></script>
+
     <script type="text/javascript" src="~/Umega/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="~/Umega/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript" src="~/Umega/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
@@ -102,11 +108,9 @@
     <script type="text/javascript" src="~/Umega/plugins/datatables.net-colreorder/js/dataTables.colReorder.min.js"></script>
     <script type="text/javascript" src="~/Umega/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Umega/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Umega/plugins/jquery.steps/build/jquery.steps.min.js"></script>
+    <script src="~/Umega/plugins/dropzone/dist/min/dropzone.min.js"></script>
+    <script src="~/Umega/assets/js/page-content/file-uploads/dropzone-js.js"></script>
     <script src="~/Custom/bootstrap-datepicker.min.js"></script>
-    <script src="~/Custom/Custom.js"></script>
-    <!-- Custom JS-->
-    <script src="~/Umega/assets/js/first-layout/app.js"></script>
-    <script src="~/Umega/assets/js/first-layout/demo.js"></script>
-    <script src="~/Umega/assets/js/page-content/dashboard/index-v2.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 using ELibrary.API.Type;
 using ELibrary.Portal.Custom;
 using ELibrary.Portal.Manager;
+using ELibrary.Portal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -13,26 +14,45 @@ namespace ELibrary.Portal.Controllers
 {
     public class BookController : Controller
     {
+
         [HttpGet]
         public ActionResult Index()
         {
-            var books = JsonConvert.DeserializeObject<Response<List<BookModel>>>(UiRequestManager.Instance.Get("Book", "List"));
+            BookPageModel bookPageModel = new BookPageModel();
+            Response<List<BookModel>> responsebooks = JsonConvert.DeserializeObject<Response<List<BookModel>>>(UiRequestManager.Instance.Get("Book", "List"));
+            bookPageModel.BookList = responsebooks.Value;
 
-            return View(books);
+            Response<List<AuthorModel>> responseauthor = JsonConvert.DeserializeObject<Response<List<AuthorModel>>>(UiRequestManager.Instance.Get("Author", "List"));
+
+            bookPageModel.AuthorList = responseauthor.Value;
+
+            Response<List<PublisherModel>> responsepublisher = JsonConvert.DeserializeObject<Response<List<PublisherModel>>>(UiRequestManager.Instance.Get("Publisher", "List"));
+
+            bookPageModel.PubLisherList = responsepublisher.Value;
+            return View(bookPageModel);
         }
 
         [HttpGet]
         public ActionResult Save(Guid? id)
         {
-            BookModel model = new BookModel();
+            BookPageModel bookPageModel = new BookPageModel();
+
+            Response<List<BookModel>> responseBooks = JsonConvert.DeserializeObject<Response<List<BookModel>>>(UiRequestManager.Instance.Get("Book", "List"));
+            bookPageModel.BookList = responseBooks.Value;
+
+            Response<List<AuthorModel>> responseAuthor = JsonConvert.DeserializeObject<Response<List<AuthorModel>>>(UiRequestManager.Instance.Get("Author", "List"));
+            bookPageModel.AuthorList = responseAuthor.Value;
+
+            Response<List<PublisherModel>> responsePublisher = JsonConvert.DeserializeObject<Response<List<PublisherModel>>>(UiRequestManager.Instance.Get("Publisher", "List"));
+            bookPageModel.PubLisherList = responsePublisher.Value;
 
             if (Guid.Empty !=  id && id.HasValue)
             {
                 Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Get("Book", "GetOne"));
-                model = responseSaving.Value;
+                bookPageModel.bookModel = responseSaving.Value;
             }
-
-            return View(model);
+            
+            return View(bookPageModel);
         }
 
         [HttpPost]
@@ -41,6 +61,7 @@ namespace ELibrary.Portal.Controllers
             Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model)));
 
             return RedirectToAction("Index");
+            
         }
 
         [HttpPost]
