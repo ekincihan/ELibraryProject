@@ -27,6 +27,10 @@ namespace ELibrary.API.Base
         {
             return this.SendHttpRequest(Url, actionName, HttpRequestTypesEnum.Post, Data);
         }
+        public async Task<string> PostAsync(string Url, string actionName, string Data)
+        {
+            return await this.SendHttpRequestAsync(Url, actionName, HttpRequestTypesEnum.Post, Data);
+        }
 
         protected string SendHttpRequest(string Url, string actionName, HttpRequestTypesEnum Type, string Data)
         {
@@ -82,12 +86,59 @@ namespace ELibrary.API.Base
 
             return response;
         }
+        public async Task<string> SendHttpRequestAsync(string Url, string actionName, HttpRequestTypesEnum Type, string Data)
+        {
+            string response = null;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
+            request.Method = Type.ToString().ToUpper();
+            request.ContentType = "application/json";
+            request.Timeout = Int32.MaxValue;
 
+            if (Type == HttpRequestTypesEnum.Post)
+            {
+                Stream requestStream = await request.GetRequestStreamAsync();
+                StreamWriter writer = new StreamWriter(requestStream);
+                await writer.WriteAsync(Data);
+                writer.Close();
+            }
+
+            try
+            {
+                WebResponse httpResponse = await request.GetResponseAsync();
+
+                using (var reader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var jsonResult = await reader.ReadToEndAsync();
+                    response = jsonResult.ToString();
+                }
+            }
+            catch (WebException ex)
+            {
+                string errMessage = ex.Message;
+                response = errMessage;
+
+                if (ex.Response != null)
+                {
+                    Stream resStr = ex.Response.GetResponseStream();
+                    StreamReader sr = new StreamReader(resStr);
+                    string soapResponse = await sr.ReadToEndAsync();
+                    sr.Close();
+                    resStr.Close();
+                    errMessage += Environment.NewLine + soapResponse;
+                    response = errMessage;
+                    ex.Response.Close();
+                }
+            }
+
+            return response;
+        }
     }
+    
     public enum HttpRequestTypesEnum
     {
         Get = 0,
         Post
     }
 }
+
 

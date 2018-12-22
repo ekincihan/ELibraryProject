@@ -1,4 +1,5 @@
 ﻿using ELibrary.API.Base;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,6 +21,7 @@ namespace ELibrary.API.Models
         public int Gender { get; set; }
         public Base64FormattingOptions AuthorPhoto { get; set; }
         public ICollection<BookModel> Books { get; set; }
+        public AppFileFilterModel AppFileFilterModel { get; set; } = new AppFileFilterModel();
         public DateTime? Birthdate { get; set; }
         public bool IsActive { get; set; } = true;
     }

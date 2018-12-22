@@ -6,9 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using static ELibrary.API.Models.Enum.Enum;
 
-namespace ELibrary.Portal.Models
+namespace ELibrary.API.Models
 {
-    public class AppFileFilterModel : ModelBase<Guid>
+    public class AppFileFilterModel :ModelBase<Guid>
     {
         public IFormFile File { get; set; }
         public Guid AppFileModuleId { get; set; }

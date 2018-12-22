@@ -1,20 +1,62 @@
-﻿@model AppFileFilterModel
-@{
-    ViewBag.Title = "FileUpload";
-}
+﻿@model ELibrary.API.Models.AuthorModel
 
+@{
+    ViewData["Title"] = "Test";
+}
 <h2>Test</h2>
 
-
+<h4>AuthorModel</h4>
+<hr />
 <div class="row">
-    <div class="col-lg-12">
-        <div class="widget no-border">
-            @{
-                await Html.RenderPartialAsync("~/Views/Shared/FileUpload.cshtml", new AppFileFilterModel { ModuleType = (ELibrary.API.Models.Enum.Enum.Module.Book)});
-            }
-        </div>
+    <div class="col-md-4">
+        <form asp-action="Test">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Biography" class="control-label"></label>
+                <input asp-for="Biography" class="form-control" />
+                <span asp-validation-for="Biography" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorPhoto" class="control-label"></label>
+                <input asp-for="AuthorPhoto" class="form-control" />
+                <span asp-validation-for="AuthorPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthdate" class="control-label"></label>
+                <input asp-for="Birthdate" class="form-control" />
+                <span asp-validation-for="Birthdate" class="text-danger"></span>
+            </div>
+            @await Component.InvokeAsync("AppFileUpload", new AppFileFilterModel());
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
     </div>
 </div>
-<script>
-    $("#AppFileModuleId").val('@Guid.NewGuid()');
-</script>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

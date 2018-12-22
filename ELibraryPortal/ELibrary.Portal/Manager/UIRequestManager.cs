@@ -131,6 +131,12 @@ namespace ELibrary.Portal.Manager
             string response = HttpRequestManager.Instance.Post(url, actionName, Data);
             return response;
         }
+        public async Task<string> PostAsync(string ControllerName, string actionName, string Data)
+        {
+            string url = this.BaseApiUrl + "/" + ControllerName + "/" + actionName;
+            string response = await HttpRequestManager.Instance.PostAsync(url, actionName, Data);
+            return response;
+        }
 
         public T Post<T>(string ControllerName, string actionName, string Data)
         {

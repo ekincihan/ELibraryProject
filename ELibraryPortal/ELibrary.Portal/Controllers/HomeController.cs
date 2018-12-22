@@ -7,6 +7,9 @@ using ELibrary.Portal.Manager;
 using Microsoft.AspNetCore.Mvc;
 using ELibrary.Portal.Models;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
+using ELibrary.Portal.Components;
+using ELibrary.API.Models;
 
 namespace ELibrary.Portal.Controllers
 {
@@ -24,6 +27,13 @@ namespace ELibrary.Portal.Controllers
         }
         public IActionResult Test()
         {
+            return View(new AuthorModel());
+        }
+        [HttpPost]
+        public IActionResult Test(AuthorModel model)
+        {
+            //AppFileUploadViewComponent component = new AppFileUploadViewComponent(new AppFileFilterModel());
+
             return View();
         }
     }
