@@ -13,6 +13,7 @@ namespace ELibrary.API.Models
         {
             Id = Guid.Empty;
         }
+        [RegularExpression("^((?!^Name$)[a-zA-Z '])+$", ErrorMessage = "Girdiğiniz isim formatı yanlış!")]
         public string Name { get; set; }
         public bool IsActive { get; set; } = true;
     }

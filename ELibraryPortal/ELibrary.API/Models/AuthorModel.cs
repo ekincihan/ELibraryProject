@@ -15,7 +15,9 @@ namespace ELibrary.API.Models
             Id = Guid.Empty;
         }
         [Required]
+        [RegularExpression("^((?!^First Name$)[a-zA-Z '])+$", ErrorMessage = "İsim formatı yanlış.")]
         public string Name { get; set; }
+        [RegularExpression("^((?!^First Name$)[a-zA-Z '])+$", ErrorMessage = "Soy isim formatı yanlış.")]
         public string Surname { get; set; }
         public string Biography { get; set; }
         public int Gender { get; set; }
