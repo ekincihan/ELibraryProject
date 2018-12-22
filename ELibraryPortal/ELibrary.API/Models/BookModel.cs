@@ -22,7 +22,7 @@ namespace ELibrary.API.Models
             Id = Guid.Empty;
         }
 
-        public string Name { get; set; }
+        public string BookName { get; set; }
         public string BookSummary { get; set; }
         public Guid AuthorId { get; set; }
         public string ISBN { get; set; }

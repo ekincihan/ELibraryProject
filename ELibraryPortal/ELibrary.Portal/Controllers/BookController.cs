@@ -48,7 +48,7 @@ namespace ELibrary.Portal.Controllers
 
             if (Guid.Empty !=  id && id.HasValue)
             {
-                Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Get("Book", "GetOne"));
+                Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Get("Book", "GetOne", id));
                 bookPageModel.bookModel = responseSaving.Value;
             }
             
