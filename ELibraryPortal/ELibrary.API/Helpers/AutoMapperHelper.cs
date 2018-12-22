@@ -44,7 +44,11 @@ namespace ELibrary.API.Helpers
             CreateMap<AuthorModel, Author>();
             #endregion
 
-        
+            #region Book
+            CreateMap<Book, BookModel>();
+            CreateMap<BookModel, Book>();
+            #endregion
+
         }
     }
 }
