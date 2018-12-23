@@ -1,0 +1,19 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "Navigation";
+}
+<div class="page-header clearfix">
+    <div class="row">
+        <div class="col-sm-6">
+            @*<h4 class="mt-0 mb-5">Form Layouts</h4>*@
+            <ol class="breadcrumb mb-0">
+                @foreach (string nav in Model)
+                {
+                    <li><a href="#" class="@(Model.Last() == nav ? "active":"")" >@nav</a></li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+
+

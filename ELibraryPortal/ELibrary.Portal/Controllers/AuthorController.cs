@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 using ELibrary.API.Models;
 using ELibrary.API.Type;
 using ELibrary.Portal.Custom;
+using ELibrary.Portal.Helpers;
 using ELibrary.Portal.Manager;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class AuthorController : Controller
+    public class AuthorController :  Controller
     {
         public IActionResult Index()
         {
@@ -33,10 +36,19 @@ namespace ELibrary.Portal.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult Save(AuthorModel model)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Save(AuthorModel model)
         {
             Response<AuthorModel> responseSaving = JsonConvert.DeserializeObject<Response<AuthorModel>>(UiRequestManager.Instance.Post("Author", "Save", JsonConvert.SerializeObject(model)));
 
+            AppFileFilterModel appFileFilterModel = new AppFileFilterModel
+            {
+                AppFileModuleId = responseSaving.Value.Id,
+                ModuleType = API.Models.Enum.Enum.Module.AuthorThumbnail,
+                File = model.FormFile
+            };
+
+            await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
             return RedirectToAction("Index");
         }
 

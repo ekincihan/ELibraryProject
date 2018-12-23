@@ -20,9 +20,11 @@
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/flag-icon-css/css/flag-icon.min.css">
     <!-- Bootstrap Progressbar-->
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+
     <link href="~/Umega/plugins/jquery.steps/demo/css/jquery.steps.css" rel="stylesheet" />
     <link href="~/Umega/build/css/first-layout.css" rel="stylesheet" />
 
+    <link href="~/Umega/build/css/daterangepicker.css" rel="stylesheet" />
     <!-- SpinKit-->
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/SpinKit/css/spinners/7-three-bounce.css">
     <!-- Morris Chart-->
@@ -33,6 +35,9 @@
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/datatables.net-colreorder-bs/css/colReorder.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/morris.js/morris.css">
+
+    <!-- Bootstrap File Input-->
+    <link rel="stylesheet" type="text/css" href="~/Umega/plugins/bootstrap-fileinput/css/fileinput.min.css">
 
 
     <!-- Primary Style-->
@@ -55,18 +60,7 @@
         @await Html.PartialAsync("_Sidebar")
         <!-- Main Sidebar end-->
         <div class="page-container container-fluid">
-            <div class="page-header clearfix">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4 class="mt-0 mb-5">Form Layouts</h4>
-                        <ol class="breadcrumb mb-0">
-                            <li><a href="#">Umega</a></li>
-                            <li><a href="#">Forms</a></li>
-                            <li class="active">Layouts</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("Navigation")
             @RenderBody()
         </div>
         <!-- Right Sidebar start-->
@@ -74,7 +68,7 @@
     </div>
     <!-- Demo Settings start-->
     <!-- Demo Settings end-->
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="~/Umega/plugins/jquery/dist/jquery.min.js"></script>
 
     <script src="~/Umega/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -98,7 +92,7 @@
     <script src="~/Umega/assets/js/first-layout/app.js"></script>
     <script src="~/Umega/assets/js/first-layout/demo.js"></script>
     <script src="~/Umega/assets/js/page-content/forms/forms-wizard.js"></script>
-
+    <script type="text/javascript" src="~/Umega/plugins/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="~/Umega/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="~/Umega/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript" src="~/Umega/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
@@ -115,5 +109,31 @@
     <script src="~/Umega/plugins/dropzone/dist/min/dropzone.min.js"></script>
     <script src="~/Umega/assets/js/page-content/file-uploads/dropzone-js.js"></script>
     <script src="~/Custom/bootstrap-datepicker.min.js"></script>
+    <!-- Bootstrap File Input-->
+    <script type="text/javascript" src="~/Umega/plugins/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js"></script>
+    <script type="text/javascript" src="~/Umega/plugins/bootstrap-fileinput/js/fileinput.min.js"></script>
+    <script type="text/javascript" src="~/Umega/build/js/page-content/file-uploads/bootstrap-file-input.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="~/Umega/build/css/daterangepicker.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.dtPicker').daterangepicker({
+                singleDatePicker: true,
+                dateFormat: 'DD/MM/YYYY',
+                timePicker: false,
+                timePicker24Hour: false,
+                //timePickerIncrement: 15,
+                locale: {
+                    format: 'DD/MM/YYYY HH:MM',
+                    daysOfWeek: ["pa", "pzt", "sa", "çar", "per", "cum", "cmt"],
+                    monthNames: ["Ocak", "Subat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+                    firstDay: 1,
+                    applyLabel: "Tamam",
+                    cancelLabel: "İptal",
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,8 +1,11 @@
 ﻿using ELibrary.API.Base;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
 namespace ELibrary.API.Models
@@ -21,7 +24,10 @@ namespace ELibrary.API.Models
         public string Biography { get; set; }
         public int Gender { get; set; }
         public Base64FormattingOptions AuthorPhoto { get; set; }
+        [IgnoreDataMember()]
+        public IFormFile FormFile { get; set; }
         public ICollection<BookModel> Books { get; set; }
+        public AppFileFilterModel AppFileFilterModel { get; set; } = new AppFileFilterModel();
         public DateTime? Birthdate { get; set; }
         public bool IsActive { get; set; } = true;
     }

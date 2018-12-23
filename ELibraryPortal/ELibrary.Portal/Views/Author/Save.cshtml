@@ -1,60 +1,72 @@
 ﻿@model ELibrary.API.Models.AuthorModel
-
 @{
     ViewData["Title"] = "Save";
 }
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="widget">
     <div class="widget-heading">
         <h3 class="widget-title">Yazar Ekleme</h3>
     </div>
     <div class="widget-body">
-        <form asp-action="Save" method="post" novalidate="novalidate">
-            <div class="form-group">
-                <label class="control-label">Adı</label>
-                <input asp-for="Name" class="form-control" placeholder="Adı" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Soyadı</label>
-                <input asp-for="Surname" placeholder="Soyadı" class="form-control" />
-                <span asp-validation-for="Surname" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Biyografi</label>
-                <textarea asp-for="Biography" rows="4" cols="50" id="txtWebsite" type="text" placeholder="Yazar hakkında.." class="form-control">
+        <form asp-action="Save" method="post" enctype="multipart/form-data" >
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label class="control-label">Adı</label>
+                    <input asp-for="Name" class="form-control" placeholder="Adı" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Soyadı</label>
+                    <input asp-for="Surname" placeholder="Soyadı" class="form-control" />
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Doğum tarihi</label>
+                    <div class="input-group">
+                        <input asp-for="Birthdate" type="text" placeholder="Doğum tarihi" data-rule-required="true" data-rule-minlength="8" data-rule-date="true" class="form-control dtPicker"><span class="input-group-addon"><i class="ti-calendar"></i></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Biyografi</label>
+                    <textarea asp-for="Biography" rows="4" cols="50" id="txtWebsite" type="text" placeholder="Yazar hakkında.." class="form-control">
                       </textarea>
-            </div>
-            <div class="form-group">
-                <label>Doğum tarihi</label>
-                <div class="input-group">
-                    <input asp-for="Birthdate" type="text" placeholder="Doğum tarihi" data-rule-required="true" data-rule-minlength="8" data-rule-date="true" class="form-control Birthdate"><span class="input-group-addon"><i class="ti-calendar"></i></span>
                 </div>
-            </div>
-            <div class="form-group">
-                <label>Cinsiyet</label>
-                <div class="radio">
-                    <label>
-                        <input type="radio" asp-for="Gender" value="1" data-rule-required="true"> Kadın
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" asp-for="Gender" value="0"> Erkek
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="fulImage">Image upload</label>
-                <input id="fulImage" type="file" asp-for="IsActive" data-buttontext="Choose file" data-buttonname="btn-outline btn-primary" data-iconname="ti-image" data-rule-required="true" data-rule-accept="image/*" class="filestyle">
             </div>
             
-            <div class="form-group">
-                <label for="fulImage">Aktif/Pasif</label>
-                <input type="checkbox" asp-for="IsActive">
+            <div class="col-xs-6">
+                
+                <div class="form-group">
+                    <label class="text-capitalize">Cinsiyet</label>
+                    <div class="has-success">
+                        <div class="radio-custom">
+                            <input id="radioFemale" asp-for="Gender" type="radio" name="radioStates" value="1">
+                            <label for="radioFemale" class="radio-success">Kadın</label>
+                        </div>
+                    </div>
+                    <div class="has-warning">
+                        <div class="radio-custom">
+                            <input id="radioMale" asp-for="Gender" type="radio" name="radioStates" value="1">
+                            <label for="radioMale" class="radio-warning">Erkek</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Resim</label>
+                    <label>Resim</label>
+                    <input id="FileBasic" name="FormFile" asp-for="FormFile"  placeholder="PNG | JPG" type="file"  >
+                </div>
+                <div class="form-group">
+                    <div class="has-success">
+                        <div class="checkbox-custom">
+                            <input asp-for="IsActive" checked id="checkboxSuccess" type="checkbox">
+                            <label for="checkboxSuccess" class="checkbox-success">Aktif?</label>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button type="submit" name="btnSubmit" class="btn btn-raised btn-black">Submit</button>
+            <div class="row">
+                <button type="submit" name="btnSubmit" class="btn btn-raised btn-black pull-right">Submit</button>
+            </div>
         </form>
     </div>
 </div>
@@ -66,6 +78,11 @@
             language: 'tr'
         });
 
+        $('#FileBasic').fileinput({
+            maxFileCount: 1,
+            showUpload: false,
+            allowedFileTypes: ['image', 'video']
+        });
     });
 
 </script>

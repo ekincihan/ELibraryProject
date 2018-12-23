@@ -10,8 +10,9 @@ namespace ELibrary.API.Models.Enum
     {
         public enum Module
         {
-            Book = 1001,
-            User = 1002
+            BookThumbnail = 1001,
+            UserThumbnail = 1002,
+            AuthorThumbnail = 1003
         }
     }
 }

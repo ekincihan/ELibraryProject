@@ -26,9 +26,8 @@ namespace ELibrary.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
-        [Route("List")]
-        public async Task<Response<List<CategoryModel>>> AsyncGet()
+        [HttpGet("List")]
+        public async Task<Response<List<CategoryModel>>> Get()
         {
             Response<List<CategoryModel>> categoryResponse = new Response<List<CategoryModel>>();
             List<Category> entityList = await _category.GetListAsync(x => x.IsActive == true);
@@ -36,8 +35,7 @@ namespace ELibrary.API.Controllers
             return categoryResponse;
         }
 
-        [HttpPost]
-        [Route("Save")]
+        [HttpPost("Save")]
         public async Task<Response<CategoryModel>> Post([FromBody]CategoryModel model)
         {
             Response<CategoryModel> categoryResponseModel = new Response<CategoryModel>();
