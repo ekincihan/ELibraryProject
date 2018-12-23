@@ -4,7 +4,6 @@
 @{
     ViewData["Title"] = "Index";
 }
-
 <div class="row">
     <div class="col-lg-12">
         <div class="widget no-border">
@@ -24,17 +23,12 @@
                     {
                         <tr>
                             <td>
-                                <div class="media">
-                                    <div class="media-left avatar"><img src="@item.AuthorPhoto" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">@item.Name @item.Surname</h5>
-                                    </div>
-                                </div>
+                                <span class="text-left">@($"{item.Name} {item.Surname }")</span>
                             </td>
                             <td>@{string gender = item.Gender == 1 ? "Kadın" : "erkek";} @gender</td>
-                            <td>@item.Birthdate</td>
+                            <td>@(item.Birthdate.HasValue ? item.Birthdate.Value.ToString("dd.MM.yyyy"): "")</td>
                             <td>@item.Biography</td>
-                            <td>@item.Books</td>
+                            <td><a href="javascript:;"> @($"{item.Books.Count} adet")</a></td>
                             <td class="text-center">
                                 <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
                                     <a href="@Url.Action("Save", "Author", new { id = item.Id })" id="update" class="btn btn-outline btn-success"><i class="ti-pencil"></i></a>
@@ -53,16 +47,12 @@
 
 <script>
     $(document).ready(function () {
-
-
         var table = 'authorTable';
         //var headbuttonArr = [{ extend: 'copy' }, { text: 'Excel', title: tableName, action: function (e, dt, node, config) { $("#printReportExcel")[0].click(); } },
         //    { extend: 'print', action: function (e, dt, node, config) { $("#printReport")[0].click(); } }
         //];
         var headbuttonArr = [{ extend: 'copy' }];
         table = globalKWP.dataTableInstance(table, headbuttonArr);
-
-
 
         $("td div #delete").click(function () {
 
