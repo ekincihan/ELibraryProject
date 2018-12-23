@@ -27,6 +27,15 @@
                 <li><a href="@Url.Action("Save", "Book")" class="active">Kitap Ekle</a></li>
             </ul>
         </li>
+
+        <li class="panel">
+            <a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse4" aria-expanded="false" aria-controls="collapse3" class="collapsed"><i class="ti-agenda"></i><span class="sidebar-title">Tür İşlemleri</span></a>
+            <ul id="collapse4" class="list-unstyled collapse">
+                <li><a href="@Url.Action("Index", "AppType")" class="active">Tür Listele</a></li>
+                <li><a href="@Url.Action("Save", "AppType")" class="active">Tür Ekle</a></li>
+            </ul>
+        </li>
+
         <li class="panel">
             <a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse4" aria-expanded="false" aria-controls="collapse3" class="collapsed"><i class="ti-agenda"></i><span class="sidebar-title">Kategori İşlemleri</span></a>
             <ul id="collapse4" class="list-unstyled collapse">
@@ -42,12 +51,12 @@
             </ul>
         </li>
         @*<li class="panel">
-                <a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse3" aria-expanded="false" aria-controls="collapse3" class="collapsed"><i class="ti-shopping-cart"></i><span class="sidebar-title">E-commerce</span></a>
-                <ul id="collapse3" class="list-unstyled collapse">
-                    <li><a href="ecommerce-dashboard.html">Dashboard</a></li>
-                    <li><a href="product-list.html">Product list</a></li>
-                    <li><a href="edit-product.html">Edit product</a></li>
-                </ul>
-            </li>*@
+            <a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse3" aria-expanded="false" aria-controls="collapse3" class="collapsed"><i class="ti-shopping-cart"></i><span class="sidebar-title">E-commerce</span></a>
+            <ul id="collapse3" class="list-unstyled collapse">
+                <li><a href="ecommerce-dashboard.html">Dashboard</a></li>
+                <li><a href="product-list.html">Product list</a></li>
+                <li><a href="edit-product.html">Edit product</a></li>
+            </ul>
+        </li>*@
     </ul>
 </aside>

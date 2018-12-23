@@ -12,8 +12,8 @@
                 <thead>
                     <tr>
                         <th style="width: 15%" class="text-center">Name</th>
-                        <th style="width: 15%" class="text-center">Biography</th>
-                        <th style="width: 15%" class="text-center">ISBN</th>
+                       
+                        
                         <th style="width: 15%" class="text-center">Summary</th>
                         <th style="width: 15%" class="text-center">EditionDate</th>
                         <th style="width: 15%" class="text-center">NumberPages</th>
@@ -25,7 +25,7 @@
                     {
                     <tr>
                         <td class="text-center">@item.BookName</td>
-                        <td class="text-center">@item.ISBN</td>
+                        
                         <td class="text-center">@item.BookSummary</td>
                         <td class="text-center">@item.EditionDate</td>
                         <td class="text-center">@item.NumberPage</td>
@@ -58,7 +58,7 @@
 
 
 
-        $("td div #delete").click(function () {
+        $("td div a #delete").click(function () {
 
             var model = {
                 IsActive: false,

@@ -27,7 +27,7 @@ namespace ELibrary.Portal.Controllers
 
             if (Guid.Empty != id && id.HasValue)
             {
-                Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Get("Category", "GetOne"));
+                Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Get("Category", "GetOne",id));
                 model = responseSaving.Value;
             }
 

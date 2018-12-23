@@ -43,6 +43,7 @@ namespace ELibrary.API.Controllers
             Response<CategoryModel> categoryResponseModel = new Response<CategoryModel>();
             try
             {
+
                 Category entity = _mapper.Map<Category>(model);
                 entity = await (model.Id != Guid.Empty ? _category.UpdateAsync(entity) : _category.AddAsync(entity));
                 categoryResponseModel.Value = _mapper.Map<CategoryModel>(entity);

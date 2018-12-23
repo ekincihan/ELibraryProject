@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace ELibrary.Entities.Concrete
@@ -10,7 +11,7 @@ namespace ELibrary.Entities.Concrete
     {
         [StringLength(maximumLength:100)]
         public string Name { get; set; }
-
+       
         public Guid AppTypeId { get; set; }
         public AppType AppType { get; set; }
         public override Guid? CreatedBy { get => base.CreatedBy; set => base.CreatedBy = value; }

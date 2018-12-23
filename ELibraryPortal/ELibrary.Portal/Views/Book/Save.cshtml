@@ -27,22 +27,38 @@
                             </div>
                         </div>
                         <div class="col-md-6">
+
+
                             <div class="form-group">
+
                                 <label for="ddlCountryBilling" class="col-sm-3 col-md-4 control-label">Yazar Adı </label>
                                 <div class="col-sm-9 col-md-8">
+
                                     <select name="AuthorId" class="form-control">
+                                        <option value="-1">--Please Select--</option>
                                         @foreach (var item in Model.AuthorList)
                                         {
-                                            <option value="-1">--Please Select--</option>
+
                                             <option value="@item.Id">@item.Name</option>
                                         }
 
 
                                     </select>
+                                    <div>
+                                        <a href="@Url.Action("Save", "Author")"> Yazar Ekle <i class="ti-pencil"></i></a>
+                                    </div>
                                 </div>
+
+
+
                             </div>
+
                         </div>
+                       
+                           
+                       
                     </div>
+                  
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -57,13 +73,17 @@
                                 <label for="ddlCountryBilling" class="col-sm-3 col-md-4 control-label">YayınEvi Adı </label>
                                 <div class="col-sm-9 col-md-8">
                                     <select name="PublisherId" class="form-control">
+                                        <option value="-1">--Please Select--</option>
                                         @foreach (var item in Model.PubLisherList)
                                         {
-                                            <option value="-1">--Please Select--</option>
+
                                             <option value="@item.Id">@item.Name</option>
                                         }
 
                                     </select>
+                                    <div>
+                                        <a href="@Url.Action("Save", "Publisher")"> Yayınevi Ekle <i class="ti-pencil"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +93,7 @@
                             <div class="form-group">
                                 <label for="txtAddress1Billing" class="col-sm-3 col-md-4 control-label">Kitap Ozet</label>
                                 <div class="col-sm-9 col-md-8">
-                                    <textarea name="BookSummary"  class="form-control"></textarea>
+                                    <textarea name="BookSummary" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
