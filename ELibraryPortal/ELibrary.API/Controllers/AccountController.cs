@@ -48,7 +48,7 @@ namespace ELibrary.API.Controllers
             throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
         }
 
-        [HttpPost("Login")]
+        [HttpPost("Register")]
         public async Task<Response<ApplicationUser>> Register(RegisterModel model)
         {
             var response = new Response<ApplicationUser>();
