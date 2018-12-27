@@ -10,6 +10,9 @@ import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './index/search/search.component';
 import { IndexNavbarComponent } from './index/index-navbar/index-navbar.component';
 import { MixedBooksComponent } from './index/mixed-books/mixed-books.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { AuthorDetailComponent } from './author-detail/author-detail.component';
 
 @NgModule({
    declarations: [
@@ -19,11 +22,14 @@ import { MixedBooksComponent } from './index/mixed-books/mixed-books.component';
       FooterComponent,
       SearchComponent,
       IndexNavbarComponent,
-      MixedBooksComponent
+      MixedBooksComponent,
+      BookDetailComponent,
+      NavigationComponent,
+      AuthorDetailComponent
    ],
    imports: [
       BrowserModule,
-      RouterModule.forRoot(appRoutes),
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [],
    bootstrap: [
