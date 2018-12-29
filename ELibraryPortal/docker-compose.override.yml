@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  elibrary.portal:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+  elibrary.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

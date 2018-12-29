@@ -58,6 +58,11 @@ namespace ELibrary.API
             services.AddTransient<IAuthor, EFAuthor>();
             services.AddTransient<IType, EFType>();
 
+            //services.AddAuthentication().AddFacebook(facebookOptions =>
+            //{
+            //    facebookOptions.AppId = ConfigurationManager.Instance.GetValue("FacebookAppId");
+            //    facebookOptions.AppSecret = ConfigurationManager.Instance.GetValue("FacebookAppSecret");
+            //});
 
             services.AddAutoMapper();
             DIManager.Instance.Builder.Populate(services);
@@ -98,7 +103,7 @@ namespace ELibrary.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ELibrayAPI V1");
             });
-            CreateRolesandUsers();
+            //CreateRolesandUsers();
         }
         private void CreateRolesandUsers()
         {

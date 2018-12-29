@@ -15,6 +15,6 @@ export class RequestManagerService {
   }
 
   post(resource) {
-    this.http.post(this.config.url, resource);
+    this.http.post(this.config.url, JSON.stringify(resource));
   }
 }

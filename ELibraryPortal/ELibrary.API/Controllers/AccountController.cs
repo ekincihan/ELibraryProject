@@ -47,5 +47,31 @@ namespace ELibrary.API.Controllers
 
             throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
         }
+
+        [HttpPost("Login")]
+        public async Task<Response<ApplicationUser>> Register(RegisterModel model)
+        {
+            var response = new Response<ApplicationUser>();
+
+            var identityUser = new ApplicationUser
+            {
+                UserName = model.Email,
+                Email = model.Email,
+                PhoneNumber = model.PhoneNumber,
+                Name = model.Name,
+                Gender = model.Gender,
+                Birthdate = model.Birthdate,
+            };
+            var result = await _userManager.CreateAsync(identityUser, model.Password);
+
+            if (result.Succeeded)
+            {
+                var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
+                appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
+                return new Response<ApplicationUser>(appUser);
+            }
+
+            throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
+        }
     }
 }

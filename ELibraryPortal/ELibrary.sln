@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ELibrary.DAL", "ELibrary.DA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ELibrary.API", "ELibrary.API\ELibrary.API.csproj", "{31483862-E85B-4B43-B5A1-A536057B7FBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELibrary.Portal", "ELibrary.Portal\ELibrary.Portal.csproj", "{3B75C336-320F-4878-B5FE-4D84F20F41BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ELibrary.Portal", "ELibrary.Portal\ELibrary.Portal.csproj", "{3B75C336-320F-4878-B5FE-4D84F20F41BD}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{745BB7B7-3816-4DEB-8BD1-5AFFA6E35CA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3B75C336-320F-4878-B5FE-4D84F20F41BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B75C336-320F-4878-B5FE-4D84F20F41BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B75C336-320F-4878-B5FE-4D84F20F41BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745BB7B7-3816-4DEB-8BD1-5AFFA6E35CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745BB7B7-3816-4DEB-8BD1-5AFFA6E35CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745BB7B7-3816-4DEB-8BD1-5AFFA6E35CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745BB7B7-3816-4DEB-8BD1-5AFFA6E35CA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

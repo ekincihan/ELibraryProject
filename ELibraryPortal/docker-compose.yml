@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  elibrary.portal:
+    image: ${DOCKER_REGISTRY-}elibraryportal
+    build:
+      context: .
+      dockerfile: ELibrary.Portal/Dockerfile
+
+  elibrary.api:
+    image: ${DOCKER_REGISTRY-}elibraryapi
+    build:
+      context: .
+      dockerfile: ELibrary.API/Dockerfile
+
