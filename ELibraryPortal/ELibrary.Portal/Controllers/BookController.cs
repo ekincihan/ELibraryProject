@@ -56,12 +56,12 @@ namespace ELibrary.Portal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(BookModel model)
+        public JsonResult Save(BookModel model)
         {
             Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model)));
 
-            return RedirectToAction("Index");
-            
+            return Json(responseSaving);
+
         }
 
         [HttpPost]

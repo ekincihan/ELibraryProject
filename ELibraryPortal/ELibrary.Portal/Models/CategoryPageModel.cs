@@ -12,7 +12,7 @@ namespace ELibrary.Portal.Models
 
         public List<TypeModel> TypeList { get; set; }
 
-        public CategoryModel catogoryModel { get; set; }
+        public CategoryModel categoryModel { get; set; }
 
     }
 }

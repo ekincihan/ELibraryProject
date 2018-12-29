@@ -14,6 +14,7 @@
         <div class="widget-body">
             <form asp-action="Save">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="Id" type="hidden" />
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" />
@@ -42,41 +43,15 @@
             success: function (data) {
                 console.log(data);
                 if (data.isSuccess) {
-                    swal("Basarili!", "Kayıt silindi", "success");
+                    swal("Basarili!", "Kaydedildi!", "success");
                 }
                 else {
-                    swal("Dikkat!", "Kayıt oluşturulamadı", "warning");
+                    swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
                 }
             },
             error : function() {
-                swal("Hata!", "Bir sorun oluştu!!", "error");
+                swal("Hata!", "Bir sorun oluştu!", "error");
             }
         });
     });
-    //$("div").click(function () {
-
-    //    var btn = this;
-    //    swal({
-    //    },
-    //        function (isConfirm) {
-    //            if (isConfirm) {
-    //                $.ajax({
-    //                    type: "POST",
-    //                    url: '/Publisher/Save',
-    //                    content: "application/json; charset=utf-8",
-    //                    data: model,
-    //                    dataType: 'json',
-    //                    success: function (d) {
-    //                        if (d.success) {
-    //                            swal("Basarili!", "Kayıt silindi", "success");
-    //                            table.row($(btn).parents('tr')).remove().draw(false);
-    //                        }
-    //                    }
-    //                });
-    //            } else {
-    //                swal.close();
-    //            }
-    //        })
-
-    //})
 </script>

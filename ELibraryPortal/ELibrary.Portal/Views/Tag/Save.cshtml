@@ -15,6 +15,7 @@
         <div class="widget-body">
             <form asp-action="Save">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="Id" type="hidden" />
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" />
@@ -27,3 +28,27 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('form').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/Tag/Save',
+            data: $(this).serialize(),
+            type: 'POST',
+            success: function (data) {
+                console.log(data);
+                if (data.isSuccess) {
+                    swal("Basarili!", "Kaydedildi!", "success");
+                }
+                else {
+                    swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+                }
+            },
+            error: function () {
+                swal("Hata!", "Bir sorun oluştu!", "error");
+            }
+        });
+    });
+
+</script>

@@ -47,18 +47,18 @@ namespace ELibrary.Portal.Controllers
             if (Guid.Empty != id && id.HasValue)
             {
                 Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Get("Category", "GetOne",id));
-                categoryPageModel.catogoryModel = responseSaving.Value;
+                categoryPageModel.categoryModel = responseSaving.Value;
             }
 
             return View(categoryPageModel);
         }
 
         [HttpPost]
-        public ActionResult Save(CategoryModel model)
+        public JsonResult Save(CategoryModel model)
         {
             Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Post("Category", "Save", JsonConvert.SerializeObject(model)));
 
-            return RedirectToAction("Index");
+            return Json(responseSaving);
         }
 
         [HttpPost]
