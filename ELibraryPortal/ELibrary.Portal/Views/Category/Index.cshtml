@@ -1,7 +1,6 @@
 ﻿@using ELibrary.API.Models
 @using ELibrary.API.Type
-@model ELibrary.API.Type.Response<List<ELibrary.API.Models.CategoryModel>>
-
+@model CategoryPageModel
 
 <div class="row">
     <div class="col-lg-12">
@@ -10,12 +9,12 @@
                 <thead>
                     <tr>
                         <th style="width: 10%" class="text-center">Name</th>
-                       
+                      
                         <th style="width: 15%" class="text-center">İşlemler</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Value)
+                    @foreach (var item in Model.CategoryList)
                     {
                         <tr>
                             <td class="text-center">@item.Name</td>

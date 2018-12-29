@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using ELibrary.DAL.Abstract;
 using ELibrary.DAL.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Builder;
@@ -34,6 +35,7 @@ namespace ELibrary.Portal
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddAutoMapper();
 
             services.AddSingleton<IFileProvider>(
                 new PhysicalFileProvider(

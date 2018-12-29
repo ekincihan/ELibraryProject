@@ -1,4 +1,4 @@
-﻿@model ELibrary.API.Models.CategoryModel
+﻿@model ELibrary.Portal.Models.CategoryPageModel
 
 @{
     ViewData["Title"] = "Create";
@@ -13,16 +13,41 @@
         </div>
         <div class="widget-body">
             <form asp-action="Save">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-3 col-md-4 control-label">Kategori Adı</label>
+                            <div class="col-sm-9 col-md-8">
+                                <input name="Name" type="text" class="form-control pull-right">
+                            </div>
+                        </div>
+                    @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="catogoryModel.Name" class="control-label"></label>
+                        <input asp-for="catogoryModel.Name" class="form-control" />
+                        <span asp-validation-for="catogoryModel.Name" class="text-danger"></span>*@
+                        <div class="form-group">
+                            <label class="col-sm-3 col-md-4 control-label">Tür Adı </label>
+                            <div class="col-sm-9 col-md-8">
+                                <select name="AppTypeId" class="form-control  pull-right">
+                                    <option value="-1">--Please Select--</option>
+                                    @foreach (var item in Model.TypeList)
+                                    {
+
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                                <div>
+                                    <a href="@Url.Action("Save", "Type")"> Tür Ekle <i class="ti-pencil"></i></a>
+                                </div>
+                            </div>
+                            <div class="form-group" style="padding-right:15px">
+                                <input type="submit" value="Oluştur" class="btn btn-primary pull-right" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-               
-                <div class="form-group">
-                    <input type="submit" value="Oluştur" class="btn btn-default" />
-                </div>
+
             </form>
         </div>
     </div>

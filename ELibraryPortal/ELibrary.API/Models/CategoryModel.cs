@@ -18,6 +18,7 @@ namespace ELibrary.API.Models
       //  [RegularExpression("^((?!^Name$)[a-zA-Z '])+$", ErrorMessage = "Girdiğiniz isim formatı yanlış!")]
         public string Name { get; set; }
         public Guid AppTypeId { get; set; }
+        public List<TypeModel> Types { get; set; }
         public bool IsActive { get; set; } = true;
     }
 }
