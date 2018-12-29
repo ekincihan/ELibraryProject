@@ -66,6 +66,14 @@ namespace ELibrary.API.Controllers
 
             if (result.Succeeded)
             {
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(identityUser);
+                var callbackUrl = Url.Action("ConfirmEmail", "Main", new { userId = identityUser.Id, code = code },
+                      protocol: HttpContext.Request.Scheme);
+                //await
+                    //_emailSend.SendEmailAsync(model.Username, "Confirm Account",
+                    //    $"Please Confirm your account by " +
+                    //    $"clicking this link:<a href='{callbackUrl}'>Link</a>");
+
                 var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
                 appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
                 return new Response<ApplicationUser>(appUser);

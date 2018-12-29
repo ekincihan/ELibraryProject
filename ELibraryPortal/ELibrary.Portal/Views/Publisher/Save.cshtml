@@ -7,7 +7,7 @@
 
 <div class="col-md-12">
     <div class="widget">
-        
+
         <div class="widget-heading">
             <h3 class="widget-title">Yayın Evi</h3>
         </div>
@@ -32,3 +32,51 @@
     </div>
 </div>
 
+<script>
+    $('form').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/Publisher/Save',
+            data: $(this).serialize(),
+            type: 'POST',
+            success: function (data) {
+                console.log(data);
+                if (data.isSuccess) {
+                    swal("Basarili!", "Kayıt silindi", "success");
+                }
+                else {
+                    swal("Dikkat!", "Kayıt oluşturulamadı", "warning");
+                }
+            },
+            error : function() {
+                swal("Hata!", "Bir sorun oluştu!!", "error");
+            }
+        });
+    });
+    //$("div").click(function () {
+
+    //    var btn = this;
+    //    swal({
+    //    },
+    //        function (isConfirm) {
+    //            if (isConfirm) {
+    //                $.ajax({
+    //                    type: "POST",
+    //                    url: '/Publisher/Save',
+    //                    content: "application/json; charset=utf-8",
+    //                    data: model,
+    //                    dataType: 'json',
+    //                    success: function (d) {
+    //                        if (d.success) {
+    //                            swal("Basarili!", "Kayıt silindi", "success");
+    //                            table.row($(btn).parents('tr')).remove().draw(false);
+    //                        }
+    //                    }
+    //                });
+    //            } else {
+    //                swal.close();
+    //            }
+    //        })
+
+    //})
+</script>
