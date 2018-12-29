@@ -26,8 +26,10 @@
                             <td class="text-center">
                                 <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
                                     @*<button type="button" data-id="@item.Id" class="btn btn-outline btn-primary"><i class="ti-eye"></i></button>*@
+
                                     <a href="@Url.Action("Save", "Publisher", new { id = item.Id })" id="update" class="btn btn-outline btn-success"><i class="ti-pencil"></i></a>
                                     <a id="delete" data-model="@(Newtonsoft.Json.JsonConvert.SerializeObject(item))" data-id="@item.Id" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
+
                                 </div>
                             </td>
                         </tr>
