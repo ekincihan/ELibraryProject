@@ -10,7 +10,7 @@
                 <thead>
                     <tr>
                         <th style="width: 10%" class="text-center">Name</th>
-                       
+
                         <th style="width: 15%" class="text-center">İşlemler</th>
                     </tr>
                 </thead>
@@ -20,7 +20,7 @@
                     {
                         <tr>
                             <td class="text-center">@item.Name</td>
-                            
+
                             @*<td class="text-center"><span class="label label-warning">Pending</span></td>*@
                             <td class="text-center">
                                 <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
@@ -33,6 +33,9 @@
                     }
                 </tbody>
             </table>
+            <div class="form-group">
+                <a href="@Url.Action("Save", "AppType")"> <input type="submit" class="btn btn-primary" value="Tür Ekle" /></a>
+            </div>
         </div>
     </div>
 </div>
