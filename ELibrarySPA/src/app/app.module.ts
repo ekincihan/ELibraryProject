@@ -8,11 +8,16 @@ import { IndexComponent } from './index/index.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './index/search/search.component';
-import { IndexNavbarComponent } from './index/index-navbar/index-navbar.component';
-import { MixedBooksComponent } from './index/mixed-books/mixed-books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AuthorDetailComponent } from './author-detail/author-detail.component';
+import { IndexService } from './index/shared/index.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthorDetailService } from './author-detail/shared/author-detail.service';
+import { HeaderComponent } from './header/header.component';
+import { MixedBooksComponent } from './mixed-books/mixed-books.component';
+import { MixedBooksServiceService } from './mixed-books/shared/mixedBooksService.service';
+import { HeaderService } from './header/shared/headerService';
 
 @NgModule({
    declarations: [
@@ -21,17 +26,23 @@ import { AuthorDetailComponent } from './author-detail/author-detail.component';
       NavbarComponent,
       FooterComponent,
       SearchComponent,
-      IndexNavbarComponent,
-      MixedBooksComponent,
       BookDetailComponent,
       NavigationComponent,
-      AuthorDetailComponent
+      AuthorDetailComponent,
+      HeaderComponent,
+      MixedBooksComponent
    ],
    imports: [
       BrowserModule,
+      HttpClientModule,
       RouterModule.forRoot(appRoutes)
    ],
-   providers: [],
+   providers: [
+      IndexService,
+      AuthorDetailService,
+      MixedBooksServiceService,
+      HeaderService
+   ],
    bootstrap: [
       AppComponent
    ]
