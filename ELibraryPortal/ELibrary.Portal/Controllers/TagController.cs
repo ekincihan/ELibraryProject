@@ -34,11 +34,11 @@ namespace ELibrary.Portal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(TagModel model)
+        public JsonResult Save(TagModel model)
         {
             Response<TagModel> responseSaving = JsonConvert.DeserializeObject<Response<TagModel>>(UiRequestManager.Instance.Post("Tag", "Save", JsonConvert.SerializeObject(model)));
 
-            return RedirectToAction("Index");
+            return Json(responseSaving);
         }
 
         [HttpPost]

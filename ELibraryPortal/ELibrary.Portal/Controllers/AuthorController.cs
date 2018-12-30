@@ -37,7 +37,7 @@ namespace ELibrary.Portal.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Save(AuthorModel model)
+        public async Task<JsonResult> Save(AuthorModel model)
         {
             Response<AuthorModel> responseSaving = JsonConvert.DeserializeObject<Response<AuthorModel>>(UiRequestManager.Instance.Post("Author", "Save", JsonConvert.SerializeObject(model)));
 
@@ -49,7 +49,7 @@ namespace ELibrary.Portal.Controllers
             };
 
             await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
-            return RedirectToAction("Index");
+            return Json(responseSaving);
         }
 
         [HttpPost]

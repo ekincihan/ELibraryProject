@@ -35,6 +35,7 @@ namespace ELibrary.Portal
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddAutoMapper();
 
             services.AddAutoMapper();
             services.AddSingleton<IFileProvider>(

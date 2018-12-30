@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+@*<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
 <div class="col-md-12">
     <div class="widget">
 
@@ -15,6 +15,7 @@
         <div class="widget-body">
             <form asp-action="Save">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="Id" type="hidden" />
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" />
@@ -24,6 +25,34 @@
                     <input type="submit" value="Oluştur" class="btn btn-default" />
                 </div>
             </form>
+
+            <div class="form-group">
+                <a href="@Url.Action("Index", "AppType")"> <input type="submit" class="btn btn-primary" value="Tür Listele" /></a>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    $('form').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/AppType/Save',
+            data: $(this).serialize(),
+            type: 'POST',
+            success: function (data) {
+                console.log(data);
+                if (data.isSuccess) {
+                    swal("Basarili!", "Kaydedildi!", "success");
+                }
+                else {
+                    swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+                }
+            },
+            error: function () {
+                swal("Hata!", "Bir sorun oluştu!", "error");
+            }
+        });
+    });
+
+</script>

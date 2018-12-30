@@ -10,7 +10,7 @@
             <a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse1" aria-expanded="false" aria-controls="collapse1" class="bubble active collapsed"><i class="ti-pencil"></i><span class="sidebar-title">Yazar İşlemleri</span></a>
             <ul id="collapse1" class="list-unstyled collapse">
                 <li><a href="@Url.Action("Index", "Author")" class="active">Yazar Listele</a></li>
-                <li><a href="@Url.Action("Save", "Author")" class="active">Yazar Ekle</a></li>
+                <li><a href="@Url.Action("Save", "Author",new { id=Guid.Empty})" class="active">Yazar Ekle</a></li>
             </ul>
         </li>
         <li class="panel">
