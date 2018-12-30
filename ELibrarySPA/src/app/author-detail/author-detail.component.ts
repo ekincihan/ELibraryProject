@@ -10,6 +10,8 @@ export class AuthorDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('auth');
+    
   }
 
 }

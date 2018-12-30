@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IndexService } from './shared/index.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private indexService: IndexService) { }
 
   ngOnInit() {
+    this.indexService.getAll('values').subscribe((res) =>{
+      console.log('res',res);
+    })
   }
 
 }
