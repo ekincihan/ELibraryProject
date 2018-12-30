@@ -25,6 +25,7 @@
             e.preventDefault();
             var fdata = new FormData();
             var fileInput = $('#File')[0];
+
             $.each(fileInput.files, function (key, file) {
                 fdata.append("File", file);
             });

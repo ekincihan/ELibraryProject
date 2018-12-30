@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Http;
+using System.Runtime.Serialization;
 
 namespace ELibrary.API.Models
 {
@@ -37,7 +39,20 @@ namespace ELibrary.API.Models
         {
             get
             {
-                return _mapper.Map<AppFileModel>(_appFile.GetT(x => x.ModuleId == this.Id && x.ModuleType == (int)(Enum.Enum.Module.BookThumbnail)));
+                _mapper = DIManager.Instance.Provider.GetService<IMapper>();
+                return _appFile.GetList(x => x.ModuleId == this.Id && x.ModuleType == (int)(Enum.Enum.Module.BookThumbnail)).
+                    Select(f => new AppFileModel
+                    {
+                        BlobPath = f.BlobPath,
+                        FilePath = f.FilePath,
+                        Id = f.Id,
+                        Extension = f.Extension,
+                        ModuleId = f.ModuleId,
+                        ModuleType = Enum.Enum.Module.Publication,
+                        Name = f.Name,
+                        UniqueName = f.UniqueName
+                    }).FirstOrDefault();
+
             }
         }
         public ICollection<AppFileModel> AppFiles
