@@ -49,6 +49,10 @@ namespace ELibrary.API.Helpers
             CreateMap<BookModel, Book>();
             #endregion
 
+            #region Files
+            CreateMap<AppFile, AppFileModel>();
+            CreateMap<AppFileModel, AppFile>();
+            #endregion
         }
     }
 }

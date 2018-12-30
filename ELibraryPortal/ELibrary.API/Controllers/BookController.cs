@@ -31,7 +31,7 @@ namespace ELibrary.API.Controllers
         {
             Response<List<BookModel>> bookResponse = new Response<List<BookModel>>();
             List<Book> entityList = await _book.GetListAsync(x => x.IsActive == true);
-            bookResponse.Value = _mapper.Map<List<BookModel>>(entityList);
+            bookResponse.Value = _mapper.Map<List<BookModel>>(entityList.OrderByDescending(f=> f.CreatedDate));
             return bookResponse;
         }
 

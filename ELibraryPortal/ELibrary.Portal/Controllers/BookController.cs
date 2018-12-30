@@ -63,6 +63,13 @@ namespace ELibrary.Portal.Controllers
             return RedirectToAction("Index");
             
         }
+        [HttpGet]
+        public ActionResult SaveTest()
+        {
+
+            return View();
+
+        }
 
         [HttpPost]
         public JsonResult Delete(BookModel model)

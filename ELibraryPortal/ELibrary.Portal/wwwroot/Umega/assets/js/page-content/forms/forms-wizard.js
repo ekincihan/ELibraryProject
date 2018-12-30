@@ -2,7 +2,14 @@ $(document).ready(function() {
 	$('#form-horizontal').steps({
 		headerTag: 'h3',
 		bodyTag: 'fieldset',
-		transitionEffect: 'slide'
+        transitionEffect: 'slide',
+         labels: {
+            current: "Mevcut Adým",
+            finish: "Kaydet",
+            next: "Sonraki",
+            previous: "Önceki",
+            loading: "Yükleniyor ..."
+        }
 	});
 	$('#form-vertical').steps({
 		headerTag: 'h3',
