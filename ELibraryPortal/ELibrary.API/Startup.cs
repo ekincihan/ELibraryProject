@@ -22,6 +22,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 using AutoMapper;
+using ELibrary.Core.DataAccess.MongoDB;
+using ELibrary.DAL.Concrete.MongoDB;
 
 namespace ELibrary.API
 {
@@ -57,6 +59,7 @@ namespace ELibrary.API
             services.AddTransient<ICategory, EFCategory>();
             services.AddTransient<IAuthor, EFAuthor>();
             services.AddTransient<IType, EFType>();
+            services.AddTransient<IMongoTagCategoryAssigment, MongoCategoryTagAssigments>();
 
             //services.AddAuthentication().AddFacebook(facebookOptions =>
             //{

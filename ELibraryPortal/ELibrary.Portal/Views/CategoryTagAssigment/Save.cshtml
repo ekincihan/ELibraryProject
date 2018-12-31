@@ -1,0 +1,110 @@
+﻿@model CategoryTagAssigmentPageModel
+@{
+    ViewData["Title"] = "Save";
+}
+<link href="~/semantic/dist/semantic.css" rel="stylesheet" />
+<script src="~/semantic/dist/semantic.js"></script>
+<div class="col-md-12">
+    <div class="widget">
+        <div class="widget-heading">
+            <h3 class="widget-title">Kategori Ekle</h3>
+        </div>
+        <div class="widget-body">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-group" style="margin-bottom: 45px !important;">
+                        <label class="col-sm-3 col-md-4 control-label">Kitap Adı </label>
+                        <div class="col-sm-9 col-md-8">
+                            <select id="books" class="form-control  pull-right">
+                                <option value="-1">Seçiniz</option>
+                                @foreach (var item in Model.BooklList)
+                                {
+
+                                    <option value="@item.Id">@item.BookName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 88px !important;">
+                        <label class="col-sm-3 col-md-4 control-label">Kategori Adı </label>
+                        <div class="col-sm-9 col-md-8">
+
+                            <select id="categories" class="form-control  pull-right">
+                                <option value="-1">Seçiniz</option>
+                                @foreach (var item in Model.CategoryList)
+                                {
+
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 135px !important;">
+                        <label class="col-sm-3 col-md-4 control-label">Tür Adı </label>
+                        <div class="col-sm-9 col-md-8">
+                            <select id="AppTypeId" multiple="multiple" class="form-control  pull-right ui fluid normal dropdown">
+                                @foreach (var item in Model.TagList)
+                                {
+
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-info pull-right saveBTN" value="Kaydet" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#AppTypeId')
+            .dropdown({ placeholder: 'Seçiniz' });
+        $('#categories')
+            .dropdown({ placeholder: 'Seçiniz' });
+        $('#books')
+            .dropdown({ placeholder: 'Seçiniz' });
+    });
+
+
+    $(document).on('click', '.saveBTN', function () {
+
+        $('#dropDownId :selected').text();
+
+        var tags = [];
+
+        $('#AppTypeId :selected').each(function() {
+            tags.push( $(this).attr('value') );
+        });
+
+        var model =
+        {
+            CategoryId: $('#categories').val(),
+            BookId: $('#books').val(),
+            Tags: tags
+        };
+
+        $.ajax({
+            url: '/CategoryTagAssigment/Save',
+            data: model,
+            type: 'POST',
+            success: function (data) {
+                console.log(data);
+                if (data.isSuccess) {
+                    swal("Basarili!", "Kaydedildi!", "success");
+                }
+                else {
+                    swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+                }
+            },
+            error: function () {
+                swal("Hata!", "Bir sorun oluştu!", "error");
+            }
+        });
+    });
+
+</script>

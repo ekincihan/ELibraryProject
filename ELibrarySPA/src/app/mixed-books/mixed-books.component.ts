@@ -15,6 +15,7 @@ export class MixedBooksComponent implements OnInit {
   ngOnInit() {
     this.mixedService.getAll('Book/List').subscribe((res) =>{
       this.books=res['value'];
+      console.log(this.books)
     })
   }
 

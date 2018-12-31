@@ -55,6 +55,11 @@ namespace ELibrary.API.Helpers
             CreateMap<AppFile, AppFileModel>();
             CreateMap<AppFileModel, AppFile>();
             #endregion
+
+            #region CategoryTagAssigment
+            CreateMap<CategoryTagAssigment, CategoryTagAssigmentModel>();
+            CreateMap<CategoryTagAssigmentModel, CategoryTagAssigment>();
+            #endregion
         }
     }
 }

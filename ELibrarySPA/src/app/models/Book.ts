@@ -11,7 +11,7 @@ export class Book {
     ISBN:string;
     PublisherId:string;
     IsActive:boolean;
-    Publisher:Publisher[];
-    Author:Author[];
+    Publisher:Publisher;
+    Author:Author;
     BookPhoto:string;
 }
