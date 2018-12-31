@@ -90,26 +90,17 @@
         });
     });
 
+
     $('form').submit(function (e) {
         e.preventDefault();
-        var form = $(this).serialize();
-        var fdata = new FormData();
-        var fileInput = $('#FileBasic')[0];
-        $.each(fileInput.files, function (key, file) {
-            fdata.append("File", file);
-        });
-
+        var formData = new FormData(this);
         $.ajax({
-            url: '/Author/Save',
-            data: form,
+            url: "/Author/Save",
             type: 'POST',
-            processData: false,
-            contentType: false,
+            data: formData,
             success: function (data) {
-                console.log(data);
                 if (data.isSuccess) {
-                    swal("Basarili!", "Kaydedildi!", "success");
-                    location.reload();
+                        swal("Basarili!", "Kaydedildi!", "success");
                 }
                 else {
                     swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
@@ -117,7 +108,10 @@
             },
             error: function () {
                 swal("Hata!", "Bir sorun oluştu!", "error");
-            }
+            },
+            cache: false,
+            contentType: false,
+            processData: false
         });
     });
     function objectifyForm(formArray) {//serialize data function

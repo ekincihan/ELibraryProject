@@ -12,6 +12,7 @@ using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace ELibrary.API.Models
 {
@@ -26,7 +27,7 @@ namespace ELibrary.API.Models
             _appFile = new EFAppFile();
             _mapper = DIManager.Instance.Provider.GetService<IMapper>();
         }
-
+        [Required(ErrorMessage ="Bu alan boş bırakılamaz")]
         public string BookName { get; set; }
         public string BookSummary { get; set; }
         public Guid AuthorId { get; set; }
@@ -39,6 +40,8 @@ namespace ELibrary.API.Models
         {
             get
             {
+                var mdata = _appFile.GetList();
+                var csd = _appFile.GetList(x => x.ModuleId == this.Id && x.ModuleType == (int)(Enum.Enum.Module.BookThumbnail));
                 _mapper = DIManager.Instance.Provider.GetService<IMapper>();
                 return _appFile.GetList(x => x.ModuleId == this.Id && x.ModuleType == (int)(Enum.Enum.Module.BookThumbnail)).
                     Select(f => new AppFileModel
