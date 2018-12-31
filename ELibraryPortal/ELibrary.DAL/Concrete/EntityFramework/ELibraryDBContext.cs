@@ -19,7 +19,7 @@ namespace ELibrary.DAL.Concrete.EntityFramework
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Entities.Concrete.AppType> Types { get; set; }
         public virtual DbSet<Publisher> Publishers { get; set; }
-        public virtual DbSet<CategoryTagAssignment> CategoryTagAssignments { get; set; }
+        //public virtual DbSet<CategoryTagAssignment> CategoryTagAssignments { get; set; }
         public virtual DbSet<AppFile> AppFiles { get; set; }
         public ELibraryDBContext(DbContextOptions<ELibraryDBContext> options) : base(options)
         {

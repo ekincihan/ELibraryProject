@@ -23,7 +23,6 @@ namespace ELibrary.Core.DataAccess.EntityFramework
             }
         }
 
-
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             using (var context = new TContext())

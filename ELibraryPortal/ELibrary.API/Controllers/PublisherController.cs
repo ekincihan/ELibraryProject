@@ -31,7 +31,7 @@ namespace ELibrary.API.Controllers
         public Response<List<PublisherModel>> Get()
         {
             Response<List<PublisherModel>> publisherResponse = new Response<List<PublisherModel>>();
-            List<Publisher> entityList = _publisher.GetList(x=>x.IsActive==true);
+            List<Publisher> entityList = _publisher.GetList(x => x.IsActive == true);
             publisherResponse.Value = _mapper.Map<List<PublisherModel>>(entityList);
 
             return publisherResponse;
