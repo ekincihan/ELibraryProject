@@ -56,9 +56,9 @@ namespace ELibrary.Portal.Controllers
         }
 
         [HttpPost]
-        public JsonResult Save(BookModel model)
+        public JsonResult Save(BookPageModel model)
         {
-            Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model)));
+            Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model.bookModel)));
 
             return Json(responseSaving);
 

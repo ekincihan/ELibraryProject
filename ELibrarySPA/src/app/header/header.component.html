@@ -18,16 +18,7 @@
               <li class="nav-item position-relative text-center dropdown">
                 <a class="nav-link w-100 dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Yayınevleri</a>
                 <div class="dropdown-menu dropdown-menu-center">
-                  <a class="dropdown-item text-truncate" href="#">Eğitim Başvuru</a>
-                  <a class="dropdown-item text-truncate" href="#">Araştırma - Tarih</a>
-                  <a class="dropdown-item text-truncate" href="#">Din - Mitoloji</a>
-                  <a class="dropdown-item text-truncate" href="#">Foreign Languages</a>
-                  <a class="dropdown-item text-truncate" href="#">Sanat - Tasarım</a>
-                  <a class="dropdown-item text-truncate" href="#">Ders / Sınav</a>
-                  <a class="dropdown-item text-truncate" href="#">Çizgi Roman</a>
-                  <a class="dropdown-item text-truncate" href="#">Eğitim Başvuru</a>
-                  <a class="dropdown-item text-truncate" href="#">Araştırma - Tarih</a>
-                  <a class="dropdown-item text-truncate" href="#">Din - Mitoloji</a>
+                <a *ngFor="let publisher of publishers" class="dropdown-item text-truncate" href="#">{{publisher.name}}</a>
                   <a class="dropdown-item d-inline-block text-right last-item" href="#"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
                 </div>
               </li>

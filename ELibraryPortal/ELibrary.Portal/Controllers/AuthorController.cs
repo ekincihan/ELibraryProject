@@ -36,19 +36,22 @@ namespace ELibrary.Portal.Controllers
             return View(model);
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<JsonResult> Save(AuthorModel model)
         {
             Response<AuthorModel> responseSaving = JsonConvert.DeserializeObject<Response<AuthorModel>>(UiRequestManager.Instance.Post("Author", "Save", JsonConvert.SerializeObject(model)));
 
-            AppFileFilterModel appFileFilterModel = new AppFileFilterModel
+            if (model.FormFile != null)
             {
-                AppFileModuleId = responseSaving.Value.Id,
-                ModuleType = API.Models.Enum.Enum.Module.AuthorThumbnail,
-                File = model.FormFile
-            };
+                AppFileFilterModel appFileFilterModel = new AppFileFilterModel
+                {
+                    AppFileModuleId = responseSaving.Value.Id,
+                    ModuleType = API.Models.Enum.Enum.Module.AuthorThumbnail,
+                    File = model.FormFile
+                };
 
-            await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+                await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+            }
             return Json(responseSaving);
         }
 

@@ -8,7 +8,7 @@
         <h3 class="widget-title">Yazar Ekleme</h3>
     </div>
     <div class="widget-body">
-        <form asp-action="Save" method="post" enctype="multipart/form-data">
+        <form asp-action="Save" method="post" asp-antiforgery="false" enctype="multipart/form-data">
             <input asp-for="Id" type="hidden" />
             <div class="col-xs-6">
                 <div class="form-group">
@@ -90,27 +90,44 @@
         });
     });
 
-        $('form').submit(function (e) {
-            e.preventDefault();
+    $('form').submit(function (e) {
+        e.preventDefault();
+        var form = $(this).serialize();
+        var fdata = new FormData();
+        var fileInput = $('#FileBasic')[0];
+        $.each(fileInput.files, function (key, file) {
+            fdata.append("File", file);
+        });
+
         $.ajax({
             url: '/Author/Save',
-        data: $(this).serialize(),
-        type: 'POST',
+            data: form,
+            type: 'POST',
+            processData: false,
+            contentType: false,
             success: function (data) {
-            console.log(data);
-        if (data._isSuccess) {
-            swal("Basarili!", "Kaydedildi!", "success");
-        }
+                console.log(data);
+                if (data.isSuccess) {
+                    swal("Basarili!", "Kaydedildi!", "success");
+                    location.reload();
+                }
                 else {
-            swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
-        }
-    },
-            error : function() {
-            swal("Hata!", "Bir sorun oluştu!", "error");
+                    swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+                }
+            },
+            error: function () {
+                swal("Hata!", "Bir sorun oluştu!", "error");
             }
+        });
     });
-});
+    function objectifyForm(formArray) {//serialize data function
 
+        var returnArray = {};
+        for (var i = 0; i < formArray.length; i++) {
+            returnArray[formArray[i]['name']] = formArray[i]['value'];
+        }
+        return returnArray;
+    }
 </script>
 
 

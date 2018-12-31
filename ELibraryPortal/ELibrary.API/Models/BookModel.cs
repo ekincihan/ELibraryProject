@@ -11,6 +11,8 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using ELibrary.Entities.Concrete;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Http;
+using System.Runtime.Serialization;
 
 namespace ELibrary.API.Models
 {

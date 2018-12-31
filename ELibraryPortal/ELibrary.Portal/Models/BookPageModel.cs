@@ -1,4 +1,5 @@
 ﻿using ELibrary.API.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace ELibrary.Portal.Models
         public List<PublisherModel> PubLisherList { get; set; }
         public List<AuthorModel> AuthorList { get; set; }
         public BookModel bookModel { get; set; }
-
+        public IFormFile Thumbnail { get; set; }
+        public IFormFile Publication { get; set; }
     }
 }
