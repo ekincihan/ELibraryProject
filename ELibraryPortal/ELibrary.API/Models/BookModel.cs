@@ -9,29 +9,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using ELibrary.Entities.Concrete;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace ELibrary.API.Models
 {
     public class BookModel : ModelBase<Guid>, IModelBase
     {
         private readonly IAppFile _appFile;
-        private readonly IPublisher _publisher;
-        private readonly IAuthor _author;
         private IMapper _mapper;
         //private ICollection<AppFileModel> _appFiles;
         //private ICollection<AppFileModel> _thumbnail;
         public BookModel()
         {
             _appFile = new EFAppFile();
-            _publisher = new EFPublisher();
-            _author = new EFAuthor();
             _mapper = DIManager.Instance.Provider.GetService<IMapper>();
         }
-
+        [Required(ErrorMessage ="Bu alan boş bırakılamaz")]
         public string BookName { get; set; }
         public string BookSummary { get; set; }
         public Guid AuthorId { get; set; }
@@ -44,34 +40,31 @@ namespace ELibrary.API.Models
         {
             get
             {
-                AppFileModel model= new AppFileModel();
-                AppFile entiy = _appFile.GetT(x => x.ModuleId == this.Id && x.ModuleType == (int)(Enum.Enum.Module.BookThumbnail));
-                if (entiy!=null)
-                {
-                    model = new AppFileModel()
+                var mdata = _appFile.GetList();
+                var csd = _appFile.GetList(x => x.ModuleId == this.Id && x.ModuleType == (int)(Enum.Enum.Module.BookThumbnail));
+                _mapper = DIManager.Instance.Provider.GetService<IMapper>();
+                return _appFile.GetList(x => x.ModuleId == this.Id && x.ModuleType == (int)(Enum.Enum.Module.BookThumbnail)).
+                    Select(f => new AppFileModel
                     {
-                        Id = entiy.Id,
-                        BlobPath = entiy.BlobPath,
-                        Name = entiy.Name,
-                        Extension = entiy.Extension,
-                        FilePath = entiy.FilePath,
-                        ModuleId = entiy.ModuleId,
-                        ModuleType = (Enum.Enum.Module)entiy.ModuleType,
-                        UniqueName = entiy.UniqueName
-                    };
-                }
-            
-
-                return model;
+                        BlobPath = f.BlobPath,
+                        FilePath = f.FilePath,
+                        Id = f.Id,
+                        Extension = f.Extension,
+                        ModuleId = f.ModuleId,
+                        ModuleType = Enum.Enum.Module.Publication,
+                        Name = f.Name,
+                        UniqueName = f.UniqueName
+                    }).FirstOrDefault();
 
             }
-        }   
+        }
         public ICollection<AppFileModel> AppFiles
         {
             get
             {
+                _mapper = DIManager.Instance.Provider.GetService<IMapper>();
                 return _appFile.GetList(x => x.ModuleId == this.Id && x.ModuleType == (int)(Enum.Enum.Module.Publication)).
-                    Select(f => new AppFileModel
+                    Select(f=> new AppFileModel 
                     {
                         BlobPath = f.BlobPath,
                         FilePath = f.FilePath,
@@ -85,40 +78,7 @@ namespace ELibrary.API.Models
             }
         }
         public Guid PublisherId { get; set; }
-
-        public PublisherModel Publisher
-        {
-            get
-            {
-                Publisher entity = _publisher.GetT(x => x.IsActive == true && x.Id == this.PublisherId);
-                PublisherModel model = new PublisherModel()
-                {
-                    Id = entity.Id,
-                    Email = entity.Email,
-                    IsActive = entity.IsActive,
-                    Name = entity.Name,
-                };
-                return model;
-            }
-        }
-
-        public AuthorModel Author
-        {
-            get
-            {
-                Author entity = _author.GetT(x => x.IsActive == true && x.Id == this.AuthorId);
-                AuthorModel model = new AuthorModel()
-                {
-                    Id = entity.Id,
-                    IsActive = entity.IsActive,
-                    Name = entity.Name,
-                    Gender = entity.Gender,
-                    Biography = entity.Biography,
-                    Birthdate = entity.Birthdate,
-                    Surname = entity.Surname
-                };
-                return model;
-            }
-        }
+        public List<PublisherModel> Publisher { get; set; }
+        public List<AuthorModel> AuthorModel { get; set; }
     }
 }
