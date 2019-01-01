@@ -37,6 +37,18 @@ namespace ELibrary.API.Controllers
             return authorResponse;
         }
 
+        [HttpGet]
+        [Route("Detail/{id}")]
+        public Response<AuthorModel> AuthorDetail(Guid id)
+        {
+            Response<AuthorModel> authorResponse = new Response<AuthorModel>();
+            Author entity = _author.GetT(x => x.Id==id);
+            authorResponse.Value = _mapper.Map<AuthorModel>(entity);
+
+            return authorResponse;
+        }
+
+
         [HttpPost]
         [Route("Save")]
         public async Task<Response<AuthorModel>> Post([FromBody]AuthorModel model)

@@ -1,10 +1,12 @@
 <div class="tab-content pb-0">
   <div class="tab-pane fade show active" id="one" role="tabpanel" aria-labelledby="one">
     <div  class="row">
-      <div *ngFor="let book of books" class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <div *ngFor="let item of data" class="col-6 col-sm-4 col-md-3 col-lg-2">
         <div class="b-box d-inline-block position-relative mb-5 w-100">
-          <div class="cover position-relative mb-4" style="background-image:url(assets/img/no-cover.jpg);">
+          <div class="cover position-relative mb-4" 
+          style="background: url('{{item?.thumbnail?.blobpath}}')">
             <div class="caption text-center">
+
               <div class="favourite position-absolute text-center">
                 <span class="selected d-inline-block w-100 h-100"></span>
               </div>
@@ -13,10 +15,12 @@
               </div>
             </div>
           </div>
-          <div class="cover position-absolute blurred" style="background-image:url(assets/img/no-cover.jpg);"></div>
-          <a href="#" class="d-inline-block w-100">
-            <div class="title mb-1 text-truncate"><b>{{book.bookName}}</b></div>
-            <div class="writer mb-2 text-truncate">{{book.authorId}}</div>
+          <div class="cover position-absolute blurred" style="background: url('{{item?.thumbnail?.blobpath}}')"></div>
+          <a href="javascript:void(0)" class="d-inline-block w-100">
+            <div class="title mb-1 text-truncate"><b>{{item?.bookName}}</b></div>
+          </a>
+          <a href="javascript:void(0)" class="d-inline-block w-100">
+            <div class="writer mb-2 text-truncate" (click)="authorDetail(item.author.id)">{{item?.author?.name}}</div>
           </a>
           <div class="stars">
             <span class="d-inline-block given">&#8902;</span>

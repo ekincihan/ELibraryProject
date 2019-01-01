@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Book } from 'src/app/models/Book';
 
 @Injectable()
-export class MixedBooksServiceService extends RequestManagerService {
+export class MixedBooksService extends RequestManagerService {
 
 constructor(http : HttpClient) {
      super(http);

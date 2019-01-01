@@ -1,5 +1,6 @@
 import { Publisher } from "./Publisher";
 import { Author } from "./Author";
+import { AppFile } from "./AppFile";
 
 export class Book {
     id:string;
@@ -14,4 +15,6 @@ export class Book {
     Publisher:Publisher;
     Author:Author;
     BookPhoto:string;
+    Thumbnail:AppFile;
+    AppFiles:AppFile[];
 }

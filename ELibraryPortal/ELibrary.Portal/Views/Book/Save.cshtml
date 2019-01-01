@@ -6,6 +6,9 @@
     ViewData["Title"] = "Save";
 }
 @model ELibrary.Portal.Models.BookPageModel
+
+<link href="~/semantic/dist/semantic.css" rel="stylesheet" />
+<script src="~/semantic/dist/semantic.js"></script>
 <div class="widget">
     <div class="widget-heading">
         <h3 class="widget-title">Kitap Ekle</h3>
@@ -21,7 +24,7 @@
                         <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-second" role="tab" aria-controls="pills-profile" aria-selected="false">Dosya</a>
                     </li>
                     <li id="nav3" class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-third" role="tab" aria-controls="pills-contact" aria-selected="false">Etiket</a>
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-third" role="tab" aria-controls="pills-contact" aria-selected="false">Kategori-Etiket</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -126,7 +129,7 @@
                                                     <tr>
                                                         @if (Model.bookModel != null && Model.bookModel.AppFiles != null)
                                                         {
-                                                            @foreach (var item in Model.bookModel.AppFiles)
+                                                            foreach (var item in Model.bookModel.AppFiles)
                                                             {
                                                                 <td>@item.Name</td>
                                                                 <td>@item.Extension</td>
@@ -147,6 +150,35 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-third" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-md-4 control-label">Kategori Adi </label>
+                                    <div class="col-sm-9 col-md-8">
+
+                                        <select id="categories" asp-for="bookModel.CategoryTagAssigment.CategoryId" class="form-control  pull-right">
+                                            <option value="-1">Seçiniz</option>
+                                            @foreach (var item in Model.CategoryList)
+                                            {
+
+                                                <option value="@item.Id">@item.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-md-4 control-label">Etiket Adi </label>
+                                    <div class="col-sm-9 col-md-8">
+                                        <select id="AppTypeId" asp-for="bookModel.CategoryTagAssigment.Tags" multiple="multiple" class="form-control  pull-right ui fluid normal dropdown">
+                                            @foreach (var item in Model.TagList)
+                                            {
+                                                <option value="@item.Id">@item.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <input type="submit" class="btn btn-primary" value="Kaydet" />
                     </div>
                 </div>
@@ -154,79 +186,84 @@
         </form>
     </div>
 </div>
-        <script>
-            jQuery.validator.setDefaults({
-                debug: true,
-                success: "valid"
-            });
-            $(document).ready(function () {
-                $('.FileBasic').fileinput({
-                    maxFileCount: 1,
-                    showUpload: false,
-                    allowedFileTypes: ['image', 'video']
-                });
-            });
+<script>
+    jQuery.validator.setDefaults({
+        debug: true,
+        success: "valid"
+    });
+    $(document).ready(function () {
+        $('.FileBasic').fileinput({
+            maxFileCount: 1,
+            showUpload: false,
+            allowedFileTypes: ['image', 'video']
+        });
 
-            $("#btnRemove").click(function () {
-                var model = {
-                    IsActive: false,
-                    Id: id
-                }
-                var btn = this;
-                swal({
-                    title: "Kaydı silmek istediginizden emin misiniz?",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "evet",
-                    cancelButtonText: "Hayir",
-                    closeOnConfirm: true,
-                    closeOnCancel: true
-                },
-                    function (isConfirm) {
-                        if (isConfirm) {
-                            $.ajax({
-                                type: "POST",
-                                url: '/Book/RemoveFile',
-                                content: "application/json; charset=utf-8",
-                                data: model,
-                                dataType: 'json',
-                                success: function (d) {
-                                    if (d.success) {
-                                        swal("Basarili!", "Kayıt silindi", "success");
-                                        table.row($(btn).parents('tr')).remove().draw(false);
-                                    }
-                                }
-                            });
-                        } else {
-                            swal.close();
+        $('#AppTypeId')
+            .dropdown({ placeholder: 'Seçiniz' });
+        $('#categories')
+            .dropdown({ placeholder: 'Seçiniz' });
+    });
+
+    $("#btnRemove").click(function() {
+        var model = {
+            IsActive: false,
+            Id: id
+        }
+        var btn = this;
+        swal({
+                title: "Kaydı silmek istediginizden emin misiniz?",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "evet",
+                cancelButtonText: "Hayir",
+                closeOnConfirm: true,
+                closeOnCancel: true
+            },
+            function(isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        type: "POST",
+                        url: '/Book/RemoveFile',
+                        content: "application/json; charset=utf-8",
+                        data: model,
+                        dataType: 'json',
+                        success: function(d) {
+                            if (d.success) {
+                                swal("Basarili!", "Kayıt silindi", "success");
+                                table.row($(btn).parents('tr')).remove().draw(false);
+                            }
                         }
                     });
+                } else {
+                    swal.close();
+                }
             });
+    });
 
 
             $('form').submit(function (e) {
-               
-                e.preventDefault();
-                var formData = new FormData(this);
-                $.ajax({
-                    url: "/Book/Save",
-                    type: 'POST',
-                    data: formData,
-                    success: function (data) {
-                        if (data.isSuccess) {
-                            swal("İşlem Başarılı!", "Kaydedildi!", "success");
-                        }
-                        else {
-                            swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
-                        }
-                    },
-                    error: function () {
-                        swal("Hata!", "Bir sorun oluştu!", "error");
-                    },
-                    cache: false,
-                    contentType: false,
-                    processData: false
-                });
-            });
 
-        </script>
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                url: "/Book/Save",
+                type: 'POST',
+                data: formData,
+                success: function (data) {
+                    if (data.isSuccess) {
+                        swal("İşlem Başarılı!", "Kaydedildi!", "success");
+                    }
+                    else {
+                        swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+                    }
+                },
+                error: function () {
+                    swal("Hata!", "Bir sorun oluştu!", "error");
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        });
+
+</script>
