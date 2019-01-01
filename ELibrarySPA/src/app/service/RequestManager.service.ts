@@ -12,8 +12,8 @@ export class RequestManagerService {
     return this.http.get(this.url + urlString).pipe(catchError(this.handleError));
   }
 
-  get(id: number) {
-    return this.http.get(this.url + "/id" + id).pipe(catchError(this.handleError));
+  get(path: string) {
+    return this.http.get(this.url + path).pipe(catchError(this.handleError));
   }
 
   post(resource) {

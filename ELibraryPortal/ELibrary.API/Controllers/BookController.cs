@@ -35,6 +35,17 @@ namespace ELibrary.API.Controllers
             return bookResponse;
         }
 
+        [HttpGet]
+        [Route("LastAdded")]
+        public async Task<Response<List<BookModel>>> LastAdded()
+        {
+            Response<List<BookModel>> bookResponse = new Response<List<BookModel>>();
+            List<Book> entityList = await _book.GetListAsync(x => x.IsActive == true);
+            bookResponse.Value = _mapper.Map<List<BookModel>>(entityList.OrderByDescending(f => f.CreatedDate)).Take(6).ToList();
+            return bookResponse;
+        }
+
+
         [HttpPost]
         [Route("Save")]
         public async Task<Response<BookModel>> Post([FromBody]BookModel model)

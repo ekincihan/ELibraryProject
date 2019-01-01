@@ -47,6 +47,12 @@ namespace ELibrary.Portal.Controllers
             Response<List<PublisherModel>> responsePublisher = JsonConvert.DeserializeObject<Response<List<PublisherModel>>>(UiRequestManager.Instance.Get("Publisher", "List"));
             bookPageModel.PubLisherList = responsePublisher.Value;
 
+            Response<List<TagModel>> responseTags = JsonConvert.DeserializeObject<Response<List<TagModel>>>(UiRequestManager.Instance.Get("Tag", "List"));
+            bookPageModel.TagList = responseTags.Value;
+
+            Response<List<CategoryModel>> responsecategory = JsonConvert.DeserializeObject<Response<List<CategoryModel>>>(UiRequestManager.Instance.Get("Category", "List"));
+            bookPageModel.CategoryList = responsecategory.Value;
+
             if (Guid.Empty !=  id && id.HasValue)
             {
                 Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Get("Book", "GetOne", id));
@@ -74,6 +80,11 @@ namespace ELibrary.Portal.Controllers
             appFileFilterModel.ModuleType = API.Models.Enum.Enum.Module.Publication;
 
             await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+
+            model.bookModel.CategoryTagAssigment.BookId = responseSaving.Value.Id;
+
+            JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.bookModel.CategoryTagAssigment)));
+
 
             return Json(responseSaving);
         }
