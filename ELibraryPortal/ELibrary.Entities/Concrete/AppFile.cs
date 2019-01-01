@@ -12,6 +12,8 @@ namespace ELibrary.Entities.Concrete
         public string Name { get; set; }
         [NotMapped]
         public string FilePath { get; set; }
+        [NotMapped]
+        public string SignUrl { get;}
         public string UniqueName { get; set; }
         public string Extension { get; set; }
         public string BlobPath { get; set; }

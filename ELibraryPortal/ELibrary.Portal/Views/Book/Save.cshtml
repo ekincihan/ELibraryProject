@@ -167,7 +167,7 @@
                 });
             });
 
-            $("#btnRemove").click(function (){
+            $("#btnRemove").click(function () {
                 var model = {
                     IsActive: false,
                     Id: id
@@ -182,26 +182,26 @@
                     closeOnConfirm: true,
                     closeOnCancel: true
                 },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        $.ajax({
-                            type: "POST",
-                            url: '/Book/RemoveFile',
-                            content: "application/json; charset=utf-8",
-                            data: model,
-                            dataType: 'json',
-                            success: function (d) {
-                                if (d.success) {
-                                    swal("Basarili!", "Kayıt silindi", "success");
-                                    table.row($(btn).parents('tr')).remove().draw(false);
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            $.ajax({
+                                type: "POST",
+                                url: '/Book/RemoveFile',
+                                content: "application/json; charset=utf-8",
+                                data: model,
+                                dataType: 'json',
+                                success: function (d) {
+                                    if (d.success) {
+                                        swal("Basarili!", "Kayıt silindi", "success");
+                                        table.row($(btn).parents('tr')).remove().draw(false);
+                                    }
                                 }
-                            }
-                        });
-                    } else {
-                        swal.close();
-                    }
-                });
-            }
+                            });
+                        } else {
+                            swal.close();
+                        }
+                    });
+            });
 
 
             $('form').submit(function (e) {

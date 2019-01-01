@@ -38,7 +38,8 @@ namespace ELibrary.API.Controllers
                 if (string.IsNullOrEmpty(appFile.BlobPath))
                 {
                     CloudBlockBlob cloudBlockBlob = await manager.UploadFileAsync(container, appFile);
-                    appFile.BlobPath = $"{cloudBlockBlob.Name}";
+                    appFile.BlobPath = $"{cloudBlockBlob.Parent.Prefix}";
+                    appFile.BlobPath = $"{ Configuration.ConfigurationManager.Instance.GetValue("FileUploadBlobContainer")}/{appFile.BlobPath.Substring(0, appFile.BlobPath.Length - 1) }";
                 }
 
                 appFile = await (appFileModel.Id != Guid.Empty ? _appFile.UpdateAsync(appFile) : _appFile.AddAsync(appFile));
@@ -50,5 +51,6 @@ namespace ELibrary.API.Controllers
             }
             return appFileModelResponse;
         }
+
     }
 }
