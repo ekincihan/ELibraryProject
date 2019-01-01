@@ -18,12 +18,15 @@ namespace ELibrary.API.Controllers
     public class AuthorController : APIControllerBase
     {
         private readonly IAuthor _author;
+        private readonly IBooks _book;
+
         private IMapper _mapper;
 
-        public AuthorController(IAuthor author, IMapper mapper)
+        public AuthorController(IAuthor author, IMapper mapper, IBooks book)
         {
             _author = author;
             _mapper = mapper;
+            _book = book;
         }
 
         [HttpGet]
@@ -46,6 +49,19 @@ namespace ELibrary.API.Controllers
             authorResponse.Value = _mapper.Map<AuthorModel>(entity);
 
             return authorResponse;
+        }
+
+
+        [HttpGet]
+        [Route("Books/{id}")]
+        public Response<List<BookModel>> AuthorBooks(Guid id)
+        {
+
+            Response<List<BookModel>> bookResponse = new Response<List<BookModel>>();
+            List<Book> entityList =  _book.GetList(x => x.AuthorId == id);
+            bookResponse.Value = _mapper.Map<List<BookModel>>(entityList.OrderByDescending(f => f.CreatedDate)).ToList();
+
+            return bookResponse;
         }
 
 

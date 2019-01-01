@@ -5,7 +5,6 @@ import { RequestManagerService } from "../../service/RequestManager.service";
 @Injectable()
 export class AuthorDetailService extends RequestManagerService {
     constructor(http: HttpClient) {
-        console.log('AuthorDetailService yaratıldı');
         super(http);
        }
 }

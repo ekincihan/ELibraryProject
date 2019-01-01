@@ -4,7 +4,7 @@
       <div *ngFor="let item of data" class="col-6 col-sm-4 col-md-3 col-lg-2">
         <div class="b-box d-inline-block position-relative mb-5 w-100">
           <div class="cover position-relative mb-4" 
-          style="background: url('{{item?.thumbnail?.blobpath}}')">
+          [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}">
             <div class="caption text-center">
 
               <div class="favourite position-absolute text-center">
@@ -15,12 +15,13 @@
               </div>
             </div>
           </div>
-          <div class="cover position-absolute blurred" style="background: url('{{item?.thumbnail?.blobpath}}')"></div>
+          <div [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}"></div>
+          <div class="cover position-absolute blurred" [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}" ></div>
           <a href="javascript:void(0)" class="d-inline-block w-100">
             <div class="title mb-1 text-truncate"><b>{{item?.bookName}}</b></div>
           </a>
           <a href="javascript:void(0)" class="d-inline-block w-100">
-            <div class="writer mb-2 text-truncate" (click)="authorDetail(item.author.id)">{{item?.author?.name}}</div>
+            <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{item.author.id}}">{{item?.author?.name}}</div>
           </a>
           <div class="stars">
             <span class="d-inline-block given">&#8902;</span>

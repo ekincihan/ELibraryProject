@@ -10,9 +10,9 @@ import { PublisherComponent } from "./publisher/publisher.component";
 export const appRoutes: Routes = [
   { path: "index", component: IndexComponent },
   { path: "kitap-detay", component: BookDetailComponent },
-  { path: "yazar-detay", component: AuthorDetailComponent },
   { path: "kategoriler", component: CategoryComponent },
   { path: "kategori/detay", component: CategoryDetailComponent },
   { path: "yayinevi", component: PublisherComponent},
+  { path: "yazar-detay/:authorId", component: AuthorDetailComponent },
   { path: "**", redirectTo: "index", pathMatch: "full" }
 ];
