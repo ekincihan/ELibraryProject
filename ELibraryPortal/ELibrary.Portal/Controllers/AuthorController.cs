@@ -19,7 +19,6 @@ namespace ELibrary.Portal.Controllers
         public IActionResult Index()
         {
             var authors = JsonConvert.DeserializeObject<Response<List<AuthorModel>>>(UiRequestManager.Instance.Get("Author", "List"));
-
             return View(authors);
         }
         

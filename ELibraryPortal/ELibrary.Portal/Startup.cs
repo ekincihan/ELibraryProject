@@ -67,7 +67,8 @@ namespace ELibrary.Portal
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    defaults: "{controller=Account}/{action=Index}",
+                    template: "{controller=Account}/{action=Index}/{id?}");
             });
         }
     }

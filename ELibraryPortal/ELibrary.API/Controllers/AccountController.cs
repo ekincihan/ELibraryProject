@@ -33,22 +33,22 @@ namespace ELibrary.API.Controllers
             _configuration = configuration;
         }
         [HttpPost("Login")]
-        public async Task<JsonResult> Login(LoginModel model)
+        public async Task<Response<ApplicationUser>> Login(LoginModel model)
         {
             var response = new Response<ApplicationUser>();
-            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
+            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
 
             if (result.Succeeded)
             {
                 var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
                 appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
-                return new JsonResult(response, new Newtonsoft.Json.JsonSerializerSettings { PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None });
+                return new Response<ApplicationUser> { IsSuccess = true, Value = appUser };
             }
 
-            throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
+            return new Response<ApplicationUser> { IsSuccess = false, Message = "Kullanıcı Adı veya Şifre yanlış" };
         }
 
-        [HttpPost("Login")]
+        [HttpPost("Register")]
         public async Task<Response<ApplicationUser>> Register(RegisterModel model)
         {
             var response = new Response<ApplicationUser>();

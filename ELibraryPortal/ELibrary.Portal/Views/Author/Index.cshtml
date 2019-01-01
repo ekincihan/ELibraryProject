@@ -15,7 +15,6 @@
                         <th>Yazar</th>
                         <th>Cinsiyet</th>
                         <th>Doğum Tarihi</th>
-                        <th>Biyografi</th>
                         <th>Kitaplar</th>
                         <th>İşlemler</th>
                     </tr>
@@ -29,7 +28,6 @@
                             </td>
                             <td>@{string gender = item.Gender == 1 ? "Kadın" : "erkek";} @gender</td>
                             <td>@(item.Birthdate.HasValue ? item.Birthdate.Value.ToString("dd.MM.yyyy"): "")</td>
-                            <td>@item.Biography</td>
                             <td><a href="javascript:;"> @($"{item.Books.Count} adet")</a></td>
                             <td class="text-center">
                                 <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
