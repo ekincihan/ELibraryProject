@@ -23,6 +23,7 @@ namespace ELibrary.API.Models
         private IMapper _mapper;
         public AuthorModel()
         {
+            Id = Guid.Empty;
             _appFile = new EFAppFile();
             _mapper = DIManager.Instance.Provider.GetService<IMapper>();
         }
