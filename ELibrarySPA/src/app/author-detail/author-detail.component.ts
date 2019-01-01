@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorDetailService } from './shared/author-detail.service';
+import { ActivatedRoute } from '@angular/router';
+import { Book } from '../models/Book';
+import { Author } from '../models/Author';
 
 @Component({
   selector: 'author-detail',
@@ -7,11 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authorService: AuthorDetailService,
+    private activatedRoute: ActivatedRoute,
+    ) { }
 
-  ngOnInit() {
-    console.log('auth');
-    
+    authBooks: Book[];
+    author:Author[];
+
+    ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.authorService.get("/Author/Detail/"+ params["authorId"]).subscribe(res => {
+        console.log('YAZAR BİLGİLERİ',res["value"]);
+        console.log("kitaplar istendi")
+        this.author = res["value"];
+        this.authorDetail(params["authorId"]);
+     });
+      
+    });
   }
 
+  authorDetail(id: string) {
+    this.authorService.get("/Author/Books/" + id).subscribe(res => {
+       this.authBooks = res["value"];
+       console.log('authbooks',this.authBooks)
+       console.log("kitaplar geldi")
+    });
+
+}
 }

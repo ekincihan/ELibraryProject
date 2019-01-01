@@ -8,8 +8,8 @@ import { CategoryDetailComponent } from "./category/category-detail/category-det
 export const appRoutes: Routes = [
   { path: "index", component: IndexComponent },
   { path: "kitap-detay", component: BookDetailComponent },
-  { path: "yazar-detay", component: AuthorDetailComponent },
   { path: "kategoriler", component: CategoryComponent },
   { path: "kategori/detay", component: CategoryDetailComponent },
+  { path: "yazar-detay/:authorId", component: AuthorDetailComponent },
   { path: "**", redirectTo: "index", pathMatch: "full" }
 ];

@@ -4,4 +4,5 @@ export class AppFile {
     Extension:string;
     ModuleId:string;
     FilePath:string;
+    SignUrl:string;
 }
