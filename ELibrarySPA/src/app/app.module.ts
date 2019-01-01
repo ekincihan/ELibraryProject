@@ -19,6 +19,7 @@ import { MixedBooksComponent } from './mixed-books/mixed-books.component';
 import { MixedBooksService } from './mixed-books/shared/mixedBooksService.service';
 import { HeaderService } from './header/shared/headerService';
 import { CategoryComponent } from './category/category.component';
+import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 
 @NgModule({
    declarations: [
@@ -32,7 +33,8 @@ import { CategoryComponent } from './category/category.component';
       AuthorDetailComponent,
       HeaderComponent,
       MixedBooksComponent,
-      CategoryComponent
+      CategoryComponent,
+      CategoryDetailComponent
    ],
    imports: [
       BrowserModule,
