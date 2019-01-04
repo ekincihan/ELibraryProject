@@ -12,6 +12,9 @@ namespace ELibrary.Entities.Concrete
         public string CategoryName { get; set; }
         public string SignUrl { get; set; }
         public string BookName { get; set; }
+        public string BookSummary { get; set; }
+        public string ISBN { get; set; }
+        public int LangCode { get; set; }
         public Guid BookId { get; set; }
         public Guid AuthorId { get; set; }
         public string AuthorName { get; set; }

@@ -54,12 +54,12 @@ namespace ELibrary.Portal.Controllers
             Response<List<CategoryModel>> responsecategory = JsonConvert.DeserializeObject<Response<List<CategoryModel>>>(UiRequestManager.Instance.Get("Category", "List"));
             bookPageModel.CategoryList = responsecategory.Value;
 
-            if (Guid.Empty !=  id && id.HasValue)
+            if (Guid.Empty != id && id.HasValue)
             {
                 Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Get("Book", "GetOne", id));
                 bookPageModel.bookModel = responseSaving.Value;
             }
-            
+
             return View(bookPageModel);
         }
 
@@ -83,11 +83,13 @@ namespace ELibrary.Portal.Controllers
             await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
 
             model.bookModel.CategoryTagAssigment.BookId = responseSaving.Value.Id;
-            model.bookModel.CategoryTagAssigment.BookName= model.bookModel.BookName;
+            model.bookModel.CategoryTagAssigment.BookName = model.bookModel.BookName;
             model.bookModel.CategoryTagAssigment.SignUrl = "https://imageserver.kitapyurdu.com/select.php?imageid=46240&width=100&isWatermarked=true";
             model.bookModel.CategoryTagAssigment.AuthorId = model.bookModel.AuthorId;
             model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.AuthorId;
-      
+            model.bookModel.CategoryTagAssigment.BookSummary = model.bookModel.BookSummary;
+
+
             JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.bookModel.CategoryTagAssigment)));
 
             return Json(responseSaving);
