@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\debug-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>73cea573-b286-4863-9c11-11640a6e5935</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

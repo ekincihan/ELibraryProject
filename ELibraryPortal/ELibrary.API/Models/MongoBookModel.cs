@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using ELibrary.Core.Entites;
-using MongoDB.Bson;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ELibrary.Entities.Concrete
+namespace ELibrary.API.Models
 {
-    public class CategoryTagAssigment : MongoEntityBase<ObjectId>
+    public class MongoBookModel
     {
         public Guid CategoryId { get; set; }
         public string CategoryName { get; set; }
@@ -20,5 +19,4 @@ namespace ELibrary.Entities.Concrete
         public string PublisherName { get; set; }
         public List<Guid> Tags { get; set; }
     }
-
 }

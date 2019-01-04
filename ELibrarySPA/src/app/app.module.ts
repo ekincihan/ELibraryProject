@@ -21,6 +21,7 @@ import { HeaderService } from './header/shared/headerService';
 import { CategoryComponent } from './category/category.component';
 import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 import { PublisherComponent } from './publisher/publisher.component';
+import { PublisherService } from './publisher/shared/publisher.service';
 
 @NgModule({
    declarations: [
@@ -47,7 +48,8 @@ import { PublisherComponent } from './publisher/publisher.component';
       IndexService,
       AuthorDetailService,
       MixedBooksService,
-      HeaderService
+      HeaderService,
+      PublisherService
    ],
    bootstrap: [
       AppComponent

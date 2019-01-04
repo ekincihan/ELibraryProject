@@ -42,7 +42,7 @@ namespace ELibrary.Core.DataAccess.MongoDB
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
-            List<TEntity> list = _collection.Find<TEntity>(filter).ToList();
+            List<TEntity> list = filter == null ? _collection.AsQueryable().ToList(): _collection.Find<TEntity>(filter).ToList();
             return list;
         }
 

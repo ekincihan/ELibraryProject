@@ -1,4 +1,5 @@
-﻿using ELibrary.API.Models;
+﻿
+using ELibrary.API.Models;
 using ELibrary.API.Type;
 using ELibrary.Portal.Custom;
 using ELibrary.Portal.Helpers;
@@ -82,9 +83,12 @@ namespace ELibrary.Portal.Controllers
             await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
 
             model.bookModel.CategoryTagAssigment.BookId = responseSaving.Value.Id;
-
+            model.bookModel.CategoryTagAssigment.BookName= model.bookModel.BookName;
+            model.bookModel.CategoryTagAssigment.SignUrl = "https://imageserver.kitapyurdu.com/select.php?imageid=46240&width=100&isWatermarked=true";
+            model.bookModel.CategoryTagAssigment.AuthorId = model.bookModel.AuthorId;
+            model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.AuthorId;
+      
             JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.bookModel.CategoryTagAssigment)));
-
 
             return Json(responseSaving);
         }

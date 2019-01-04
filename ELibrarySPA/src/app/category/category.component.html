@@ -7,24 +7,9 @@
           <div class="filter mb-4">
             <b>Kategori</b>
             <hr class="mt-2 mb-2">
-            <div class="box pb-1">
+            <div class="box pb-1" *ngFor="let category of headerCategories">
               <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Araştırma - Tarih</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Bilim</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Din - Mitoloji</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Eğitim Başvuru</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Felsefe</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Hobi</small></label>
+                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">{{category?.name}}</small></label>
               </div>
             </div>
           </div>
@@ -32,56 +17,32 @@
             <b>Yazar</b>
             <hr class="mt-2 mb-2">
             <div class="box pb-1">
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Aldous Huxley</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Douglas Adams</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">George Orwell</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">George Saunders</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Kurt Vonnegut</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Ray Bradbury</small></label>
-              </div>
-              <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">Yevgeni Zamyatin Yevgeni Zamyatin Yevgeni Zamyatin Yevgeni Zamyatin</small></label>
+              <div class="form-group chex mb-0" *ngFor="let author of authors">
+                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">{{author?.name}}</small></label>
               </div>
             </div>
           </div>
           <div class="filter mb-4">
             <b>Yayınevi</b>
             <hr class="mt-2 mb-2">
-  
             <div class="form-select mt-3">
               <select  class="form-control">
-                <option selected disabled>Seçiniz</option>
-                <option>Can Yayınları</option>
-                <option>Dedalus Kitap</option>
-                <option>Destek Yayınları</option>
-                <option>İthaki Yayınları</option>
-                <option>Yapı Kredi Yayınları</option>
+                <option selected disabled >Seçiniz</option>
+                <option *ngFor="let publisher of publishers">{{publisher?.name}} </option>
               </select>
             </div>
   
           </div>
           <button class="btn btn-brown mt-1 w-100 text-truncate">Filtrele</button>
         </div>
-        <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9 contentbar mb-4">
-  
-          <h6 class="mt-0 mb-4 color-green">Araştırma - Tarih</h6>
-  
+        <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9 contentbar mb-4" >
+        <div *ngFor="let item of categories">
+          <h6 class="mt-0 mb-4 color-green">{{item?.name}}</h6>
           <div class="row">
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
+            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3" *ngFor="let book of item?.books| slice:0:4; let i=index" >
               <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(img/no-cover.jpg);">
+                <div class="cover position-relative mb-4" [ngStyle]="{'background-image':'url('+book?.signUrl+')'}">
+                  
                   <div class="caption text-center">
                     <div class="favourite position-absolute text-center">
                       <span class="selected d-inline-block w-100 h-100"></span>
@@ -91,11 +52,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="cover position-absolute blurred" style="background-image:url(img/no-cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
+                <div class="cover position-absolute blurred" [ngStyle]="{'background-image':'url('+book?.signUrl+')'}"></div>
+                <a href="javascript:void(0)" class="d-inline-block w-100">
+                  <div class="title mb-1 text-truncate"><b>{{book?.bookName}}</b></div>
                 </a>
+                <a href="javascript:void(0)" class="d-inline-block w-100">
+                    <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{book?.authorId}}">{{book?.authorName}}</div>
+                  </a>
                 <div class="stars">
                   <span class="d-inline-block given">&#8902;</span>
                   <span class="d-inline-block given">&#8902;</span>
@@ -106,332 +69,13 @@
               </div>
             </div>
   
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738517_front_cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-1"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738517_front_cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block">&#8902;</span>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738470_front_cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-1"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738470_front_cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738500_front_cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-1"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738500_front_cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                </div>
-              </div>
-            </div>
           </div>
-  
           <div class="top-minus-1 position-relative text-right">
             <a href="#" class="d-inline-block color-green"><b>Tümünü Gör<span class="arrow right green d-inline-block ml-2"></span></b></a>
           </div>
-  
           <hr class="mt-3 mb-4 d-inline-block w-100">
-  
-          <h6 class="mt-1 mb-4 color-green">Bilim</h6>
-  
-          <div class="row">
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(img/no-cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="selected d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-2"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(img/no-cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738517_front_cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-1"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738517_front_cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block">&#8902;</span>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738470_front_cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-1"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738470_front_cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738500_front_cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-1"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738500_front_cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="top-minus-1 position-relative text-right">
-            <a href="#" class="d-inline-block color-green"><b>Tümünü Gör<span class="arrow right green d-inline-block ml-2"></span></b></a>
-          </div>
-  
-          <hr class="mt-3 mb-4 d-inline-block w-100">
-  
-          <h6 class="mt-1 mb-4 color-green">Din - Mitoloji</h6>
-  
-          <div class="row">
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(img/no-cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="selected d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-2"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(img/no-cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738517_front_cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-1"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738517_front_cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block">&#8902;</span>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738470_front_cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-1"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738470_front_cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3">
-              <div class="b-box d-inline-block position-relative mb-5 w-100">
-                <div class="cover position-relative mb-4" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738500_front_cover.jpg);">
-                  <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="d-inline-block w-100 h-100"></span>
-                    </div>
-                    <div class="more w-100 position-absolute">
-                      <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-1"></span></b></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="cover position-absolute blurred" style="background-image:url(https://admin-7866.kxcdn.com/Upload/BooksImage//9789750738500_front_cover.jpg);"></div>
-                <a href="#" class="d-inline-block w-100">
-                  <div class="title mb-1 text-truncate"><b>Bazı Yollar Yalnız Yürünür</b></div>
-                  <div class="writer mb-2 text-truncate">Latife Tekin</div>
-                </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="top-minus-1 position-relative text-right">
-            <a href="#" class="d-inline-block color-green"><b>Tümünü Gör<span class="arrow right green d-inline-block ml-2"></span></b></a>
-          </div>
-  
+        </div>
         </div>
       </div>
-  
     </div>
   </div>

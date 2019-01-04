@@ -8,7 +8,7 @@
 
         <h6 class="color-green d-inline-block mt-1 mb-4">Yayınevleri</h6>
         <div class="clearfix"></div>
-
+<!-- 
         <div class="text-center mt-1">
           <a href="#" class="d-inline-block px-2 py-1"><b>A</b></a>
           <a href="#" class="d-inline-block px-2 py-1"><b>B</b></a>
@@ -38,71 +38,14 @@
           <a href="#" class="d-inline-block px-2 py-1"><b>V</b></a>
           <a href="#" class="d-inline-block px-2 py-1"><b>Y</b></a>
           <a href="#" class="d-inline-block px-2 py-1"><b>Z</b></a>
-        </div>
+        </div> -->
 
         <div class="row">
-          <div class="col-12 mt-4"><b>A</b></div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class="d-inline-block text-truncate w-100 pr-2 pt-2 pb-1">A Kadro Yayınları</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class="d-inline-block text-truncate w-100 pr-2 pt-2 pb-1">Acil Yayınları</a>
-          </div>
-          <div class="col-12 mt-4"><b>B</b></div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class="d-inline-block text-truncate w-100 pr-2 pt-2 pb-1">B Planı Yayınevi</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class="d-inline-block text-truncate w-100 pr-2 pt-2 pb-1">Bağdat Yayınları</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class="d-inline-block text-truncate w-100 pr-2 pt-2 pb-1">Balcı Yayınları</a>
-          </div>
-          <div class="col-12 mt-4"><b>C</b></div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class="d-inline-block text-truncate w-100 pr-2 pt-2 pb-1">Can Yayınları</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class="d-inline-block text-truncate w-100 pr-2 pt-2 pb-1">Cantaş Yayınları</a>
-          </div>
-          <div class="col-12 mt-4"><b>D</b></div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">Damla Yayınevi</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">Demir Kitabevi</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">Destek Yayınları</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">Damla Yayınevi</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">Demir Kitabevi</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">Destek Yayınları</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">Damla Yayınevi</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">Demir Kitabevi</a>
-          </div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">Destek Yayınları</a>
-          </div>
-          <div class="col-12 mt-4"><b>İ</b></div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">İthaki Yayınları</a>
-          </div>
-          <div class="col-12 mt-4"><b>Y</b></div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#" class=" d-inline-block w-100 text-truncate pr-2 py-2">Yapı Kredi Yayınları</a>
+          <div class="col-12 mt-4" *ngFor="let item of publisher"><b>{{item?.character}}</b></div>
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2"  *ngFor="let  alphabeticItem of item?.alphabeticalList">
+            <a href="#" class="d-inline-block text-truncate w-100 pr-2 pt-2 pb-1">{{alphabeticItem?.name}}</a>
           </div>
         </div>
-
       </div>
     </div>
 

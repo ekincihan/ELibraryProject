@@ -24,13 +24,13 @@ export class AuthorDetailComponent implements OnInit {
         console.log('YAZAR BİLGİLERİ',res["value"]);
         console.log("kitaplar istendi")
         this.author = res["value"];
-        this.authorDetail(params["authorId"]);
+        this.authorBook(params["authorId"]);
      });
       
     });
   }
 
-  authorDetail(id: string) {
+  authorBook(id: string) {
     this.authorService.get("/Author/Books/" + id).subscribe(res => {
        this.authBooks = res["value"];
        console.log('authbooks',this.authBooks)

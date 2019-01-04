@@ -59,7 +59,7 @@
                                                 <label class="col-sm-3 col-md-4 control-label">Yayın Evi </label>
                                                 <div class="col-sm-9 col-md-8">
                                                     <div class="input-group">
-                                                        <select asp-for="bookModel.PublisherId " required placeholder="seçiniz..." class="form-control">
+                                                        <select id="publishers" asp-for="bookModel.PublisherId " required placeholder="seçiniz..." class="form-control">
                                                             <option value="">--Seçiniz--</option>
                                                             @foreach (var item in Model.PubLisherList)
                                                             {
@@ -77,11 +77,11 @@
                                                 <label class="col-sm-3 col-md-4 control-label">Yazar Adı </label>
                                                 <div class="col-sm-9 col-md-8">
                                                     <div class="input-group">
-                                                        <select asp-for="bookModel.AuthorId" placeholder="seçiniz..." class="form-control">
+                                                        <select id="authors" asp-for="bookModel.AuthorId" placeholder="seçiniz..." class="form-control">
                                                             <option value="-1">--Seçiniz--</option>
                                                             @foreach (var item in Model.AuthorList)
                                                             {
-                                                                <option value="@item.Id">@item.Name</option>
+                                                                <option value="@item.Id">@item.Name @item.Surname</option>
                                                             }
                                                         </select>
                                                         <span class="input-group-btn">
@@ -156,12 +156,11 @@
                                     <label class="col-sm-3 col-md-4 control-label">Kategori Adi </label>
                                     <div class="col-sm-9 col-md-8">
 
-                                        <select id="categories" asp-for="bookModel.CategoryTagAssigment.CategoryId" class="form-control  pull-right">
+                                        <select id="categories" asp-for="bookModel.CategoryTagAssigment.CategoryId"  class="form-control  pull-right">
                                             <option value="-1">Seçiniz</option>
                                             @foreach (var item in Model.CategoryList)
                                             {
-
-                                                <option value="@item.Id">@item.Name</option>
+                                                <option value="@item.Id" >@item.Name</option>
                                             }
                                         </select>
                                     </div>
@@ -172,7 +171,7 @@
                                         <select id="AppTypeId" asp-for="bookModel.CategoryTagAssigment.Tags" multiple="multiple" class="form-control  pull-right ui fluid normal dropdown">
                                             @foreach (var item in Model.TagList)
                                             {
-                                                <option value="@item.Id">@item.Name</option>
+                                                <option value="@item.Id" data-Name="@item.Name">@item.Name</option>
                                             }
                                         </select>
                                     </div>
@@ -240,11 +239,15 @@
             });
     });
 
-
             $('form').submit(function (e) {
 
             e.preventDefault();
-            var formData = new FormData(this);
+                var formData = new FormData(this);
+                formData.set('bookModel.CategoryTagAssigment.CategoryName', ($("#categories option:selected").text()));
+                formData.set('bookModel.CategoryTagAssigment.AuthorName', ($("#authors option:selected").text()).split(" ")[0]);
+                formData.set('bookModel.CategoryTagAssigment.AuthorSurname', ($("#authors option:selected").text()).split(" ")[1]);
+                formData.set('bookModel.CategoryTagAssigment.PublisherName', ($("#publishers option:selected").text()));
+
             $.ajax({
                 url: "/Book/Save",
                 type: 'POST',

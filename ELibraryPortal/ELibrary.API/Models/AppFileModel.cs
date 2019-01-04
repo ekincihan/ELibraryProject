@@ -19,7 +19,7 @@ namespace ELibrary.API.Models
                 BlobManager<AppFile> manager = new BlobManager<AppFile>();
                 if (BlobPath == null)
                     return "";
-                var singUrl = manager.SignUrl(this.UniqueName.ToLower(), this.BlobPath.ToLower(), startDate, startDate.AddMinutes(10));
+                var singUrl = manager.SignUrl(this.UniqueName.ToLower(), this.BlobPath.ToLower(), startDate, startDate.AddMonths(3));
                 return singUrl;
             }
         }

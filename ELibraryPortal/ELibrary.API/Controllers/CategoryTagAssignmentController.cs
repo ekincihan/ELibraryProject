@@ -47,7 +47,7 @@ namespace ELibrary.API.Controllers
             try
             {
                 CategoryTagAssigment entity = _mapper.Map<CategoryTagAssigment>(model);
-                entity = await (model.id != null ? _categoryAssigment.UpdateAsync(entity) : _categoryAssigment.AddAsync(entity));
+                entity = await (model.Id != Guid.Empty ? _categoryAssigment.UpdateAsync(entity) : _categoryAssigment.AddAsync(entity));
                 CategoryTagAssigmentModel.Value = _mapper.Map<CategoryTagAssigmentModel>(entity);
                 CategoryTagAssigmentModel.IsSuccess = true;
             }

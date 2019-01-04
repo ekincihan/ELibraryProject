@@ -18,12 +18,19 @@ namespace ELibrary.API.Controllers
     public class CategoryController : APIControllerBase
     {
         private readonly ICategory _category;
+        private readonly IMongoTagCategoryAssigment _categoryAssigment;
+        private readonly IAuthor _author;
+        private readonly IBooks _book;
+
         public IMapper _mapper;
 
-        public CategoryController(ICategory category, IMapper mapper)
+        public CategoryController(ICategory category, IMapper mapper, IMongoTagCategoryAssigment categoryAssigment, IBooks book, IAuthor author)
         {
             _category = category;
             _mapper = mapper;
+            _categoryAssigment = categoryAssigment;
+            _book = book;
+            _author = author;
         }
 
         [HttpGet("List")]
@@ -33,6 +40,44 @@ namespace ELibrary.API.Controllers
             List<Category> entityList = await _category.GetListAsync(x => x.IsActive == true);
             categoryResponse.Value =   _mapper.Map<List<CategoryModel>>(entityList);
             return categoryResponse;
+        }
+
+        [HttpGet("CategoryBook")]
+        public List<CategoryModel> CategoryBook()
+        {
+            List<CategoryTagAssigment> categoriesBook = _categoryAssigment.GetList();
+            var categoriesId = categoriesBook.GroupBy(x => x.CategoryId).Select(x => x.FirstOrDefault()).ToList();
+
+            List<CategoryModel> returnModel = new List<CategoryModel>();
+
+            foreach (var category in categoriesId.ToList())
+            {
+                CategoryModel categoryModel = new CategoryModel();
+                foreach (var item in categoriesBook.Where(x=>x.CategoryId== category.CategoryId))
+                {
+                    MongoBookModel model = new MongoBookModel();
+                    model.CategoryId = item.CategoryId;
+                    model.CategoryName = item.CategoryName;
+                    model.BookId = item.BookId;
+                    model.BookName = item.BookName;
+                    model.SignUrl = item.SignUrl;
+                    model.AuthorId = item.AuthorId;
+                    model.AuthorName = item.AuthorName;
+                    model.AuthorSurname = item.AuthorSurname;
+                    
+                    //model.PublisherId = item.PublisherId;
+                    //model.PublisherName=item.PublisherName
+
+                    categoryModel.Books.Add(model);
+                }
+
+                categoryModel.Id = category.CategoryId;
+                categoryModel.Name = category.CategoryName;
+                returnModel.Add(categoryModel);
+            }
+
+
+            return returnModel;
         }
 
         [HttpPost("Save")]

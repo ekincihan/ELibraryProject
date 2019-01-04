@@ -17,6 +17,8 @@ namespace ELibrary.API.Controllers
     [ApiController]
     public class PublisherController : APIControllerBase
     {
+        private static readonly char[] Letters =
+            "ABCÇDEFGHIİJKLMNOÖPQRSTUÜVWXYZ".ToCharArray();
         private readonly IPublisher _publisher;
         private readonly IMapper _mapper;
 
@@ -36,7 +38,43 @@ namespace ELibrary.API.Controllers
 
             return publisherResponse;
         }
+        [HttpGet]
+        [Route("Alphabetically")]
+        public List<PublisherUiModel> AlphabeticalList()
+        {
+            List<PublisherUiModel> responseModel = new List<PublisherUiModel>();
+            List<PublisherModel> alphabeticList = new List<PublisherModel>();
 
+            var list = _publisher.GetList().ToList();
+            var groupedByLetter =
+                from letter in Letters
+                join service in list on letter equals service.Name[0] into grouped
+                select new { Letter = letter, list = grouped };
+
+            foreach (var entry in groupedByLetter)
+            {
+                alphabeticList = new List<PublisherModel>();
+                PublisherUiModel UiModel = new PublisherUiModel();
+                UiModel.Character = entry.Letter.ToString();
+
+                foreach (var service in entry.list)
+                {
+                    PublisherModel model = new PublisherModel();
+                    model.Name = service.Name;
+                    model.Id = service.Id;
+                    alphabeticList.Add(model);
+                }
+
+                if (alphabeticList.Count>0)
+                {
+                    UiModel.AlphabeticalList = alphabeticList;
+                    responseModel.Add(UiModel);
+                }
+            }
+
+
+            return responseModel;
+        }
         [HttpPost]
         [Route("Save")]
         public async Task<Response<PublisherModel>> Post([FromBody]PublisherModel model)
