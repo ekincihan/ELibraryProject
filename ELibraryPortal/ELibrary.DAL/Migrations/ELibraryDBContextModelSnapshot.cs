@@ -147,7 +147,7 @@ namespace ELibrary.DAL.Migrations
                     b.Property<int>("AuthorPhoto");
 
                     b.Property<string>("Biography")
-                        .HasMaxLength(1000);
+                        .HasMaxLength(10000);
 
                     b.Property<DateTime?>("Birthdate");
 
@@ -243,38 +243,6 @@ namespace ELibrary.DAL.Migrations
                     b.HasIndex("AppTypeId");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("ELibrary.Entities.Concrete.CategoryTagAssignment", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("BookId");
-
-                    b.Property<Guid>("CategoryId");
-
-                    b.Property<Guid?>("CreatedBy");
-
-                    b.Property<DateTime?>("CreatedDate");
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<Guid?>("ModifiedBy");
-
-                    b.Property<DateTime?>("ModifiedDate");
-
-                    b.Property<Guid>("TagId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("CategoryTagAssignments");
                 });
 
             modelBuilder.Entity("ELibrary.Entities.Concrete.Publisher", b =>
@@ -469,24 +437,6 @@ namespace ELibrary.DAL.Migrations
                     b.HasOne("ELibrary.Entities.Concrete.AppType", "AppType")
                         .WithMany()
                         .HasForeignKey("AppTypeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ELibrary.Entities.Concrete.CategoryTagAssignment", b =>
-                {
-                    b.HasOne("ELibrary.Entities.Concrete.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ELibrary.Entities.Concrete.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ELibrary.Entities.Concrete.Tag", "Tag")
-                        .WithMany()
-                        .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

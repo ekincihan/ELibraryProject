@@ -1,9 +1,10 @@
+<app-header></app-header>
 <app-search></app-search>
 <div class="main-content">
   <div class="container">
     <div class="book-tab">
-      <index-navbar></index-navbar>
-      <mixed-books></mixed-books>
+      <app-navbar></app-navbar>
+      <mixed-books [data]="lastAdded"></mixed-books>
     </div>
   </div>
 </div>

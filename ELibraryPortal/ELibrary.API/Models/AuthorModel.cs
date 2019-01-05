@@ -1,25 +1,53 @@
-﻿using ELibrary.API.Base;
-using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using ELibrary.API.Base;
+using ELibrary.API.Configuration;
+using ELibrary.DAL.Abstract;
+using ELibrary.DAL.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Http;
+using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace ELibrary.API.Models
 {
     public class AuthorModel : ModelBase<Guid>, IModelBase
     {
+        private readonly IAppFile _appFile;
+        private IMapper _mapper;
         public AuthorModel()
         {
             Id = Guid.Empty;
+            _appFile = new EFAppFile();
+            _mapper = DIManager.Instance.Provider.GetService<IMapper>();
         }
         [Required]
-        [RegularExpression("^((?!^First Name$)[a-zA-Z '])+$", ErrorMessage = "İsim formatı yanlış.")]
         public string Name { get; set; }
-        [RegularExpression("^((?!^First Name$)[a-zA-Z '])+$", ErrorMessage = "Soy isim formatı yanlış.")]
+        public AppFileModel Thumbnail
+        {
+            get
+            {
+                return _appFile.GetList(x => x.ModuleId == this.Id && x.ModuleType == (int)(Enum.Enum.Module.AuthorThumbnail)).
+                Select(f => new AppFileModel
+                    {
+                        BlobPath = f.BlobPath,
+                        FilePath = f.FilePath,
+                        Id = f.Id,
+                        Extension = f.Extension,
+                        ModuleId = f.ModuleId,
+                        ModuleType = Enum.Enum.Module.AuthorThumbnail,
+                        Name = f.Name,
+                        UniqueName = f.UniqueName
+                    }).FirstOrDefault();
+
+            }
+        }
         public string Surname { get; set; }
         public string Biography { get; set; }
         public int Gender { get; set; }

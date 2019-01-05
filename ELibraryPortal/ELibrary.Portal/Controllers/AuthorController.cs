@@ -19,7 +19,6 @@ namespace ELibrary.Portal.Controllers
         public IActionResult Index()
         {
             var authors = JsonConvert.DeserializeObject<Response<List<AuthorModel>>>(UiRequestManager.Instance.Get("Author", "List"));
-
             return View(authors);
         }
         
@@ -36,20 +35,23 @@ namespace ELibrary.Portal.Controllers
             return View(model);
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Save(AuthorModel model)
+        [AllowAnonymous]
+        public async Task<JsonResult> Save(AuthorModel model)
         {
             Response<AuthorModel> responseSaving = JsonConvert.DeserializeObject<Response<AuthorModel>>(UiRequestManager.Instance.Post("Author", "Save", JsonConvert.SerializeObject(model)));
 
-            AppFileFilterModel appFileFilterModel = new AppFileFilterModel
+            if (model.FormFile != null)
             {
-                AppFileModuleId = responseSaving.Value.Id,
-                ModuleType = API.Models.Enum.Enum.Module.AuthorThumbnail,
-                File = model.FormFile
-            };
+                AppFileFilterModel appFileFilterModel = new AppFileFilterModel
+                {
+                    AppFileModuleId = responseSaving.Value.Id,
+                    ModuleType = API.Models.Enum.Enum.Module.AuthorThumbnail,
+                    File = model.FormFile
+                };
 
-            await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
-            return RedirectToAction("Index");
+                await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+            }
+            return Json(responseSaving);
         }
 
         [HttpPost]

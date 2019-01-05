@@ -55,7 +55,7 @@ namespace ELibrary.Portal.Controllers
                 };
                 file.File.CopyToAsync(stream).Wait();
             }
-            Response<AppFileModel> response = JsonConvert.DeserializeObject<Response<AppFileModel>>(UiRequestManager.Instance.Post("AppFile", "Save", JsonConvert.SerializeObject(model)));
+            Response<AppFileModel> response = JsonConvert.DeserializeObject<Response<AppFileModel>>(await UiRequestManager.Instance.PostAsync("AppFile", "Save", JsonConvert.SerializeObject(model)));
 
             FileInfo fi = new FileInfo(model.FilePath);
 

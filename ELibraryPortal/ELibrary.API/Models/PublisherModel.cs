@@ -13,8 +13,9 @@ namespace ELibrary.API.Models
         {
             Id = Guid.Empty;
         }
-        [RegularExpression("^((?!^isim$)[a-zA-Z '])+$", ErrorMessage = "İsim formatı yanlış.")]
+        //[RegularExpression("^((?!^isim$)[a-zA-Z '])+$", ErrorMessage = "İsim formatı yanlış.")]
         public string Name { get; set; }
+        public string Character { get; set; }
         [EmailAddress(ErrorMessage = "Yanlış email formatı")]
         public string Email { get; set; }
         public bool IsActive { get; set; } = true;

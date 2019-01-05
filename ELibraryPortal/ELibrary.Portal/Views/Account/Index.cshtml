@@ -1,0 +1,62 @@
+﻿@model ELibrary.API.Models.LoginModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ELibrary - V1</title>
+    <!-- PACE-->
+    <link rel="stylesheet" type="text/css" href="Umega/plugins/PACE/themes/blue/pace-theme-flash.css">
+    <script type="text/javascript" src="Umega/plugins/PACE/pace.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="Umega/plugins/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Fonts-->
+    <link rel="stylesheet" type="text/css" href="Umega/plugins/themify-icons/themify-icons.css">
+    <!-- Primary Style-->
+    <link rel="stylesheet" type="text/css" href="Umega/build/css/first-layout.css">
+</head>
+<body style="background-image: url(Umega/build/images/backgrounds/14.jpg)" class="body-bg-full v2">
+    <div class="container page-container">
+        <div class="page-content">
+            <div class="main-content">
+                <div class="v2">
+                    <div class="logo"><img src="~/images/logo-sm-dark.png" alt="" width="80"></div>
+                    <form asp-action="Index">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label">Mail</label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password" class="control-label">Şifre</label>
+                            <input asp-for="Password" type="password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Giriş Yap" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    <!-- jQuery-->
+    <script type="text/javascript" src="Umega/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript-->
+    <script type="text/javascript" src="Umega/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Custom JS-->
+    <script type="text/javascript" src="Umega/build/js/first-layout/extra-demo.js"></script>
+</body>
+</html>
+

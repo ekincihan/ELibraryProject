@@ -1,6 +1,8 @@
-﻿using ELibrary.API.Models;
+﻿
+using ELibrary.API.Models;
 using ELibrary.API.Type;
 using ELibrary.Portal.Custom;
+using ELibrary.Portal.Helpers;
 using ELibrary.Portal.Manager;
 using ELibrary.Portal.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -46,28 +48,64 @@ namespace ELibrary.Portal.Controllers
             Response<List<PublisherModel>> responsePublisher = JsonConvert.DeserializeObject<Response<List<PublisherModel>>>(UiRequestManager.Instance.Get("Publisher", "List"));
             bookPageModel.PubLisherList = responsePublisher.Value;
 
-            if (Guid.Empty !=  id && id.HasValue)
+            Response<List<TagModel>> responseTags = JsonConvert.DeserializeObject<Response<List<TagModel>>>(UiRequestManager.Instance.Get("Tag", "List"));
+            bookPageModel.TagList = responseTags.Value;
+
+            Response<List<CategoryModel>> responsecategory = JsonConvert.DeserializeObject<Response<List<CategoryModel>>>(UiRequestManager.Instance.Get("Category", "List"));
+            bookPageModel.CategoryList = responsecategory.Value;
+
+            if (Guid.Empty != id && id.HasValue)
             {
                 Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Get("Book", "GetOne", id));
                 bookPageModel.bookModel = responseSaving.Value;
             }
-            
+
             return View(bookPageModel);
         }
 
         [HttpPost]
-        public ActionResult Save(BookModel model)
+        public async Task<JsonResult> Save(BookPageModel model)
         {
-            Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model)));
+            Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model.bookModel)));
 
-            return RedirectToAction("Index");
-            
+            AppFileFilterModel appFileFilterModel = new AppFileFilterModel
+            {
+                AppFileModuleId = responseSaving.Value.Id,
+                ModuleType = API.Models.Enum.Enum.Module.BookThumbnail,
+                File = model.Thumbnail
+            };
+
+            await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+
+            appFileFilterModel.File = model.Publication;
+            appFileFilterModel.ModuleType = API.Models.Enum.Enum.Module.Publication;
+
+            await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+
+            model.bookModel.CategoryTagAssigment.BookId = responseSaving.Value.Id;
+            model.bookModel.CategoryTagAssigment.BookName = model.bookModel.BookName;
+            model.bookModel.CategoryTagAssigment.SignUrl = "https://imageserver.kitapyurdu.com/select.php?imageid=46240&width=100&isWatermarked=true";
+            model.bookModel.CategoryTagAssigment.AuthorId = model.bookModel.AuthorId;
+            model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.AuthorId;
+            model.bookModel.CategoryTagAssigment.BookSummary = model.bookModel.BookSummary;
+
+
+            JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.bookModel.CategoryTagAssigment)));
+
+            return Json(responseSaving);
         }
 
         [HttpPost]
-        public JsonResult Delete(BookModel model)
+        public async Task<JsonResult> Delete(BookModel model)
         {
-            Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model)));
+            Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(await UiRequestManager.Instance.PostAsync("Book", "Save", JsonConvert.SerializeObject(model)));
+
+            return Json(new ResultJson { Message = responseSaving.Message, Success = responseSaving.IsSuccess });
+        }
+        [HttpPost]
+        public async Task<JsonResult> RemoveFile(AppFileModel model)
+        {
+            Response<AppFileModel> responseSaving = JsonConvert.DeserializeObject<Response<AppFileModel>>(await UiRequestManager.Instance.PostAsync("AppFile", "Save", JsonConvert.SerializeObject(model)));
 
             return Json(new ResultJson { Message = responseSaving.Message, Success = responseSaving.IsSuccess });
         }

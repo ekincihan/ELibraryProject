@@ -1,7 +1,6 @@
 ﻿@using ELibrary.API.Models
 @using ELibrary.API.Type
-@model ELibrary.API.Type.Response<List<ELibrary.API.Models.CategoryModel>>
-
+@model CategoryPageModel
 
 <div class="row">
     <div class="col-lg-12">
@@ -10,16 +9,16 @@
                 <thead>
                     <tr>
                         <th style="width: 10%" class="text-center">Name</th>
-                       
+
                         <th style="width: 15%" class="text-center">İşlemler</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Value)
+                    @foreach (var item in Model.CategoryList)
                     {
                         <tr>
                             <td class="text-center">@item.Name</td>
-                            
+
                             @*<td class="text-center"><span class="label label-warning">Pending</span></td>*@
                             <td class="text-center">
                                 <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
@@ -32,6 +31,11 @@
                     }
                 </tbody>
             </table>
+
+            <div class="form-group">
+                <a href="@Url.Action("Save", "Category")"> <input type="submit" class="btn btn-primary" value="Category Ekle" /></a>
+            </div>
+
         </div>
     </div>
 </div>

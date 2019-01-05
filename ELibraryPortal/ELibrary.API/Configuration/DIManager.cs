@@ -36,14 +36,20 @@ namespace ELibrary.API.Configuration
 
         public AutofacServiceProvider Provider
         {
-            get { return _provider; }
+            get {
+                if (_provider == null)
+                {
+                    Instance.Build();
+                }
+                return _provider;
+            }
             set
             {
                 _provider = value;
             }
         }
 
-        private DIManager()
+        public DIManager()
         {
             Builder = new ContainerBuilder();
         }

@@ -31,6 +31,8 @@ namespace ELibrary.API.Helpers
             CreateMap<AppType, TypeModel>();
             CreateMap<TypeModel, AppType>();
 
+         
+
             #endregion
 
             #region TypeController
@@ -49,6 +51,15 @@ namespace ELibrary.API.Helpers
             CreateMap<BookModel, Book>();
             #endregion
 
+            #region Files
+            CreateMap<AppFile, AppFileModel>();
+            CreateMap<AppFileModel, AppFile>();
+            #endregion
+
+            #region CategoryTagAssigment
+            CreateMap<CategoryTagAssigment, CategoryTagAssigmentModel>();
+            CreateMap<CategoryTagAssigmentModel, CategoryTagAssigment>();
+            #endregion
         }
     }
 }

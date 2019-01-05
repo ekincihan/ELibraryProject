@@ -1,0 +1,82 @@
+﻿@model List<CategoryTagAssigmentModel>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="widget no-border">
+            <table id="relation-table" style="width: 100%" class="table table-hover dt-responsive nowrap">
+                <thead>
+                <tr>
+                    <th style="width: 10%" class="text-center">Kitap adı</th>
+                    <th style="width: 15%" class="text-center">Kategori</th>
+                    <th style="width: 15%" class="text-center">Etiketler</th>
+                    <th style="width: 15%" class="text-center">İşlemler</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>aa</td>
+                    <td>vv</td>
+                    <td>
+                        <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" class="form-control">
+                    </td>
+                    <td></td>
+                </tr>
+                </tbody>
+
+            </table>
+            <a href="@Url.Action("Save", "Publisher")"> <input type="submit" class="btn btn-primary" value="İlişki Ekle" /></a>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+
+        var table = 'relation-table';
+        //var headbuttonArr = [{ extend: 'copy' }, { text: 'Excel', title: tableName, action: function (e, dt, node, config) { $("#printReportExcel")[0].click(); } },
+        //    { extend: 'print', action: function (e, dt, node, config) { $("#printReport")[0].click(); } }
+        //];
+        var headbuttonArr = [{ extend: 'copy' }];
+        table = globalKWP.dataTableInstance(table, headbuttonArr);
+
+
+
+        $("td div #delete").click(function () {
+
+            var model = JSON.parse($(this).attr('data-model'));
+            model.IsActive = false;
+            var btn = this;
+            swal({
+                title: "Kaydı silmek istediginizden emin misiniz?",
+                //  text: "Deze actie is niet meer te herstellen",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "evet",
+                cancelButtonText: "Hayir",
+                closeOnConfirm: true,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $.ajax({
+                            type: "POST",
+                            url: '/Publisher/Delete',
+                            content: "application/json; charset=utf-8",
+                            data: model,
+                            dataType: 'json',
+                            success: function (d) {
+                                if (d.success) {
+                                    swal("Basarili!", "Kayıt silindi", "success");
+                                    table.row($(btn).parents('tr')).remove().draw(false);
+                                }
+                            }
+                        });
+                    } else {
+                        swal.close();
+                    }
+                });
+
+        });
+
+    });
+</script>

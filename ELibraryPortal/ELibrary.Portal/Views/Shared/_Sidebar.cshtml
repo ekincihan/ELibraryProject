@@ -1,8 +1,8 @@
 ﻿<aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar">
     <div class="user">
-        <div id="esp-user-profile" data-percent="65" style="height: 130px; width: 130px; line-height: 100px; padding: 15px;" class="easy-pie-chart"><img src="" alt="" class="avatar img-circle"><span class="status bg-success"></span></div>
-        <h4 class="fs-16 text-muted mt-15 mb-5 fw-300">Matthew Gonzalez</h4>
-        <p class="mb-0 text-muted">Designer</p>
+        <div id="esp-user-profile" data-percent="65" style="height: 130px; width: 130px; line-height: 100px; padding: 15px;" class="easy-pie-chart"><img src="~/images/blank_male_user.png"  alt="" class="avatar img-circle"><span class="status bg-success"></span></div>
+        <h4 class="fs-16 text-muted mt-15 mb-5 fw-300">@User.Identity.Name</h4>
+        <p class="mb-0 text-muted">Admin</p>
     </div>
     <ul class="list-unstyled navigation mb-0">
         <li class="sidebar-category">Main</li>
@@ -10,7 +10,7 @@
             <a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse1" aria-expanded="false" aria-controls="collapse1" class="bubble active collapsed"><i class="ti-pencil"></i><span class="sidebar-title">Yazar İşlemleri</span></a>
             <ul id="collapse1" class="list-unstyled collapse">
                 <li><a href="@Url.Action("Index", "Author")" class="active">Yazar Listele</a></li>
-                <li><a href="@Url.Action("Save", "Author")" class="active">Yazar Ekle</a></li>
+                <li><a href="@Url.Action("Save", "Author",new { id=Guid.Empty})" class="active">Yazar Ekle</a></li>
             </ul>
         </li>
         <li class="panel">
@@ -51,12 +51,12 @@
             </ul>
         </li>
         @*<li class="panel">
-            <a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse3" aria-expanded="false" aria-controls="collapse3" class="collapsed"><i class="ti-shopping-cart"></i><span class="sidebar-title">E-commerce</span></a>
-            <ul id="collapse3" class="list-unstyled collapse">
-                <li><a href="ecommerce-dashboard.html">Dashboard</a></li>
-                <li><a href="product-list.html">Product list</a></li>
-                <li><a href="edit-product.html">Edit product</a></li>
-            </ul>
-        </li>*@
+                <a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse3" aria-expanded="false" aria-controls="collapse3" class="collapsed"><i class="ti-shopping-cart"></i><span class="sidebar-title">E-commerce</span></a>
+                <ul id="collapse3" class="list-unstyled collapse">
+                    <li><a href="ecommerce-dashboard.html">Dashboard</a></li>
+                    <li><a href="product-list.html">Product list</a></li>
+                    <li><a href="edit-product.html">Edit product</a></li>
+                </ul>
+            </li>*@
     </ul>
 </aside>

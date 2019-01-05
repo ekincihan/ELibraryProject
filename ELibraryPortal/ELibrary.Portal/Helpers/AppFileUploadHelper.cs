@@ -15,6 +15,8 @@ namespace ELibrary.Portal.Helpers
     {
         public async Task<bool> UploadFile(AppFileFilterModel file)
         {
+            if (file.File == null)
+                return false;
             var path = Path.Combine(
                         Directory.GetCurrentDirectory(), "wwwroot",
                         file.File.GetFilename());

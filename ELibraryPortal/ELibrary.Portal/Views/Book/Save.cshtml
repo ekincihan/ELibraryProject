@@ -7,130 +7,266 @@
 }
 @model ELibrary.Portal.Models.BookPageModel
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="~/semantic/dist/semantic.css" rel="stylesheet" />
+<script src="~/semantic/dist/semantic.js"></script>
 <div class="widget">
     <div class="widget-heading">
-        <h3 class="widget-title">Horizontal Steps</h3>
+        <h3 class="widget-title">Kitap Ekle</h3>
     </div>
     <div class="widget-body">
-        <form asp-action="Save" id="form-horizontal" class="form-horizontal" method="post" >
-            <h3>Billing Infomation</h3>
-            <fieldset>
-                <div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="txtFirstNameBilling" class="col-sm-3 col-md-4 control-label">Kitap Adı</label>
-                                <div class="col-sm-9 col-md-8">
-                                    <input name="BookName" type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
+        <form id="form-tabs" class="form-horizontal tabcontrol clearfix">
+            <div class="bd-example bd-example-tabs">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li id="nav1" class="nav-item active">
+                        <a class="nav-link active show" id="pills-home-tab" data-toggle="pill" href="#pills-first" role="tab" aria-controls="pills-home" aria-selected="true">Kitap Bilgileri</a>
+                    </li>
+                    <li id="nav2" class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-second" role="tab" aria-controls="pills-profile" aria-selected="false">Dosya</a>
+                    </li>
+                    <li id="nav3" class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-third" role="tab" aria-controls="pills-contact" aria-selected="false">Kategori-Etiket</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade active in" id="pills-first" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="row" style="padding-top:15px">
+                            <div class="widget">
+                                <div class="widget-body">
+                                    <div class="row">
+                                        <input type="hidden" asp-for="bookModel.Id" />
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 control-label">Kitap Adı</label>
+                                                <div class="col-sm-9 col-md-8">
+                                                    <input asp-for="bookModel.BookName" required type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 control-label">Kitap Ozet</label>
+                                                <div class="col-sm-9 col-md-8">
+                                                    <textarea asp-for="bookModel.BookSummary" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 control-label">Sayfa Sayısı</label>
+                                                <div class="col-sm-9 col-md-8">
+                                                    <input asp-for="bookModel.NumberPage" type="number" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 control-label">Yayın Evi </label>
+                                                <div class="col-sm-9 col-md-8">
+                                                    <div class="input-group">
+                                                        <select id="publishers" asp-for="bookModel.PublisherId " required placeholder="seçiniz..." class="form-control">
+                                                            <option value="">--Seçiniz--</option>
+                                                            @foreach (var item in Model.PubLisherList)
+                                                            {
 
-
-                            <div class="form-group">
-
-                                <label for="ddlCountryBilling" class="col-sm-3 col-md-4 control-label">Yazar Adı </label>
-                                <div class="col-sm-9 col-md-8">
-
-                                    <select name="AuthorId" class="form-control">
-                                        <option value="-1">--Please Select--</option>
-                                        @foreach (var item in Model.AuthorList)
-                                        {
-
-                                            <option value="@item.Id">@item.Name</option>
-                                        }
-
-
-                                    </select>
-                                    <div>
-                                        <a href="@Url.Action("Save", "Author")"> Yazar Ekle <i class="ti-pencil"></i></a>
+                                                                <option value="@item.Id">@item.Name</option>
+                                                            }
+                                                        </select>
+                                                        <span class="input-group-btn">
+                                                            <a href="@Url.Action("Save", "Publisher")" class="btn btn-outline btn-default"><i class="glyphicon glyphicon-plus"> </i></a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 control-label">Yazar Adı </label>
+                                                <div class="col-sm-9 col-md-8">
+                                                    <div class="input-group">
+                                                        <select id="authors" asp-for="bookModel.AuthorId" placeholder="seçiniz..." class="form-control">
+                                                            <option value="-1">--Seçiniz--</option>
+                                                            @foreach (var item in Model.AuthorList)
+                                                            {
+                                                                <option value="@item.Id">@item.Name @item.Surname</option>
+                                                            }
+                                                        </select>
+                                                        <span class="input-group-btn">
+                                                            <a href="@Url.Action("Save", "Author")" class="btn btn-outline btn-default"><i class="glyphicon glyphicon-plus"> </i></a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-
-
                             </div>
-
                         </div>
-                       
-                           
-                       
                     </div>
-                  
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="txtCompanyBilling" class="col-sm-3 col-md-4 control-label">Sayfa Sayısı</label>
-                                <div class="col-sm-9 col-md-8">
-                                    <input name="NumberPage" type="number" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="ddlCountryBilling" class="col-sm-3 col-md-4 control-label">YayınEvi Adı </label>
-                                <div class="col-sm-9 col-md-8">
-                                    <select name="PublisherId" class="form-control">
-                                        <option value="-1">--Please Select--</option>
-                                        @foreach (var item in Model.PubLisherList)
-                                        {
-
-                                            <option value="@item.Id">@item.Name</option>
-                                        }
-
-                                    </select>
-                                    <div>
-                                        <a href="@Url.Action("Save", "Publisher")"> Yayınevi Ekle <i class="ti-pencil"></i></a>
+                    <div class="tab-pane fade" id="pills-second" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="row" style="padding-top:15px">
+                            <div class="widget">
+                                <div class="widget-body">
+                                    <div class="row">
+                                        <div class="widget col-xs-4">
+                                            <div class="widget-title well-sm">
+                                                <h4>Kapak Resmi</h4>
+                                            </div>
+                                            <div class="widget-body">
+                                                <div>
+                                                    <img src="~/images/no-cover.jpg" style="width:300px; height:300px" class="img-responsive" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Resim</label>
+                                                    <input class="FileBasic" id="FileThumnail" asp-for="Thumbnail" multiple="multiple" placeholder="PNG | JPG" type="file">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="widget col-xs-8">
+                                            <div class="widget-title">
+                                                <h4>İçerik</h4>
+                                            </div>
+                                            <div class="widget-body">
+                                                <table id="tblFiles" class="table table-hover">
+                                                    <tr>
+                                                        <th>Dosya Adı</th>
+                                                        <th>Dosya Türü</th>
+                                                        <th>İşlem</th>
+                                                    </tr>
+                                                    <tr>
+                                                        @if (Model.bookModel != null && Model.bookModel.AppFiles != null)
+                                                        {
+                                                            foreach (var item in Model.bookModel.AppFiles)
+                                                            {
+                                                                <td>@item.Name</td>
+                                                                <td>@item.Extension</td>
+                                                                <td><a class="btn btn-sm btn-danger" data-content="@item.Id" id="btnRemove"><i class="glyphicon glyphicon-remove"></i></a> </td>
+                                                            }
+                                                        }
+                                                    </tr>
+                                                </table>
+                                                <div class="form-group">
+                                                    <label>içerik</label>
+                                                    <input class="FileBasic" id="FilePublication" asp-for="Publication" multiple="multiple" placeholder="PNG | JPG" type="file">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="txtAddress1Billing" class="col-sm-3 col-md-4 control-label">Kitap Ozet</label>
-                                <div class="col-sm-9 col-md-8">
-                                    <textarea name="BookSummary" class="form-control"></textarea>
+                    <div class="tab-pane fade" id="pills-third" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-md-4 control-label">Kategori Adi </label>
+                                    <div class="col-sm-9 col-md-8">
+
+                                        <select id="categories" asp-for="bookModel.CategoryTagAssigment.CategoryId"  class="form-control  pull-right">
+                                            <option value="-1">Seçiniz</option>
+                                            @foreach (var item in Model.CategoryList)
+                                            {
+                                                <option value="@item.Id" >@item.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-md-4 control-label">Etiket Adi </label>
+                                    <div class="col-sm-9 col-md-8">
+                                        <select id="AppTypeId" asp-for="bookModel.CategoryTagAssigment.Tags" multiple="multiple" class="form-control  pull-right ui fluid normal dropdown">
+                                            @foreach (var item in Model.TagList)
+                                            {
+                                                <option value="@item.Id" data-Name="@item.Name">@item.Name</option>
+                                            }
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
+                        <input type="submit" class="btn btn-primary" value="Kaydet" />
                     </div>
                 </div>
-            </fieldset>
-            <h3>Kitap Foto</h3>
-            <fieldset>
-
-                <div class="widget">
-                    <div class="widget-heading">
-                        <h3 class="widget-title">Fotoğraf Seçin</h3>
-                    </div>
-                    <div class="widget-body">
-                        <div id="multiple-dz" name="BookPhoto" class="dropzone"></div>
-                    </div>
-                </div>
-            </fieldset>
-            <h3>Kitap İçerik</h3>
-            <fieldset>
-
-                <div class="widget">
-                    <div class="widget-heading">
-                        <h3 class="widget-title">Fotoğraf Seçin</h3>
-                    </div>
-                    <div class="widget-body">
-                        <div id="single-dz" class="dropzone"></div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <div class="form-group">
-                <input type="submit" value="Oluştur" class="btn btn-default" />
             </div>
-
         </form>
     </div>
 </div>
+<script>
+    jQuery.validator.setDefaults({
+        debug: true,
+        success: "valid"
+    });
+    $(document).ready(function () {
+        $('.FileBasic').fileinput({
+            maxFileCount: 1,
+            showUpload: false,
+            allowedFileTypes: ['image', 'video']
+        });
+
+        $('#AppTypeId')
+            .dropdown({ placeholder: 'Seçiniz' });
+        $('#categories')
+            .dropdown({ placeholder: 'Seçiniz' });
+    });
+
+    $("#btnRemove").click(function() {
+        var model = {
+            IsActive: false,
+            Id: id
+        }
+        var btn = this;
+        swal({
+                title: "Kaydı silmek istediginizden emin misiniz?",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "evet",
+                cancelButtonText: "Hayir",
+                closeOnConfirm: true,
+                closeOnCancel: true
+            },
+            function(isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        type: "POST",
+                        url: '/Book/RemoveFile',
+                        content: "application/json; charset=utf-8",
+                        data: model,
+                        dataType: 'json',
+                        success: function(d) {
+                            if (d.success) {
+                                swal("Basarili!", "Kayıt silindi", "success");
+                                table.row($(btn).parents('tr')).remove().draw(false);
+                            }
+                        }
+                    });
+                } else {
+                    swal.close();
+                }
+            });
+    });
+
+            $('form').submit(function (e) {
+
+            e.preventDefault();
+                var formData = new FormData(this);
+                formData.set('bookModel.CategoryTagAssigment.CategoryName', ($("#categories option:selected").text()));
+                formData.set('bookModel.CategoryTagAssigment.AuthorName', ($("#authors option:selected").text()).split(" ")[0]);
+                formData.set('bookModel.CategoryTagAssigment.AuthorSurname', ($("#authors option:selected").text()).split(" ")[1]);
+                formData.set('bookModel.CategoryTagAssigment.PublisherName', ($("#publishers option:selected").text()));
+
+            $.ajax({
+                url: "/Book/Save",
+                type: 'POST',
+                data: formData,
+                success: function (data) {
+                    if (data.isSuccess) {
+                        swal("İşlem Başarılı!", "Kaydedildi!", "success");
+                    }
+                    else {
+                        swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+                    }
+                },
+                error: function () {
+                    swal("Hata!", "Bir sorun oluştu!", "error");
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        });
+
+</script>

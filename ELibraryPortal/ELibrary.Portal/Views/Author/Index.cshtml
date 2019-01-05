@@ -1,10 +1,11 @@
 ﻿@using ELibrary.API.Models
+@using ELibrary.API.Type
 @model ELibrary.API.Type.Response<List<ELibrary.API.Models.AuthorModel>>
 
 @{
     ViewData["Title"] = "Index";
 }
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+@*<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
 <div class="row">
     <div class="col-lg-12">
         <div class="widget no-border">
@@ -14,7 +15,6 @@
                         <th>Yazar</th>
                         <th>Cinsiyet</th>
                         <th>Doğum Tarihi</th>
-                        <th>Biyografi</th>
                         <th>Kitaplar</th>
                         <th>İşlemler</th>
                     </tr>
@@ -28,12 +28,11 @@
                             </td>
                             <td>@{string gender = item.Gender == 1 ? "Kadın" : "erkek";} @gender</td>
                             <td>@(item.Birthdate.HasValue ? item.Birthdate.Value.ToString("dd.MM.yyyy"): "")</td>
-                            <td>@item.Biography</td>
                             <td><a href="javascript:;"> @($"{item.Books.Count} adet")</a></td>
                             <td class="text-center">
                                 <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
                                     <a href="@Url.Action("Save", "Author", new { id = item.Id })" id="update" class="btn btn-outline btn-success"><i class="ti-pencil"></i></a>
-                                    <a id="delete" data-model="@(Newtonsoft.Json.JsonConvert.SerializeObject(item))" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
+                                    <a id="delete" data-model="@(Newtonsoft.Json.JsonConvert.SerializeObject(item))" data-id="@item.Id" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -41,6 +40,9 @@
 
                 </tbody>
             </table>
+            <div class="form-group">
+                <a href="@Url.Action("Save", "Author")"> <input type="submit" class="btn btn-primary" value="Yazar Ekle" /></a>
+            </div>
         </div>
     </div>
 </div>
@@ -59,8 +61,6 @@
 
             var model = JSON.parse($(this).attr('data-model'));
             model.IsActive = false;
-
-        
             var btn = this;
             swal({
                 title: "Kaydı silmek istediginizden emin misiniz?",
