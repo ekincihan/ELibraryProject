@@ -5,6 +5,7 @@ import { AuthorDetailComponent } from "./author-detail/author-detail.component";
 import { CategoryComponent } from "./category/category.component";
 import { CategoryDetailComponent } from "./category/category-detail/category-detail.component";
 import { PublisherComponent } from "./publisher/publisher.component";
+import { UserComponent } from "./User/User.component";
 
 
 export const appRoutes: Routes = [
@@ -14,5 +15,6 @@ export const appRoutes: Routes = [
   { path: "kategori/detay", component: CategoryDetailComponent },
   { path: "yayinevi", component: PublisherComponent},
   { path: "yazar-detay/:authorId", component: AuthorDetailComponent },
+  { path: "user", component: UserComponent },
   { path: "**", redirectTo: "index", pathMatch: "full" }
 ];

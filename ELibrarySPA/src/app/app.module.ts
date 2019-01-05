@@ -22,6 +22,8 @@ import { CategoryComponent } from './category/category.component';
 import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 import { PublisherComponent } from './publisher/publisher.component';
 import { PublisherService } from './publisher/shared/publisher.service';
+import { UserComponent } from './User/User.component';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
    declarations: [
@@ -37,12 +39,14 @@ import { PublisherService } from './publisher/shared/publisher.service';
       MixedBooksComponent,
       CategoryComponent,
       CategoryDetailComponent,
-      PublisherComponent
+      PublisherComponent,
+      UserComponent,
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      NgbModalModule
    ],
    providers: [
       IndexService,
