@@ -4,7 +4,7 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class RequestManagerService {
-  url = "http://localhost:60088/api/"
+  url = "https://elibraryapi.azurewebsites.net/api/"
   constructor(private http: HttpClient) {
   }
 

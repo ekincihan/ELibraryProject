@@ -22,21 +22,20 @@ export class CategoryComponent implements OnInit {
       this.categoryService.getAll('Category/CategoryBook').subscribe((res:Category[])=>{
         this.categories=res;
         console.log('kategoriler:',this.categories)
-        
-        this.categoryService.getAll("Category/List").subscribe(res => {
-          this.headerCategories = res["value"];
-        });
-    
-        this.categoryService.getAll("Publisher/List").subscribe(rest => {
-          this.publishers = rest["value"];
-        });
-        
-        this.categoryService.getAll("Author/List").subscribe(rest => {
-          this.authors = rest["value"];
-          console.log(this.authors)
-        });
-
       })
+      
+      this.categoryService.getAll("Category/List").subscribe(res => {
+        this.headerCategories = res["value"];
+      });
+  
+      this.categoryService.getAll("Publisher/List").subscribe(rest => {
+        this.publishers = rest["value"];
+      });
+      
+      this.categoryService.getAll("Author/List").subscribe(rest => {
+        this.authors = rest["value"];
+        console.log(this.authors)
+      });
   }
 
 }
