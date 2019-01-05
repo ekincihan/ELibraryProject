@@ -25,6 +25,8 @@ namespace ELibrary.DAL.Configuration
         {
             var configurationBuilder = new ConfigurationBuilder();
             var appsettings = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()) + "/ELibrary.API", "appsettings.json");
+            //deploy olurken aktif
+            //var appsettings = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
             configurationBuilder.AddJsonFile(appsettings, false);
 
             var root = configurationBuilder.Build();

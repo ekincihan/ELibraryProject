@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\"  />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +35,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ELibrary.DAL\ELibrary.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
