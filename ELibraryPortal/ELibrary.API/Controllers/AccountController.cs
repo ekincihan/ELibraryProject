@@ -16,6 +16,8 @@ using Microsoft.Extensions.Configuration;
 namespace ELibrary.API.Controllers
 {
     [ApiController]
+    [Route("api/Account")]
+    [Produces("application/json")]
     [AllowAnonymous]
     public class AccountController : APIControllerBase
     {
@@ -33,7 +35,7 @@ namespace ELibrary.API.Controllers
             _configuration = configuration;
         }
         [HttpPost("Login")]
-        public async Task<Response<ApplicationUser>> Login(LoginModel model)
+        public async Task<Response<ApplicationUser>> Login([FromBody]LoginModel model)
         {
             var response = new Response<ApplicationUser>();
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
@@ -49,7 +51,7 @@ namespace ELibrary.API.Controllers
         }
 
         [HttpPost("Register")]
-        public async Task<Response<ApplicationUser>> Register(RegisterModel model)
+        public async Task<Response<ApplicationUser>> Register([FromBody]RegisterModel model)
         {
             var response = new Response<ApplicationUser>();
 
@@ -81,5 +83,6 @@ namespace ELibrary.API.Controllers
 
             throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
         }
+
     }
 }

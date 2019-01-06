@@ -1,0 +1,118 @@
+<div class="modal-header">
+  <h5 class="modal-title">Üye Ol</h5>
+</div>
+<div class="modal-body">
+  <form [formGroup]="signUp">
+    <div class="needs-validation validated">
+      <div class="row">
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <label>Ad</label>
+            <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
+            <input type="text" formControlName="name" class="form-control">
+            <div class="text-danger small"
+             *ngIf="signUp?.controls?.name?.touched && signUp?.controls?.name?.errors?.required">
+                Bu alan boş geçilemez.</div>
+          </div>
+          <div class="form-group">
+            <label>E-Mail</label>
+            <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
+            <input type="email" formControlName="email" class="form-control" >
+            <div class="text-danger small" 
+            *ngIf="signUp?.controls?.email?.touched && signUp?.controls?.email?.errors?.required">
+                Bu alan boş geçilemez.</div>
+            <div class="text-danger small" *ngIf="signUp?.controls?.email?.touched && signUp?.controls?.email?.errors?.email">
+                Lütfen geçerli bir e-posta adresi giriniz.
+              </div>
+          </div>
+          <div class="form-group">
+            <label>Şifre</label>
+            <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
+            <input type="password" formControlName="password" class="form-control" >
+            <div class="text-danger small"
+             *ngIf="signUp?.controls?.password?.touched && signUp?.controls?.password?.errors?.required">
+                Bu alan boş geçilemez.</div>
+            <div class="text-danger small"
+             *ngIf="signUp?.controls?.password?.touched && signUp?.controls?.password?.errors?.minlength">
+                Şifre en az 6 karakter olmalıdır.</div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <label>Soyad</label>
+            <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
+            <input type="text" formControlName="surname" class="form-control" >
+            <div class="text-danger small"
+             *ngIf="signUp?.controls?.surname?.touched && signUp?.controls?.surname?.errors?.required">
+                Bu alan boş geçilemez.</div>
+          </div>
+          <div class="form-group">
+            <label>Cep Telefonu</label>
+            <input type="text" formControlName="phoneNumber" 
+            mask='00) 000-0000' prefix="(5" [showMaskTyped]="true"  class="form-control" >
+            <div class="text-danger small"
+            *ngIf="signUp?.controls?.phoneNumber?.touched && signUp?.controls?.phoneNumber?.errors?.required">
+               Bu alan boş geçilemez.</div>
+            <div class="text-danger small"
+            *ngIf="signUp?.controls?.phoneNumber?.touched && signUp?.controls?.phoneNumber?.errors?.minlength">
+                Lütfen geçerli bir cep telefonu numarası giriniz.</div>
+          </div>
+          <div class="form-group">
+            <label>Şifre Tekrar</label>
+            <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
+            <input type="password" formControlName="confirmPassword" class="form-control" >
+            <div class="text-danger small"
+             *ngIf="signUp?.controls?.confirmPassword?.touched && signUp?.controls?.confirmPassword?.errors?.required">
+                Bu alan boş geçilemez.</div>
+            <div class="text-danger small"
+            *ngIf="signUp?.controls?.confirmPassword?.touched && signUp?.controls?.confirmPassword?.errors?.minlength">
+                Şifre en az 6 karakter olmalıdır.</div>
+            <div class="text-danger small" 
+            *ngIf="signUp?.controls?.confirmPassword?.errors?.mustMatch">
+                Girmiş olduğunuz şifreler uyuşmuyor.
+              </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-group">
+            <label>Doğum Tarihi</label>
+            <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
+            <input type="text"
+            formControlName="birthdate"
+            placeholder="Doğum Tarihi"
+            class="form-control"
+            bsDatepicker>
+            <div class="text-danger small"
+             *ngIf="signUp?.controls?.birthdate?.touched && signUp?.controls?.birthdate?.errors?.required">
+                Bu alan boş geçilemez.</div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-group chex mb-0">
+            <label>
+              <input type="checkbox" formControlName="privacy" required>
+              <span class="checkmark mt-2"></span><a href="javascript:void(0)">Üyelik sözleşmesi</a>ni kabul ediyorum.
+            </label>
+            <div class="text-danger small"
+            *ngIf="signUp?.controls?.privacy?.errors?.required">
+               Lütfen üyelik sözleşmesini kabul ediniz.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer d-inline-block w-100">
+  <button class="btn btn-green" (click)="formSubmit()">Üye Ol</button>
+  <button type="button" class="btn btn-brown float-right" (click)="bsModalRef.hide()">Kapat</button>
+
+  <div class="mt-2 mb-3 d-inline-block w-100"></div>
+
+  <nav class="btn-group m-0 p-0 nav nav-pills nav-justified">
+    <button type="button" class="nav-item nav-link btn btn-facebook text-left m-0 w-50">Facebook ile Üyelik</button>
+    <button type="button" class="nav-item nav-link btn btn-twitter text-left m-0 w-50">Twitter ile Üyelik</button>
+  </nav>
+</div>
