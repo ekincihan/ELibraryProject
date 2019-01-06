@@ -1,14 +1,11 @@
-<app-header></app-header>
-<navigation></navigation>
+<app-header></app-header> <navigation></navigation>
 <div class="main-content">
   <div class="container">
-
     <div class="row">
       <div class="col-12 contentbar mb-4">
-
         <h6 class="color-green d-inline-block mt-1 mb-4">Yayınevleri</h6>
         <div class="clearfix"></div>
-<!-- 
+        <!-- 
         <div class="text-center mt-1">
           <a href="#" class="d-inline-block px-2 py-1"><b>A</b></a>
           <a href="#" class="d-inline-block px-2 py-1"><b>B</b></a>
@@ -41,13 +38,20 @@
         </div> -->
 
         <div class="row">
-          <div class="col-12 mt-4" *ngFor="let item of publisher"><b>{{item?.character}}</b></div>
-          <div class="col-6 col-sm-4 col-md-3 col-lg-2"  *ngFor="let  alphabeticItem of item?.alphabeticalList">
-            <a href="#" class="d-inline-block text-truncate w-100 pr-2 pt-2 pb-1">{{alphabeticItem?.name}}</a>
+          <div class="col-12 mt-4" *ngFor="let item of publisher">
+            <b>{{ item?.character }}</b>
+            <ng-container *ngFor="let alphabeticItem of item?.alphabeticalList">
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <a
+                  href="#"
+                  class="d-inline-block text-truncate w-100 pr-2 pt-2 pb-1"
+                  >{{ alphabeticItem?.name }}</a
+                >
+              </div>
+            </ng-container>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>

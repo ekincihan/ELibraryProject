@@ -5,6 +5,7 @@ import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { trLocale } from 'ngx-bootstrap/locale';
 import { PasswordValidation } from '../signup/password-validation';
+import { SignUpService } from './shared/signUp.service';
 defineLocale('tr', trLocale);
 
 @Component({
@@ -17,7 +18,8 @@ export class SignupComponent implements OnInit {
   constructor(
     public bsModalRef: BsModalRef,
     private formBuilder: FormBuilder,
-    private localeService: BsLocaleService
+    private localeService: BsLocaleService,
+    private signUpService :SignUpService
   ) {
   }
 
@@ -39,12 +41,15 @@ export class SignupComponent implements OnInit {
 
   formSubmit() {
     if(this.signUp.valid){
-      alert('valid');
-      console.log('this.signUp.value',this.signUp.value);
-      alert(JSON.stringify(this.signUp.value))
+      // alert('valid');
+      // console.log('this.signUp.value',this.signUp.value);
+      // alert(JSON.stringify(this.signUp.value))
+      this.signUpService.post('Account/Register',this.signUp.value).subscribe((res)=>{
+          console.log(res)
+      })
     }else{
       this.validateAllFormFields(this.signUp);
-    }
+    } 
   }
   
   

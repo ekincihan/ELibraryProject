@@ -33,6 +33,8 @@ import { HeaderService } from './header/shared/headerService';
 import { PublisherService } from './publisher/shared/publisher.service';
 /* ROUTES */
 import { appRoutes } from './routes';
+import { SignUpService } from './signup/shared/signUp.service';
+import { SignInService } from './signin/shared/signIn.service';
 
 @NgModule({
     declarations: [
@@ -67,7 +69,9 @@ import { appRoutes } from './routes';
         AuthorDetailService,
         MixedBooksService,
         HeaderService,
-        PublisherService
+        PublisherService,
+        SignUpService,
+        SignInService
     ],
     bootstrap: [
         AppComponent

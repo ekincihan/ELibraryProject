@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { SignInService } from './shared/signIn.service';
 
 @Component({
   selector: 'signin',
@@ -12,7 +13,8 @@ export class SigninComponent implements OnInit {
   rememberPassword: FormGroup;
   constructor(
     public bsModalRef: BsModalRef,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private signInService :SignInService) { }
 
   ngOnInit() {
     this.signIn = this.formBuilder.group({
@@ -26,8 +28,12 @@ export class SigninComponent implements OnInit {
 
   formSubmit() {
     if(this.signIn.valid){
-      alert('valid');
-      alert(JSON.stringify(this.signIn.value))
+      // alert('valid');
+      // alert(JSON.stringify(this.signIn.value))
+      this.signInService.post('Account/Login',this.signIn.value).subscribe((res)=>{
+        console.log(res['value'])
+      })
+      
     }else{
       this.validateAllFormFields(this.signIn);
     }
