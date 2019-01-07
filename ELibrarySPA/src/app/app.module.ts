@@ -7,6 +7,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {NgxMaskModule} from 'ngx-mask'
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 
 /* COMPONENTS */
 import { AppComponent } from './app.component';
@@ -35,6 +36,8 @@ import { PublisherService } from './publisher/shared/publisher.service';
 import { appRoutes } from './routes';
 import { SignUpService } from './signup/shared/signUp.service';
 import { SignInService } from './signin/shared/signIn.service';
+import { TokenService } from './service/token.service';
+import { SearchService } from './index/shared/search.service';
 
 @NgModule({
     declarations: [
@@ -62,7 +65,8 @@ import { SignInService } from './signin/shared/signIn.service';
         RouterModule.forRoot(appRoutes),
         ModalModule.forRoot(),
         BsDatepickerModule.forRoot(),
-        NgxMaskModule.forRoot()
+        NgxMaskModule.forRoot(),
+        SweetAlert2Module.forRoot()
     ],
     providers: [
         IndexService,
@@ -71,7 +75,9 @@ import { SignInService } from './signin/shared/signIn.service';
         HeaderService,
         PublisherService,
         SignUpService,
-        SignInService
+        SignInService,
+        TokenService,
+        SearchService
     ],
     bootstrap: [
         AppComponent

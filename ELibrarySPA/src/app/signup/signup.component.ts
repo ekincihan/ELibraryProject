@@ -32,6 +32,7 @@ export class SignupComponent implements OnInit {
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
       phoneNumber: ['', [Validators.required,Validators.minLength(9)]],
       privacy: [false, [Validators.required]],
+      gender: ['', [Validators.required]],
       birthdate: ['', [Validators.required]]
     }, {
       validator: PasswordValidation.MatchPassword('password', 'confirmPassword')

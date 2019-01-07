@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { catchError } from 'rxjs/operators';
+import { catchError, switchMap, debounceTime,distinctUntilChanged } from 'rxjs/operators';
+import { Observable } from  "rxjs";
 
 @Injectable()
 export class RequestManagerService {
-  // url = "https://elibraryapi.azurewebsites.net/api/"
-  url = "http://localhost:60088/api/"
+   url = "https://elibraryapi.azurewebsites.net/api/"
+  //url = "http://localhost:60088/api/"
 
   constructor(private http: HttpClient) {
   }
@@ -24,6 +25,19 @@ export class RequestManagerService {
     console.log(this.url+path)
     headers = headers.append("Content-Type", "application/json");
     return this.http.post(this.url+path, JSON.stringify(resource),{headers:headers}).pipe(catchError(this.handleError));
+  }
+
+  search(terms: Observable<string>) {
+    return terms.pipe(
+      debounceTime(400),
+      distinctUntilChanged(),
+      switchMap(term => this.searchEntries(term)));
+  }
+
+  searchEntries(term) {
+    return  [[ { name:"Tutunamayanlar"} , {name:"Kaybedenler Kulubü"} ]]/* this.http
+        .get(this.baseUrl + this.queryUrl + term)
+        .map(res => res.json()) */;
   }
 
   private handleError(error: Response) {

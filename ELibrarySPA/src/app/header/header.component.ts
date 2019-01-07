@@ -7,19 +7,31 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { SigninComponent } from "../signin/signin.component";
 import { SignupComponent } from "../signup/signup.component";
+import { TokenService } from "../service/token.service";
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  constructor(
-    private headerService: HeaderService,
-    private modalService: BsModalService
-  ) { }
+  isLogin = false;
   public bsModalRef: BsModalRef
   categories: Category[];
   publishers: Publisher[];
+
+
+  constructor(
+    private headerService: HeaderService,
+    private modalService: BsModalService,
+    private tokenService: TokenService
+  ) {
+    if (localStorage.getItem('token'))
+      this.isLogin = true;
+    this.tokenService.isLoginChange.subscribe(() => {
+      this.isLogin = true;
+    })
+
+  }
 
   ngOnInit() {
     this.headerService.getAll("Category/List").subscribe(res => {
@@ -36,5 +48,10 @@ export class HeaderComponent implements OnInit {
   }
   openSignUp() {
     this.bsModalRef = this.modalService.show(SignupComponent);
+  }
+
+  closeApp() {
+    this.isLogin = false;
+    localStorage.removeItem('token');
   }
 }
