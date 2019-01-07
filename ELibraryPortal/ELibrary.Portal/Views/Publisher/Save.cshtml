@@ -12,6 +12,9 @@
             <h3 class="widget-title">Yayın Evi</h3>
         </div>
         <div class="widget-body">
+            <div class="form-group">
+                <a href="@Url.Action("Index", "Publisher")" style="float:right"> <input type="submit" class="btn btn-primary" value="Yayınevi Listele" /></a>
+            </div>
             <form asp-action="Save">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input asp-for="Id" type="hidden" />
@@ -31,9 +34,7 @@
                 </div>
 
             </form>
-            <div class="form-group">
-                <a href="@Url.Action("Index", "Publisher")"> <input type="submit" class="btn btn-primary" value="Yayınevi Listele" /></a>
-            </div>
+
         </div>
     </div>
 </div>

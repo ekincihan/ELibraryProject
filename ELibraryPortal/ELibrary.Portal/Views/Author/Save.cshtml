@@ -8,10 +8,15 @@
         <h3 class="widget-title">Yazar Ekleme</h3>
     </div>
     <div class="widget-body">
+        <div class="form-group">
+            <a href="@Url.Action("Index", "Author")" style="float:right"> <input type="submit" class="btn btn-primary" value="Yazar Listele" /></a>
+        </div>
         <form asp-action="Save" method="post" asp-antiforgery="false" enctype="multipart/form-data">
             <input asp-for="Id" type="hidden" />
             <div class="col-xs-6">
+
                 <div class="form-group">
+
                     <label class="control-label">Adı</label>
                     <input asp-for="Name" class="form-control" placeholder="Adı" />
                     <span asp-validation-for="Name" class="text-danger"></span>
@@ -66,13 +71,10 @@
                 </div>
             </div>
             <div class="row">
-                <button type="submit" name="btnSubmit" class="btn btn-raised btn-black pull-right">Submit</button>
+                <button type="submit" name="btnSubmit" class="btn btn-raised btn-black pull-right">Kaydet</button>
             </div>
         </form>
 
-        <div class="form-group">
-            <a href="@Url.Action("Index", "Author")"> <input type="submit" class="btn btn-primary" value="Yazar Listele" /></a>
-        </div>
     </div>
 </div>
 <script>

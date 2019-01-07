@@ -13,6 +13,10 @@
             <h3 class="widget-title">Tür</h3>
         </div>
         <div class="widget-body">
+
+            <div class="form-group">
+                <a href="@Url.Action("Index", "AppType")" style="float:right"> <input type="submit" class="btn btn-primary" value="Tür Listele" /></a>
+            </div>
             <form asp-action="Save">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input asp-for="Id" type="hidden" />
@@ -26,9 +30,6 @@
                 </div>
             </form>
 
-            <div class="form-group">
-                <a href="@Url.Action("Index", "AppType")"> <input type="submit" class="btn btn-primary" value="Tür Listele" /></a>
-            </div>
         </div>
     </div>
 </div>
