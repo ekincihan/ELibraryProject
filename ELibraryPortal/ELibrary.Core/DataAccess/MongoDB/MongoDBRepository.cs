@@ -44,6 +44,7 @@ namespace ELibrary.Core.DataAccess.MongoDB
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
             List<TEntity> list = filter == null ? _collection.AsQueryable().ToList(): _collection.Find<TEntity>(filter).ToList();
+
             return list;
         }
 
@@ -55,12 +56,14 @@ namespace ELibrary.Core.DataAccess.MongoDB
         public TEntity Add(TEntity entity)
         {
              _collection.InsertOne(entity);
+
             return entity;
         }
 
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             await _collection.InsertOneAsync(entity);
+
             return entity;
         }
 

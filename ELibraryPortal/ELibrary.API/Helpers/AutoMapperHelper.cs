@@ -60,6 +60,11 @@ namespace ELibrary.API.Helpers
             CreateMap<CategoryTagAssigment, CategoryTagAssigmentModel>();
             CreateMap<CategoryTagAssigmentModel, CategoryTagAssigment>();
             #endregion
+
+            #region UserRate
+            CreateMap<UserRates, UserRateModel>();
+            CreateMap<UserRateModel, UserRates>();
+            #endregion
         }
     }
 }
