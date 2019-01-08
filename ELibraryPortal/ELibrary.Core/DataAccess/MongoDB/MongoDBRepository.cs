@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ELibrary.Core.Entites;
 using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace ELibrary.Core.DataAccess.MongoDB
@@ -46,9 +47,9 @@ namespace ELibrary.Core.DataAccess.MongoDB
             return list;
         }
 
-        public Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> filter = null)
+        public async Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            return filter == null ? await _collection.Find(_ => true).ToListAsync() : await _collection.Find<TEntity>(filter).ToListAsync();
         }
 
         public TEntity Add(TEntity entity)
@@ -65,7 +66,12 @@ namespace ELibrary.Core.DataAccess.MongoDB
 
         public TEntity Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            //var filter = Builders<TEntity>.Filter.Eq(entity,typeof(TEntity).Id);
+            //var update = Builders<TEntity>.Update.Set("size.uom", "cm")
+            //                                     .Set("status", "P")
+            //                                     .CurrentDate("lastModified");
+            //var result = _collection.UpdateOne(filter,update);
+            return null;
         }
 
         public Task<TEntity> UpdateAsync(TEntity entity)
