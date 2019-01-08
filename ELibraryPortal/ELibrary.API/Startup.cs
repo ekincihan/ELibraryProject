@@ -66,6 +66,8 @@ namespace ELibrary.API
             services.AddTransient<IAuthor, EFAuthor>();
             services.AddTransient<IType, EFType>();
             services.AddTransient<IMongoTagCategoryAssigment, MongoCategoryTagAssigments>();
+            services.AddTransient<IMongoUserFavoritesAndReads, MongoUserFavoritesAndReads>();
+            services.AddTransient<IMongoUserRates, MongoUsersRate>();
 
             //services.AddAuthentication().AddFacebook(facebookOptions =>
             //{

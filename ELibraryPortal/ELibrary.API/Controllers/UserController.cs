@@ -8,6 +8,7 @@ using AutoMapper;
 using ELibrary.API.Models;
 using ELibrary.DAL.Abstract;
 using ELibrary.Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
@@ -30,9 +31,8 @@ namespace ELibrary.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost]
-        [Route("Rate")]
-        public async Task<ActionResult> Rate(UserRateModel model)
+        [HttpPost("Rate")]
+        public async Task<ActionResult> Rate([FromBody]UserRateModel model)
         {
             try
             {
