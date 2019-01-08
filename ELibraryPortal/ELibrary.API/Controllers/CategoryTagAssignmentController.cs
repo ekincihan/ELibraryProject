@@ -13,8 +13,9 @@ using MongoDB.Bson;
 
 namespace ELibrary.API.Controllers
 {
-    [Route("api/CategoryTagAssignment")]
     [ApiController]
+    [Route("api/CategoryTagAssignment")]
+    [Produces("application/json")]
     public class CategoryTagAssignmentController : ControllerBase
     {
         private readonly IMapper _mapper;

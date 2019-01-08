@@ -14,8 +14,9 @@ using Microsoft.AspNetCore.Routing;
 
 namespace ELibrary.API.Controllers
 {
-    [Route("api/User")]
     [ApiController]
+    [Route("api/User")]
+    [Produces("application/json")]
     public class UserController : ControllerBase
     {
         private readonly IMongoUserFavoritesAndReads _mongoUserFavorites;
