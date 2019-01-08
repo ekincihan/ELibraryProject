@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { SignInService } from './shared/signIn.service';
+import Swal from 'sweetalert2'
+import { Factory } from '../signin/factory';
+import { TokenService } from '../service/token.service';
 
 @Component({
   selector: 'signin',
@@ -14,6 +17,7 @@ export class SigninComponent implements OnInit {
   constructor(
     public bsModalRef: BsModalRef,
     private formBuilder: FormBuilder,
+    private tokenService: TokenService,
     private signInService :SignInService) { }
 
   ngOnInit() {
@@ -31,10 +35,19 @@ export class SigninComponent implements OnInit {
       // alert('valid');
       // alert(JSON.stringify(this.signIn.value))
       this.signInService.post('Account/Login',this.signIn.value).subscribe((res)=>{
-        console.log(res['value'])
+        if(res["isSuccess"]){
+          this.bsModalRef.hide();
+          this.tokenService.isLogin = true;
+          this.tokenService.isLoginChange.emit(true);
+          let factory: Factory = new Factory(res["value"]);
+        }else{
+          Swal('Oops...', res["message"], 'error')
+        }
+       
       })
       
     }else{
+      
       this.validateAllFormFields(this.signIn);
     }
   }

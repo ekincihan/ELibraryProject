@@ -3,18 +3,26 @@
     <div class="top-space position-relative">
       <h2 class="d-inline-block w-100 text-center mb-4">Kitaplar artık daha yakın!</h2>
       <div class="input-group dropdown">
-        <input type="text" id="dropdownMenuButton" class="form-control dropdown-toggle" placeholder="Arama..." data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autofocus>
+        <input type="text" id="dropdownMenuButton" class="form-control dropdown-toggle" placeholder="Arama..."
+        (keyup)="searchTerm$.next($event.target.value)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autofocus>
         <div class="input-group-append">
           <button class="btn input-group-text h-100"></button>
         </div>
         <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-          <span class="dropdown-item-text">Kitap</span>
+         <!--  <span class="dropdown-item-text">Kitap</span>
           <a class="dropdown-item text-truncate" href="#">Korkusuz Adam</a>
           <span class="dropdown-item-text">Yazar</span>
           <a class="dropdown-item text-truncate" href="#">Korkut Sönmez</a>
           <a class="dropdown-item text-truncate" href="#">Korkut Yılmaz</a>
           <span class="dropdown-item-text">Yayınevi</span>
-          <a class="dropdown-item text-truncate" href="#">Korkmaz Kitabevi</a>
+          <a class="dropdown-item text-truncate" href="#">Korkmaz Kitabevi</a> -->
+          <ul *ngIf="results">
+              <li *ngFor="let result of results">
+                <a target="_blank">
+                  {{ result.name }}
+                </a>
+              </li>
+            </ul>
         </div>
       </div>
     </div>

@@ -12,6 +12,9 @@
             <h3 class="widget-title">Kategori Ekle</h3>
         </div>
         <div class="widget-body">
+            <div class="form-group">
+                <a href="@Url.Action("Index", "Category")"style="float:right"> <input type="submit" class="btn btn-primary" value="Category Listele" /></a>
+            </div>
             <form asp-action="Save">
                 <input asp-for="categoryModel.Id" type="hidden" />
                 <div class="row">
@@ -19,9 +22,9 @@
                         <div class="form-group">
                             <label class="col-sm-3 col-md-4 control-label">Kategori Adı</label>
                             <div class="col-sm-9 col-md-8">
-                              
-                                    <input name="Name" value="" type="text" class="form-control pull-right">
-                               
+
+                                <input name="Name" value="" type="text" class="form-control pull-right">
+
                             </div>
                         </div>
                         @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -52,9 +55,7 @@
                 </div>
 
             </form>
-            <div class="form-group">
-                <a href="@Url.Action("Index", "Category")"> <input type="submit" class="btn btn-primary" value="Category Listele" /></a>
-            </div>
+
         </div>
     </div>
 </div>

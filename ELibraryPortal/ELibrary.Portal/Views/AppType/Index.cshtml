@@ -5,11 +5,14 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <div class="form-group">
+            <a href="@Url.Action("Save", "AppType")" style="float:right"> <input type="submit" class="btn btn-primary" value="Tür Ekle" /></a>
+        </div>
         <div class="widget no-border">
             <table id="order-table" style="width: 100%" class="table table-hover dt-responsive nowrap">
                 <thead>
                     <tr>
-                        <th style="width: 10%" class="text-center">Name</th>
+                        <th style="width: 10%" class="text-center">Tür Adı</th>
 
                         <th style="width: 15%" class="text-center">İşlemler</th>
                     </tr>
@@ -33,9 +36,7 @@
                     }
                 </tbody>
             </table>
-            <div class="form-group">
-                <a href="@Url.Action("Save", "AppType")"> <input type="submit" class="btn btn-primary" value="Tür Ekle" /></a>
-            </div>
+
         </div>
     </div>
 </div>

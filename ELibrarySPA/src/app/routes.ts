@@ -15,6 +15,6 @@ export const appRoutes: Routes = [
   { path: "kategori/detay", component: CategoryDetailComponent },
   { path: "yayinevi", component: PublisherComponent},
   { path: "yazar-detay/:authorId", component: AuthorDetailComponent },
-  { path: "user", component: UserComponent },
+  { path: "profil", component: UserComponent },
   { path: "**", redirectTo: "index", pathMatch: "full" }
 ];
