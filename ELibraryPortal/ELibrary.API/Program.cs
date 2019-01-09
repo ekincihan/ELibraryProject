@@ -17,7 +17,7 @@ namespace ELibrary.API
             CreateWebHostBuilder(args)
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
+                .UseKestrel()
                 .UseStartup<Startup>()
                 .Build().Run();
         }

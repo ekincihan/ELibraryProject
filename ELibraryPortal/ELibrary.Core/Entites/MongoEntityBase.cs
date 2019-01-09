@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using MongoDB.Bson;
 
 namespace ELibrary.Core.Entites
 {
-    public class MongoEntityBase<ObjectId>:IEntity
-    {
+    public class MongoEntityBase<ObjectId> : IEntity
+    {  
         [Key]
         public ObjectId Id { get; set; }
         public virtual Guid? CreatedBy { get; set; }
