@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {NgxMaskModule} from 'ngx-mask'
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+import { FormsModule } from '@angular/forms';
 
 /* COMPONENTS */
 import { AppComponent } from './app.component';
@@ -25,7 +26,8 @@ import { CategoryDetailComponent } from './category/category-detail/category-det
 import { PublisherComponent } from './publisher/publisher.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-import { UserComponent } from './User/User.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+
 /* SERVICES */
 import { IndexService } from './index/shared/index.service';
 import { AuthorDetailService } from './author-detail/shared/author-detail.service';
@@ -38,6 +40,10 @@ import { SignUpService } from './signup/shared/signUp.service';
 import { SignInService } from './signin/shared/signIn.service';
 import { TokenService } from './service/token.service';
 import { SearchService } from './index/shared/search.service';
+
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { trLocale } from 'ngx-bootstrap/locale';
+defineLocale('tr', trLocale);
 
 @NgModule({
     declarations: [
@@ -54,13 +60,14 @@ import { SearchService } from './index/shared/search.service';
         CategoryComponent,
         CategoryDetailComponent,
         PublisherComponent,
-        UserComponent,
         SigninComponent,
         SignupComponent,
+        UserProfileComponent
     ],
     imports: [
         BrowserModule,
         ReactiveFormsModule,
+        FormsModule,
         HttpClientModule,
         RouterModule.forRoot(appRoutes),
         ModalModule.forRoot(),

@@ -47,7 +47,6 @@ export class SigninComponent implements OnInit {
       })
       
     }else{
-      
       this.validateAllFormFields(this.signIn);
     }
   }

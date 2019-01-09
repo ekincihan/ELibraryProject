@@ -8,6 +8,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { SigninComponent } from "../signin/signin.component";
 import { SignupComponent } from "../signup/signup.component";
 import { TokenService } from "../service/token.service";
+import { Router } from "../../../node_modules/@angular/router";
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
@@ -23,8 +24,10 @@ export class HeaderComponent implements OnInit {
   constructor(
     private headerService: HeaderService,
     private modalService: BsModalService,
+    private router: Router,
     private tokenService: TokenService
   ) {
+    
     if (localStorage.getItem('token'))
       this.isLogin = true;
     this.tokenService.isLoginChange.subscribe(() => {
@@ -53,5 +56,6 @@ export class HeaderComponent implements OnInit {
   closeApp() {
     this.isLogin = false;
     localStorage.removeItem('token');
+    this.router.navigate(["./index"])
   }
 }

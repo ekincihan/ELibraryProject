@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { defineLocale } from 'ngx-bootstrap/chronos';
-import { trLocale } from 'ngx-bootstrap/locale';
 import { PasswordValidation } from '../signup/password-validation';
 import { SignUpService } from './shared/signUp.service';
-defineLocale('tr', trLocale);
 
 @Component({
   selector: 'signup',
