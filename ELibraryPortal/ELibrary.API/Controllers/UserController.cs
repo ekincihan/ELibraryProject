@@ -49,7 +49,6 @@ namespace ELibrary.API.Controllers
                     UserRates entity = _mapper.Map<UserRates>(model);
                     var addedEntity = await _userRates.AddAsync(entity);
                 }
-
             }
             catch (Exception e)
             {
