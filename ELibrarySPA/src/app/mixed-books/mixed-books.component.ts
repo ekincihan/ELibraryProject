@@ -43,7 +43,7 @@ export class MixedBooksComponent implements OnInit {
     rateBookModel.userId = this.user.id;
     //TODO: rateid gelecek rateBookModel.id = book.rateId
     rateBookModel.id = null;
-    rateBookModel.rate = 5
+    rateBookModel.rate = 4
     console.log('rateBookModel',rateBookModel);
 
     this.mixedService.post('User/Rate',rateBookModel).subscribe((res) =>{

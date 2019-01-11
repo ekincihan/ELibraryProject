@@ -15,8 +15,6 @@ export class SearchComponent implements OnInit {
     this.searchService.search(this.searchTerm$)
       .subscribe(results => {
         this.results = results;
-        console.log('this.results',this.results);
-        
       });
   }
 
