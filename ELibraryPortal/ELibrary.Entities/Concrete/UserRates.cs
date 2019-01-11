@@ -9,8 +9,8 @@ namespace ELibrary.Entities.Concrete
 {
     public class UserRates : MongoEntityBase<ObjectId>
     {
-        [BsonElement("AuthorId")]
-        public Guid AuthorId { get; set; }
+        [BsonElement("UserId")]
+        public Guid UserId { get; set; }
         [BsonElement("BookId")]
         public Guid BookId { get; set; }
         [BsonElement("Rate")]

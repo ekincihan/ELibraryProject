@@ -7,7 +7,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ELibrary.Core.Entites
 {
-    public class MongoEntityBase<ObjectId> : BsonDocument,IEntity
+    public class MongoEntityBase<ObjectId> :IEntity
     {  
         [BsonId]
         public ObjectId _id { get; set; }
