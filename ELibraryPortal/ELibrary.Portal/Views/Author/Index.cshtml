@@ -31,7 +31,7 @@
                             <td>
                                 <span class="text-left">@($"{item.Name} {item.Surname }")</span>
                             </td>
-                            <td>@{string gender = item.Gender == 1 ? "Kadın" : "erkek";} @gender</td>
+                            <td>@{string gender = item.Gender == 1 ? "Kadın" : "Erkek";} @gender</td>
                             <td>@(item.Birthdate.HasValue ? item.Birthdate.Value.ToString("dd.MM.yyyy") : "")</td>
                             <td><a href="javascript:;"> @($"{item.Books.Count} adet")</a></td>
                             <td class="text-center">

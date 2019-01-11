@@ -1,6 +1,7 @@
 export class User{
-    age: number;
-    birthdate: string
+    id: string
+    age: number
+    birthdate: Date
     email: string
     gender: string
     name: string

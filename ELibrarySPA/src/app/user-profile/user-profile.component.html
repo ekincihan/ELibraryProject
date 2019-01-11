@@ -34,22 +34,25 @@
                     <div class="col-12 col-sm-6">
                       <div class="form-group">
                         <label>Ad Soyad</label>
-                        <input type="text" class="form-control" value="Mehmet Sönmezoğlu">
+                        <input type="text" class="form-control" [value]="user.name +' '+ user.surname">
                       </div>
                       <div class="form-group">
                         <label>Doğum Tarihi</label>
-                        <input type="date" class="form-control">
+
+                        <input class="form-control" id="birthdate"
+                        [bsValue]="user.birthdate"
+                         [(ngModel)]="user.birthdate"  name="birthdate"  bsDatepicker [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY' }">
                       </div>
                     </div>
       
                     <div class="col-12 col-sm-6">
                       <div class="form-group">
                         <label>E-Mail</label>
-                        <input type="text" class="form-control" value="msonmezoglu@gmail.com">
+                        <input type="text" class="form-control" [value]="user.email">
                       </div>
                       <div class="form-group">
                         <label>CEp Telefonu</label>
-                        <input type="text" class="form-control" value="0567 978 30 12">
+                        <input type="text" class="form-control" [value]="user.phoneNumber">
                       </div>
                     </div>
       

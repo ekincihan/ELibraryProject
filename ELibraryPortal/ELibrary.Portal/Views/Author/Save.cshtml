@@ -45,21 +45,21 @@
                     <label class="text-capitalize">Cinsiyet</label>
                     <div class="has-success">
                         <div class="radio-custom">
-                            <input id="radioFemale" asp-for="Gender" type="radio" name="radioStates" value="0">
+                            <input id="radioFemale" asp-for="Gender" type="radio" name="radioStates" value="1">
                             <label for="radioFemale" class="radio-success">Kadın</label>
                         </div>
                     </div>
                     <div class="has-warning">
                         <div class="radio-custom">
-                            <input id="radioMale" asp-for="Gender" type="radio" name="radioStates" value="1">
+                            <input id="radioMale" asp-for="Gender" type="radio" name="radioStates" value="0">
                             <label for="radioMale" class="radio-warning">Erkek</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Resim</label>
-                    <label>Resim</label>
-                    <input id="FileBasic" name="FormFile" asp-for="FormFile" placeholder="PNG | JPG" type="file">
+                    <label></label>
+                    <input id="FileBasic" name="FormFile" asp-for="FormFile" placeholder="PNG | JPG" type="file" value="Resim Ekle">
                 </div>
                 <div class="form-group">
                     <div class="has-success">
