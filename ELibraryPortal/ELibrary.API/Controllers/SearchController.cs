@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ELibrary.DAL.Abstract;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 
 namespace ELibrary.API.Controllers
 {
@@ -12,10 +13,20 @@ namespace ELibrary.API.Controllers
     [ApiController]
     public class SearchController : ControllerBase
     {
-        //public IMongoTagCategoryAssigment _MongoTagCategory;
-        //public void Result()
-        //{
-        //    return null;
-        //}
+        private readonly IMongoTagCategoryAssigment _mongoTagCategory;
+
+        public SearchController(IMongoTagCategoryAssigment mongoTagCategory)
+        {
+            _mongoTagCategory = mongoTagCategory;
+        }
+
+        [HttpGet("Get")]
+        public void Result([FromBody]string searchKey)
+        {
+
+            var entity = _mongoTagCategory.Search(searchKey);
+
+            //return null/*;*/
+        }
     }
 }

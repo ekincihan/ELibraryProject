@@ -59,5 +59,11 @@ namespace ELibrary.API.Controllers
         }
 
 
+        [HttpPost("Rate")]
+        public ActionResult GetRates(string userId)
+        {
+            List<UserRates> rates =  _userRates.GetList(null);
+            return null;
+        }
     }
 }
