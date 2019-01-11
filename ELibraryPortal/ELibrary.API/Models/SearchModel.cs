@@ -14,13 +14,13 @@ namespace ELibrary.API.Models
 
     public class AuthorSearchModel
     {
-        public Guid Id { get; }
-        public string Name { get; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
     }
 
     public class BookSearchModel
     {
-        public Guid Id { get; }
-        public string Name { get; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
     }
 }

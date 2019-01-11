@@ -31,10 +31,10 @@ namespace ELibrary.DAL.Concrete.MongoDB
 
         public List<CategoryTagAssigment> Search(string value)
         {
-              var results = _collection.Find(x => x.AuthorName.Contains(value) || 
-                                                  x.AuthorSurname.Contains(value) ||
-                                                  x.BookName.Contains(value)||
-                                                  x.PublisherName.Contains(value)).ToList();
+              var results = _collection.Find(x => x.AuthorName.ToLower().Contains(value.ToLower()) || 
+                                                  x.AuthorSurname.ToLower().Contains(value.ToLower()) ||
+                                                  x.BookName.ToLower().Contains(value.ToLower()) ||
+                                                  x.PublisherName.ToLower().Contains(value.ToLower())).ToList();
 
             return results;
 

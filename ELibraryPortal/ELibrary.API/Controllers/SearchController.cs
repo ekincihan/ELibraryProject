@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ELibrary.API.Models;
 using ELibrary.DAL.Abstract;
+using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
@@ -21,12 +23,40 @@ namespace ELibrary.API.Controllers
         }
 
         [HttpGet("Get")]
-        public void Result([FromBody]string searchKey)
+        public SearchModel Result(string searchKey)
         {
+            SearchModel model = new SearchModel();
+            List<AuthorSearchModel> authors = new List<AuthorSearchModel>();
+            List<BookSearchModel> books = new List<BookSearchModel>();
+            List<PublisherModel> publishers = new List<PublisherModel>();
 
-            var entity = _mongoTagCategory.Search(searchKey);
+            List<CategoryTagAssigment> entity = _mongoTagCategory.Search(searchKey);
 
-            //return null/*;*/
+            foreach (var item in entity)
+            {
+                AuthorSearchModel author = new AuthorSearchModel();
+                BookSearchModel book = new BookSearchModel();
+                PublisherModel publisher = new PublisherModel();
+
+                author.Id = item.AuthorId;
+                author.Name = item.AuthorName;
+
+                book.Id = item.BookId;
+                book.Name = item.BookName;
+
+                publisher.Id = item.PublisherId;
+                publisher.Name = item.PublisherName;
+
+                authors.Add(author);
+                books.Add(book);
+                publishers.Add(publisher);
+            }
+
+            model.Authors = authors;
+            model.Books = books;
+            model.Publishers = publishers;
+
+            return model;
         }
     }
 }
