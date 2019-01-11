@@ -18,7 +18,6 @@ export class Factory{
         this.user.surname = loginResponse["surname"];
         this.user.userName = loginResponse["userName"];
         this.user.id = loginResponse["id"];
-        console.log('this.user.birthdate',this.user.birthdate);
         
         localStorage.setItem('token',loginResponse["bearerToken"]);
         localStorage.setItem('user',JSON.stringify(this.user))

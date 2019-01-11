@@ -9,6 +9,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {NgxMaskModule} from 'ngx-mask'
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { FormsModule } from '@angular/forms';
+import { RatingModule } from 'ngx-bootstrap/rating';
+
 
 /* COMPONENTS */
 import { AppComponent } from './app.component';
@@ -73,7 +75,8 @@ defineLocale('tr', trLocale);
         ModalModule.forRoot(),
         BsDatepickerModule.forRoot(),
         NgxMaskModule.forRoot(),
-        SweetAlert2Module.forRoot()
+        SweetAlert2Module.forRoot(),
+        RatingModule.forRoot()
     ],
     providers: [
         IndexService,
