@@ -6,7 +6,7 @@ using ELibrary.Entities.Concrete;
 
 namespace ELibrary.DAL.Abstract
 {
-    public interface IMongoUserRates : IEntityRepository<UserRates>
+    public interface IMongoUserRates : IMongoEntityRepository<UserRates>
     {
     }
 }

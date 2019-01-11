@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace ELibrary.API.Controllers
 {
@@ -36,9 +38,18 @@ namespace ELibrary.API.Controllers
         {
             try
             {
-                UserRates entity = _mapper.Map<UserRates>(model);
-                //entity = await(model.Id != Guid.Empty ? _userRates.UpdateAsync(entity) : _userRates.AddAsync(entity));
-                entity = await _userRates.AddAsync(entity);
+                if (model.Id != null)
+                {
+                    var filter1 = Builders<UserRates>.Filter.Eq("_id", ObjectId.Parse(model.Id));
+                    var update2 = Builders<UserRates>.Update.Set("Rate", model.Rate);
+                    var response = await _userRates.UpdateAsync(filter1, update2);
+                }
+                else
+                {
+                    UserRates entity = _mapper.Map<UserRates>(model);
+                    var addedEntity = await _userRates.AddAsync(entity);
+                }
+
             }
             catch (Exception e)
             {

@@ -11,11 +11,12 @@ using MongoDB.Driver;
 
 namespace ELibrary.Core.DataAccess.MongoDB
 {
-    public class MongoDBRepository<TEntity> : IEntityRepository<TEntity> where TEntity : class, IEntity, new()
+    public class MongoDBRepository<TEntity> : IMongoEntityRepository<TEntity> where TEntity : class, IEntity, new()
     {
         private readonly IMongoDatabase database;
         private readonly IMongoCollection<TEntity> _collection;
-       
+        private readonly IMongoCollection<BsonDocument> _collectionbson;
+
         public MongoDBRepository()
         {
             string connectionString =
@@ -28,9 +29,10 @@ namespace ELibrary.Core.DataAccess.MongoDB
             var mongoClient = new MongoClient(settings);
             database = mongoClient.GetDatabase("ELibrary");
             _collection = database.GetCollection<TEntity>(typeof(TEntity).Name);
+            _collectionbson = database.GetCollection<BsonDocument>(typeof(TEntity).Name);
         }
 
-        public TEntity GetT(Expression<Func<TEntity, bool>> filter = null)  
+        public TEntity GetT(Expression<Func<TEntity, bool>> filter = null)
         {
             return null;
         }
@@ -43,7 +45,7 @@ namespace ELibrary.Core.DataAccess.MongoDB
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
-            List<TEntity> list = filter == null ? _collection.AsQueryable().ToList(): _collection.Find<TEntity>(filter).ToList();
+            List<TEntity> list = filter == null ? _collection.AsQueryable().ToList() : _collection.Find<TEntity>(filter).ToList();
 
             return list;
         }
@@ -55,7 +57,7 @@ namespace ELibrary.Core.DataAccess.MongoDB
 
         public TEntity Add(TEntity entity)
         {
-             _collection.InsertOne(entity);
+            _collection.InsertOne(entity);
 
             return entity;
         }
@@ -67,19 +69,18 @@ namespace ELibrary.Core.DataAccess.MongoDB
             return entity;
         }
 
-        public TEntity Update(TEntity entity)
+        public bool Update(FilterDefinition<TEntity> filter, UpdateDefinition<TEntity> updateDefinition)
         {
-            //var filter = Builders<TEntity>.Filter.Eq(entity,typeof(TEntity).Id);
-            //var update = Builders<TEntity>.Update.Set("size.uom", "cm")
-            //                                     .Set("status", "P")
-            //                                     .CurrentDate("lastModified");
-            //var result = _collection.UpdateOne(filter,update);
-            return null;
+            var result = _collection.UpdateOne(filter, updateDefinition);
+
+            return result.IsModifiedCountAvailable;
         }
 
-        public Task<TEntity> UpdateAsync(TEntity entity)
+        public async Task<bool> UpdateAsync(FilterDefinition<TEntity> filter, UpdateDefinition<TEntity> updateDefinition)
         {
-            throw new NotImplementedException();
+            var result = await _collection.UpdateOneAsync(filter, updateDefinition);
+
+            return result.IsModifiedCountAvailable;
         }
 
         public void Delete(TEntity entity)

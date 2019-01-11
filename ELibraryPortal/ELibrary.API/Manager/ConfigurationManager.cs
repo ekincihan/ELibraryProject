@@ -29,9 +29,9 @@ namespace ELibrary.API.Configuration
 
         private ConfigurationManager()
         {
-            //var appsettings = Path.Combine($"{ Directory.GetParent(Directory.GetCurrentDirectory())}/ELibrary.API", "appsettings.json");
+            var appsettings = Path.Combine($"{ Directory.GetParent(Directory.GetCurrentDirectory())}/ELibrary.API", "appsettings.json");
             //deploy olurken
-            var appsettings = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
+            //var appsettings = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
             _configuration = new ConfigurationBuilder().AddJsonFile(appsettings, false).Build();
         }
 

@@ -6,7 +6,7 @@ using ELibrary.Entities.Concrete;
 
 namespace ELibrary.DAL.Abstract
 {
-    public interface IMongoUserFavoritesAndReads : IEntityRepository<UsersFavoritesAndReads>
+    public interface IMongoUserFavoritesAndReads : IMongoEntityRepository<UsersFavoritesAndReads>
     {
     }
 }
