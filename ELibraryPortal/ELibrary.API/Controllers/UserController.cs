@@ -20,6 +20,7 @@ namespace ELibrary.API.Controllers
     [ApiController]
     [Route("api/User")]
     [Produces("application/json")]
+    [AllowAnonymous]
     public class UserController : ControllerBase
     {
         private readonly IMongoUserFavoritesAndReads _mongoUserFavorites;
@@ -59,5 +60,11 @@ namespace ELibrary.API.Controllers
         }
 
 
+        [HttpGet("GetRates")]
+        public ActionResult GetRates(string userId)
+        {
+            List<UserRates> rates =  _userRates.GetList(null);
+            return null;
+        }
     }
 }
