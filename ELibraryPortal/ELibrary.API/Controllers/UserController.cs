@@ -40,9 +40,9 @@ namespace ELibrary.API.Controllers
             {
                 if (model.Id != null)
                 {
-                    var filter1 = Builders<UserRates>.Filter.Eq("_id", ObjectId.Parse(model.Id));
-                    var update2 = Builders<UserRates>.Update.Set("Rate", model.Rate);
-                    var response = await _userRates.UpdateAsync(filter1, update2);
+                    var filter = Builders<UserRates>.Filter.Eq("_id", ObjectId.Parse(model.Id));
+                    var update = Builders<UserRates>.Update.Set("Rate", model.Rate);
+                    var response = await _userRates.UpdateAsync(filter, update);
                 }
                 else
                 {
