@@ -10,7 +10,7 @@ namespace ELibrary.API.Models
     {
         public string Id { get; set; }
         public string Token { get; set; }
-        public Guid AuthorId{ get; set; }
+        public Guid UserId{ get; set; }
         public Guid BookId{ get; set; }
         public int Rate{ get; set; }
     }

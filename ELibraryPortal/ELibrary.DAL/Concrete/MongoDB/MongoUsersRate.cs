@@ -9,5 +9,6 @@ namespace ELibrary.DAL.Concrete.MongoDB
 {
     public class MongoUsersRate : MongoDBRepository<UserRates>, IMongoUserRates
     {
+
     }
 }

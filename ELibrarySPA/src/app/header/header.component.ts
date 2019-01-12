@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('token'))
       this.isLogin = true;
     this.tokenService.isLoginChange.subscribe(() => {
-      this.isLogin = true;
+      this.isLogin = this.tokenService.getIsLogin();
     })
 
   }
@@ -54,7 +54,8 @@ export class HeaderComponent implements OnInit {
   }
 
   closeApp() {
-    this.isLogin = false;
+    this.tokenService.isLogin = false;
+    this.tokenService.isLoginChange.emit(false);
     localStorage.removeItem('token');
     this.router.navigate(["./index"])
   }

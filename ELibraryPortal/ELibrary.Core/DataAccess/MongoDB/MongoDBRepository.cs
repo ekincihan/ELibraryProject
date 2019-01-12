@@ -13,9 +13,8 @@ namespace ELibrary.Core.DataAccess.MongoDB
 {
     public class MongoDBRepository<TEntity> : IMongoEntityRepository<TEntity> where TEntity : class, IEntity, new()
     {
-        private readonly IMongoDatabase database;
+        private readonly IMongoDatabase _database;
         private readonly IMongoCollection<TEntity> _collection;
-        private readonly IMongoCollection<BsonDocument> _collectionbson;
 
         public MongoDBRepository()
         {
@@ -27,9 +26,8 @@ namespace ELibrary.Core.DataAccess.MongoDB
             settings.SslSettings =
                 new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
             var mongoClient = new MongoClient(settings);
-            database = mongoClient.GetDatabase("ELibrary");
-            _collection = database.GetCollection<TEntity>(typeof(TEntity).Name);
-            _collectionbson = database.GetCollection<BsonDocument>(typeof(TEntity).Name);
+            _database = mongoClient.GetDatabase("ELibrary");
+            _collection = _database.GetCollection<TEntity>(typeof(TEntity).Name);
         }
 
         public TEntity GetT(Expression<Func<TEntity, bool>> filter = null)
@@ -82,6 +80,7 @@ namespace ELibrary.Core.DataAccess.MongoDB
 
             return result.IsModifiedCountAvailable;
         }
+    
 
         public void Delete(TEntity entity)
         {
@@ -92,5 +91,6 @@ namespace ELibrary.Core.DataAccess.MongoDB
         {
             throw new NotImplementedException();
         }
+       
     }
 }
