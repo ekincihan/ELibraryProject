@@ -41,6 +41,7 @@ namespace ELibrary.API.Models
         public Guid AuthorId { get; set; }
         public string ISBN { get; set; }
         public DateTime EditionDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
         public int NumberPages { get; set; }
         public Base64FormattingOptions BookPhoto { get; set; }
         public bool IsActive { get; set; } = true;
