@@ -23,7 +23,7 @@
                             <label class="col-sm-3 col-md-4 control-label">Kategori Adı</label>
                             <div class="col-sm-9 col-md-8">
 
-                                <input asp-for="categoryModel.Name" required type="text" class="form-control">
+                                <input asp-for="categoryModel.Name" required type="text" class="form-control" id="CategoryName">
 
                                 @*<input name="Name" value="" type="text" class="form-control pull-right">*@
 
@@ -80,6 +80,7 @@
                 console.log(data);
                 if (data.isSuccess) {
                     swal("Basarili!", "Kaydedildi!", "success");
+                    document.getElementById("CategoryName").value = "";
                 }
                 else {
                     swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
@@ -90,5 +91,4 @@
             }
         });
     });
-
 </script>
