@@ -54,9 +54,9 @@ namespace ELibrary.Portal.Controllers
         }
 
         [HttpPost]
-        public JsonResult Save(CategoryModel model)
+        public JsonResult Save(CategoryPageModel model)
         {
-            Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Post("Category", "Save", JsonConvert.SerializeObject(model)));
+            Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Post("Category", "Save", JsonConvert.SerializeObject(model.categoryModel)));
 
             return Json(responseSaving);
         }

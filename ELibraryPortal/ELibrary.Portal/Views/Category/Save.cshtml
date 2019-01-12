@@ -23,37 +23,46 @@
                             <label class="col-sm-3 col-md-4 control-label">Kategori Adı</label>
                             <div class="col-sm-9 col-md-8">
 
-                                <input name="Name" value="" type="text" class="form-control pull-right">
+                                <input asp-for="categoryModel.Name" required type="text" class="form-control">
+
+                                @*<input name="Name" value="" type="text" class="form-control pull-right">*@
 
                             </div>
                         </div>
                         @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="catogoryModel.Name" class="control-label"></label>
-                        <input asp-for="catogoryModel.Name" class="form-control" />
-                        <span asp-validation-for="catogoryModel.Name" class="text-danger"></span>*@
+                <div class="form-group">
+                    <label asp-for="catogoryModel.Name" class="control-label"></label>
+                    <input asp-for="catogoryModel.Name" class="form-control" />
+                    <span asp-validation-for="catogoryModel.Name" class="text-danger"></span>*@
                         <div class="form-group">
                             <label class="col-sm-3 col-md-4 control-label">Tür Adı </label>
+                            @*<div class="col-sm-9 col-md-8">*@
                             <div class="col-sm-9 col-md-8">
-                                <select name="AppTypeId" class="form-control  pull-right">
-                                    <option value="-1">--Lütfen Seçiniz--</option>
-                                    @foreach (var item in Model.TypeList)
-                                    {
+                                <div class="input-group">
+                                    <select id="category" asp-for="categoryModel.AppTypeId " required placeholder="seçiniz..." class="form-control">
+                                        <option value="-1">--Lütfen Seçiniz--</option>
+                                        @foreach (var item in Model.TypeList)
+                                        {
 
-                                        <option value="@item.Id">@item.Name</option>
-                                    }
-                                </select>
-                                <div>
-                                    <a href="@Url.Action("Save", "AppType")"> Tür Ekle <i class="ti-pencil"></i></a>
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+
+                                    </select>
+                                    <span class="input-group-btn">
+                                        <a href="@Url.Action("Save", "AppType")" class="btn btn-outline btn-default"><i class="glyphicon glyphicon-plus"> </i></a>
+                                    </span>
                                 </div>
                             </div>
-                            <div class="form-group" style="padding-right:15px">
-                                <input type="submit" value="Oluştur" class="btn btn-primary pull-right" />
+                            <div>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
-
+                <div class="form-group" style="padding-right:15px">
+                    <input type="submit" value="Oluştur" class="btn btn-primary pull-right" />
+                </div>
             </form>
 
         </div>
