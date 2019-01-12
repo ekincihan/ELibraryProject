@@ -67,6 +67,7 @@ namespace ELibrary.Portal.Controllers
         public async Task<JsonResult> Save(BookPageModel model)
         {
             Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model.bookModel)));
+          
 
             AppFileFilterModel appFileFilterModel = new AppFileFilterModel
             {
@@ -89,6 +90,9 @@ namespace ELibrary.Portal.Controllers
             model.bookModel.CategoryTagAssigment.AuthorId = model.bookModel.AuthorId;
             model.bookModel.CategoryTagAssigment.AuthorSurname = model.bookModel.Author.Surname;
             model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.AuthorId;
+            model.bookModel.CategoryTagAssigment.BookSummary = model.bookModel.BookSummary;
+           // model.bookModel.CategoryTagAssigment.CategoryId = model.bookModel.CategoryId;
+            
 
 
             JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.bookModel.CategoryTagAssigment)));

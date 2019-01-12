@@ -53,7 +53,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 col-md-4 control-label">Sayfa Sayısı</label>
                                                 <div class="col-sm-9 col-md-8">
-                                                    <input asp-for="bookModel.NumberPage" type="number" class="form-control">
+                                                    <input asp-for="bookModel.NumberPages" type="number" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +62,7 @@
                                                 <label class="col-sm-3 col-md-4 control-label">Yayın Evi </label>
                                                 <div class="col-sm-9 col-md-8">
                                                     <div class="input-group">
-                                                        <select id="publishers" asp-for="bookModel.PublisherId " required placeholder="seçiniz..." class="form-control">
+                                                        <select id="publishers" asp-for="bookModel.PublisherId" required placeholder="seçiniz..." class="form-control">
                                                             <option value="">--Seçiniz--</option>
                                                             @foreach (var item in Model.PubLisherList)
                                                             {
