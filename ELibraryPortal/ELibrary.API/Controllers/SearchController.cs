@@ -7,6 +7,7 @@ using ELibrary.DAL.Abstract;
 using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 using MongoDB.Driver;
 
 namespace ELibrary.API.Controllers
@@ -31,7 +32,6 @@ namespace ELibrary.API.Controllers
             List<PublisherModel> publishers = new List<PublisherModel>();
 
             List<CategoryTagAssigment> entity = _mongoTagCategory.Search(searchKey);
-
             foreach (var item in entity)
             {
                 AuthorSearchModel author = new AuthorSearchModel();
@@ -39,7 +39,7 @@ namespace ELibrary.API.Controllers
                 PublisherModel publisher = new PublisherModel();
 
                 author.Id = item.AuthorId;
-                author.Name = item.AuthorName;
+                author.Name = item.AuthorName + item.AuthorSurname;
 
                 book.Id = item.BookId;
                 book.Name = item.BookName;
@@ -52,9 +52,9 @@ namespace ELibrary.API.Controllers
                 publishers.Add(publisher);
             }
 
-            model.Authors = authors;
-            model.Books = books;
-            model.Publishers = publishers;
+            model.Authors = authors.GroupBy(x=>x.Id).Select(x=>x.First()).ToList();
+            model.Books = books.GroupBy(x => x.Id).Select(x => x.First()).ToList();
+            model.Publishers = publishers.GroupBy(x => x.Name).Select(x => x.First()).ToList();
 
             return model;
         }

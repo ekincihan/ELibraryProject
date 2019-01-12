@@ -45,6 +45,7 @@ import { SearchService } from './index/shared/search.service';
 
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { trLocale } from 'ngx-bootstrap/locale';
+import { BookService } from './book-detail/shared/book.service';
 defineLocale('tr', trLocale);
 
 @NgModule({
@@ -87,7 +88,8 @@ defineLocale('tr', trLocale);
         SignUpService,
         SignInService,
         TokenService,
-        SearchService
+        SearchService,
+        BookService
     ],
     bootstrap: [
         AppComponent

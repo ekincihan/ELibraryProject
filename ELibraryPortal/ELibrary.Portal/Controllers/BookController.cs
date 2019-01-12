@@ -75,7 +75,7 @@ namespace ELibrary.Portal.Controllers
                 File = model.Thumbnail
             };
 
-            await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+            var thumbNail = await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
 
             appFileFilterModel.File = model.Publication;
             appFileFilterModel.ModuleType = API.Models.Enum.Enum.Module.Publication;
@@ -84,10 +84,11 @@ namespace ELibrary.Portal.Controllers
 
             model.bookModel.CategoryTagAssigment.BookId = responseSaving.Value.Id;
             model.bookModel.CategoryTagAssigment.BookName = model.bookModel.BookName;
-            model.bookModel.CategoryTagAssigment.SignUrl = "https://imageserver.kitapyurdu.com/select.php?imageid=46240&width=100&isWatermarked=true";
-            model.bookModel.CategoryTagAssigment.AuthorId = model.bookModel.AuthorId;
-            model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.AuthorId;
             model.bookModel.CategoryTagAssigment.BookSummary = model.bookModel.BookSummary;
+            model.bookModel.CategoryTagAssigment.SignUrl = thumbNail.Value.SignUrl;
+            model.bookModel.CategoryTagAssigment.AuthorId = model.bookModel.AuthorId;
+            model.bookModel.CategoryTagAssigment.AuthorSurname = model.bookModel.Author.Surname;
+            model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.AuthorId;
 
 
             JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.bookModel.CategoryTagAssigment)));

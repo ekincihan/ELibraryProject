@@ -10,7 +10,7 @@ import { UserProfileComponent } from "./user-profile/user-profile.component";
 
 export const appRoutes: Routes = [
   { path: "index", component: IndexComponent },
-  { path: "kitap-detay", component: BookDetailComponent },
+  { path: "kitap-detay/:bookId", component: BookDetailComponent },
   { path: "kategoriler", component: CategoryComponent },
   { path: "kategori/detay", component: CategoryDetailComponent },
   { path: "yayinevi", component: PublisherComponent},

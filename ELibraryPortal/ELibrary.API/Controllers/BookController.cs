@@ -81,6 +81,16 @@ namespace ELibrary.API.Controllers
             return bookResponse;
         }
 
+        [HttpGet]
+        [Route("Detail/{id}")]
+        public async Task<Response<BookModel>> BookDetail(Guid id)
+        {
+            Response<BookModel> bookResponse = new Response<BookModel>();
+            Book entityList = await _book.GetTAsync(x => x.Id == id);
+            bookResponse.Value = _mapper.Map<BookModel>(entityList);
+
+            return bookResponse;
+        }
 
     }
 }

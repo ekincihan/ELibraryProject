@@ -24,9 +24,8 @@ export class AuthorDetailComponent implements OnInit {
         console.log('YAZAR BİLGİLERİ',res["value"]);
         console.log("kitaplar istendi")
         this.author = res["value"];
-        this.authorBook(params["authorId"]);
      });
-      
+     this.authorBook(params["authorId"]);
     });
   }
 

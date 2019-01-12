@@ -17,7 +17,7 @@
           <div [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}"></div>
           <div class="cover position-absolute blurred" [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}"></div>
           <a href="javascript:void(0)" class="d-inline-block w-100">
-            <div class="title mb-1 text-truncate"><b>{{item?.bookName}}</b></div>
+            <div class="title mb-1 text-truncate" routerLink="/kitap-detay/{{item.id}}"><b>{{item?.bookName}}</b></div>
           </a>
           <a href="javascript:void(0)" class="d-inline-block w-100">
             <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{item.author.id}}">{{item?.author?.name}}
