@@ -16,7 +16,6 @@ export class RequestManagerService {
   }
 
   get(path: string) {
-    console.log('getUrl:'+this.url+path)
     return this.http.get(this.url + path).pipe(catchError(this.handleError));
   }
 
