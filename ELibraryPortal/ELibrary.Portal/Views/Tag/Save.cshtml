@@ -21,7 +21,7 @@
                 <input asp-for="Id" type="hidden" />
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
+                    <input asp-for="Name" class="form-control" id="TagName"/>
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -44,6 +44,7 @@
                 console.log(data);
                 if (data.isSuccess) {
                     swal("Basarili!", "Kaydedildi!", "success");
+                    document.getElementById("TagName").value = "";
                 }
                 else {
                     swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");

@@ -14,14 +14,11 @@ import { User } from "../signin/shared/user";
 export class MixedBooksComponent implements OnInit {
   @Input("data") data: Array<any>[];
   max = 5;
-  rate = 2;
   isLogin = false;
-  ratedBook: BookRate;
+  ratedBooks: BookRate[];
   user: User;
   constructor(
     private mixedService: MixedBooksService,
-    private router: Router,
-    private cdr: ChangeDetectorRef,
     public tokenService: TokenService) {
 
     this.user = (localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : null;
@@ -29,34 +26,46 @@ export class MixedBooksComponent implements OnInit {
       this.isLogin = this.tokenService.getIsLogin();
     })
 
+   
 
   }
   ngOnInit() {
+    if(this.user){
+      this.mixedService.get('User/Rate/'+this.user.id).subscribe((res: any) =>{
+        if(res.length == 0)
+          this.setRatedBooks();
+        else
+          this.ratedBooks = res;
+      })
+    }
+  }
+  
+  setRatedBooks(){
+    this.ratedBooks = new Array<BookRate>();
+    this.data.forEach(book => {
+      this.ratedBooks.push(this.newBookRate(book));
+    });
   }
 
   confirmSelection(book) {
-    //this.ratedBook = this.rateBook(book);
-    console.log('book',book);
+   
+    console.log('rateBııkModel',book);
+    
+    this.mixedService.post('User/Rate',book).subscribe((res) =>{
+      console.log('res',res);
+      
+    })
+  }
+
+  newBookRate(book){
     let rateBookModel: BookRate = new BookRate();
     rateBookModel.bookId = book["id"];
     rateBookModel.token = localStorage.getItem('token');
     rateBookModel.userId = this.user.id;
     //TODO: rateid gelecek rateBookModel.id = book.rateId
-    rateBookModel.id = null;
-    rateBookModel.rate = 4
-    console.log('rateBookModel',rateBookModel);
-
-    this.mixedService.post('User/Rate',rateBookModel).subscribe((res) =>{
-      console.log('res',res);
-      
-    })
-
-
-  }
-
-  rateBook(book) {
- 
-    return null;
+    //rateBookModel.id = (book.id) ? book.id : null;
+    rateBookModel.rate = (book.rate) ? book.rate : 0;
+    return rateBookModel;
   }
 
 }

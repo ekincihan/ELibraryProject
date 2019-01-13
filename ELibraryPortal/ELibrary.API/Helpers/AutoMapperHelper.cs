@@ -65,6 +65,11 @@ namespace ELibrary.API.Helpers
             CreateMap<UserRates, UserRateModel>();
             CreateMap<UserRateModel, UserRates>();
             #endregion
+
+            #region FavoriteAndRate
+            CreateMap<MongoBook, UserFavoriteAndReadModel>();
+            CreateMap<UserFavoriteAndReadModel, MongoBook>();
+            #endregion
         }
     }
 }

@@ -23,7 +23,7 @@ namespace ELibrary.Portal.Controllers
         {
             if (!TryValidateModel(model))
                 return View(model);
-            Response<ApplicationUser> responseSaving = JsonConvert.DeserializeObject<Response<ApplicationUser>>(UiRequestManager.Instance.Post("Account", "Login", JsonConvert.SerializeObject(model)));
+            Response<ApplicationUser> responseSaving = JsonConvert.DeserializeObject<Response<ApplicationUser>>(UiRequestManager.Instance.Post("Account", "PortalLogin", JsonConvert.SerializeObject(model)));
 
             return RedirectToAction("Index", "Home");
         }

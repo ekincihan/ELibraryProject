@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using ELibrary.Core.Entites;
-using MongoDB.Bson;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ELibrary.Entities.Concrete
+namespace ELibrary.API.Models
 {
-    public class UsersFavoritesAndReads : MongoEntityBase<ObjectId>
+    public class UserFavoriteAndReadModel
     {
+        public string Id { get; set; }
+        public string Token { get; set; }
         public Guid UserId { get; set; }
-        public List<MongoBook> Favorites { get; set; }
-        public List<MongoBook> Reads { get; set; }
-    }
-
-    public class MongoBook
-    {
         public int Rate { get; set; }
         public Guid CategoryId { get; set; }
         public string CategoryName { get; set; }
@@ -27,5 +22,4 @@ namespace ELibrary.Entities.Concrete
         public Guid PublisherId { get; set; }
         public string PublisherName { get; set; }
     }
-
 }
