@@ -60,7 +60,6 @@ namespace ELibrary.API.Controllers
             return StatusCode(200);
         }
 
-
         [HttpGet]
         [Route("Rate/{id}")]
         public List<UserRateModel> GetRates(Guid id)
@@ -71,20 +70,60 @@ namespace ELibrary.API.Controllers
             return models;
         }
 
+        [HttpGet]
+        [Route("GetFavAndReads/{id}")]
+        public UserFavoriteAndReadResponseModel GetFavAndReads(Guid id)
+        {
+            UserFavoriteAndReadResponseModel model = new UserFavoriteAndReadResponseModel();
+            List<UserFavoriteAndReadModel> reads = new List<UserFavoriteAndReadModel>();
+            List<UserFavoriteAndReadModel> favorites = new List<UserFavoriteAndReadModel>();
+            List<UsersFavoritesAndReads> entities = _mongoUserReadAndFavorites.GetList(x => x.UserId == id);
+
+            foreach (var item in entities)
+            {
+                foreach (var read in item.Reads)
+                {
+                    UserFavoriteAndReadModel readModel = _mapper.Map<UserFavoriteAndReadModel>(read);
+                    reads.Add(readModel);
+                }
+                foreach (var read in item.Favorites)
+                {
+                    UserFavoriteAndReadModel readModel = _mapper.Map<UserFavoriteAndReadModel>(read);
+                    favorites.Add(readModel);
+                }
+            }
+
+            model.Favorites = favorites;
+            model.Reads = reads;
+
+            return model;
+        }
+
         [HttpPost]
         [Route("ReadBook")]
         public async Task<ActionResult> ReadBook([FromBody]UserFavoriteAndReadModel model)
         {
+            UsersFavoritesAndReads read = new UsersFavoritesAndReads();
+            MongoBook mongoBookModel = new MongoBook();
+            var filter = Builders<UsersFavoritesAndReads>.Filter.Eq("UserId", model.UserId);
+
             try
             {
-                var entity = await _mongoUserReadAndFavorites.GetTAsync(x => x.UserId == model.UserId);
+                var entity = await _mongoUserReadAndFavorites.GetTAsync(filter);
+
                 if (entity == null)
                 {
-                    UsersFavoritesAndReads read = new UsersFavoritesAndReads();
-                    MongoBook mongoBookModel = _mapper.Map<MongoBook>(model);
+                    mongoBookModel = _mapper.Map<MongoBook>(model);
                     read.UserId = model.UserId;
                     read.Reads.Add(mongoBookModel);
                     await _mongoUserReadAndFavorites.AddAsync(read);
+                }
+                else
+                {
+                    mongoBookModel = _mapper.Map<MongoBook>(model);
+                    entity.Reads.Add(mongoBookModel);
+                    var update = Builders<UsersFavoritesAndReads>.Update.Set("Reads", entity.Reads);
+                    await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
                 }
             }
             catch (Exception e)
@@ -99,24 +138,28 @@ namespace ELibrary.API.Controllers
         [Route("Favorite")]
         public async Task<ActionResult> Favorite([FromBody]UserFavoriteAndReadModel model)
         {
+            UsersFavoritesAndReads read = new UsersFavoritesAndReads();
+            MongoBook mongoBookModel = new MongoBook();
+            var filter = Builders<UsersFavoritesAndReads>.Filter.Eq("UserId", model.UserId);
+
             try
             {
-                var entity = await _mongoUserReadAndFavorites.GetTAsync(x => x.UserId == model.UserId);
+                var entity = await _mongoUserReadAndFavorites.GetTAsync(filter);
+
                 if (entity == null)
                 {
-                    UsersFavoritesAndReads read = new UsersFavoritesAndReads();
-                    MongoBook mongoBookModel = _mapper.Map<MongoBook>(model);
+                    mongoBookModel = _mapper.Map<MongoBook>(model);
                     read.UserId = model.UserId;
                     read.Favorites.Add(mongoBookModel);
                     await _mongoUserReadAndFavorites.AddAsync(read);
                 }
-                //else
-                //{
-                //    var filter = Builders<UserRates>.Filter.Eq("_id", (model.Id)); 
-                //    var update = Builders<UserRates>.Update.Set("Rate", model.Rate);
-                //    var response = await _userRates.UpdateAsync(filter, update);
-                //}
-
+                else
+                {
+                    mongoBookModel = _mapper.Map<MongoBook>(model);
+                    entity.Favorites.Add(mongoBookModel);
+                    var update = Builders<UsersFavoritesAndReads>.Update.Set("Favorites", entity.Reads);
+                    await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
+                }
             }
             catch (Exception e)
             {

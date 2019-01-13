@@ -30,15 +30,14 @@ namespace ELibrary.Core.DataAccess.MongoDB
             _collection = _database.GetCollection<TEntity>(typeof(TEntity).Name);
         }
 
-        public TEntity GetT(Expression<Func<TEntity, bool>> filter = null)
+        public TEntity GetT(FilterDefinition<TEntity> filter)
         {
-            return null;
+            return  _collection.Find(filter).First();
         }
 
-        public Task<TEntity> GetTAsync(Expression<Func<TEntity, bool>> filter = null)
+        public async Task<TEntity> GetTAsync(FilterDefinition<TEntity> filter)
         {
-
-            throw new NotImplementedException();
+            return await _collection.Find(filter).FirstOrDefaultAsync();
         }
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)

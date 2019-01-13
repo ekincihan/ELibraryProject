@@ -11,8 +11,8 @@ namespace ELibrary.Core.DataAccess
 {
     public interface IMongoEntityRepository<T> where T : class, IEntity, new()
     {
-        T GetT(Expression<Func<T, bool>> filter = null);
-        Task<T> GetTAsync(Expression<Func<T, bool>> filter = null);
+        T GetT(FilterDefinition<T> filter);
+        Task<T> GetTAsync(FilterDefinition<T> filter);
         List<T> GetList(Expression<Func<T, bool>> filter = null);
         Task<List<T>> GetListAsync(Expression<Func<T, bool>> filter = null);
         T Add(T entity);

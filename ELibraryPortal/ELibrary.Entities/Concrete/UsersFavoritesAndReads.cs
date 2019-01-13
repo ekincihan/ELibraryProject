@@ -8,6 +8,11 @@ namespace ELibrary.Entities.Concrete
 {
     public class UsersFavoritesAndReads : MongoEntityBase<ObjectId>
     {
+        public UsersFavoritesAndReads()
+        {
+            Favorites= new List<MongoBook>();
+            Reads = new List<MongoBook>();
+        }
         public Guid UserId { get; set; }
         public List<MongoBook> Favorites { get; set; }
         public List<MongoBook> Reads { get; set; }
