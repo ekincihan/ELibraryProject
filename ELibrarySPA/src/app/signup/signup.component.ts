@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
       // console.log('this.signUp.value',this.signUp.value);
       // alert(JSON.stringify(this.signUp.value))
       this.signUpService.post('Account/Register',this.signUp.value).subscribe((res)=>{
-          console.log(res)
+        //  console.log(res)
       })
     }else{
       this.validateAllFormFields(this.signUp);

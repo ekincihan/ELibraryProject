@@ -21,7 +21,6 @@ export class RequestManagerService {
 
   post(path, resource) {
     let headers = new HttpHeaders();
-    console.log(this.url + path)
     headers = headers.append("Content-Type", "application/json");
     return this.http.post(this.url + path, JSON.stringify(resource), { headers: headers }).pipe(catchError(this.handleError));
   }

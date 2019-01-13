@@ -11,7 +11,6 @@ export class UserProfileComponent implements OnInit {
   constructor() {
       if(localStorage.getItem('user'))
         this.user = JSON.parse(localStorage.getItem('user'));
-      console.log('this.user',this.user);
       
    }
 

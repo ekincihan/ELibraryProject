@@ -1,0 +1,44 @@
+<navigation></navigation>
+<div *ngIf="epubViewerOn">
+  <select id="toc"></select>
+  <div id="viewer" class="spreads"></div>
+  <a id="prev" href="#prev" class="arrow">‹</a>
+  <a id="next" href="#next" class="arrow">›</a>
+</div>
+
+
+
+<div *ngIf="url" class="main-content">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12 contentbar mb-4">
+        <h6 class="mt-0 mb-4">{{book?.bookName}}</h6>
+        <div class="position-relative reading">
+          <div class="loader-wrapper" style="display: none;">
+            <div class="loader"></div>
+          </div>
+          <ngx-extended-pdf-viewer [src]="url" height="100vh" delayFirstView="250" useBrowserLocale="true"></ngx-extended-pdf-viewer>
+        </div>
+
+        <div class="row mt-4 book-foot">
+          <div class="col-12 col-sm-6">
+            <button class="btn fav-it" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="bottom"
+              data-html="true" data-content="423 kişi favorilerine ekledi." data-original-title="" title=""></button>
+            <!--<button class="btn fav-it added"></button>-->
+          </div>
+          <div class="col-12 col-sm-6 text-right">
+            <div class="stars d-inline-block pt-1" data-trigger="hover" data-container="body" data-toggle="popover"
+              data-placement="bottom" data-html="true" data-content="1234 kişi puan verdi." data-original-title=""
+              title="">
+              <!-- gecici gorsel --><img src="http://turgutkarahan.com/boox/img/stars.png" height="19" style="position:relative;top:-5px;margin-right:8px;">
+              <b class="numbers">4.4/5</b>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

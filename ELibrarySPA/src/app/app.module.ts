@@ -11,6 +11,7 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { FormsModule } from '@angular/forms';
 import { RatingModule } from 'ngx-bootstrap/rating';
 
+
 /* COMPONENTS */
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -28,6 +29,7 @@ import { PublisherComponent } from './publisher/publisher.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { BookViewerComponent } from './book-detail/book-viewer/book-viewer.component';
 
 /* SERVICES */
 import { IndexService } from './index/shared/index.service';
@@ -46,6 +48,7 @@ import { defineLocale } from 'ngx-bootstrap/chronos';
 import { trLocale } from 'ngx-bootstrap/locale';
 import { BookService } from './book-detail/shared/book.service';
 defineLocale('tr', trLocale);
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
     declarations: [
@@ -64,7 +67,8 @@ defineLocale('tr', trLocale);
         PublisherComponent,
         SigninComponent,
         SignupComponent,
-        UserProfileComponent
+        UserProfileComponent,
+        BookViewerComponent
     ],
     imports: [
         BrowserModule,
@@ -76,7 +80,8 @@ defineLocale('tr', trLocale);
         BsDatepickerModule.forRoot(),
         NgxMaskModule.forRoot(),
         SweetAlert2Module.forRoot(),
-        RatingModule.forRoot()
+        RatingModule.forRoot(),
+        NgxExtendedPdfViewerModule
     ],
     providers: [
         IndexService,

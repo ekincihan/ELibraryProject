@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
     this.indexService.getAll("Book/LastAdded").subscribe(res => {
       this.lastAdded = res["value"];
-      console.log('lastadded',this.lastAdded)
+      //console.log('lastadded',this.lastAdded)
     });
   }
 }

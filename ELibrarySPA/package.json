@@ -25,6 +25,7 @@
     "core-js": "^2.5.4",
     "epubjs": "^0.3.83",
     "ngx-bootstrap": "^3.1.4",
+    "ngx-extended-pdf-viewer": "0.3.0",
     "ngx-mask": "^7.3.2",
     "rxjs": "~6.2.0",
     "sweetalert2": "^7.33.1",
