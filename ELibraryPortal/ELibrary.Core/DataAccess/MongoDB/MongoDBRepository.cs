@@ -37,7 +37,7 @@ namespace ELibrary.Core.DataAccess.MongoDB
 
         public async Task<TEntity> GetTAsync(FilterDefinition<TEntity> filter)
         {
-            return await _collection.Find(filter).FirstAsync();
+            return await _collection.Find(filter).FirstOrDefaultAsync();
         }
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
