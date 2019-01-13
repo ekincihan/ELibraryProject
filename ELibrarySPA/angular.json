@@ -27,7 +27,10 @@
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/epubjs/dist/epub.min.js",
+              "node_modules/jszip/dist/jszip.js"
+            ]
           },
           "configurations": {
             "production": {
