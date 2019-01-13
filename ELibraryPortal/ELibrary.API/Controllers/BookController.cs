@@ -17,7 +17,7 @@ namespace ELibrary.API.Controllers
     public class BookController : APIControllerBase
     {
         private readonly IBooks _book;
-        public IMapper _mapper;
+        private readonly IMapper _mapper;
 
         public BookController(IBooks book, IMapper mapper)
         {
@@ -44,7 +44,6 @@ namespace ELibrary.API.Controllers
             bookResponse.Value = _mapper.Map<List<BookModel>>(entityList.OrderByDescending(f => f.CreatedDate)).Take(6).ToList();
             return bookResponse;
         }
-
 
         [HttpPost]
         [Route("Save")]
@@ -90,6 +89,24 @@ namespace ELibrary.API.Controllers
             bookResponse.Value = _mapper.Map<BookModel>(entityList);
 
             return bookResponse;
+        }
+
+        [HttpPost]
+        [Route("ReadBook/{id}")]
+        public async Task<ActionResult> ReadBook(Guid id)
+        {
+            try
+            {
+                Book entity = await _book.GetTAsync(x => x.Id == id);
+                entity.ReadCount += 1;
+                var result = _book.UpdateAsync(entity);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(403);
+            }
+
+            return StatusCode(200);
         }
 
     }

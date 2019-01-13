@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using ELibrary.API.Models;
 using ELibrary.DAL.Abstract;
+using ELibrary.DAL.Concrete.MongoDB;
 using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -23,13 +24,13 @@ namespace ELibrary.API.Controllers
     [AllowAnonymous]
     public class UserController : ControllerBase
     {
-        private readonly IMongoUserFavoritesAndReads _mongoUserFavorites;
+        private readonly IMongoUserFavoritesAndReads _mongoUserReadAndFavorites;
         private readonly IMongoUserRates _userRates;
         private readonly IMapper _mapper;
 
         public UserController(IMongoUserFavoritesAndReads mongoUserFavorites, IMongoUserRates userRates, IMapper mapper)
         {
-            _mongoUserFavorites = mongoUserFavorites;
+            _mongoUserReadAndFavorites = mongoUserFavorites;
             _userRates = userRates;
             _mapper = mapper;
         }
@@ -60,11 +61,69 @@ namespace ELibrary.API.Controllers
         }
 
 
-        [HttpGet("GetRates")]
-        public ActionResult GetRates(string userId)
+        [HttpGet]
+        [Route("Rate/{id}")]
+        public List<UserRateModel> GetRates(Guid id)
         {
-            List<UserRates> rates =  _userRates.GetList(null);
-            return null;
+            List<UserRates> rates = _userRates.GetList(x => x.UserId == id);
+            List<UserRateModel> models = _mapper.Map<List<UserRateModel>>(rates);
+
+            return models;
+        }
+
+        [HttpPost]
+        [Route("ReadBook")]
+        public async Task<ActionResult> ReadBook([FromBody]UserFavoriteAndReadModel model)
+        {
+            try
+            {
+                var entity = await _mongoUserReadAndFavorites.GetTAsync(x => x.UserId == model.UserId);
+                if (entity == null)
+                {
+                    UsersFavoritesAndReads read = new UsersFavoritesAndReads();
+                    MongoBook mongoBookModel = _mapper.Map<MongoBook>(model);
+                    read.UserId = model.UserId;
+                    read.Reads.Add(mongoBookModel);
+                    await _mongoUserReadAndFavorites.AddAsync(read);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(404);
+            }
+
+            return StatusCode(200);
+        }
+
+        [HttpPost]
+        [Route("Favorite")]
+        public async Task<ActionResult> Favorite([FromBody]UserFavoriteAndReadModel model)
+        {
+            try
+            {
+                var entity = await _mongoUserReadAndFavorites.GetTAsync(x => x.UserId == model.UserId);
+                if (entity == null)
+                {
+                    UsersFavoritesAndReads read = new UsersFavoritesAndReads();
+                    MongoBook mongoBookModel = _mapper.Map<MongoBook>(model);
+                    read.UserId = model.UserId;
+                    read.Favorites.Add(mongoBookModel);
+                    await _mongoUserReadAndFavorites.AddAsync(read);
+                }
+                //else
+                //{
+                //    var filter = Builders<UserRates>.Filter.Eq("_id", (model.Id)); 
+                //    var update = Builders<UserRates>.Update.Set("Rate", model.Rate);
+                //    var response = await _userRates.UpdateAsync(filter, update);
+                //}
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(404);
+            }
+
+            return StatusCode(200);
         }
     }
 }

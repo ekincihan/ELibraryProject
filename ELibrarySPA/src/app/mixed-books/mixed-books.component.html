@@ -1,7 +1,7 @@
 <div class="tab-content pb-0">
   <div class="tab-pane fade show active" id="one" role="tabpanel" aria-labelledby="one">
     <div class="row">
-      <div *ngFor="let item of data" class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <div *ngFor="let item of data; let i = index" class="col-6 col-sm-4 col-md-3 col-lg-2">
         <div class="b-box d-inline-block position-relative mb-5 w-100">
           <div class="cover position-relative mb-4" [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}">
             <div class="caption text-center">
@@ -23,5 +23,5 @@
             <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{item.author.id}}">{{item?.author?.name}}
               {{item?.author?.surname}}</div>
           </a>
-            <rating  *ngIf="tokenService.isLogin" [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(item)"></rating>
+            <rating  *ngIf="tokenService.isLogin && ratedBooks" [(ngModel)]="ratedBooks[i].rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(ratedBooks[i])"></rating>
         </div>

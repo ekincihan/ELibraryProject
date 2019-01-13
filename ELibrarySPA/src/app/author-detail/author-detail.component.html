@@ -47,7 +47,7 @@
       </div>
       <h6 class="mt-3 mb-4">Eserleri</h6>
       <div class="col-12 writer-boox">
-      <mixed-books [data]="authBooks" ></mixed-books>
+           <mixed-books *ngIf="authBooks" [data]="authBooks" ></mixed-books>
       </div>
     </div>
   </div>
