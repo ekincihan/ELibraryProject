@@ -62,8 +62,9 @@ namespace ELibrary.API.Helpers
             #endregion
 
             #region UserRate
-            CreateMap<UserRates, UserRateModel>();
+            CreateMap<UserRates, UserRateModel>().ForMember(p =>p.Id ,opt=>opt.MapFrom(x=>x._id));
             CreateMap<UserRateModel, UserRates>();
+
             #endregion
 
             #region FavoriteAndRate
