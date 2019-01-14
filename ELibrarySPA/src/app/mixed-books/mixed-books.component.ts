@@ -38,7 +38,6 @@ export class MixedBooksComponent implements OnInit {
   setRatedBooks(ratedBooks) {
     this.ratedBooks = new Array<BookRate>();
     if (ratedBooks.length > 0) {
-
       ratedBooks.forEach(book => {
         this.ratedBooks.push(this.newBookRate(book, false));
       });

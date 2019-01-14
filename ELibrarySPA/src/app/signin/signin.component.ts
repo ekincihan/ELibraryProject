@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { SignInService } from './shared/signIn.service';
-import Swal from 'sweetalert2'
 import { Factory } from '../signin/factory';
 import { TokenService } from '../service/token.service';
+import { SnotifyService } from 'ng-snotify';
 
 @Component({
   selector: 'signin',
@@ -16,6 +16,7 @@ export class SigninComponent implements OnInit {
   rememberPassword: FormGroup;
   constructor(
     public bsModalRef: BsModalRef,
+    private snotifyService: SnotifyService,
     private formBuilder: FormBuilder,
     private tokenService: TokenService,
     private signInService :SignInService) { }
@@ -41,7 +42,12 @@ export class SigninComponent implements OnInit {
           this.tokenService.isLoginChange.emit(true);
           let factory: Factory = new Factory(res["value"]);
         }else{
-          Swal('Oops...', res["message"], 'error')
+          this.snotifyService.error(res["message"],'Oops...', {
+            timeout: 2000,
+            showProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: true
+          });
         }
        
       })
@@ -53,7 +59,6 @@ export class SigninComponent implements OnInit {
 
   rememberFormSubmit(){
     if(this.rememberPassword.valid){
-      alert('valid');
       alert(JSON.stringify(this.rememberPassword.value))
     }else{
       this.validateAllFormFields(this.rememberPassword);

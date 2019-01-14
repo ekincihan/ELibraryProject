@@ -21,9 +21,10 @@ export class AuthorDetailComponent implements OnInit {
     ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.authorService.get("/Author/Detail/"+ params["authorId"]).subscribe(res => {
-       // console.log('YAZAR BİLGİLERİ',res["value"]);
        // console.log("kitaplar istendi")
         this.author = res["value"];
+       // console.log('YAZAR BİLGİLERİ',res["value"]);
+
      });
      this.authorBook(params["authorId"]);
     });

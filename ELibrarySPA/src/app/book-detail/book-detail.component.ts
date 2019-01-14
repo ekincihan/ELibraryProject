@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BookService } from './shared/book.service';
 import { Book } from '../models/Book';
 import { Favorite } from '../book-detail/shared/favorite';
+import { SnotifyService } from 'ng-snotify';
 
 @Component({
   selector: 'book-detail',
@@ -12,7 +13,8 @@ import { Favorite } from '../book-detail/shared/favorite';
 export class BookDetailComponent implements OnInit {
 
   constructor(private bookService: BookService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private snotifyService: SnotifyService) { }
 
   book: Book;
   ngOnInit() {
@@ -34,7 +36,13 @@ export class BookDetailComponent implements OnInit {
 
   favBook(book){
     this.bookService.post("/User/Favorite",this.createFavoriteModel(book)).subscribe(res => {
-      // console.log('res',res);
+       console.log('res',res);
+      this.snotifyService.success('Başarılı', 'Favoriledin', {
+        timeout: 2000,
+        showProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true
+      });
          
      });
   }

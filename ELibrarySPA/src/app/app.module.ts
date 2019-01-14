@@ -7,9 +7,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NgxMaskModule } from 'ngx-mask'
-import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { FormsModule } from '@angular/forms';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 
 
 /* COMPONENTS */
@@ -37,6 +37,8 @@ import { AuthorDetailService } from './author-detail/shared/author-detail.servic
 import { MixedBooksService } from './mixed-books/shared/mixedBooksService.service';
 import { HeaderService } from './header/shared/headerService';
 import { PublisherService } from './publisher/shared/publisher.service';
+import { UserProfileService } from './user-profile/shared/user-profile.service';
+
 /* ROUTES */
 import { appRoutes } from './routes';
 import { SignUpService } from './signup/shared/signUp.service';
@@ -44,10 +46,7 @@ import { SignInService } from './signin/shared/signIn.service';
 import { TokenService } from './service/token.service';
 import { SearchService } from './index/shared/search.service';
 
-import { defineLocale } from 'ngx-bootstrap/chronos';
-import { trLocale } from 'ngx-bootstrap/locale';
 import { BookService } from './book-detail/shared/book.service';
-defineLocale('tr', trLocale);
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
@@ -79,9 +78,9 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
         ModalModule.forRoot(),
         BsDatepickerModule.forRoot(),
         NgxMaskModule.forRoot(),
-        SweetAlert2Module.forRoot(),
         RatingModule.forRoot(),
-        NgxExtendedPdfViewerModule
+        NgxExtendedPdfViewerModule,
+        SnotifyModule
     ],
     providers: [
         IndexService,
@@ -93,7 +92,12 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
         SignInService,
         TokenService,
         SearchService,
-        BookService
+        BookService,
+        UserProfileService,
+        [
+            { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+            SnotifyService
+        ]
     ],
     bootstrap: [
         AppComponent
