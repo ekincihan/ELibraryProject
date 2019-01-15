@@ -114,7 +114,7 @@ namespace ELibrary.API.Controllers
         }
 
         [HttpGet]
-        [Route("CategoryBook/{id}")]
+        [Route("PublisherBook/{id}")]
         public List<CategoryModel> BookByPublisher(Guid id)
         {
             List<CategoryTagAssigment> categoriesBook = _categoryAssigment.GetList(x => x.CategoryId == id);
