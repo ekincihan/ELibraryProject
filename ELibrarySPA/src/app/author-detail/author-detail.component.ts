@@ -28,7 +28,7 @@ export class AuthorDetailComponent implements OnInit {
      });
      this.authorBook(params["authorId"]);
     });
-  }
+  } 
 
   authorBook(id: string) {
     this.authorService.get("/Author/Books/" + id).subscribe(res => {

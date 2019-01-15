@@ -19,13 +19,17 @@ namespace ELibrary.API.Controllers
     {
         private static readonly char[] Letters =
             "ABCÇDEFGHIİJKLMNOÖPQRSTUÜVWXYZ".ToCharArray();
+
         private readonly IPublisher _publisher;
+        private readonly IMongoTagCategoryAssigment _categoryAssigment;
+
         private readonly IMapper _mapper;
 
-        public PublisherController(IPublisher publisher, IMapper mapper)
+        public PublisherController(IPublisher publisher, IMapper mapper, IMongoTagCategoryAssigment categoryAssigment)
         {
             _publisher = publisher;
             _mapper = mapper;
+            _categoryAssigment = categoryAssigment;
         }
 
         [HttpGet]
@@ -38,6 +42,7 @@ namespace ELibrary.API.Controllers
 
             return publisherResponse;
         }
+
         [HttpGet]
         [Route("Alphabetically")]
         public List<PublisherUiModel> AlphabeticalList()
@@ -49,7 +54,7 @@ namespace ELibrary.API.Controllers
             var groupedByLetter =
                 from letter in Letters
                 join service in list on letter equals service.Name[0] into grouped
-                select new { Letter = letter, list = grouped };
+                select new {Letter = letter, list = grouped};
 
             foreach (var entry in groupedByLetter)
             {
@@ -65,7 +70,7 @@ namespace ELibrary.API.Controllers
                     alphabeticList.Add(model);
                 }
 
-                if (alphabeticList.Count>0)
+                if (alphabeticList.Count > 0)
                 {
                     UiModel.AlphabeticalList = alphabeticList;
                     responseModel.Add(UiModel);
@@ -75,9 +80,10 @@ namespace ELibrary.API.Controllers
 
             return responseModel;
         }
+
         [HttpPost]
         [Route("Save")]
-        public async Task<Response<PublisherModel>> Post([FromBody]PublisherModel model)
+        public async Task<Response<PublisherModel>> Post([FromBody] PublisherModel model)
         {
             Response<PublisherModel> publisherResponseModel = new Response<PublisherModel>();
             try
@@ -107,7 +113,42 @@ namespace ELibrary.API.Controllers
             return publisherResponse;
         }
 
+        [HttpGet]
+        [Route("CategoryBook/{id}")]
+        public List<CategoryModel> BookByPublisher(Guid id)
+        {
+            List<CategoryTagAssigment> categoriesBook = _categoryAssigment.GetList(x => x.CategoryId == id);
+            var categoriesId = categoriesBook.GroupBy(x => x.CategoryId).Select(x => x.FirstOrDefault()).ToList();
+
+            List<CategoryModel> returnModel = new List<CategoryModel>();
+
+            foreach (var category in categoriesId.ToList())
+            {
+                CategoryModel categoryModel = new CategoryModel();
+                foreach (var item in categoriesBook.Where(x => x.CategoryId == category.CategoryId))
+                {
+                    MongoBookModel model = new MongoBookModel();
+                    model.CategoryId = item.CategoryId;
+                    model.CategoryName = item.CategoryName;
+                    model.BookId = item.BookId;
+                    model.BookName = item.BookName;
+                    model.SignUrl = item.SignUrl;
+                    model.AuthorId = item.AuthorId;
+                    model.AuthorName = item.AuthorName;
+                    model.AuthorSurname = item.AuthorSurname;
+                    model.PublisherId = item.PublisherId;
+                    model.PublisherName = item.PublisherName;
+
+                    categoryModel.Books.Add(model);
+                }
+
+                categoryModel.Id = category.CategoryId;
+                categoryModel.Name = category.CategoryName;
+                returnModel.Add(categoryModel);
+            }
+
+            return returnModel;
+        }
 
     }
-
 }

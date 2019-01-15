@@ -27,11 +27,14 @@ export class BookDetailComponent implements OnInit {
   }
 
   beginReading(book){
+      //console.log(book["id"])
       //console.log('this.createFavoriteModel(book);',this.createFavoriteModel(book));
-      this.bookService.post("/User/ReadBook",this.createFavoriteModel(book)).subscribe(res => {
+      this.bookService.post("User/ReadBook",this.createFavoriteModel(book)).subscribe(res => {
        // console.log('res',res);
-          
       });
+      this.bookService.post("Book/ReadBook",book["id"]).subscribe(res => {
+        // console.log('res',res);
+       });
   }
 
   favBook(book){

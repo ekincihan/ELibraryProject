@@ -87,6 +87,8 @@ namespace ELibrary.API.Models
             }
         }
         public Guid CategoryId { get; set; }
+        public int ReadCount { get; set; }
+
         public CategoryModel Category
         {
             get

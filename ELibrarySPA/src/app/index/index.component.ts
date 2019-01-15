@@ -22,10 +22,9 @@ export class IndexComponent implements OnInit {
   valueChange(isLastAdded: boolean){
     if(!isLastAdded){
       this.isLastAdded = false;
-      //Buraya en çok okunanlar servisi gelecek.
-          /* this.indexService.getAll("Book/.....").subscribe(res => {
+           this.indexService.getAll("Book/MostReads").subscribe(res => {
             this.mostReaded = res["value"];
-          }); */
+          }); 
     }else{
       this.isLastAdded = true;
       this.indexService.getAll("Book/LastAdded").subscribe(res => {

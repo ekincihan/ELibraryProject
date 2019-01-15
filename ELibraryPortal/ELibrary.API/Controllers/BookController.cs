@@ -12,8 +12,9 @@ using System.Threading.Tasks;
 
 namespace ELibrary.API.Controllers
 {
-    [Route("api/Book")]
     [ApiController]
+    [Route("api/Book")]
+    [Produces("application/json")]
     public class BookController : APIControllerBase
     {
         private readonly IBooks _book;
@@ -42,6 +43,17 @@ namespace ELibrary.API.Controllers
             Response<List<BookModel>> bookResponse = new Response<List<BookModel>>();
             List<Book> entityList = await _book.GetListAsync(x => x.IsActive == true);
             bookResponse.Value = _mapper.Map<List<BookModel>>(entityList.OrderByDescending(f => f.CreatedDate)).Take(6).ToList();
+            return bookResponse;
+        }
+
+
+        [HttpGet]
+        [Route("MostReads")]
+        public async Task<Response<List<BookModel>>> MostReads()
+        {
+            Response<List<BookModel>> bookResponse = new Response<List<BookModel>>();
+            List<Book> entityList = await _book.GetListAsync(x => x.IsActive == true);
+            bookResponse.Value = _mapper.Map<List<BookModel>>(entityList.OrderByDescending(f => f.ReadCount)).Take(6).ToList();
             return bookResponse;
         }
 
@@ -92,8 +104,8 @@ namespace ELibrary.API.Controllers
         }
 
         [HttpPost]
-        [Route("ReadBook/{id}")]
-        public async Task<ActionResult> ReadBook(Guid id)
+        [Route("ReadBook")]
+        public async Task<ActionResult> ReadBook([FromBody]Guid id)
         {
             try
             {
