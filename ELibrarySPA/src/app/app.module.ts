@@ -48,6 +48,8 @@ import { SearchService } from './index/shared/search.service';
 
 import { BookService } from './book-detail/shared/book.service';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { CategoryFullComponent } from './category/category-full/category-full.component';
+import { PublisherDetailComponent } from './publisher/publisher-detail/publisher-detail.component';
 
 @NgModule({
     declarations: [
@@ -64,10 +66,12 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
         CategoryComponent,
         CategoryDetailComponent,
         PublisherComponent,
+        PublisherDetailComponent,
         SigninComponent,
         SignupComponent,
         UserProfileComponent,
-        BookViewerComponent
+        BookViewerComponent,
+        CategoryFullComponent
     ],
     imports: [
         BrowserModule,
