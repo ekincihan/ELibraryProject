@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { PasswordValidation } from '../signup/password-validation';
 import { SignUpService } from './shared/signUp.service';
+import { PasswordStrengthValidator } from '../signup/password-strength.validator';
 
 @Component({
   selector: 'signup',
@@ -25,7 +26,7 @@ export class SignupComponent implements OnInit {
       name: ['', Validators.required],
       surname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, PasswordStrengthValidator]],
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
       phoneNumber: ['', [Validators.required,Validators.minLength(9)]],
       privacy: [false, [Validators.required]],

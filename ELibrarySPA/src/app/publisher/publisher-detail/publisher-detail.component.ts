@@ -9,13 +9,20 @@ import { PublisherService } from '../../publisher/shared/publisher.service';
 })
 export class PublisherDetailComponent implements OnInit {
   publisher: any;
+  publisherBooks: any;
   constructor(private publisherService: PublisherService,
-    private activatedRoute: ActivatedRoute) { 
+    private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => {
-      
+
       this.publisherService.get("/Publisher/GetOne/" + params["publisherId"]).subscribe(res => {
         this.publisher = res["value"];
-        console.log('this.publisher',this.publisher);
+        console.log('this.publisher', this.publisher);
+        this.publisherService.get("/Publisher/PublisherBook/" + this.publisher.id).subscribe(res => {
+          /*   this.publisherBooks = res["value"]; */
+          console.log('res', res);
+
+
+        });
 
       });
     })

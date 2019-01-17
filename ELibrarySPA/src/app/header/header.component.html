@@ -23,12 +23,12 @@
                   aria-expanded="false">Yayınevleri</a>
                 <div class="dropdown-menu dropdown-menu-center">
                   <a *ngFor="let publisher of publishers" class="dropdown-item text-truncate"
-                  routerLink="/yayinevi-detay/{{publisher?.id}}"  >{{publisher.name}}</a>
+                  routerLink="/yayinevi-detay/{{publisher?.id}}">{{publisher.name}}</a>
                   <a class="dropdown-item d-inline-block text-right last-item" href="javascript:void()"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
                 </div>
               </li>
               <li class="nav-item text-center position-relative">
-                <a class="nav-link w-100" href="#">Yazarlar</a>
+                <a class="nav-link w-100" href="/index">Yazarlar</a>
               </li>
             </ul>
           </div>
