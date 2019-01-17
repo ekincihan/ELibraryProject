@@ -13,4 +13,6 @@ export class Favorite{
         authorSurname: string
         publisherId: string
         publisherName: string
+        IsFavorite:boolean
+
 }

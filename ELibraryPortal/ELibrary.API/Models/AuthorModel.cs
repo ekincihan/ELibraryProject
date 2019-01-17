@@ -56,11 +56,7 @@ namespace ELibrary.API.Models
         public Base64FormattingOptions AuthorPhoto { get; set; }
         [IgnoreDataMember()]
         public IFormFile FormFile { get; set; }
-
-
         public ICollection<BookModel> Books { get; set; }
-
-
         public AppFileFilterModel AppFileFilterModel { get; set; } = new AppFileFilterModel();
         public DateTime? Birthdate { get; set; }
         public bool IsActive { get; set; } = true;

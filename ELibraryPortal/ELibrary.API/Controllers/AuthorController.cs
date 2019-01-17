@@ -22,6 +22,9 @@ namespace ELibrary.API.Controllers
 
         private IMapper _mapper;
 
+        private static readonly char[] Letters =
+            "ABCÇDEFGHIİJKLMNOÖPQRSTUÜVWXYZ".ToCharArray();
+
         public AuthorController(IAuthor author, IMapper mapper, IBooks book)
         {
             _author = author;
@@ -96,6 +99,44 @@ namespace ELibrary.API.Controllers
 
             return authorResponse;
         }
+
+        //[HttpGet]
+        //[Route("Alphabetically")]
+        //public List<AuthorModel> AlphabeticalList()
+        //{
+        //    List<AuthorModel> responseModel = new List<AuthorModel>();
+        //    List<AuthorModel> alphabeticList = new List<AuthorModel>();
+
+        //    var list = _author.GetList().ToList();
+        //    var groupedByLetter =
+        //        from letter in Letters
+        //        join service in list on letter equals service.Name[0] into grouped
+        //        select new { Letter = letter, list = grouped };
+
+        //    foreach (var entry in groupedByLetter)
+        //    {
+        //        alphabeticList = new List<AuthorModel>();
+        //        PublisherUiModel UiModel = new PublisherUiModel();
+        //        UiModel.Character = entry.Letter.ToString();
+
+        //        foreach (var service in entry.list)
+        //        {
+        //            PublisherModel model = new PublisherModel();
+        //            model.Name = service.Name;
+        //            model.Id = service.Id;
+        //            alphabeticList.Add(model);
+        //        }
+
+        //        if (alphabeticList.Count > 0)
+        //        {
+        //            UiModel.AlphabeticalList = alphabeticList;
+        //            responseModel.Add(UiModel);
+        //        }
+        //    }
+
+
+        //    return responseModel;
+        //}
 
 
     }
