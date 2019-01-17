@@ -29,8 +29,8 @@
             <input type="password" formControlName="password" class="form-control">
             <div class="text-danger small" *ngIf="signUp?.controls?.password?.touched && signUp?.controls?.password?.errors?.required">
               Bu alan boş geçilemez.</div>
-            <div class="text-danger small" *ngIf="signUp?.controls?.password?.touched && signUp?.controls?.password?.errors?.minlength">
-              Şifre en az 6 karakter olmalıdır.</div>
+              <div class="text-danger small" *ngIf="signUp?.controls?.password?.touched && signUp?.controls?.password?.errors?.passwordStrength">
+                Şifreniz en az 8 karakter, büyük harf, küçük harf, sayı ve özel karakter içermelidir.</div>
           </div>
         </div>
 
@@ -57,8 +57,6 @@
             <input type="password" formControlName="confirmPassword" class="form-control">
             <div class="text-danger small" *ngIf="signUp?.controls?.confirmPassword?.touched && signUp?.controls?.confirmPassword?.errors?.required">
               Bu alan boş geçilemez.</div>
-            <div class="text-danger small" *ngIf="signUp?.controls?.confirmPassword?.touched && signUp?.controls?.confirmPassword?.errors?.minlength">
-              Şifre en az 6 karakter olmalıdır.</div>
             <div class="text-danger small" *ngIf="signUp?.controls?.confirmPassword?.errors?.mustMatch">
               Girmiş olduğunuz şifreler uyuşmuyor.
             </div>
