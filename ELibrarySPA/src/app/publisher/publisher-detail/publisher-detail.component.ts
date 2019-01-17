@@ -18,7 +18,7 @@ export class PublisherDetailComponent implements OnInit {
         this.publisher = res["value"];
         console.log('this.publisher', this.publisher);
         this.publisherService.get("/Publisher/PublisherBook/" + this.publisher.id).subscribe(res => {
-          /*   this.publisherBooks = res["value"]; */
+            this.publisherBooks = res["book"];
           console.log('res', res);
 
 
