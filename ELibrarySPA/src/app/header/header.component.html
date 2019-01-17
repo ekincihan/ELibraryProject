@@ -14,7 +14,7 @@
                 <div class="dropdown-menu dropdown-menu-center">
                   <a *ngFor="let category of categories" class="dropdown-item text-truncate" href="javascript:void()"
                   routerLink="/kategori-detay/{{category?.id}}">{{category.name}}</a>
-                  <a class="dropdown-item d-inline-block text-right last-item" href="javascript:void()"
+                  <a *ngIf="false" class="dropdown-item d-inline-block text-right last-item" href="javascript:void()"
                   routerLink="/kategori-tumu"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
                 </div>
               </li>
@@ -24,7 +24,7 @@
                 <div class="dropdown-menu dropdown-menu-center">
                   <a *ngFor="let publisher of publishers" class="dropdown-item text-truncate"
                   routerLink="/yayinevi-detay/{{publisher?.id}}">{{publisher.name}}</a>
-                  <a class="dropdown-item d-inline-block text-right last-item" href="javascript:void()"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
+                  <a *ngIf="false" class="dropdown-item d-inline-block text-right last-item" href="javascript:void()"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
                 </div>
               </li>
               <li class="nav-item text-center position-relative">

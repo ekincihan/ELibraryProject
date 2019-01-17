@@ -15,19 +15,22 @@
             <ng-container *ngIf="results?.authors?.length > 0">
               <span class="dropdown-item-text">Yazarlar</span>
               <ng-container *ngFor="let author of results?.authors | slice:0:4" >
-                <a class="dropdown-item text-truncate" href="javascript:void();">{{author.name}}</a>
+                <a class="dropdown-item text-truncate" href="javascript:void();"
+                routerLink="/yazar-detay/{{author?.id}}">{{author.name}}</a>
               </ng-container>
             </ng-container>
             <ng-container *ngIf="results?.books?.length > 0">
                 <span class="dropdown-item-text">Kitaplar</span>
                 <ng-container *ngFor="let book of results?.books | slice:0:4" >
-                  <a class="dropdown-item text-truncate" href="javascript:void();">{{book.name}}</a>
+                  <a class="dropdown-item text-truncate" href="javascript:void();"
+                  routerLink="/kitap-detay/{{book?.id}}">{{book.name}}</a>
                 </ng-container>
             </ng-container>
             <ng-container *ngIf="results?.publishers?.length > 0">
                 <span class="dropdown-item-text">Yayınevleri</span>
                 <ng-container *ngFor="let publisher of results?.publishers | slice:0:4" >
-                  <a class="dropdown-item text-truncate" href="javascript:void();">{{publisher.name}}</a>
+                  <a class="dropdown-item text-truncate" href="javascript:void();"
+                  routerLink="/yayinevi-detay/{{publisher?.id}}">{{publisher.name}}</a>
                 </ng-container>
             </ng-container>
           </div>

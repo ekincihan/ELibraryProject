@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../signin/shared/user';
 import { UserProfileService } from '../user-profile/shared/user-profile.service';
 import { Favorite } from '../book-detail/shared/favorite';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { trLocale } from 'ngx-bootstrap/locale';
@@ -21,7 +22,9 @@ export class UserProfileComponent implements OnInit {
   minDate = new Date('01/01/1920');
   maxDate = new Date();
   
-  constructor(private service: UserProfileService) {
+  constructor(private service: UserProfileService,
+    private localeService: BsLocaleService,
+    ) {
       if(localStorage.getItem('user'))
         this.user = JSON.parse(localStorage.getItem('user'));
         this.user.birthdate = new Date(this.user.birthdate)
@@ -29,6 +32,8 @@ export class UserProfileComponent implements OnInit {
 
       this.minDate.setDate(this.minDate.getDate());
       this.maxDate.setDate(this.maxDate.getDate());
+      this.localeService.use('tr');
+
    }
 
   ngOnInit() {
