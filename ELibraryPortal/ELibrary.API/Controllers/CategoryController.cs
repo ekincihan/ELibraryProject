@@ -81,7 +81,7 @@ namespace ELibrary.API.Controllers
         }
 
         [HttpGet]
-        [Route("CategoryBook/{id}")]
+        [Route("BookByCategory/{id}")]
         public List<CategoryModel> BookByCategory(Guid id)
         {
             List<CategoryTagAssigment> categoriesBook = _categoryAssigment.GetList(x => x.CategoryId == id);
@@ -115,8 +115,6 @@ namespace ELibrary.API.Controllers
 
             return returnModel;
         }
-
-
 
         [HttpPost("Save")]
         public async Task<Response<CategoryModel>> Post([FromBody]CategoryModel model)

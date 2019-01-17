@@ -13,8 +13,8 @@ export class CategoryDetailComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { 
     this.activatedRoute.params.subscribe(params => {
       
-      this.categoryService.get("/Category/GetOne/" + params["categoryId"]).subscribe(res => {
-        this.category = res["value"];
+      this.categoryService.get("/Category/BookByCategory/" + params["categoryId"]).subscribe(res => {
+        this.category = res[0]["books"];
         console.log('this.categories',this.category);
 
       });
