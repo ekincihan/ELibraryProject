@@ -11,6 +11,7 @@ namespace ELibrary.API.Models
         public string Token { get; set; }
         public Guid UserId { get; set; }
         public int Rate { get; set; }
+        public bool IsFavorite { get; set; }
         public Guid CategoryId { get; set; }
         public string CategoryName { get; set; }
         public Guid BookId { get; set; }

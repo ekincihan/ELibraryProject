@@ -89,7 +89,7 @@ namespace ELibrary.Portal.Controllers
             model.bookModel.CategoryTagAssigment.SignUrl = thumbNail.Value.SignUrl;
             model.bookModel.CategoryTagAssigment.AuthorId = model.bookModel.AuthorId;
             model.bookModel.CategoryTagAssigment.AuthorSurname = model.bookModel.Author.Surname;
-            model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.AuthorId;
+            model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.PublisherId;
             model.bookModel.CategoryTagAssigment.BookSummary = model.bookModel.BookSummary;
            // model.bookModel.CategoryTagAssigment.CategoryId = model.bookModel.CategoryId;
             

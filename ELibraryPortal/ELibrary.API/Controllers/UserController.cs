@@ -121,9 +121,13 @@ namespace ELibrary.API.Controllers
                 else
                 {
                     mongoBookModel = _mapper.Map<MongoBook>(model);
-                    entity.Reads.Add(mongoBookModel);
-                    var update = Builders<UsersFavoritesAndReads>.Update.Set("Reads", entity.Reads);
-                    await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
+                    if (entity.Reads.FirstOrDefault(x => x.BookId == mongoBookModel.BookId) == null)
+                    {
+                        entity.Reads.Add(mongoBookModel);
+                        var update = Builders<UsersFavoritesAndReads>.Update.Set("Reads", entity.Reads);
+                        await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
+                    }
+                  
                 }
             }
             catch (Exception e)
@@ -156,9 +160,24 @@ namespace ELibrary.API.Controllers
                 else
                 {
                     mongoBookModel = _mapper.Map<MongoBook>(model);
-                    entity.Favorites.Add(mongoBookModel);
-                    var update = Builders<UsersFavoritesAndReads>.Update.Set("Favorites", entity.Reads);
-                    await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
+
+
+                    if (entity.Favorites.FirstOrDefault(x=>x.BookId==mongoBookModel.BookId)==null)
+                    {
+                        entity.Reads.Add(mongoBookModel);
+                        var update = Builders<UsersFavoritesAndReads>.Update.Set("Favorites", entity.Favorites);
+                        await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
+                    }
+                    else
+                    {
+                        int index = entity.Favorites.FindIndex(a => a.BookId == mongoBookModel.BookId);
+                        entity.Favorites.RemoveAt(index);
+                        var update = Builders<UsersFavoritesAndReads>.Update.Set("Favorites", entity.Favorites);
+                        await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
+
+                    }
+                 
+                   
                 }
             }
             catch (Exception e)

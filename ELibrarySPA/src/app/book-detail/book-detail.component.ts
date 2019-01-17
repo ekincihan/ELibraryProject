@@ -52,7 +52,7 @@ export class BookDetailComponent implements OnInit {
 
 
   createFavoriteModel(book){
-
+    console.log(book)
     let favorite: Favorite = new Favorite();
     favorite.bookId = book.id;
     favorite.authorId = book.authorId;
@@ -63,7 +63,7 @@ export class BookDetailComponent implements OnInit {
     favorite.categoryName = book.category.name;
     favorite.publisherId = book.publisher.id;
     favorite.publisherName = book.publisher.name;
-    favorite.signUrl = book.appFiles["0"]["signUrl"];
+    favorite.signUrl = book.thumbnail.signUrl;
     favorite.token = localStorage.getItem('token');
     favorite.userId = JSON.parse(localStorage.getItem('user'))["id"];
     return favorite;
