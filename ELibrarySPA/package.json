@@ -28,6 +28,7 @@
     "ngx-extended-pdf-viewer": "0.3.0",
     "ngx-mask": "^7.3.2",
     "rxjs": "~6.2.0",
+    "underscore": "^1.9.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
