@@ -4,14 +4,16 @@ using ELibrary.DAL.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ELibrary.DAL.Migrations
 {
     [DbContext(typeof(ELibraryDBContext))]
-    partial class ELibraryDBContextModelSnapshot : ModelSnapshot
+    [Migration("20190202124532_20190202")]
+    partial class _20190202
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -294,32 +296,6 @@ namespace ELibrary.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tags");
-                });
-
-            modelBuilder.Entity("ELibrary.Entities.Concrete.UserFavoritAndReadBook", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("BookId");
-
-                    b.Property<Guid?>("CreatedBy");
-
-                    b.Property<DateTime?>("CreatedDate");
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<Guid?>("ModifiedBy");
-
-                    b.Property<DateTime?>("ModifiedDate");
-
-                    b.Property<int>("Type");
-
-                    b.Property<Guid>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserFavoritAndReadBook");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
