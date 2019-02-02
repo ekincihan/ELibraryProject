@@ -30,7 +30,8 @@ namespace ELibrary.API.Controllers
         private readonly IUserFavoriteAndReadBook _userFavoriteAndReadBook;
         private readonly IBooks _books;
         private readonly IAuthor _authors;
-        public UserController(IMongoUserFavoritesAndReads mongoUserFavorites, IMongoUserRates userRates, IMapper mapper, IUserFavoriteAndReadBook userFavoriteAndReadBook, IBooks books, IAuthor authors)
+        private readonly IAppFile _appFile;
+        public UserController(IMongoUserFavoritesAndReads mongoUserFavorites, IMongoUserRates userRates, IMapper mapper, IUserFavoriteAndReadBook userFavoriteAndReadBook, IBooks books, IAuthor authors, IAppFile appFile)
         {
             _mongoUserReadAndFavorites = mongoUserFavorites;
             _userRates = userRates;
@@ -38,6 +39,7 @@ namespace ELibrary.API.Controllers
             _userFavoriteAndReadBook = userFavoriteAndReadBook;
             _books = books;
             _authors = authors;
+            _appFile = appFile;
         }
 
         [HttpPost("Rate")]
@@ -84,6 +86,7 @@ namespace ELibrary.API.Controllers
             List<UserFavoriteAndReadModel> favorites = new List<UserFavoriteAndReadModel>();
             List<UserFavoritAndReadBook> entities = _userFavoriteAndReadBook.GetList(x => x.UserId == id);
             List<Book> books = _books.GetList();
+            List<AppFile> files = _appFile.GetList();
             List<Author> authors = _authors.GetList();
 
             foreach (var item in entities.Where(x => x.Type == UserFavAndRead.Reads))
@@ -95,8 +98,9 @@ namespace ELibrary.API.Controllers
                     readModel.BookId = entity.Id;
                     readModel.UserId = item.UserId;
                     readModel.AuthorId = entity.AuthorId;
-                    readModel.AuthorName = authors.FirstOrDefault(x=>x.Id==entity.AuthorId).Name;
+                    readModel.AuthorName = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Name;
                     readModel.AuthorSurname = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Surname;
+                    readModel.SignUrl = "https://elibrarystorage.blob.core.windows.net/" + files.FirstOrDefault(x => x.ModuleId == entity.Id).BlobPath;
                     reads.Add(readModel);
                 }
             }
@@ -112,6 +116,7 @@ namespace ELibrary.API.Controllers
                     favoriteModel.AuthorId = entity.AuthorId;
                     favoriteModel.AuthorName = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Name;
                     favoriteModel.AuthorSurname = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Surname;
+                    favoriteModel.SignUrl = files.FirstOrDefault(x => x.ModuleId == entity.Id).BlobPath;
                     favorites.Add(favoriteModel);
                 }
             }
