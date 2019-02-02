@@ -19,9 +19,10 @@ namespace ELibrary.API.Controllers
     public class CategoryTagAssignmentController : ControllerBase
     {
         private readonly IMapper _mapper;
-        private readonly IMongoTagCategoryAssigment _categoryAssigment;
+        //private readonly IMongoTagCategoryAssigment _categoryAssigment;
+        private readonly ICategoryTagAssignment _categoryAssigment;
 
-        public CategoryTagAssignmentController(IMapper mapper, IMongoTagCategoryAssigment categoryAssigment)
+        public CategoryTagAssignmentController(IMapper mapper, ICategoryTagAssignment categoryAssigment)
         {
             _mapper = mapper;
             _categoryAssigment = categoryAssigment;
@@ -46,11 +47,10 @@ namespace ELibrary.API.Controllers
             Response<CategoryTagAssigmentModel> CategoryTagAssigmentModel = new Response<CategoryTagAssigmentModel>();
             try
             {
-                var filter = Builders<CategoryTagAssigment>.Filter.Eq("BookId", model.BookId);
-                var entit1y = await _categoryAssigment.GetTAsync(filter);
+                //var filter = Builders<CategoryTagAssigment>.Filter.Eq("BookId", model.BookId);
+                //var entit1y = await _categoryAssigment.GetTAsync(filter);
 
-                _categoryAssigment.Delete(filter);
-
+                //_categoryAssigment.Delete(filter);
 
                 CategoryTagAssigment entity = _mapper.Map<CategoryTagAssigment>(model);
                 entity = await _categoryAssigment.AddAsync(entity);
