@@ -10,6 +10,7 @@ using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace ELibrary.API.Controllers
 {
@@ -43,21 +44,18 @@ namespace ELibrary.API.Controllers
         public async Task<Response<CategoryTagAssigmentModel>> Post([FromBody]CategoryTagAssigmentModel model)
         {
             Response<CategoryTagAssigmentModel> CategoryTagAssigmentModel = new Response<CategoryTagAssigmentModel>();
-
             try
             {
+                var filter = Builders<CategoryTagAssigment>.Filter.Eq("BookId", model.BookId);
+                var entit1y = await _categoryAssigment.GetTAsync(filter);
+
+                _categoryAssigment.Delete(filter);
+
+
                 CategoryTagAssigment entity = _mapper.Map<CategoryTagAssigment>(model);
-                if (model.Id != Guid.Empty)
-                {
-                    //yapılacak
-                    await _categoryAssigment.UpdateAsync(null, null);
-                }
-                else
-                {
-                    entity= await _categoryAssigment.AddAsync(entity);
-                    CategoryTagAssigmentModel.Value = _mapper.Map<CategoryTagAssigmentModel>(entity);
-                    CategoryTagAssigmentModel.IsSuccess = true;
-                }
+                entity = await _categoryAssigment.AddAsync(entity);
+                CategoryTagAssigmentModel.Value = _mapper.Map<CategoryTagAssigmentModel>(entity);
+                CategoryTagAssigmentModel.IsSuccess = true;
             }
             catch (Exception e)
             {

@@ -9,10 +9,11 @@ import { UserProfileComponent } from "./user-profile/user-profile.component";
 import { BookViewerComponent } from "./book-detail/book-viewer/book-viewer.component";
 import { CategoryFullComponent } from "./category/category-full/category-full.component";
 import { PublisherDetailComponent } from "./publisher/publisher-detail/publisher-detail.component";
+import { AuthorComponent } from "./Author/Author.component";
 
 
 export const appRoutes: Routes = [
-  { path: "index", component: IndexComponent },
+  { path: "Anasayfa", component: IndexComponent },
   { path: "kitap-detay/:bookId", component: BookDetailComponent },
   { path: "kitap-oku/:bookId", component: BookViewerComponent },
   { path: "kategoriler", component: CategoryComponent },
@@ -22,5 +23,6 @@ export const appRoutes: Routes = [
   { path: "yazar-detay/:authorId", component: AuthorDetailComponent },
   { path: "kategori-tumu", component: CategoryFullComponent },
   { path: "profil", component: UserProfileComponent },
-  { path: "**", redirectTo: "index", pathMatch: "full" }
+  { path: "yazarlar", component: AuthorComponent },
+  { path: "**", redirectTo: "Anasayfa", pathMatch: "full" }
 ];

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using ELibrary.Core.Entites;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace ELibrary.Entities.Concrete
 {
@@ -15,6 +16,7 @@ namespace ELibrary.Entities.Concrete
         public string BookSummary { get; set; }
         public string ISBN { get; set; }
         public int LangCode { get; set; }
+        [BsonElement("BookId")]
         public Guid BookId { get; set; }
         public Guid AuthorId { get; set; }
         public string AuthorName { get; set; }

@@ -32,7 +32,7 @@ namespace ELibrary.Core.DataAccess.MongoDB
 
         public TEntity GetT(FilterDefinition<TEntity> filter)
         {
-            return  _collection.Find(filter).First();
+            return _collection.Find(filter).First();
         }
 
         public async Task<TEntity> GetTAsync(FilterDefinition<TEntity> filter)
@@ -79,17 +79,17 @@ namespace ELibrary.Core.DataAccess.MongoDB
 
             return result.IsModifiedCountAvailable;
         }
-    
 
-        public void Delete(TEntity entity)
+
+        public void Delete(FilterDefinition<TEntity> filter)
         {
-            throw new NotImplementedException();
+            var a = _collection.DeleteOne(filter);  
         }
 
         public Task DeleteAsync(TEntity entity)
         {
             throw new NotImplementedException();
         }
-       
+
     }
 }

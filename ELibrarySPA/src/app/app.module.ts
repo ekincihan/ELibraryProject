@@ -50,65 +50,70 @@ import { BookService } from './book-detail/shared/book.service';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { CategoryFullComponent } from './category/category-full/category-full.component';
 import { PublisherDetailComponent } from './publisher/publisher-detail/publisher-detail.component';
+import { AuthorComponent } from './Author/Author.component';
+import { Author } from './models/Author';
+import { AuthorService } from './Author/shared/author.service';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        IndexComponent,
-        NavbarComponent,
-        FooterComponent,
-        SearchComponent,
-        BookDetailComponent,
-        NavigationComponent,
-        AuthorDetailComponent,
-        HeaderComponent,
-        MixedBooksComponent,
-        CategoryComponent,
-        CategoryDetailComponent,
-        PublisherComponent,
-        PublisherDetailComponent,
-        SigninComponent,
-        SignupComponent,
-        UserProfileComponent,
-        BookViewerComponent,
-        CategoryFullComponent
-    ],
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        FormsModule,
-        HttpClientModule,
-        RouterModule.forRoot(appRoutes),
-        ModalModule.forRoot(),
-        BsDatepickerModule.forRoot(),
-        NgxMaskModule.forRoot(),
-        RatingModule.forRoot(),
-        NgxExtendedPdfViewerModule,
-        SnotifyModule
-    ],
-    providers: [
-        IndexService,
-        AuthorDetailService,
-        MixedBooksService,
-        HeaderService,
-        PublisherService,
-        SignUpService,
-        SignInService,
-        TokenService,
-        SearchService,
-        BookService,
-        UserProfileService,
-        [
-            { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
-            SnotifyService
-        ]
-    ],
-    bootstrap: [
-        AppComponent
-    ],
-    entryComponents: [
-        SigninComponent,
-        SignupComponent
-    ]
+   declarations: [
+       AppComponent,
+       IndexComponent,
+       NavbarComponent,
+       FooterComponent,
+       SearchComponent,
+       BookDetailComponent,
+       NavigationComponent,
+       AuthorDetailComponent,
+       HeaderComponent,
+       MixedBooksComponent,
+       CategoryComponent,
+       CategoryDetailComponent,
+       PublisherComponent,
+       PublisherDetailComponent,
+       SigninComponent,
+       SignupComponent,
+       UserProfileComponent,
+       BookViewerComponent,
+       CategoryFullComponent,
+       AuthorComponent
+   ],
+   imports: [
+       BrowserModule,
+       ReactiveFormsModule,
+       FormsModule,
+       HttpClientModule,
+       RouterModule.forRoot(appRoutes),
+       ModalModule.forRoot(),
+       BsDatepickerModule.forRoot(),
+       NgxMaskModule.forRoot(),
+       RatingModule.forRoot(),
+       NgxExtendedPdfViewerModule,
+       SnotifyModule
+   ],
+   providers: [
+       IndexService,
+       AuthorDetailService,
+       MixedBooksService,
+       HeaderService,
+       PublisherService,
+       SignUpService,
+       SignInService,
+       TokenService,
+       SearchService,
+       BookService,
+       UserProfileService,
+       [
+           { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+           SnotifyService
+       ],
+       AuthorService
+   ],
+   bootstrap: [
+       AppComponent
+   ],
+   entryComponents: [
+       SigninComponent,
+       SignupComponent
+   ]
 })
 export class AppModule { }

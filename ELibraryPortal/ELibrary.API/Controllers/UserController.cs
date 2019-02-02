@@ -86,10 +86,10 @@ namespace ELibrary.API.Controllers
                     UserFavoriteAndReadModel readModel = _mapper.Map<UserFavoriteAndReadModel>(read);
                     reads.Add(readModel);
                 }
-                foreach (var read in item.Favorites)
+                foreach (var fav in item.Favorites)
                 {
-                    UserFavoriteAndReadModel readModel = _mapper.Map<UserFavoriteAndReadModel>(read);
-                    favorites.Add(readModel);
+                    UserFavoriteAndReadModel favModel = _mapper.Map<UserFavoriteAndReadModel>(fav);
+                    favorites.Add(favModel);
                 }
             }
 
@@ -164,7 +164,7 @@ namespace ELibrary.API.Controllers
 
                     if (entity.Favorites.FirstOrDefault(x=>x.BookId==mongoBookModel.BookId)==null)
                     {
-                        entity.Reads.Add(mongoBookModel);
+                        entity.Favorites.Add(mongoBookModel);
                         var update = Builders<UsersFavoritesAndReads>.Update.Set("Favorites", entity.Favorites);
                         await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
                     }

@@ -14,6 +14,7 @@ export class Book {
     IsActive:boolean;
     Publisher:Publisher;
     Author:Author;
+    ReadCount:number;
     BookPhoto:string;
     Thumbnail:AppFile;
     AppFiles:AppFile[];
