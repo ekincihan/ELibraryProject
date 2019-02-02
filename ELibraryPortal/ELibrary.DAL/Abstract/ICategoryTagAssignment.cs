@@ -1,9 +1,9 @@
-﻿//using ELibrary.Core.DataAccess;
-//using ELibrary.Entities.Concrete;
+﻿using ELibrary.Core.DataAccess;
+using ELibrary.Entities.Concrete;
 
-//namespace ELibrary.DAL.Abstract
-//{
-//    public interface ICategoryTagAssignment : IEntityRepository<CategoryTagAssignment>
-//    {
-//    }
-//}
+namespace ELibrary.DAL.Abstract
+{
+    public interface ICategoryTagAssignment : IEntityRepository<CategoryTagAssigment>
+    {
+    }
+}

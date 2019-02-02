@@ -25,7 +25,7 @@ namespace ELibrary.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IMongoUserFavoritesAndReads _mongoUserReadAndFavorites;
-        private readonly IMongoUserRates _userRates;
+        private readonly IUserRates _userRates;
         private readonly IMapper _mapper;
         private readonly IUserFavoriteAndReadBook _userFavoriteAndReadBook;
         private readonly IBooks _books;
@@ -49,9 +49,8 @@ namespace ELibrary.API.Controllers
             {
                 if (model.Id != null)
                 {
-                    var filter = Builders<UserRates>.Filter.Eq("_id", ObjectId.Parse(model.Id));
-                    var update = Builders<UserRates>.Update.Set("Rate", model.Rate);
-                    var response = await _userRates.UpdateAsync(filter, update);
+                    var entity = await _userRates.GetTAsync(x => x.Id == new Guid(model.Id));
+                    var response = await _userRates.UpdateAsync(entity);
                 }
                 else
                 {

@@ -22,6 +22,8 @@ namespace ELibrary.DAL.Concrete.EntityFramework
         //public virtual DbSet<CategoryTagAssignment> CategoryTagAssignments { get; set; }
         public virtual DbSet<AppFile> AppFiles { get; set; }
         public virtual DbSet<UserFavoritAndReadBook> UserFavoritAndReadBook { get; set; }
+        public virtual DbSet<UserRates> UserRates { get; set; }
+
         public ELibraryDBContext(DbContextOptions<ELibraryDBContext> options) : base(options)
         {
 
