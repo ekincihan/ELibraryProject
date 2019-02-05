@@ -16,6 +16,8 @@ using Microsoft.Extensions.Configuration;
 namespace ELibrary.API.Controllers
 {
     [ApiController]
+    [Route("api/Account")]
+    [Produces("application/json")]
     [AllowAnonymous]
     public class AccountController : APIControllerBase
     {
@@ -32,8 +34,9 @@ namespace ELibrary.API.Controllers
             _signInManager = signInManager;
             _configuration = configuration;
         }
+
         [HttpPost("Login")]
-        public async Task<Response<ApplicationUser>> Login(LoginModel model)
+        public async Task<Response<ApplicationUser>> Login([FromBody]LoginModel model)
         {
             var response = new Response<ApplicationUser>();
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
@@ -48,8 +51,23 @@ namespace ELibrary.API.Controllers
             return new Response<ApplicationUser> { IsSuccess = false, Message = "Kullanıcı Adı veya Şifre yanlış" };
         }
 
+        [HttpPost("PortalLogin")]
+        public async Task<Response<ApplicationUser>> PortalLogin([FromBody]LoginModel model)
+        {
+            var response = new Response<ApplicationUser>();
+            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+
+            if (result.Succeeded)
+            {
+                var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
+                appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
+                return new Response<ApplicationUser> { IsSuccess = true, Value = appUser };
+            }
+
+            return new Response<ApplicationUser> { IsSuccess = false, Message = "Kullanıcı Adı veya Şifre yanlış" };
+        }
         [HttpPost("Register")]
-        public async Task<Response<ApplicationUser>> Register(RegisterModel model)
+        public async Task<Response<ApplicationUser>> Register([FromBody]RegisterModel model)
         {
             var response = new Response<ApplicationUser>();
 
@@ -81,5 +99,6 @@ namespace ELibrary.API.Controllers
 
             throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
         }
+
     }
 }

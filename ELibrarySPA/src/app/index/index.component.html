@@ -3,8 +3,12 @@
 <div class="main-content">
   <div class="container">
     <div class="book-tab">
-      <app-navbar></app-navbar>
-      <mixed-books [data]="lastAdded"></mixed-books>
+      <app-navbar (valueChange)="valueChange($event)"></app-navbar>
+      <mixed-books *ngIf="isLastAdded && lastAdded" [data]="lastAdded"></mixed-books>
+      <mixed-books *ngIf="!isLastAdded && mostReaded" [data]="mostReaded"></mixed-books>
+      <!-- <div *ngIf="!isLastAdded">
+        En çok okunanlar eklendiğinde bu divi sil, bi üst satırdaki html'i yorum satırı olmaktan çıkar.
+      </div> -->
     </div>
   </div>
 </div>

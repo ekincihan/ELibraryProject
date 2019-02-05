@@ -2,55 +2,77 @@
   <nav class="navbar navbar-expand-lg p-0">
     <div class="container position-relative">
       <div class="col-6 col-sm-3 col-md-3 col-lg-3">
-        <h1 class="m-0 p-0"><a class="navbar-brand m-0 p-0 d-inline-block" href="#">E-Library</a></h1>
+        <h1 class="m-0 p-0"><a class="navbar-brand m-0 p-0 d-inline-block" href="javascript:void()" [routerLink]="['/index']">E-Library</a></h1>
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-9 collapse navbar-collapse" id="navbarCollapse">
         <div class="row w-100">
           <div class="col-7 col-sm-4 col-md-8 col-lg-8 main-menu">
             <ul class="navbar-nav justify-content-center">
+                <li class="nav-item text-center position-relative">
+                    <a class="nav-link w-100" href="/Anasayfa">Ansayfa</a>
+                  </li>
               <li class="nav-item position-relative text-center dropdown">
-                <a class="nav-link w-100 dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategoriler</a>
+                <a class="nav-link w-100 dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">Kategoriler</a>
                 <div class="dropdown-menu dropdown-menu-center">
-                  <a *ngFor="let category of categories" class="dropdown-item text-truncate" href="#">{{category.name}}</a>
-                  <a class="dropdown-item d-inline-block text-right last-item" href="#"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
+                  <a *ngFor="let category of categories" class="dropdown-item text-truncate" href="javascript:void()"
+                  routerLink="/kategori-detay/{{category?.id}}">{{category.name}}</a>
+                  <a class="dropdown-item d-inline-block text-right last-item" href="javascript:void()"
+                  routerLink="/kategoriler"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
                 </div>
               </li>
               <li class="nav-item position-relative text-center dropdown">
-                <a class="nav-link w-100 dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Yayınevleri</a>
+                <a class="nav-link w-100 dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">Yayınevleri</a>
                 <div class="dropdown-menu dropdown-menu-center">
-                <a *ngFor="let publisher of publishers" class="dropdown-item text-truncate" href="#">{{publisher.name}}</a>
-                  <a class="dropdown-item d-inline-block text-right last-item" href="#"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
+                  <a *ngFor="let publisher of publishers" class="dropdown-item text-truncate"
+                  routerLink="/yayinevi-detay/{{publisher?.id}}">{{publisher.name}}</a>
+                  <a *ngIf="false" class="dropdown-item d-inline-block text-right last-item" href="javascript:void()"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
                 </div>
               </li>
               <li class="nav-item text-center position-relative">
-                <a class="nav-link w-100" href="#">Yazarlar</a>
+                <a class="nav-link w-100" href="/yazarlar">Yazarlar</a>
+              </li>
+              <li class="nav-item text-center position-relative">
+                <a class="nav-link w-100" href="/Hakkımızda">Hakkımızda</a>
+              </li>
+              <li class="nav-item text-center position-relative">
+                <a class="nav-link w-100" href="/Iletisim">İletişim</a>
               </li>
             </ul>
           </div>
           <div class="col-12 col-sm-12 col-md-4 col-lg-4 btns text-right">
-            <!--
-            <div class="in dropdown">
-            <a href="#" class="dropdown-toggle d-inline-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="arrow down d-none d-lg-inline-block position-relative mr-2"></span>
-            <img src="http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/square-profile-pic-2.jpg" alt="profile picture">
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item text-truncate" href="#">Profilim</a>
-          <a class="dropdown-item text-truncate" href="#">Çıkış Yap</a>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 btns text-right">
+              <div *ngIf="isLogin" class="in dropdown">
+                <a href="javascript:void()" class="dropdown-toggle d-inline-block" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <span class="arrow down d-none d-lg-inline-block position-relative mr-2"></span>
+                  <img src="http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/square-profile-pic-2.jpg"
+                    alt="profile picture">
+                </a>
+               
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item text-truncate" [routerLink]="['/profil']">Profilim</a>
+                  <a class="dropdown-item text-truncate" (click)="closeApp()">Çıkış Yap</a>
+                </div>
+              </div>
+
+              <div class="btn-group" *ngIf="!isLogin">
+                <a href="javascript:void(0)" class="btn btn-brown m-0" (click)="openSignIn()">Giriş Yap</a>
+                <a href="javascript:void(0)" class="btn btn-green m-0" (click)="openSignUp()">Üye Ol</a>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
-    -->
-    <div class="btn-group">
-      <a href="#" class="btn btn-brown m-0" data-toggle="modal" data-target="#login">Giriş Yap</a>
-      <a href="#" class="btn btn-green m-0" data-toggle="modal" data-target="#signup">Üye Ol</a>
+      <div class="col-6 col-sm-6 text-right">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+          aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+      </div>
     </div>
-  </div>
-</div>
-</div>
-<div class="col-6 col-sm-6 text-right">
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-</button>
-</div>
-</div>
-</nav>
+  </nav>
 </header>
+<ng-snotify></ng-snotify>
+

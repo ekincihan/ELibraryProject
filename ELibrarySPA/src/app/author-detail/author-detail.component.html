@@ -1,4 +1,4 @@
-<navigation></navigation>
+<navigation [pageName]="'Yazar Detay'"></navigation>
 <div class="main-content">
   <div class="container">
     <div class="row">
@@ -46,7 +46,9 @@
         </div>
       </div>
       <h6 class="mt-3 mb-4">Eserleri</h6>
-      <mixed-books [data]="authBooks" ></mixed-books>
+      <div class="col-12 writer-boox">
+           <mixed-books *ngIf="authBooks" [data]="authBooks" ></mixed-books>
+      </div>
     </div>
   </div>
 </div>

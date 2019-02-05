@@ -43,6 +43,8 @@ namespace ELibrary.API.Controllers
                 }
 
                 appFile = await (appFileModel.Id != Guid.Empty ? _appFile.UpdateAsync(appFile) : _appFile.AddAsync(appFile));
+                AppFileModel model = _mapper.Map<AppFileModel>(appFile);
+                appFileModelResponse.Value = model;
             }
             catch (Exception ex)
             {

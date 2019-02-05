@@ -10,4 +10,5 @@ export class Author {
   PublisherId: string;
   IsActive: boolean;
   AppFileFilterModel: AppFileFilter;
+  Books:Book[];
 }

@@ -6,7 +6,8 @@ using ELibrary.Entities.Concrete;
 
 namespace ELibrary.DAL.Abstract
 {
-    public interface IMongoTagCategoryAssigment : IEntityRepository<CategoryTagAssigment>
+    public interface IMongoTagCategoryAssigment : IMongoEntityRepository<CategoryTagAssigment>
     {
+        List<CategoryTagAssigment> Search(string value);
     }
 }

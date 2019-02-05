@@ -14,6 +14,9 @@
         <h3 class="widget-title">Kitap Ekle</h3>
     </div>
     <div class="widget-body">
+        <div class="form-group">
+            <a href="@Url.Action("Index", "Book")" style="float:right"> <input type="submit" class="btn btn-primary" value="Kitap Listele" /></a>
+        </div>
         <form id="form-tabs" class="form-horizontal tabcontrol clearfix">
             <div class="bd-example bd-example-tabs">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -36,30 +39,30 @@
                                         <input type="hidden" asp-for="bookModel.Id" />
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="col-sm-3 col-md-4 control-label">Kitap Adı</label>
+                                                <label class="col-sm-3 col-md-4 control-label">Kitap Adi</label>
                                                 <div class="col-sm-9 col-md-8">
-                                                    <input asp-for="bookModel.BookName" required type="text" class="form-control">
+                                                    <input id="bookName" asp-for="bookModel.BookName" required type="text" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 col-md-4 control-label">Kitap Ozet</label>
                                                 <div class="col-sm-9 col-md-8">
-                                                    <textarea asp-for="bookModel.BookSummary" class="form-control"></textarea>
+                                                    <textarea id="bookSummary" asp-for="bookModel.BookSummary" class="form-control"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 col-md-4 control-label">Sayfa Sayısı</label>
+                                                <label class="col-sm-3 col-md-4 control-label">Sayfa Sayisi</label>
                                                 <div class="col-sm-9 col-md-8">
-                                                    <input asp-for="bookModel.NumberPage" type="number" class="form-control">
+                                                    <input id="numberPages" asp-for="bookModel.NumberPages" type="number" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="col-sm-3 col-md-4 control-label">Yayın Evi </label>
+                                                <label class="col-sm-3 col-md-4 control-label">Yayin Evi </label>
                                                 <div class="col-sm-9 col-md-8">
                                                     <div class="input-group">
-                                                        <select asp-for="bookModel.PublisherId " required placeholder="seçiniz..." class="form-control">
+                                                        <select id="publishers" asp-for="bookModel.PublisherId" required placeholder="seçiniz..." class="form-control">
                                                             <option value="">--Seçiniz--</option>
                                                             @foreach (var item in Model.PubLisherList)
                                                             {
@@ -68,24 +71,24 @@
                                                             }
                                                         </select>
                                                         <span class="input-group-btn">
-                                                            <a href="@Url.Action("Save", "Publisher")" class="btn btn-outline btn-default"><i class="glyphicon glyphicon-plus"> </i></a>
+                                                            <a onclick="SavePublisher()" class="btn btn-outline btn-default"><i class="glyphicon glyphicon-plus"> </i></a>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 col-md-4 control-label">Yazar Adı </label>
+                                                <label class="col-sm-3 col-md-4 control-label">Yazar Adi </label>
                                                 <div class="col-sm-9 col-md-8">
                                                     <div class="input-group">
-                                                        <select asp-for="bookModel.AuthorId" placeholder="seçiniz..." class="form-control">
+                                                        <select id="authors" asp-for="bookModel.AuthorId" placeholder="seçiniz..." class="form-control">
                                                             <option value="-1">--Seçiniz--</option>
                                                             @foreach (var item in Model.AuthorList)
                                                             {
-                                                                <option value="@item.Id">@item.Name</option>
+                                                                <option value="@item.Id">@item.Name @item.Surname</option>
                                                             }
                                                         </select>
                                                         <span class="input-group-btn">
-                                                            <a href="@Url.Action("Save", "Author")" class="btn btn-outline btn-default"><i class="glyphicon glyphicon-plus"> </i></a>
+                                                            <a onclick="SaveAuthor()" class="btn btn-outline btn-default"><i class="glyphicon glyphicon-plus"> </i></a>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -117,14 +120,14 @@
                                         </div>
                                         <div class="widget col-xs-8">
                                             <div class="widget-title">
-                                                <h4>İçerik</h4>
+                                                <h4>Içerik</h4>
                                             </div>
                                             <div class="widget-body">
                                                 <table id="tblFiles" class="table table-hover">
                                                     <tr>
-                                                        <th>Dosya Adı</th>
+                                                        <th>Dosya Adi</th>
                                                         <th>Dosya Türü</th>
-                                                        <th>İşlem</th>
+                                                        <th>Islem</th>
                                                     </tr>
                                                     <tr>
                                                         @if (Model.bookModel != null && Model.bookModel.AppFiles != null)
@@ -140,7 +143,7 @@
                                                 </table>
                                                 <div class="form-group">
                                                     <label>içerik</label>
-                                                    <input class="FileBasic" id="FilePublication" asp-for="Publication" multiple="multiple" placeholder="PNG | JPG" type="file">
+                                                    <input class="FileBasic" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" id="FilePublication" asp-for="Publication" multiple="multiple" placeholder="PNG | JPG" type="file">
                                                 </div>
                                             </div>
                                         </div>
@@ -160,10 +163,12 @@
                                             <option value="-1">Seçiniz</option>
                                             @foreach (var item in Model.CategoryList)
                                             {
-
                                                 <option value="@item.Id">@item.Name</option>
                                             }
                                         </select>
+                                        <span class="input-group-btn">
+                                            <a onclick="SaveCategory()" class="btn btn-outline btn-default"><i class="glyphicon glyphicon-plus"> </i></a>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -172,7 +177,7 @@
                                         <select id="AppTypeId" asp-for="bookModel.CategoryTagAssigment.Tags" multiple="multiple" class="form-control  pull-right ui fluid normal dropdown">
                                             @foreach (var item in Model.TagList)
                                             {
-                                                <option value="@item.Id">@item.Name</option>
+                                                <option value="@item.Id" data-Name="@item.Name">@item.Name</option>
                                             }
                                         </select>
                                     </div>
@@ -195,31 +200,34 @@
         $('.FileBasic').fileinput({
             maxFileCount: 1,
             showUpload: false,
-            allowedFileTypes: ['image', 'video']
+            allowedFileTypes: ['image', 'video', 'pdf', '.epub']
         });
 
         $('#AppTypeId')
             .dropdown({ placeholder: 'Seçiniz' });
         $('#categories')
             .dropdown({ placeholder: 'Seçiniz' });
+
+        GetSessionValues();
+
     });
 
-    $("#btnRemove").click(function() {
+    $("#btnRemove").click(function () {
         var model = {
             IsActive: false,
             Id: id
         }
         var btn = this;
         swal({
-                title: "Kaydı silmek istediginizden emin misiniz?",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "evet",
-                cancelButtonText: "Hayir",
-                closeOnConfirm: true,
-                closeOnCancel: true
-            },
-            function(isConfirm) {
+            title: "Kaydi silmek istediginizden emin misiniz?",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "evet",
+            cancelButtonText: "Hayir",
+            closeOnConfirm: true,
+            closeOnCancel: true
+        },
+            function (isConfirm) {
                 if (isConfirm) {
                     $.ajax({
                         type: "POST",
@@ -227,9 +235,9 @@
                         content: "application/json; charset=utf-8",
                         data: model,
                         dataType: 'json',
-                        success: function(d) {
+                        success: function (d) {
                             if (d.success) {
-                                swal("Basarili!", "Kayıt silindi", "success");
+                                swal("Basarili!", "Kayit silindi", "success");
                                 table.row($(btn).parents('tr')).remove().draw(false);
                             }
                         }
@@ -240,30 +248,107 @@
             });
     });
 
+    $('form').submit(function (e) {
 
-            $('form').submit(function (e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        formData.set('bookModel.CategoryTagAssigment.CategoryName', ($("#categories option:selected").text()));
+        formData.set('bookModel.CategoryTagAssigment.AuthorName', ($("#authors option:selected").text()).split(" ")[0]);
+        formData.set('bookModel.CategoryTagAssigment.AuthorSurname', ($("#authors option:selected").text()).split(" ")[1]);
+        formData.set('bookModel.CategoryTagAssigment.PublisherName', ($("#publishers option:selected").text()));
 
-            e.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                url: "/Book/Save",
-                type: 'POST',
-                data: formData,
-                success: function (data) {
-                    if (data.isSuccess) {
-                        swal("İşlem Başarılı!", "Kaydedildi!", "success");
-                    }
-                    else {
-                        swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
-                    }
-                },
-                error: function () {
-                    swal("Hata!", "Bir sorun oluştu!", "error");
-                },
-                cache: false,
-                contentType: false,
-                processData: false
-            });
+        $.ajax({
+            url: "/Book/Save",
+            type: 'POST',
+            data: formData,
+            success: function (data) {
+                if (data.isSuccess) {
+                    swal("Islem Basarili!", "Kaydedildi!", "success");
+                }
+                else {
+                    swal("Dikkat!", "Kayit olusturulamadi!", "warning");
+                }
+            },
+            error: function () {
+                swal("Hata!", "Bir sorun olustu!", "error");
+            },
+            cache: false,
+            contentType: false,
+            processData: false
         });
+    });
 
+    function SavePublisher() {
+        SetSessionValues();
+        window.location.href = "/Publisher/Save";
+    }
+
+    function SaveAuthor() {
+        SetSessionValues();
+        window.location.href = "/Author/Save";
+    }
+
+    function SaveCategory() {
+        SetSessionValues();
+        window.location.href = "/Category/Save";
+    }
+    function SetSessionValues() {
+     
+        var bookName = document.getElementById("bookName").value;
+        var bookSummary = document.getElementById("bookSummary").value;
+        var numberPages = document.getElementById("numberPages").value;
+
+        var e = document.getElementById("publishers");
+        var publisherVal =  e.options[e.selectedIndex].value;
+        var publisherText = e.options[e.selectedIndex].text;
+
+        var e2 = document.getElementById("authors");
+        var authorVal =  e2.options[e2.selectedIndex].value;
+        var authorText =  e2.options[e2.selectedIndex].text;
+
+        var model = {
+            BookName: bookName,
+            BookSummary: bookSummary,
+            NumberPages: numberPages,
+            PublisherVal: publisherVal,
+            PublisherText: publisherText,
+            AuthorVal: authorVal,
+            AuthorText: authorText
+        }
+
+        $.ajax({
+            url: "/Book/SetSessionValues",
+            type: 'POST',
+            content: "application/json; charset=utf-8",
+            data: model,
+            dataType: 'json'
+        });
+    }
+
+    function GetSessionValues() {
+        $.ajax({
+            url: "/Book/GetSession",
+            type: 'POST',
+            content: "application/json; charset=utf-8",
+            dataType: 'json',
+            success: function(d) {
+                var cacheBook = d;
+                document.getElementById("bookName").value = cacheBook.bookName;
+                document.getElementById("bookSummary").value = cacheBook.bookSummary;
+                document.getElementById("numberPages").value = cacheBook.numberPages;
+
+                var e = document.getElementById("publishers");
+                e.options[e.selectedIndex].value = cacheBook.PublisherVal;
+                e.options[e.selectedIndex].text = cacheBook.PublisherText == undefined ? "Seçiniz" : cacheBook.PublisherText;
+
+                var e2 =  document.getElementById("authors");
+                e2.options[e2.selectedIndex].value = cacheBook.AuthorVal;
+                e2.options[e2.selectedIndex].text = cacheBook.AuthorText == undefined ? "Seçiniz" : cacheBook.AuthorText;
+            }
+        })
+       
+
+    }
+
+   
 </script>

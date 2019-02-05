@@ -3,18 +3,37 @@
     <div class="top-space position-relative">
       <h2 class="d-inline-block w-100 text-center mb-4">Kitaplar artık daha yakın!</h2>
       <div class="input-group dropdown">
-        <input type="text" id="dropdownMenuButton" class="form-control dropdown-toggle" placeholder="Arama..." data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autofocus>
+        <input type="text" id="dropdownMenuButton" class="form-control dropdown-toggle" placeholder="Arama..." (keyup)="searchTerm$.next($event.target.value)"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autofocus>
         <div class="input-group-append">
           <button class="btn input-group-text h-100"></button>
         </div>
-        <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-          <span class="dropdown-item-text">Kitap</span>
-          <a class="dropdown-item text-truncate" href="#">Korkusuz Adam</a>
-          <span class="dropdown-item-text">Yazar</span>
-          <a class="dropdown-item text-truncate" href="#">Korkut Sönmez</a>
-          <a class="dropdown-item text-truncate" href="#">Korkut Yılmaz</a>
-          <span class="dropdown-item-text">Yayınevi</span>
-          <a class="dropdown-item text-truncate" href="#">Korkmaz Kitabevi</a>
+        <div [hidden]="results?.authors?.length < 1
+        && results?.books?.length < 1
+        && results?.publishers?.length < 1" class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+          <div >
+            <ng-container *ngIf="results?.authors?.length > 0">
+              <span class="dropdown-item-text">Yazarlar</span>
+              <ng-container *ngFor="let author of results?.authors | slice:0:4" >
+                <a class="dropdown-item text-truncate" href="javascript:void();"
+                routerLink="/yazar-detay/{{author?.id}}">{{author.name}}</a>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="results?.books?.length > 0">
+                <span class="dropdown-item-text">Kitaplar</span>
+                <ng-container *ngFor="let book of results?.books | slice:0:4" >
+                  <a class="dropdown-item text-truncate" href="javascript:void();"
+                  routerLink="/kitap-detay/{{book?.id}}">{{book.name}}</a>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="results?.publishers?.length > 0">
+                <span class="dropdown-item-text">Yayınevleri</span>
+                <ng-container *ngFor="let publisher of results?.publishers | slice:0:4" >
+                  <a class="dropdown-item text-truncate" href="javascript:void();"
+                  routerLink="/yayinevi-detay/{{publisher?.id}}">{{publisher.name}}</a>
+                </ng-container>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>

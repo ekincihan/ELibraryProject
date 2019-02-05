@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations;
-
+using ELibrary.Entities.Concrete;
 
 namespace ELibrary.API.Models
 {
@@ -21,10 +21,13 @@ namespace ELibrary.API.Models
     {
         private readonly IAppFile _appFile;
         private IMapper _mapper;
+        //private readonly IBooks _books;
         public AuthorModel()
         {
+            Id = Guid.Empty;
             _appFile = new EFAppFile();
             _mapper = DIManager.Instance.Provider.GetService<IMapper>();
+         //   _books = new EFBook();
         }
         [Required]
         public string Name { get; set; }
@@ -57,5 +60,6 @@ namespace ELibrary.API.Models
         public AppFileFilterModel AppFileFilterModel { get; set; } = new AppFileFilterModel();
         public DateTime? Birthdate { get; set; }
         public bool IsActive { get; set; } = true;
+        public object book { get; private set; }
     }
 }

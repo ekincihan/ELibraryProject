@@ -1,38 +1,28 @@
 <div class="tab-content pb-0">
   <div class="tab-pane fade show active" id="one" role="tabpanel" aria-labelledby="one">
-    <div  class="row">
-      <div *ngFor="let item of data" class="col-6 col-sm-4 col-md-3 col-lg-2">
+    <div class="row">
+      <div *ngFor="let item of data; let i = index" class="col-6 col-sm-4 col-md-3 col-lg-2">
         <div class="b-box d-inline-block position-relative mb-5 w-100">
-          <div class="cover position-relative mb-4" 
-          [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}">
+          <div class="cover position-relative mb-4" [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}">
             <div class="caption text-center">
 
               <div class="favourite position-absolute text-center">
                 <span class="selected d-inline-block w-100 h-100"></span>
               </div>
               <div class="more w-100 position-absolute">
-                <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-2"></span></b></a>
+                <a href="#" routerLink="/kitap-detay/{{item?.id}}" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-2"></span></b></a>
               </div>
             </div>
           </div>
           <div [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}"></div>
-          <div class="cover position-absolute blurred" [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}" ></div>
+          <div class="cover position-absolute blurred" [ngStyle]="{'background-image':'url('+item?.thumbnail?.signUrl+')'}"></div>
           <a href="javascript:void(0)" class="d-inline-block w-100">
-            <div class="title mb-1 text-truncate"><b>{{item?.bookName}}</b></div>
+            <div class="title mb-1 text-truncate" routerLink="/kitap-detay/{{item?.id}}"><b>{{item?.bookName}}</b></div>
           </a>
           <a href="javascript:void(0)" class="d-inline-block w-100">
-            <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{item.author.id}}">{{item?.author?.name}}</div>
+            <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{item?.author?.id}}">{{item?.author?.name}}
+              {{item?.author?.surname}}</div>
           </a>
-          <div class="stars">
-            <span class="d-inline-block given">&#8902;</span>
-            <span class="d-inline-block given">&#8902;</span>
-            <span class="d-inline-block given">&#8902;</span>
-            <span class="d-inline-block given">&#8902;</span>
-            <span class="d-inline-block given">&#8902;</span>
-          </div>
+          <div>Okunma Sayısı: {{item?.readCount}}</div>
+            <rating  *ngIf="tokenService.isLogin && ratedBooks" [(ngModel)]="ratedBooks[i].rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(ratedBooks[i])"></rating>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two">...</div>
-</div>

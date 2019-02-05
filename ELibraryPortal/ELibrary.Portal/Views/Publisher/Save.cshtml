@@ -12,17 +12,20 @@
             <h3 class="widget-title">Yayın Evi</h3>
         </div>
         <div class="widget-body">
+            <div class="form-group">
+                <a href="@Url.Action("Index", "Publisher")" style="float:right"> <input type="submit" class="btn btn-primary" value="Yayınevi Listele" /></a>
+            </div>
             <form asp-action="Save">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input asp-for="Id" type="hidden" />
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
+                    <input asp-for="Name" class="form-control" id="PublisherName" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
+                    <input asp-for="Email" class="form-control" id="PublisherMail" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -31,9 +34,7 @@
                 </div>
 
             </form>
-            <div class="form-group">
-                <a href="@Url.Action("Index", "Publisher")"> <input type="submit" class="btn btn-primary" value="Yayınevi Listele" /></a>
-            </div>
+
         </div>
     </div>
 </div>
@@ -49,6 +50,8 @@
                 console.log(data);
                 if (data.isSuccess) {
                     swal("Basarili!", "Kaydedildi!", "success");
+                    document.getElementById("PublisherName").value = "";
+                    document.getElementById("PublisherMail").value = "";
                 }
                 else {
                     swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");

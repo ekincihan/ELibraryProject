@@ -6,15 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using ELibrary.Core.Entites;
 using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace ELibrary.Core.DataAccess.MongoDB
 {
-    public class MongoDBRepository<TEntity> : IEntityRepository<TEntity> where TEntity : class, IEntity, new()
+    public class MongoDBRepository<TEntity> : IMongoEntityRepository<TEntity> where TEntity : class, IEntity, new()
     {
-        private readonly IMongoDatabase database;
+        private readonly IMongoDatabase _database;
         private readonly IMongoCollection<TEntity> _collection;
-       
+
         public MongoDBRepository()
         {
             string connectionString =
@@ -25,62 +26,70 @@ namespace ELibrary.Core.DataAccess.MongoDB
             settings.SslSettings =
                 new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
             var mongoClient = new MongoClient(settings);
-            database = mongoClient.GetDatabase("ELibrary");
-            _collection = database.GetCollection<TEntity>(typeof(TEntity).Name);
+            _database = mongoClient.GetDatabase("ELibrary");
+            _collection = _database.GetCollection<TEntity>(typeof(TEntity).Name);
         }
 
-        public TEntity GetT(Expression<Func<TEntity, bool>> filter = null)  
+        public TEntity GetT(FilterDefinition<TEntity> filter)
         {
-            return null;
+            return _collection.Find(filter).First();
         }
 
-        public Task<TEntity> GetTAsync(Expression<Func<TEntity, bool>> filter = null)
+        public async Task<TEntity> GetTAsync(FilterDefinition<TEntity> filter)
         {
-
-            throw new NotImplementedException();
+            return await _collection.Find(filter).FirstOrDefaultAsync();
         }
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
-            List<TEntity> list = _collection.Find<TEntity>(filter).ToList();
+            List<TEntity> list = filter == null ? _collection.AsQueryable().ToList() : _collection.Find<TEntity>(filter).ToList();
+
             return list;
         }
 
-        public Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> filter = null)
+        public async Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            return filter == null ? await _collection.Find(_ => true).ToListAsync() : await _collection.Find<TEntity>(filter).ToListAsync();
         }
 
         public TEntity Add(TEntity entity)
         {
-             _collection.InsertOne(entity);
+            _collection.InsertOne(entity);
+
             return entity;
         }
 
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             await _collection.InsertOneAsync(entity);
+
             return entity;
         }
 
-        public TEntity Update(TEntity entity)
+        public bool Update(FilterDefinition<TEntity> filter, UpdateDefinition<TEntity> updateDefinition)
         {
-            throw new NotImplementedException();
+            var result = _collection.UpdateOne(filter, updateDefinition);
+
+            return result.IsModifiedCountAvailable;
         }
 
-        public Task<TEntity> UpdateAsync(TEntity entity)
+        public async Task<bool> UpdateAsync(FilterDefinition<TEntity> filter, UpdateDefinition<TEntity> updateDefinition)
         {
-            throw new NotImplementedException();
+            var result = await _collection.UpdateOneAsync(filter, updateDefinition);
+
+            return result.IsModifiedCountAvailable;
         }
 
-        public void Delete(TEntity entity)
+
+        public void Delete(FilterDefinition<TEntity> filter)
         {
-            throw new NotImplementedException();
+            var a = _collection.DeleteOne(filter);  
         }
 
         public Task DeleteAsync(TEntity entity)
         {
             throw new NotImplementedException();
         }
+
     }
 }

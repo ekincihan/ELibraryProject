@@ -24,6 +24,7 @@ namespace ELibrary.Entities.Concrete
         public Publisher Publisher { get; set; }
         public Guid PublisherId { get; set; }
         public Base64FormattingOptions BooksPhoto { get; set; }
+        public int ReadCount { get; set; }
         public override Guid? CreatedBy { get => base.CreatedBy; set => base.CreatedBy = value; }
         public override DateTime? CreatedDate { get => DateTime.UtcNow; set => base.CreatedDate = value; }
         public override Guid? ModifiedBy { get => base.ModifiedBy; set => base.ModifiedBy = value; }

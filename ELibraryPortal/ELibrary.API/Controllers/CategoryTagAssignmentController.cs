@@ -10,17 +10,19 @@ using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace ELibrary.API.Controllers
 {
-    [Route("api/CategoryTagAssignment")]
     [ApiController]
+    [Route("api/CategoryTagAssignment")]
     public class CategoryTagAssignmentController : ControllerBase
     {
         private readonly IMapper _mapper;
-        private readonly IMongoTagCategoryAssigment _categoryAssigment;
+        //private readonly IMongoTagCategoryAssigment _categoryAssigment;
+        private readonly ICategoryTagAssignment _categoryAssigment;
 
-        public CategoryTagAssignmentController(IMapper mapper, IMongoTagCategoryAssigment categoryAssigment)
+        public CategoryTagAssignmentController(IMapper mapper, ICategoryTagAssignment categoryAssigment)
         {
             _mapper = mapper;
             _categoryAssigment = categoryAssigment;
@@ -43,11 +45,15 @@ namespace ELibrary.API.Controllers
         public async Task<Response<CategoryTagAssigmentModel>> Post([FromBody]CategoryTagAssigmentModel model)
         {
             Response<CategoryTagAssigmentModel> CategoryTagAssigmentModel = new Response<CategoryTagAssigmentModel>();
-
             try
             {
+                //var filter = Builders<CategoryTagAssigment>.Filter.Eq("BookId", model.BookId);
+                //var entit1y = await _categoryAssigment.GetTAsync(filter);
+
+                //_categoryAssigment.Delete(filter);
+
                 CategoryTagAssigment entity = _mapper.Map<CategoryTagAssigment>(model);
-                entity = await (model.id != null ? _categoryAssigment.UpdateAsync(entity) : _categoryAssigment.AddAsync(entity));
+                entity = await _categoryAssigment.AddAsync(entity);
                 CategoryTagAssigmentModel.Value = _mapper.Map<CategoryTagAssigmentModel>(entity);
                 CategoryTagAssigmentModel.IsSuccess = true;
             }

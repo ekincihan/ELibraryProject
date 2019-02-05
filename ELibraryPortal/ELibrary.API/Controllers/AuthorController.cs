@@ -17,10 +17,14 @@ namespace ELibrary.API.Controllers
     [ApiController]
     public class AuthorController : APIControllerBase
     {
+
         private readonly IAuthor _author;
         private readonly IBooks _book;
 
         private IMapper _mapper;
+
+        private static readonly char[] Letters =
+            "ABCÇDEFGHIİJKLMNOÖPQRSTUÜVWXYZ".ToCharArray();
 
         public AuthorController(IAuthor author, IMapper mapper, IBooks book)
         {
@@ -95,6 +99,45 @@ namespace ELibrary.API.Controllers
             authorResponse.Value = _mapper.Map<AuthorModel>(entityList);
 
             return authorResponse;
+        }
+
+        [HttpGet]
+        [Route("Alphabetically")]
+        public List<AuthorAlphabeticallyModel> AlphabeticalList()
+        {
+            List<AuthorAlphabeticallyModel> responseModel = new List<AuthorAlphabeticallyModel>();
+            List<AuthorBasicModel> alphabeticList = new List<AuthorBasicModel>();
+
+            var list = _author.GetList().ToList();
+            var groupedByLetter =
+                from letter in Letters
+                join service in list on letter equals service.Name[0] into grouped
+                select new { Letter = letter, list = grouped };
+
+            foreach (var entry in groupedByLetter)
+            {
+                alphabeticList = new List<AuthorBasicModel>();
+                AuthorAlphabeticallyModel UiModel = new AuthorAlphabeticallyModel();
+                UiModel.Character = entry.Letter.ToString();
+
+                foreach (var service in entry.list)
+                {
+                    AuthorBasicModel model = new AuthorBasicModel();
+                    model.Name = service.Name;
+                    model.SurName = service.Surname;
+                    model.Id = service.Id;
+                    alphabeticList.Add(model);
+                }
+
+                if (alphabeticList.Count > 0)
+                {
+                    UiModel.AlphabeticalList = alphabeticList;
+                    responseModel.Add(UiModel);
+                }
+            }
+
+
+            return responseModel;
         }
 
 

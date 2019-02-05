@@ -21,20 +21,20 @@ export class AuthorDetailComponent implements OnInit {
     ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.authorService.get("/Author/Detail/"+ params["authorId"]).subscribe(res => {
-        console.log('YAZAR BİLGİLERİ',res["value"]);
-        console.log("kitaplar istendi")
+       // console.log("kitaplar istendi")
         this.author = res["value"];
-        this.authorDetail(params["authorId"]);
-     });
-      
-    });
-  }
+       // console.log('YAZAR BİLGİLERİ',res["value"]);
 
-  authorDetail(id: string) {
+     });
+     this.authorBook(params["authorId"]);
+    });
+  } 
+
+  authorBook(id: string) {
     this.authorService.get("/Author/Books/" + id).subscribe(res => {
        this.authBooks = res["value"];
-       console.log('authbooks',this.authBooks)
-       console.log("kitaplar geldi")
+       //console.log('authbooks',this.authBooks)
+       //console.log("kitaplar geldi")
     });
 
 }

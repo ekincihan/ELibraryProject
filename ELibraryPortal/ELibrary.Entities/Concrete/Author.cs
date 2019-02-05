@@ -14,7 +14,7 @@ namespace ELibrary.Entities.Concrete
         public string Name { get; set; }
         [StringLength(maximumLength: 100)]
         public string Surname{ get; set; }
-        [StringLength(maximumLength: 1000)]
+        [StringLength(maximumLength: 10000)]
         public string Biography { get; set; }
         public int Gender{ get; set; }
         public Base64FormattingOptions AuthorPhoto { get; set; }

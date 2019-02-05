@@ -7,12 +7,15 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <div class="form-group">
+            <a href="@Url.Action("Save", "Book")" style="float:right"> <input type="submit" class="btn btn-primary" value="Kitap Ekle" /></a>
+        </div>
         <div class="widget no-border">
             <table id="order-table" style="width: 100%" class="table table-hover dt-responsive nowrap">
                 <thead>
                     <tr>
                         <th style="width: 15%" class="text-center">Adı</th>
-                        <th style="width: 15%" class="text-center">Tarih</th>
+                        <th style="width: 15%" class="text-center">Son Güncellenme Tarihi</th>
                         <th style="width: 15%" class="text-center">Sayfa Sayısı</th>
                         <th style="width: 15%" class="text-center">İşlemler</th>
                     </tr>
@@ -20,19 +23,19 @@
                 <tbody>
                     @foreach (var item in Model.BookList)
                     {
-                    <tr>
-                        <td class="text-center">@item.BookName</td>                      
-                        <td class="text-center">@item.EditionDate</td>
-                        <td class="text-center">@item.NumberPage</td>
-                        @*<td class="text-center"><span class="label label-warning">Pending</span></td>*@
-                        <td class="text-center">
-                            <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
-                                @*<button type="button" data-id="@item.Id" class="btn btn-outline btn-primary"><i class="ti-eye"></i></button>*@
-                                <a href="@Url.Action("Save", "Book", new { id = item.Id })" id="update" class="btn btn-outline btn-success"><i class="ti-pencil"></i></a>
-                                <a id="delete" data-id="@item.Id" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td class="text-center">@item.BookName</td>
+                            <td class="text-center">@item.ModifiedDate</td>
+                            <td class="text-center">@item.NumberPages</td>
+                            @*<td class="text-center"><span class="label label-warning">Pending</span></td>*@
+                            <td class="text-center">
+                                <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
+                                    @*<button type="button" data-id="@item.Id" class="btn btn-outline btn-primary"><i class="ti-eye"></i></button>*@
+                                    <a href="@Url.Action("Save", "Book", new { id = item.Id })" id="update" class="btn btn-outline btn-success"><i class="ti-pencil"></i></a>
+                                    <a id="delete" data-model="@(Newtonsoft.Json.JsonConvert.SerializeObject(item))" data-id="@item.Id" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>
@@ -55,10 +58,13 @@
 
         $("td div  #delete").click(function () {
 
-            var model = {
-                IsActive: false,
-                Id: $(this).attr('data-id')
-            }
+
+            var model = JSON.parse($(this).attr('data-model'));
+            model.IsActive = false;
+            //var model = {
+            //    IsActive: false,
+            //    Id: $(this).attr('data-id')
+            //}
             var btn = this;
             swal({
                     title: "Kaydı silmek istediginizden emin misiniz?",

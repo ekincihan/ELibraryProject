@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations;
 using ELibrary.Entities.Concrete;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ELibrary.API.Models
 {
@@ -22,6 +23,7 @@ namespace ELibrary.API.Models
         private readonly IAppFile _appFile;
         private readonly IPublisher _publisher;
         private readonly IAuthor _author;
+        private readonly ICategory _category;
         private IMapper _mapper;
         //private ICollection<AppFileModel> _appFiles;
         //private ICollection<AppFileModel> _thumbnail;
@@ -30,6 +32,7 @@ namespace ELibrary.API.Models
             _appFile = new EFAppFile();
             _publisher = new EFPublisher();
             _author = new EFAuthor();
+            _category = new EFCategory();
             _mapper = DIManager.Instance.Provider.GetService<IMapper>();
         }
         [Required(ErrorMessage = "Bu alan boş bırakılamaz")]
@@ -38,7 +41,8 @@ namespace ELibrary.API.Models
         public Guid AuthorId { get; set; }
         public string ISBN { get; set; }
         public DateTime EditionDate { get; set; }
-        public int NumberPage { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public int NumberPages { get; set; }
         public Base64FormattingOptions BookPhoto { get; set; }
         public bool IsActive { get; set; } = true;
         public AppFileModel Thumbnail
@@ -80,6 +84,30 @@ namespace ELibrary.API.Models
                         Name = f.Name,
                         UniqueName = f.UniqueName
                     }).ToList();
+            }
+        }
+        public Guid CategoryId { get; set; }
+        public int ReadCount { get; set; }
+
+        public CategoryModel Category
+        {
+            get
+            {
+                Category entity = _category.GetT(x => x.IsActive == true && x.Id == this.CategoryId);
+                if (entity != null)
+                {
+                    CategoryModel model = new CategoryModel()
+                    {
+                        Id = entity.Id,
+                        Name = entity.Name,
+                        IsActive = entity.IsActive
+                    };
+                    return model;
+                }
+                else
+                {
+                    return new CategoryModel();
+                }
             }
         }
         public Guid PublisherId { get; set; }

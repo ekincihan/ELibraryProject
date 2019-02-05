@@ -31,9 +31,15 @@ namespace ELibrary.API
     {
         private RoleManager<AppIdentityRole> _roleManager;
         private UserManager<ApplicationUser> _userManager;
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddEnvironmentVariables()
+                .AddJsonFile("appsettings.json");
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -60,6 +66,9 @@ namespace ELibrary.API
             services.AddTransient<IAuthor, EFAuthor>();
             services.AddTransient<IType, EFType>();
             services.AddTransient<IMongoTagCategoryAssigment, MongoCategoryTagAssigments>();
+            services.AddTransient<IMongoUserFavoritesAndReads, MongoUserFavoritesAndReads>();
+            services.AddTransient<IUserRates, EFUserRate>();
+            services.AddTransient<IUserFavoriteAndReadBook, EFUserFavoriteAndReadBook>();
 
             //services.AddAuthentication().AddFacebook(facebookOptions =>
             //{
@@ -90,6 +99,8 @@ namespace ELibrary.API
                 app.UseHsts();
             }
 
+            //app.UseDeveloperExceptionPage();
+
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
 
             app.UseMvc(routes =>
@@ -98,7 +109,7 @@ namespace ELibrary.API
                     name: "default",
                     template: "{controller=Home}/{action}/{id?}");
             });
-
+            app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseSwagger();
@@ -106,8 +117,10 @@ namespace ELibrary.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ELibrayAPI V1");
             });
+
             //CreateRolesandUsers();
         }
+   
         private void CreateRolesandUsers()
         {
             _roleManager = DIManager.Instance.Provider.GetService<RoleManager<AppIdentityRole>>();

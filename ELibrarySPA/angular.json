@@ -20,13 +20,22 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "**/*", "input": "node_modules/ngx-extended-pdf-viewer/assets/locale", "output": "/assets/locale/" }
             ],
             "styles": [
+              "node_modules/ng-snotify/styles/material.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/ngx-extended-pdf-viewer/assets/pdf.js",
+              "node_modules/ngx-extended-pdf-viewer/assets/pdf.worker.js",
+              "node_modules/ngx-extended-pdf-viewer/assets/viewer.js",
+              "node_modules/epubjs/dist/epub.min.js",
+              "node_modules/jszip/dist/jszip.js"
+            ]
           },
           "configurations": {
             "production": {
