@@ -102,11 +102,11 @@ export class CategoryComponent implements OnInit {
     console.log('this.filterCategory',this.filterCategory);
     // TODO: Servis entegrasyonu buraya gelecek,
     // seçili yazar,kategori ve yayınevini alıyoruz.servis yine kategori tipinde dönmeli
-   /*  
-    this.categoryService.post('filtreyolu',this.filterCategory).subscribe(res =>{
+    
+    this.categoryService.post('CategoryTagAssignment/Filter',this.filterCategory).subscribe(res =>{
       console.log('res',res);
-        this.categories = res;
-    }) */
+        //this.headerCategories
+    }) 
     
   }
   

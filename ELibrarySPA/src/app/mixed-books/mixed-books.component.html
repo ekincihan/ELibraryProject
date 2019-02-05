@@ -24,5 +24,5 @@
               {{item?.author?.surname}}</div>
           </a>
           <div>Okunma Sayısı: {{item?.readCount}}</div>
-            <rating  *ngIf="tokenService.isLogin && ratedBooks" [(ngModel)]="ratedBooks[i].rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(ratedBooks[i])"></rating>
+            <rating  *ngIf="tokenService.isLogin" [(ngModel)]="item.rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(item)"></rating>
         </div>

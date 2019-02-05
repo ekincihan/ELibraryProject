@@ -10,6 +10,7 @@ import { NgxMaskModule } from 'ngx-mask'
 import { FormsModule } from '@angular/forms';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
 /* COMPONENTS */
@@ -30,6 +31,11 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BookViewerComponent } from './book-detail/book-viewer/book-viewer.component';
+import { CategoryFullComponent } from './category/category-full/category-full.component';
+import { PublisherDetailComponent } from './publisher/publisher-detail/publisher-detail.component';
+import { AuthorComponent } from './Author/Author.component';
+import { ContactComponent } from './contact/contact.component';
+
 
 /* SERVICES */
 import { IndexService } from './index/shared/index.service';
@@ -45,14 +51,9 @@ import { SignUpService } from './signup/shared/signUp.service';
 import { SignInService } from './signin/shared/signIn.service';
 import { TokenService } from './service/token.service';
 import { SearchService } from './index/shared/search.service';
-
-import { BookService } from './book-detail/shared/book.service';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-import { CategoryFullComponent } from './category/category-full/category-full.component';
-import { PublisherDetailComponent } from './publisher/publisher-detail/publisher-detail.component';
-import { AuthorComponent } from './Author/Author.component';
-import { Author } from './models/Author';
+import { ContactService } from './contact/shared/contact.service';
 import { AuthorService } from './Author/shared/author.service';
+import { BookService } from './book-detail/shared/book.service';
 
 @NgModule({
    declarations: [
@@ -75,7 +76,8 @@ import { AuthorService } from './Author/shared/author.service';
        UserProfileComponent,
        BookViewerComponent,
        CategoryFullComponent,
-       AuthorComponent
+       AuthorComponent,
+       ContactComponent
    ],
    imports: [
        BrowserModule,
@@ -102,6 +104,7 @@ import { AuthorService } from './Author/shared/author.service';
        SearchService,
        BookService,
        UserProfileService,
+       ContactService,
        [
            { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
            SnotifyService

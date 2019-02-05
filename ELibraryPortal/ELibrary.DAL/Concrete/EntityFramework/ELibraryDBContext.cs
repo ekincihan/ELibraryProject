@@ -9,7 +9,7 @@ using System.Text;
 
 namespace ELibrary.DAL.Concrete.EntityFramework
 {
-    public class ELibraryDBContext : IdentityDbContext<ApplicationUser> 
+    public class ELibraryDBContext : IdentityDbContext<ApplicationUser>
     {
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
@@ -23,6 +23,9 @@ namespace ELibrary.DAL.Concrete.EntityFramework
         public virtual DbSet<AppFile> AppFiles { get; set; }
         public virtual DbSet<UserFavoritAndReadBook> UserFavoritAndReadBook { get; set; }
         public virtual DbSet<UserRates> UserRates { get; set; }
+        public virtual DbSet<CategoryTagAssigment> CategoryTagAssigments { get; set; }
+        public virtual DbSet<UserReadPage> UserReadPage { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
 
         public ELibraryDBContext(DbContextOptions<ELibraryDBContext> options) : base(options)
         {

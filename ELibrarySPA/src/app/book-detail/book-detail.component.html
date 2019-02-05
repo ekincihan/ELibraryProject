@@ -14,7 +14,8 @@
             </div>
           </div>
           <button class="btn btn-lg btn-green text-left w-100 mt-4 mb-2 pl-5 text-truncate read-it" routerLink="/kitap-oku/{{book?.id}}"
-           (click)="beginReading(book)">Okumaya Başla</button>
+           (click)="beginReading(book)">
+           {{(isReading) ? 'Okumaya devam et' : 'Okumaya Başla'}} </button>
           </div>
         <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9 contentbar mb-3">
           <div class="detailed">
@@ -24,18 +25,6 @@
                 <h6 class="mt-0 mb-3 text-capitalize color-green">{{book?.bookName}}</h6>
                 <div class="mb-1">Yazar: <b class="text-capitalize">{{book?.author?.name}}</b></div>
                 <div class="mb-3">Yayınevi: <b class="text-capitalize">{{book?.publisher?.name}}</b></div>
-              </div>
-  
-              <div class="col-12 col-sm-12 col-md-5 ratenshare text-right">
-                <div class="stars d-inline-block mb-3" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="1234 kişi puan verdi.">
-                  <!-- gecici gorsel --><img src="http://turgutkarahan.com/boox/img/stars.png" height="19" style="position:relative;top:-5px;margin-right:8px;">
-                  <b class="numbers">4.4/5</b>
-                </div>
-                <div class="socialized mb-3 text-right">
-                  <span class="position-relative d-inline-block top-minus-05 mr-1">Paylaş:</span>
-                  <a href="#" class="fb">facebook</a>
-                  <a href="#" class="tw">twitter</a>
-                </div>
               </div>
             </div>
             <div class="info-text">

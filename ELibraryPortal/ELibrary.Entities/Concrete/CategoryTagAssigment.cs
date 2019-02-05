@@ -22,7 +22,6 @@ namespace ELibrary.Entities.Concrete
         public string AuthorSurname { get; set; }
         public Guid PublisherId { get; set; }
         public string PublisherName { get; set; }
-        public List<Guid> Tags { get; set; }
     }
 
 }

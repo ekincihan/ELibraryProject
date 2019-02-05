@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import Epub from 'epubjs';
 import { BookService } from '../shared/book.service';
 import { ActivatedRoute } from '@angular/router';
@@ -11,16 +11,36 @@ import { Book } from '../../models/Book';
 })
 export class BookViewerComponent implements OnInit {
   book: Book;
+  epubBook: any;
   url: string;
   epubViewerOn = false;
+  readPage = {
+    userId: '',
+    id: '00000000-0000-0000-0000-000000000000',
+    bookId: '',
+    page: 0,
+  }
+
+  @ViewChild('pdfView') pdfView: ElementRef;
   constructor(private bookService: BookService,
     private activatedRoute: ActivatedRoute) {
+    
+  }
+
+  setReadPage(isAtHere: boolean){
+    if(isAtHere){
+      let currentPageNumber = document.getElementById("pageNumber")["value"];
+      this.readPage.page = parseInt(currentPageNumber);
+    }
+    this.readPage.bookId = this.book.id;
+    this.readPage.userId = JSON.parse(localStorage.getItem('user'))["id"];
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.bookService.get("/Book/Detail/" + params["bookId"]).subscribe(res => {
         this.book = res["value"];
+        this.getPageReaded();
         let ext = res["value"]["appFiles"][0].extension;
 
         let isPdf = false;
@@ -37,6 +57,35 @@ export class BookViewerComponent implements OnInit {
       });
     })
 
+  }
+
+  getPageReaded(){
+    this.setReadPage(false);
+    console.log('this.readPageres book',this.readPage);
+
+    this.bookService.post('User/UserReadPage',this.readPage).subscribe(res =>{
+      console.log('res book',res);
+       this.readPage["id"] = (res) ? res["id"] : '';
+      if(!this.epubViewerOn){
+        setTimeout(() => {
+          document.getElementById("pageNumber")["value"] = res["page"];
+          var event = new Event('change');
+          document.getElementById("pageNumber").addEventListener('change', function (e) { /* ... */ }, false);
+            document.getElementById("pageNumber").dispatchEvent(event);      
+        }, 2000);
+      }
+    })
+  }
+
+  atHere(){
+    this.setReadPage(true);
+    this.sendPageNumber();
+  }
+
+  sendPageNumber(){
+    this.bookService.post("User/ReadPage",this.readPage).subscribe(res => {
+      /* console.log('res',res); */
+    });
   }
   openEpubViewer() {
     this.epubViewerOn = true;
@@ -146,7 +195,6 @@ export class BookViewerComponent implements OnInit {
     book.loaded.navigation.then((toc: any) => {
       var $select = document.getElementById("toc"),
         docfrag = document.createDocumentFragment();
-
 
       toc.forEach(chapter => {
         var option = document.createElement("option");

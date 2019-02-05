@@ -18,13 +18,13 @@ namespace ELibrary.API.Controllers
     public class CategoryController : APIControllerBase
     {
         private readonly ICategory _category;
-        private readonly IMongoTagCategoryAssigment _categoryAssigment;
+        private readonly ICategoryTagAssignment _categoryAssigment;
         private readonly IAuthor _author;
         private readonly IBooks _book;
 
         public IMapper _mapper;
 
-        public CategoryController(ICategory category, IMapper mapper, IMongoTagCategoryAssigment categoryAssigment, IBooks book, IAuthor author)
+        public CategoryController(ICategory category, IMapper mapper, ICategoryTagAssignment categoryAssigment, IBooks book, IAuthor author)
         {
             _category = category;
             _mapper = mapper;
@@ -64,7 +64,6 @@ namespace ELibrary.API.Controllers
                     model.AuthorId = item.AuthorId;
                     model.AuthorName = item.AuthorName;
                     model.AuthorSurname = item.AuthorSurname;
-
                     //model.PublisherId = item.PublisherId;
                     //model.PublisherName=item.PublisherName
 
@@ -75,7 +74,6 @@ namespace ELibrary.API.Controllers
                 categoryModel.Name = category.CategoryName;
                 returnModel.Add(categoryModel);
             }
-
 
             return returnModel;
         }

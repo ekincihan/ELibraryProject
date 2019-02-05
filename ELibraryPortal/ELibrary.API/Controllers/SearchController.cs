@@ -16,11 +16,11 @@ namespace ELibrary.API.Controllers
     [ApiController]
     public class SearchController : ControllerBase
     {
-        private readonly IMongoTagCategoryAssigment _mongoTagCategory;
+        private readonly ICategoryTagAssignment _categoryTagAssignment;
 
-        public SearchController(IMongoTagCategoryAssigment mongoTagCategory)
+        public SearchController(ICategoryTagAssignment TagCategory)
         {
-            _mongoTagCategory = mongoTagCategory;
+            _categoryTagAssignment = TagCategory;
         }
 
         [HttpGet("Get")]
@@ -31,7 +31,7 @@ namespace ELibrary.API.Controllers
             List<BookSearchModel> books = new List<BookSearchModel>();
             List<PublisherModel> publishers = new List<PublisherModel>();
 
-            List<CategoryTagAssigment> entity = _mongoTagCategory.Search(searchKey);
+            List<CategoryTagAssigment> entity = _categoryTagAssignment.Search(searchKey);
             foreach (var item in entity)
             {
                 AuthorSearchModel author = new AuthorSearchModel();
@@ -39,7 +39,7 @@ namespace ELibrary.API.Controllers
                 PublisherModel publisher = new PublisherModel();
 
                 author.Id = item.AuthorId;
-                author.Name = item.AuthorName + item.AuthorSurname;
+                author.Name = item.AuthorName + " " + item.AuthorSurname;
 
                 book.Id = item.BookId;
                 book.Name = item.BookName;
@@ -52,7 +52,7 @@ namespace ELibrary.API.Controllers
                 publishers.Add(publisher);
             }
 
-            model.Authors = authors.GroupBy(x=>x.Id).Select(x=>x.First()).ToList();
+            model.Authors = authors.GroupBy(x => x.Id).Select(x => x.First()).ToList();
             model.Books = books.GroupBy(x => x.Id).Select(x => x.First()).ToList();
             model.Publishers = publishers.GroupBy(x => x.Name).Select(x => x.First()).ToList();
 
