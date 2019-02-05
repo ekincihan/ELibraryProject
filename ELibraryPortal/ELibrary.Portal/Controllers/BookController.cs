@@ -92,7 +92,6 @@ namespace ELibrary.Portal.Controllers
 
             await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
 
-
             model.bookModel.CategoryTagAssigment.BookId = responseSaving.Value.Id;
             model.bookModel.CategoryTagAssigment.BookName = model.bookModel.BookName;
             model.bookModel.CategoryTagAssigment.BookSummary = model.bookModel.BookSummary;
@@ -101,10 +100,6 @@ namespace ELibrary.Portal.Controllers
             model.bookModel.CategoryTagAssigment.AuthorSurname = model.bookModel.Author.Surname;
             model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.PublisherId;
             model.bookModel.CategoryTagAssigment.BookSummary = model.bookModel.BookSummary;
-         
-            // model.bookModel.CategoryTagAssigment.CategoryId = model.bookModel.CategoryId;
-
-
 
             JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.bookModel.CategoryTagAssigment)));
 

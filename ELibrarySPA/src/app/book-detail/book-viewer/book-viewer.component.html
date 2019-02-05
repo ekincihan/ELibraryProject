@@ -13,12 +13,17 @@
 
     <div class="row">
       <div class="col-12 contentbar mb-4">
+          <p *ngIf="!epubViewerOn" class="card-text">
+              <a (click)="atHere()"
+              class="btn btn-success float-right">Burada kaldım</a>
+          </p>
         <h6 class="mt-0 mb-4">{{book?.bookName}}</h6>
-        <div class="position-relative reading">
+      
+              <div class="position-relative reading">
           <div class="loader-wrapper" style="display: none;">
             <div class="loader"></div>
           </div>
-          <ngx-extended-pdf-viewer [src]="url" height="100vh" delayFirstView="250" useBrowserLocale="true"></ngx-extended-pdf-viewer>
+          <ngx-extended-pdf-viewer #pdfView [src]="url" useBrowserLocale="true"></ngx-extended-pdf-viewer>
         </div>
 
         <div class="row mt-4 book-foot">
@@ -42,3 +47,4 @@
 
   </div>
 </div>
+

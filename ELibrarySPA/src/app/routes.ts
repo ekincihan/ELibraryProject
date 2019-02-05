@@ -10,6 +10,7 @@ import { BookViewerComponent } from "./book-detail/book-viewer/book-viewer.compo
 import { CategoryFullComponent } from "./category/category-full/category-full.component";
 import { PublisherDetailComponent } from "./publisher/publisher-detail/publisher-detail.component";
 import { AuthorComponent } from "./Author/Author.component";
+import { ContactComponent } from "./contact/contact.component";
 
 
 export const appRoutes: Routes = [
@@ -20,9 +21,10 @@ export const appRoutes: Routes = [
   { path: "kategori-detay/:categoryId", component: CategoryDetailComponent },
   { path: "yayinevi", component: PublisherComponent},
   { path: "yayinevi-detay/:publisherId", component: PublisherDetailComponent},
-  { path: "yazar-detay/:authorId", component: AuthorDetailComponent },
+  { path: "yazar-detay/:authorId", component: AuthorDetailComponent },  
   { path: "kategori-tumu", component: CategoryFullComponent },
   { path: "profil", component: UserProfileComponent },
+  { path: "iletisim", component: ContactComponent },
   { path: "yazarlar", component: AuthorComponent },
   { path: "**", redirectTo: "Anasayfa", pathMatch: "full" }
 ];

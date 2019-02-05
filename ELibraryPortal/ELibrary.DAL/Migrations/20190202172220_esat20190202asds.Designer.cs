@@ -4,14 +4,16 @@ using ELibrary.DAL.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ELibrary.DAL.Migrations
 {
     [DbContext(typeof(ELibraryDBContext))]
-    partial class ELibraryDBContextModelSnapshot : ModelSnapshot
+    [Migration("20190202172220_esat20190202asds")]
+    partial class esat20190202asds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -293,32 +295,6 @@ namespace ELibrary.DAL.Migrations
                     b.ToTable("CategoryTagAssigments");
                 });
 
-            modelBuilder.Entity("ELibrary.Entities.Concrete.Contact", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid?>("CreatedBy");
-
-                    b.Property<DateTime?>("CreatedDate");
-
-                    b.Property<string>("Email");
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<string>("Message");
-
-                    b.Property<Guid?>("ModifiedBy");
-
-                    b.Property<DateTime?>("ModifiedDate");
-
-                    b.Property<string>("NameSurname");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Contacts");
-                });
-
             modelBuilder.Entity("ELibrary.Entities.Concrete.Publisher", b =>
                 {
                     b.Property<Guid>("Id")
@@ -418,32 +394,6 @@ namespace ELibrary.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserRates");
-                });
-
-            modelBuilder.Entity("ELibrary.Entities.Concrete.UserReadPage", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("BookId");
-
-                    b.Property<Guid?>("CreatedBy");
-
-                    b.Property<DateTime?>("CreatedDate");
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<Guid?>("ModifiedBy");
-
-                    b.Property<DateTime?>("ModifiedDate");
-
-                    b.Property<int>("Page");
-
-                    b.Property<Guid>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserReadPage");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

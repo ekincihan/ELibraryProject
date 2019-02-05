@@ -1,0 +1,134 @@
+<navigation [pageName]="'İletişim'"></navigation>
+
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 contentbar mb-4">
+        <h6 class="mt-0 mb-4">İletişim</h6>
+        <div class="needs-validation validated">
+          <form [formGroup]="contact">
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div
+                  class="form-group"
+                  [ngClass]="{
+                    invalid:
+                      contact?.controls?.nameSurname?.touched &&
+                      contact?.controls?.nameSurname?.errors?.required
+                  }"
+                >
+                  <label>Ad Soyad</label>
+                  <div
+                    *ngIf="
+                      contact?.controls?.nameSurname?.touched &&
+                      contact?.controls?.nameSurname?.errors?.required
+                    "
+                    class="feedback position-absolute d-none"
+                  >
+                    <b>Hata!</b>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="nameSurname"
+                  />
+                  <div
+                    class="text-danger small"
+                    *ngIf="
+                      contact?.controls?.nameSurname?.touched &&
+                      contact?.controls?.nameSurname?.errors?.required
+                    "
+                  >
+                    Bu alan boş geçilemez.
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div
+                  class="form-group"
+                  [ngClass]="{
+                    invalid:
+                      contact?.controls?.email?.touched &&
+                      contact?.controls?.email?.errors?.required
+                  }"
+                >
+                  <label>E-Mail</label>
+                  <div
+                    *ngIf="
+                      contact?.controls?.email?.touched &&
+                      contact?.controls?.email?.errors?.required
+                    "
+                    class="feedback position-absolute d-none"
+                  >
+                    <b>Hata!</b>
+                  </div>
+                  <input
+                    type="email"
+                    class="form-control"
+                    formControlName="email"
+                  />
+                  <div
+                    class="text-danger small"
+                    *ngIf="
+                      contact?.controls?.email?.touched &&
+                      contact?.controls?.email?.errors?.required
+                    "
+                  >
+                    Bu alan boş geçilemez.
+                  </div>
+                  <div
+                    class="text-danger small"
+                    *ngIf="
+                      contact?.controls?.email?.touched &&
+                      contact?.controls?.email?.errors?.email
+                    "
+                  >
+                    Lütfen geçerli bir e-posta adresi giriniz.
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div
+                  class="form-group"
+                  [ngClass]="{
+                    invalid:
+                      contact?.controls?.message?.touched &&
+                      contact?.controls?.message?.errors?.required
+                  }"
+                >
+                  <label>Mesajınız</label>
+                  <div
+                    *ngIf="
+                      contact?.controls?.message?.touched &&
+                      contact?.controls?.message?.errors?.required
+                    "
+                    class="feedback position-absolute d-none"
+                  >
+                    <b>Hata!</b>
+                  </div>
+                  <textarea
+                    rows="8"
+                    class="form-control"
+                    formControlName="message"
+                  ></textarea>
+                  <div
+                    class="text-danger small"
+                    *ngIf="
+                      contact?.controls?.message?.touched &&
+                      contact?.controls?.message?.errors?.required
+                    "
+                  >
+                    Bu alan boş geçilemez.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-green" (click)="formSubmit()">Gönder</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

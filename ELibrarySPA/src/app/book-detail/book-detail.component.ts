@@ -11,18 +11,43 @@ import { SnotifyService } from 'ng-snotify';
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent implements OnInit {
-
+  readPage = {
+    userId: '',
+    id: '00000000-0000-0000-0000-000000000000',
+    bookId: '',
+    page: 0,
+  }
+  book: Book;
+  isReading = false;
   constructor(private bookService: BookService,
     private activatedRoute: ActivatedRoute,
     private snotifyService: SnotifyService) { }
 
-  book: Book;
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.bookService.get("/Book/Detail/" + params["bookId"]).subscribe(res => {
         this.book = res["value"];
-       
+        this.getPageReaded();
       });
+    })
+  }
+
+  setReadPage(isAtHere: boolean){
+    if(isAtHere){
+      let currentPageNumber = document.getElementById("pageNumber")["value"];
+      this.readPage.page = parseInt(currentPageNumber);
+    }
+    this.readPage.bookId = this.book.id;
+    this.readPage.userId = JSON.parse(localStorage.getItem('user'))["id"];
+  }
+
+  getPageReaded(){
+    this.setReadPage(false);
+    this.bookService.post('User/UserReadPage',this.readPage).subscribe(res =>{
+      console.log('res book',res);
+      if(res &&  res["page"] > 0){
+        this.isReading = true;
+      }
     })
   }
 

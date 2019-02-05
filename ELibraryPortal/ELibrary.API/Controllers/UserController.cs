@@ -31,39 +31,83 @@ namespace ELibrary.API.Controllers
         private readonly IBooks _books;
         private readonly IAuthor _authors;
         private readonly IAppFile _appFile;
-        public UserController(IMongoUserFavoritesAndReads mongoUserFavorites, IMongoUserRates userRates, IMapper mapper, IUserFavoriteAndReadBook userFavoriteAndReadBook, IBooks books, IAuthor authors, IAppFile appFile)
+        private readonly IUserReadPage _userReadPage;
+
+        public UserController(IMongoUserFavoritesAndReads mongoUserFavorites, IMapper mapper, IUserFavoriteAndReadBook userFavoriteAndReadBook, IBooks books, IAuthor authors, IAppFile appFile, IUserRates userRates, IUserReadPage userReadPage)
         {
             _mongoUserReadAndFavorites = mongoUserFavorites;
-            _userRates = userRates;
             _mapper = mapper;
             _userFavoriteAndReadBook = userFavoriteAndReadBook;
             _books = books;
             _authors = authors;
             _appFile = appFile;
+            _userRates = userRates;
+            _userReadPage = userReadPage;
         }
 
         [HttpPost("Rate")]
-        public async Task<ActionResult> Rate([FromBody]UserRateModel model)
+        public async Task<string> Rate([FromBody]UserRateModel model)
         {
             try
             {
                 if (model.Id != null)
                 {
                     var entity = await _userRates.GetTAsync(x => x.Id == new Guid(model.Id));
+                    entity.Rate = model.Rate;
                     var response = await _userRates.UpdateAsync(entity);
                 }
                 else
                 {
                     UserRates entity = _mapper.Map<UserRates>(model);
                     var addedEntity = await _userRates.AddAsync(entity);
+                    return addedEntity.Id.ToString();
                 }
             }
             catch (Exception e)
             {
-                return StatusCode(403);
+                return "403";
             }
 
-            return StatusCode(200);
+            return model.Id;
+        }
+
+        [HttpPost]
+        [Route("ReadPage")]
+        public async Task<UserReadPageModel> ReadPage([FromBody]UserReadPageModel model)
+        {
+            try
+            {
+                if (model.Id != Guid.Empty)
+                {
+                    var entity = await _userReadPage.GetTAsync(x => x.Id == model.Id);
+                    entity.Page = model.Page;
+                    await _userReadPage.UpdateAsync(entity);
+                    UserReadPageModel returnModel = _mapper.Map<UserReadPageModel>(entity);
+                    return returnModel;
+                }
+                else
+                {
+                    UserReadPage entity = _mapper.Map<UserReadPage>(model);
+                    var addedEntity = await _userReadPage.AddAsync(entity);
+                    UserReadPageModel returnModel = _mapper.Map<UserReadPageModel>(addedEntity);
+                    return returnModel;
+
+                }
+            }
+            catch (Exception e)
+            {
+            }
+
+            return null;
+        }
+
+        [HttpPost]
+        [Route("UserReadPage")]
+        public UserReadPageModel GetReadPage([FromBody]UserReadPageModel model)
+        {
+            var entity = _userReadPage.GetT(x => x.UserId == model.UserId && x.BookId == model.BookId);
+            UserReadPageModel returnModel = _mapper.Map<UserReadPageModel>(entity);
+            return returnModel;
         }
 
         [HttpGet]
