@@ -96,8 +96,8 @@ namespace ELibrary.API.Controllers
                         book.BookId = item.BookId;
                         book.SignUrl = item.SignUrl;
 
-                        gelen filtreye göre category ve onun kitaplarını listele sorun şu ki hangi kategorinin kitaplarının hangi sırayla geleceğni bilmiyoruz.
-                            düzenlemek gerekiyor.
+                        //gelen filtreye göre category ve onun kitaplarını listele sorun şu ki hangi kategorinin kitaplarının hangi sırayla geleceğni bilmiyoruz.
+                        //    düzenlemek gerekiyor.
 
                     }
                     else
