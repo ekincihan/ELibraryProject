@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
   constructor(private searchService: SearchService) {
     this.searchService.search(this.searchTerm$)
       .subscribe(results => {
-        this.results = results;
+        this.results = results;        
       });
   }
 

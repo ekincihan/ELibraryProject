@@ -62,8 +62,20 @@ namespace ELibrary.API.Helpers
             #endregion
 
             #region UserRate
-            CreateMap<UserRates, UserRateModel>().ForMember(p =>p.Id ,opt=>opt.MapFrom(x=>x._id));
+            CreateMap<UserRates, UserRateModel>();
             CreateMap<UserRateModel, UserRates>();
+
+            #endregion
+            
+            #region UserReadPage
+            CreateMap<UserReadPage, UserReadPageModel>();
+            CreateMap<UserReadPageModel, UserReadPage>();
+
+            #endregion
+
+            #region Contact
+            CreateMap<Contact, ContactModel>();
+            CreateMap<ContactModel, Contact>();
 
             #endregion
 

@@ -6,8 +6,11 @@
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-9 collapse navbar-collapse" id="navbarCollapse">
         <div class="row w-100">
-          <div class="col-7 col-sm-4 col-md-8 col-lg-8 main-menu">
+          <div class="col-6 col-sm-4 col-md-8 col-lg-8 main-menu">
             <ul class="navbar-nav justify-content-center">
+                <li class="nav-item text-center position-relative">
+                    <a class="nav-link w-100" href="/Anasayfa">Anasayfa</a>
+                  </li>
               <li class="nav-item position-relative text-center dropdown">
                 <a class="nav-link w-100 dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">Kategoriler</a>
@@ -15,7 +18,7 @@
                   <a *ngFor="let category of categories" class="dropdown-item text-truncate" href="javascript:void()"
                   routerLink="/kategori-detay/{{category?.id}}">{{category.name}}</a>
                   <a class="dropdown-item d-inline-block text-right last-item" href="javascript:void()"
-                  routerLink="/kategori-tumu"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
+                  routerLink="/kategoriler"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
                 </div>
               </li>
               <li class="nav-item position-relative text-center dropdown">
@@ -24,11 +27,17 @@
                 <div class="dropdown-menu dropdown-menu-center">
                   <a *ngFor="let publisher of publishers" class="dropdown-item text-truncate"
                   routerLink="/yayinevi-detay/{{publisher?.id}}">{{publisher.name}}</a>
-                  <a class="dropdown-item d-inline-block text-right last-item" href="javascript:void()"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
+                  <a *ngIf="false" class="dropdown-item d-inline-block text-right last-item" href="javascript:void()"><b>Tüm Kategoriler<span class="arrow right green d-inline-block ml-2"></span></b></a>
                 </div>
               </li>
               <li class="nav-item text-center position-relative">
-                <a class="nav-link w-100" href="/index">Yazarlar</a>
+                <a class="nav-link w-100" href="/yazarlar">Yazarlar</a>
+              </li>
+              <!-- <li class="nav-item text-center position-relative">
+                <a class="nav-link w-100" href="/Hakkımızda">Hakkımızda</a>
+              </li> -->
+              <li class="nav-item text-center position-relative">
+                <a class="nav-link w-100" [routerLink]="['/iletisim']">İletişim</a>
               </li>
             </ul>
           </div>

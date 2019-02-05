@@ -1,44 +1,69 @@
 <app-header></app-header>
-<navigation></navigation>
+<navigation [pageName]="'Kategori Detay'"></navigation>
 <div class="main-content">
-    <div class="container">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12 contentbar mb-4">
+
+
+        <h6 class="mt-0 mb-4 color-green">{{category?.name}}</h6>
+        <div class="row">
+          <div *ngFor="let item of category?.books; let i = index" class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="b-box d-inline-block position-relative mb-5 w-100">
+              <div class="cover position-relative mb-4" [ngStyle]="{'background-image':'url('+item?.signUrl+')'}">
+                <div class="caption text-center">
     
-      <div class="row">
-        <div class="col-12 contentbar mb-4">
-    
-          <h6 class="mt-0 mb-4 color-green">{{category?.name}}</h6>
-    
-          <mixed-books [data]="category?.books"></mixed-books>
-          <nav *ngIf="category?.books.length > 0" class="mt-3">
-            <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <span class="page-link">
-                  <a class="page-link" href="#">
-                    <span class="arrow left d-inline-block"></span>
-                  </a>
-                </span>
-              </li>
-              <li class="page-item active">
-                <span class="page-link">
-                  <a class="page-link" href="#">1</a>
-                </span>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
+                  <div class="favourite position-absolute text-center">
+                    <span class="selected d-inline-block w-100 h-100"></span>
+                  </div>
+                  <div class="more w-100 position-absolute">
+                    <a href="#" routerLink="/kitap-detay/{{item?.bookId}}" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-2"></span></b></a>
+                  </div>
+                </div>
+              </div>
+              <div [ngStyle]="{'background-image':'url('+item?.signUrl+')'}"></div>
+              <div class="cover position-absolute blurred" [ngStyle]="{'background-image':'url('+item?.signUrl+')'}"></div>
+              <a href="javascript:void(0)" class="d-inline-block w-100">
+                <div class="title mb-1 text-truncate" routerLink="/kitap-detay/{{item?.bookId}}"><b>{{item?.bookName}}</b></div>
+              </a>
+              <a href="javascript:void(0)" class="d-inline-block w-100">
+                <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{item?.authorId}}">{{item?.authorName}}
+                  {{item?.authorSurname}}</div>
+              </a>
+              <rating [(ngModel)]="item.rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(item)"></rating> 
+            </div>
+
+        <nav *ngIf="categories?.length > 0" class="mt-3">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <span class="page-link">
                 <a class="page-link" href="#">
-                  <span class="arrow right d-inline-block"></span>
+                  <span class="arrow left d-inline-block"></span>
                 </a>
-              </li>
-            </ul>
-          </nav>
-    
-        </div>
+              </span>
+            </li>
+            <li class="page-item active">
+              <span class="page-link">
+                <a class="page-link" href="#">1</a>
+              </span>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">
+                <span class="arrow right d-inline-block"></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
       </div>
-    
-    </div>
-    </div>
+        </div>
+
+  </div>
+</div>

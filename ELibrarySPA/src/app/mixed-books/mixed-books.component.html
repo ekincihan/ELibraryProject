@@ -23,5 +23,6 @@
             <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{item?.author?.id}}">{{item?.author?.name}}
               {{item?.author?.surname}}</div>
           </a>
-            <rating  *ngIf="tokenService.isLogin && ratedBooks" [(ngModel)]="ratedBooks[i].rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(ratedBooks[i])"></rating>
+          <div>Okunma Sayısı: {{item?.readCount}}</div>
+            <rating  *ngIf="tokenService.isLogin" [(ngModel)]="item.rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(item)"></rating>
         </div>

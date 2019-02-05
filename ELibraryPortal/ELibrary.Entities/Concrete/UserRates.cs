@@ -7,13 +7,10 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ELibrary.Entities.Concrete
 {
-    public class UserRates : MongoEntityBase<ObjectId>
+    public class UserRates : EntityBase<Guid>
     {
-        [BsonElement("UserId")]
         public Guid UserId { get; set; }
-        [BsonElement("BookId")]
         public Guid BookId { get; set; }
-        [BsonElement("Rate")]
         public int Rate { get; set; }
     }
 }

@@ -25,39 +25,89 @@ namespace ELibrary.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IMongoUserFavoritesAndReads _mongoUserReadAndFavorites;
-        private readonly IMongoUserRates _userRates;
+        private readonly IUserRates _userRates;
         private readonly IMapper _mapper;
+        private readonly IUserFavoriteAndReadBook _userFavoriteAndReadBook;
+        private readonly IBooks _books;
+        private readonly IAuthor _authors;
+        private readonly IAppFile _appFile;
+        private readonly IUserReadPage _userReadPage;
 
-        public UserController(IMongoUserFavoritesAndReads mongoUserFavorites, IMongoUserRates userRates, IMapper mapper)
+        public UserController(IMongoUserFavoritesAndReads mongoUserFavorites, IMapper mapper, IUserFavoriteAndReadBook userFavoriteAndReadBook, IBooks books, IAuthor authors, IAppFile appFile, IUserRates userRates, IUserReadPage userReadPage)
         {
             _mongoUserReadAndFavorites = mongoUserFavorites;
-            _userRates = userRates;
             _mapper = mapper;
+            _userFavoriteAndReadBook = userFavoriteAndReadBook;
+            _books = books;
+            _authors = authors;
+            _appFile = appFile;
+            _userRates = userRates;
+            _userReadPage = userReadPage;
         }
 
         [HttpPost("Rate")]
-        public async Task<ActionResult> Rate([FromBody]UserRateModel model)
+        public async Task<string> Rate([FromBody]UserRateModel model)
         {
             try
             {
                 if (model.Id != null)
                 {
-                    var filter = Builders<UserRates>.Filter.Eq("_id", ObjectId.Parse(model.Id));
-                    var update = Builders<UserRates>.Update.Set("Rate", model.Rate);
-                    var response = await _userRates.UpdateAsync(filter, update);
+                    var entity = await _userRates.GetTAsync(x => x.Id == new Guid(model.Id));
+                    entity.Rate = model.Rate;
+                    var response = await _userRates.UpdateAsync(entity);
                 }
                 else
                 {
                     UserRates entity = _mapper.Map<UserRates>(model);
                     var addedEntity = await _userRates.AddAsync(entity);
+                    return addedEntity.Id.ToString();
                 }
             }
             catch (Exception e)
             {
-                return StatusCode(403);
+                return "403";
             }
 
-            return StatusCode(200);
+            return model.Id;
+        }
+
+        [HttpPost]
+        [Route("ReadPage")]
+        public async Task<UserReadPageModel> ReadPage([FromBody]UserReadPageModel model)
+        {
+            try
+            {
+                if (model.Id != Guid.Empty)
+                {
+                    var entity = await _userReadPage.GetTAsync(x => x.Id == model.Id);
+                    entity.Page = model.Page;
+                    await _userReadPage.UpdateAsync(entity);
+                    UserReadPageModel returnModel = _mapper.Map<UserReadPageModel>(entity);
+                    return returnModel;
+                }
+                else
+                {
+                    UserReadPage entity = _mapper.Map<UserReadPage>(model);
+                    var addedEntity = await _userReadPage.AddAsync(entity);
+                    UserReadPageModel returnModel = _mapper.Map<UserReadPageModel>(addedEntity);
+                    return returnModel;
+
+                }
+            }
+            catch (Exception e)
+            {
+            }
+
+            return null;
+        }
+
+        [HttpPost]
+        [Route("UserReadPage")]
+        public UserReadPageModel GetReadPage([FromBody]UserReadPageModel model)
+        {
+            var entity = _userReadPage.GetT(x => x.UserId == model.UserId && x.BookId == model.BookId);
+            UserReadPageModel returnModel = _mapper.Map<UserReadPageModel>(entity);
+            return returnModel;
         }
 
         [HttpGet]
@@ -77,19 +127,40 @@ namespace ELibrary.API.Controllers
             UserFavoriteAndReadResponseModel model = new UserFavoriteAndReadResponseModel();
             List<UserFavoriteAndReadModel> reads = new List<UserFavoriteAndReadModel>();
             List<UserFavoriteAndReadModel> favorites = new List<UserFavoriteAndReadModel>();
-            List<UsersFavoritesAndReads> entities = _mongoUserReadAndFavorites.GetList(x => x.UserId == id);
+            List<UserFavoritAndReadBook> entities = _userFavoriteAndReadBook.GetList(x => x.UserId == id);
+            List<Book> books = _books.GetList();
+            List<AppFile> files = _appFile.GetList();
+            List<Author> authors = _authors.GetList();
 
-            foreach (var item in entities)
+            foreach (var item in entities.Where(x => x.Type == UserFavAndRead.Reads))
             {
-                foreach (var read in item.Reads)
+                UserFavoriteAndReadModel readModel = new UserFavoriteAndReadModel();
+                var entity = books.FirstOrDefault(x => x.Id == item.BookId);
+                if (entity != null)
                 {
-                    UserFavoriteAndReadModel readModel = _mapper.Map<UserFavoriteAndReadModel>(read);
+                    readModel.BookId = entity.Id;
+                    readModel.UserId = item.UserId;
+                    readModel.AuthorId = entity.AuthorId;
+                    readModel.AuthorName = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Name;
+                    readModel.AuthorSurname = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Surname;
+                    readModel.SignUrl = "https://elibrarystorage.blob.core.windows.net/" + files.FirstOrDefault(x => x.ModuleId == entity.Id).BlobPath;
                     reads.Add(readModel);
                 }
-                foreach (var read in item.Favorites)
+            }
+
+            foreach (var item in entities.Where(x => x.Type == UserFavAndRead.Favorite))
+            {
+                UserFavoriteAndReadModel favoriteModel = new UserFavoriteAndReadModel();
+                var entity = books.FirstOrDefault(x => x.Id == item.BookId);
+                if (entity != null)
                 {
-                    UserFavoriteAndReadModel readModel = _mapper.Map<UserFavoriteAndReadModel>(read);
-                    favorites.Add(readModel);
+                    favoriteModel.BookId = entity.Id;
+                    favoriteModel.UserId = item.UserId;
+                    favoriteModel.AuthorId = entity.AuthorId;
+                    favoriteModel.AuthorName = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Name;
+                    favoriteModel.AuthorSurname = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Surname;
+                    favoriteModel.SignUrl = files.FirstOrDefault(x => x.ModuleId == entity.Id).BlobPath;
+                    favorites.Add(favoriteModel);
                 }
             }
 
@@ -103,31 +174,33 @@ namespace ELibrary.API.Controllers
         [Route("ReadBook")]
         public async Task<ActionResult> ReadBook([FromBody]UserFavoriteAndReadModel model)
         {
-            UsersFavoritesAndReads read = new UsersFavoritesAndReads();
-            MongoBook mongoBookModel = new MongoBook();
-            var filter = Builders<UsersFavoritesAndReads>.Filter.Eq("UserId", model.UserId);
+            //UsersFavoritesAndReads read = new UsersFavoritesAndReads();
+            //MongoBook mongoBookModel = new MongoBook();
+            //var filter = Builders<UsersFavoritesAndReads>.Filter.Eq("UserId", model.UserId);
+
+            UserFavoritAndReadBook read = new UserFavoritAndReadBook();
 
             try
             {
-                var entity = await _mongoUserReadAndFavorites.GetTAsync(filter);
+                var entity = await _userFavoriteAndReadBook.GetListAsync(x => x.UserId == model.UserId);
 
-                if (entity == null)
+                if (entity.Count == 0)
                 {
-                    mongoBookModel = _mapper.Map<MongoBook>(model);
                     read.UserId = model.UserId;
-                    read.Reads.Add(mongoBookModel);
-                    await _mongoUserReadAndFavorites.AddAsync(read);
+                    read.BookId = model.BookId;
+                    read.Type = UserFavAndRead.Reads;
+                    await _userFavoriteAndReadBook.AddAsync(read);
                 }
                 else
                 {
-                    mongoBookModel = _mapper.Map<MongoBook>(model);
-                    if (entity.Reads.FirstOrDefault(x => x.BookId == mongoBookModel.BookId) == null)
+                    if (entity.FirstOrDefault(x => x.BookId == model.BookId) == null)
                     {
-                        entity.Reads.Add(mongoBookModel);
-                        var update = Builders<UsersFavoritesAndReads>.Update.Set("Reads", entity.Reads);
-                        await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
+                        read.UserId = model.UserId;
+                        read.BookId = model.BookId;
+                        read.Type = UserFavAndRead.Reads;
+                        await _userFavoriteAndReadBook.AddAsync(read);
                     }
-                  
+
                 }
             }
             catch (Exception e)
@@ -142,42 +215,38 @@ namespace ELibrary.API.Controllers
         [Route("Favorite")]
         public async Task<ActionResult> Favorite([FromBody]UserFavoriteAndReadModel model)
         {
-            UsersFavoritesAndReads read = new UsersFavoritesAndReads();
-            MongoBook mongoBookModel = new MongoBook();
-            var filter = Builders<UsersFavoritesAndReads>.Filter.Eq("UserId", model.UserId);
+            //UsersFavoritesAndReads read = new UsersFavoritesAndReads();
+            //MongoBook mongoBookModel = new MongoBook();
+            //var filter = Builders<UsersFavoritesAndReads>.Filter.Eq("UserId", model.UserId);
+            UserFavoritAndReadBook favorite = new UserFavoritAndReadBook();
 
             try
             {
-                var entity = await _mongoUserReadAndFavorites.GetTAsync(filter);
+                var entity = await _userFavoriteAndReadBook.GetListAsync(x => x.UserId == model.UserId);
 
-                if (entity == null)
+                if (entity.Count == 0)
                 {
-                    mongoBookModel = _mapper.Map<MongoBook>(model);
-                    read.UserId = model.UserId;
-                    read.Favorites.Add(mongoBookModel);
-                    await _mongoUserReadAndFavorites.AddAsync(read);
+                    favorite.UserId = model.UserId;
+                    favorite.BookId = model.BookId;
+                    favorite.Type = UserFavAndRead.Favorite;
+                    await _userFavoriteAndReadBook.AddAsync(favorite);
                 }
                 else
                 {
-                    mongoBookModel = _mapper.Map<MongoBook>(model);
 
-
-                    if (entity.Favorites.FirstOrDefault(x=>x.BookId==mongoBookModel.BookId)==null)
+                    if (entity.FirstOrDefault(x => x.BookId == model.BookId && x.Type == UserFavAndRead.Favorite) == null)
                     {
-                        entity.Reads.Add(mongoBookModel);
-                        var update = Builders<UsersFavoritesAndReads>.Update.Set("Favorites", entity.Favorites);
-                        await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
+                        favorite.UserId = model.UserId;
+                        favorite.BookId = model.BookId;
+                        favorite.Type = UserFavAndRead.Favorite;
+                        await _userFavoriteAndReadBook.AddAsync(favorite);
                     }
                     else
                     {
-                        int index = entity.Favorites.FindIndex(a => a.BookId == mongoBookModel.BookId);
-                        entity.Favorites.RemoveAt(index);
-                        var update = Builders<UsersFavoritesAndReads>.Update.Set("Favorites", entity.Favorites);
-                        await _mongoUserReadAndFavorites.UpdateAsync(filter, update);
-
+                        var deletingEntity = entity.FirstOrDefault(x => x.BookId == model.BookId);
+                        _userFavoriteAndReadBook.Delete(deletingEntity);
                     }
-                 
-                   
+
                 }
             }
             catch (Exception e)

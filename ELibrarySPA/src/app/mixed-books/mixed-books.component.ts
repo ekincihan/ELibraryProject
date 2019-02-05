@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from "@angular/core";
 import { MixedBooksService } from "./shared/mixedBooksService.service";
-import { Book } from "../models/Book";
-import { Router } from '@angular/router';
 import { TokenService } from "../service/token.service";
 import { BookRate } from "../mixed-books/shared/book-rate";
 import { User } from "../signin/shared/user";
@@ -37,38 +35,34 @@ export class MixedBooksComponent implements OnInit {
 
   setRatedBooks(ratedBooks) {
     this.ratedBooks = new Array<BookRate>();
-    if (ratedBooks.length > 0) {
-      ratedBooks.forEach(book => {
-        this.ratedBooks.push(this.newBookRate(book, false));
+    this.data.forEach(book => {
+      ratedBooks.forEach(ratedBook => {
+          if(ratedBook["bookId"] == book["id"]){
+            book["rate"] = ratedBook["rate"];
+            book["ratedBookId"] = ratedBook["id"];
+          }
       });
-      if (this.ratedBooks.length !== this.data.length) {
-        for (let index = ratedBooks.length; index < this.data.length; index++) {
-          this.ratedBooks.push(this.newBookRate(this.data[index], true));
-        }
-      }
-    } else {
-      this.data.forEach(book => {
-        this.ratedBooks.push(this.newBookRate(book, true));
-      });
-    }
+    });
   }
 
-  confirmSelection(bookRate) {
-    this.mixedService.post('User/Rate', bookRate).subscribe((res) => {
-     // console.log('rated book', res);
+  confirmSelection(book) {
+    let bookRate = this.newBookRate(book,true);
+    this.mixedService.post('User/Rate', bookRate).subscribe((addedBookId) => {
+      console.log('book 2', book);
+      book["ratedBookId"] = addedBookId;
+      console.log('book 3', book);
 
     })
   }
 
 
-
   newBookRate(bookRate, isNew: boolean) {
     let rateBookModel: BookRate = new BookRate();
-    rateBookModel.bookId = (isNew) ? bookRate["id"] : bookRate["bookId"];
+    rateBookModel.bookId =  bookRate["id"];
     rateBookModel.token = localStorage.getItem('token');
     rateBookModel.userId = this.user.id;
-    rateBookModel.id = (isNew) ? null : bookRate["id"];
-    rateBookModel.rate = (isNew) ? 0 : bookRate["rate"];
+    rateBookModel.id =  (bookRate["ratedBookId"]) ? bookRate["ratedBookId"] : null;
+    rateBookModel.rate = bookRate["rate"];
     return rateBookModel;
   }
 

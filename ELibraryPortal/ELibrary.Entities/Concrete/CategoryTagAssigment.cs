@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using ELibrary.Core.Entites;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace ELibrary.Entities.Concrete
 {
-    public class CategoryTagAssigment : MongoEntityBase<ObjectId>
+    public class CategoryTagAssigment : EntityBase<Guid>
     {
         public Guid CategoryId { get; set; }
         public string CategoryName { get; set; }
@@ -21,7 +22,6 @@ namespace ELibrary.Entities.Concrete
         public string AuthorSurname { get; set; }
         public Guid PublisherId { get; set; }
         public string PublisherName { get; set; }
-        public List<Guid> Tags { get; set; }
     }
 
 }

@@ -22,11 +22,11 @@ namespace ELibrary.API.Controllers
             "ABCÇDEFGHIİJKLMNOÖPQRSTUÜVWXYZ".ToCharArray();
 
         private readonly IPublisher _publisher;
-        private readonly IMongoTagCategoryAssigment _categoryAssigment;
+        private readonly ICategoryTagAssignment _categoryAssigment;
 
         private readonly IMapper _mapper;
 
-        public PublisherController(IPublisher publisher, IMapper mapper, IMongoTagCategoryAssigment categoryAssigment)
+        public PublisherController(IPublisher publisher, IMapper mapper, ICategoryTagAssignment categoryAssigment)
         {
             _publisher = publisher;
             _mapper = mapper;

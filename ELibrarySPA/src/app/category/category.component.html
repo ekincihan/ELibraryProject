@@ -1,4 +1,4 @@
-<navigation></navigation>
+<navigation [pageName]="'Kategoriler'"></navigation>
 <div class="main-content">
     <div class="container">
       <div class="row">
@@ -8,7 +8,8 @@
             <hr class="mt-2 mb-2">
             <div class="box pb-1" *ngFor="let category of headerCategories">
               <div class="form-group chex mb-0">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">{{category?.name}}</small></label>
+                <label class="m-0"><input type="checkbox" [(ngModel)]="category.selected"
+                  (change)="categoryCheck(category)"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">{{category?.name}}</small></label>
               </div>
             </div>
           </div>
@@ -17,7 +18,8 @@
             <hr class="mt-2 mb-2">
             <div class="box pb-1">
               <div class="form-group chex mb-0" *ngFor="let author of authors">
-                <label class="m-0"><input type="checkbox"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">{{author?.name}}</small></label>
+                <label class="m-0"><input type="checkbox" [(ngModel)]="author.selected"
+                  (change)="authorCheck(author)"><span class="checkmark mt-2"></span><small class="position-relative d-inline-block text-truncate">{{author?.name}}</small></label>
               </div>
             </div>
           </div>
@@ -25,14 +27,15 @@
             <b>Yayınevi</b>
             <hr class="mt-2 mb-2">
             <div class="form-select mt-3">
-              <select  class="form-control">
+              <select  class="form-control" (change)="publisherChange($event.target.value)">
                 <option selected disabled >Seçiniz</option>
-                <option *ngFor="let publisher of publishers">{{publisher?.name}} </option>
+                <option *ngFor="let publisher of publishers" [value]="publisher.id">{{publisher?.name}} </option>
               </select>
             </div>
   
           </div>
-          <button class="btn btn-brown mt-1 w-100 text-truncate">Filtrele</button>
+          <button class="btn btn-brown mt-1 w-100 text-truncate"
+          (click)="filter()">Filtrele</button>
         </div>
         <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9 contentbar mb-4" >
         <div *ngFor="let item of categories">
@@ -58,19 +61,15 @@
                 <a href="javascript:void(0)" class="d-inline-block w-100">
                     <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{book?.authorId}}">{{book?.authorName}}</div>
                   </a>
-                <div class="stars">
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                  <span class="d-inline-block given">&#8902;</span>
-                </div>
+                  <rating [(ngModel)]="book.rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(book)"></rating> 
+
               </div>
             </div>
   
           </div>
           <div class="top-minus-1 position-relative text-right">
-            <a href="#" class="d-inline-block color-green"><b>Tümünü Gör<span class="arrow right green d-inline-block ml-2"></span></b></a>
+            <a href="javascript:void()" class="d-inline-block color-green"
+            routerLink="/kategori-detay/{{item?.id}}"><b>Tümünü Gör<span class="arrow right green d-inline-block ml-2"></span></b></a>
           </div>
           <hr class="mt-3 mb-4 d-inline-block w-100">
         </div>

@@ -19,7 +19,7 @@ namespace ELibrary.Core.DataAccess
         Task<T> AddAsync(T entity);
         bool Update(FilterDefinition<T> filter, UpdateDefinition<T> updateDefinition);
         Task<bool> UpdateAsync(FilterDefinition<T> filter, UpdateDefinition<T> updateDefinition);
-        void Delete(T entity);
+        void Delete(FilterDefinition<T> filter);
         Task DeleteAsync(T entity);
     }
 }
