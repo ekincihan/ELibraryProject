@@ -39,12 +39,13 @@ namespace ELibrary.API.Models
                 Select(f => new AppFileModel
                     {
                         BlobPath = f.BlobPath,
-                        FilePath = f.FilePath,
+                        FilePath = "",
                         Id = f.Id,
                         Extension = f.Extension,
                         ModuleId = f.ModuleId,
                         ModuleType = Enum.Enum.Module.AuthorThumbnail,
                         Name = f.Name,
+                        SignUrl = f.SignUrl ?? f.SignUrl ,
                         UniqueName = f.UniqueName
                     }).FirstOrDefault();
 

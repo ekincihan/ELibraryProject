@@ -53,7 +53,7 @@ namespace ELibrary.API
                 c.SwaggerDoc("v1", new Info { Title = "ELibrayAPI", Version = "v1" });
             });
             services.AddDbContext<ELibraryDBContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("SqlConnection")));
+                options => options.UseSqlServer(@"server=d89.252.185.90\MSSQLSERVER2012;user id=baltazzar;password=Angel4you!;initial catalog=DiyarKitapDB"));
             services.AddIdentity<ApplicationUser, AppIdentityRole>()
                 .AddEntityFrameworkStores<ELibraryDBContext>()
                 .AddDefaultTokenProviders();
@@ -72,6 +72,11 @@ namespace ELibrary.API
             services.AddTransient<ICategoryTagAssignment, EFCategoryTagAssigment>();
             services.AddTransient<IUserReadPage, EFUserReadPage>();
             services.AddTransient<IContact, EFContact>();
+
+            services.Configure<IISOptions>(options =>
+            {
+                options.ForwardClientCertificate = false;
+            });
 
             //services.AddAuthentication().AddFacebook(facebookOptions =>
             //{
@@ -101,8 +106,7 @@ namespace ELibrary.API
             {
                 app.UseHsts();
             }
-
-            //app.UseDeveloperExceptionPage();
+            app.UseDeveloperExceptionPage();
 
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
 

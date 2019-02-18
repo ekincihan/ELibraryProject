@@ -39,9 +39,10 @@ namespace ELibrary.API.Controllers
                 {
                     CloudBlockBlob cloudBlockBlob = await manager.UploadFileAsync(container, appFile);
                     appFile.BlobPath = $"{cloudBlockBlob.Parent.Prefix}";
-                    appFile.BlobPath = $"{ Configuration.ConfigurationManager.Instance.GetValue("FileUploadBlobContainer")}/{appFile.BlobPath.Substring(0, appFile.BlobPath.Length - 1) }";
+                    //appFile.BlobPath = $"{ Configuration.ConfigurationManager.Instance.GetValue("FileUploadBlobContainer")}/{appFile.BlobPath.Substring(0, appFile.BlobPath.Length - 1) }";
+                    appFile.BlobPath = $"fileuploads/{appFile.BlobPath.Substring(0, appFile.BlobPath.Length - 1) }";
                 }
-
+                appFile.SignUrl = SignUrl(appFile);
                 appFile = await (appFileModel.Id != Guid.Empty ? _appFile.UpdateAsync(appFile) : _appFile.AddAsync(appFile));
                 AppFileModel model = _mapper.Map<AppFileModel>(appFile);
                 appFileModelResponse.Value = model;
@@ -53,6 +54,15 @@ namespace ELibrary.API.Controllers
             }
             return appFileModelResponse;
         }
-
+        [NonAction]
+        public string SignUrl(AppFile appFile)
+        {
+            DateTime startDate = DateTime.Now.AddMinutes(-5);
+            BlobManager<AppFile> manager = new BlobManager<AppFile>();
+            if (appFile == null || appFile.BlobPath == null)
+                return "";
+            var singUrl = manager.SignUrl(appFile.UniqueName.ToLower(), appFile.BlobPath.ToLower(), startDate, startDate.AddYears(10));
+            return singUrl;
+        }
     }
 }

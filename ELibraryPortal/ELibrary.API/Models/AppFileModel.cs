@@ -11,18 +11,19 @@ namespace ELibrary.API.Models
 {
     public class AppFileModel: ModelBase<Guid>, IModelBase
     {
-        public string SignUrl
-        {
-            get
-            {
-                DateTime startDate = DateTime.Now.AddMinutes(-5);
-                BlobManager<AppFile> manager = new BlobManager<AppFile>();
-                if (BlobPath == null)
-                    return "";
-                var singUrl = manager.SignUrl(this.UniqueName.ToLower(), this.BlobPath.ToLower(), startDate, startDate.AddMonths(3));
-                return singUrl;
-            }
-        }
+        //public string SignUrl
+        //{
+        //    get
+        //    {
+        //        DateTime startDate = DateTime.Now.AddMinutes(-5);
+        //        BlobManager<AppFile> manager = new BlobManager<AppFile>();
+        //        if (BlobPath == null)
+        //            return "";
+        //        var singUrl = manager.SignUrl(this.UniqueName.ToLower(), this.BlobPath.ToLower(), startDate, startDate.AddYears(10));
+        //        return singUrl;
+        //    }
+        //}
+        public string SignUrl { get; set; }
         public string Name { get; set; }
         public string UniqueName { get; set; }
         public string Extension { get; set; }

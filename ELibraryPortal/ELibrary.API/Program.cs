@@ -15,7 +15,7 @@ namespace ELibrary.API
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args)
-                .UseKestrel()
+                .UseIISIntegration()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseKestrel()
                 .UseStartup<Startup>()
@@ -23,7 +23,7 @@ namespace ELibrary.API
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+            WebHost.CreateDefaultBuilder(args).UseIISIntegration()
                 .UseStartup<Startup>();
     }
 }

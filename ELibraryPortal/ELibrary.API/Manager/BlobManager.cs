@@ -17,8 +17,9 @@ namespace ELibrary.API.Manager
         public async Task<CloudBlobContainer> CreateFolderAsync(T tmodel)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.Instance.GetConnectionString("StorageConnection"));
+            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(@"DefaultEndpointsProtocol=https;AccountName=elibrarystorage;AccountKey=de8S23KSTuWPjoblw0hZSbk3YwHueULe+22S2DI9+30TmDmczi+Yy2DVcQ8UWeH9tR+izRZl/X8BPxDM8287Vg==;EndpointSuffix=core.windows.net");
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference(ConfigurationManager.Instance.GetValue("FileUploadBlobContainer"));
+            CloudBlobContainer container = blobClient.GetContainerReference("fileuploads");
             await container.CreateIfNotExistsAsync();
 
             return container;
@@ -27,6 +28,7 @@ namespace ELibrary.API.Manager
         public async Task<CloudBlockBlob> UploadFileAsync(CloudBlobContainer container, T tmodel)
         {
             CloudBlockBlob blob = container.GetBlockBlobReference(string.Format(ConfigurationManager.Instance.GetValue("FileUploadBlobPath"), tmodel.ModuleType, tmodel.ModuleId, tmodel.UniqueName.ToLower()));
+            //CloudBlockBlob blob = container.GetBlockBlobReference(string.Format("files{0}/{1}/{2}", tmodel.ModuleType, tmodel.ModuleId, tmodel.UniqueName.ToLower()));
 
             using (var fileStream = System.IO.File.OpenRead(tmodel.FilePath))
             {
@@ -40,6 +42,7 @@ namespace ELibrary.API.Manager
             if (!startTime.HasValue || !expiryTime.HasValue)
                 return "Start time or expiry time is missing";
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.Instance.GetConnectionString("StorageConnection"));
+            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(@"DefaultEndpointsProtocol=https;AccountName=elibrarystorage;AccountKey=de8S23KSTuWPjoblw0hZSbk3YwHueULe+22S2DI9+30TmDmczi+Yy2DVcQ8UWeH9tR+izRZl/X8BPxDM8287Vg==;EndpointSuffix=core.windows.net");
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
             var container = blobClient.GetContainerReference(blobPath);
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName.ToLower());

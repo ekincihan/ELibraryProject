@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using ELibrary.API.Base;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Protocols;
 using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Manager
@@ -27,8 +26,8 @@ namespace ELibrary.Portal.Manager
 
         protected UiRequestManager()
         {
-            this.BaseApiUrl = "http://localhost:60088/api";
-
+            //this.BaseApiUrl = "http://localhost:60088/api";
+            this.BaseApiUrl = "http://api.diyarkitap.com/api";
         }
 
         public string Get(string ControllerName, string actionName, Guid? Id = null)
