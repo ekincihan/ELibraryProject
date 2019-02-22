@@ -104,26 +104,25 @@
                             <div class="widget">
                                 <div class="widget-body">
                                     <div class="row">
-                                        <div class="widget col-xs-4">
-                                            <div class="widget-title well-sm">
+                                        <div class="widget col-xs-4" style="min-height:375px">
+                                            <div class="widget-heading">
                                                 <h4>Kapak Resmi</h4>
                                             </div>
-                                            <div class="widget-body">
-                                                <div>
+                                            <div class="widget-body" >
+                                                @*<div>
                                                     <img src="~/images/no-cover.jpg" style="width:300px; height:300px" class="img-responsive" />
-                                                </div>
+                                                </div>*@
                                                 <div class="form-group">
-                                                    <label>Resim</label>
                                                     <input class="FileBasic" id="FileThumnail" asp-for="Thumbnail" multiple="multiple" placeholder="PNG | JPG" type="file">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="widget col-xs-8">
-                                            <div class="widget-title">
+                                        <div class="widget col-xs-8" style="min-height:375px">
+                                            <div class="widget-heading">
                                                 <h4>Içerik</h4>
                                             </div>
-                                            <div class="widget-body">
-                                                <table id="tblFiles" class="table table-hover">
+                                            <div class="widget-body" >
+                                                @*<table id="tblFiles" class="table table-hover">
                                                     <tr>
                                                         <th>Dosya Adi</th>
                                                         <th>Dosya Türü</th>
@@ -140,9 +139,9 @@
                                                             }
                                                         }
                                                     </tr>
-                                                </table>
+                                                </table>*@
                                                 <div class="form-group">
-                                                    <label>içerik</label>
+                                                    @*<label>içerik</label>*@
                                                     <input class="FileBasic" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" id="FilePublication" asp-for="Publication" multiple="multiple" placeholder="PNG | JPG" type="file">
                                                 </div>
                                             </div>
@@ -153,44 +152,53 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-third" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <label class="col-sm-3 col-md-4 control-label">Kategori Adi </label>
-                                    <div class="col-sm-9 col-md-8">
+                        <div class="row" style="padding-top:15px">
+                            <div class="widget">
+                                <div class="widget-body">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 control-label">Kategori Adı </label>
+                                                <div class="col-sm-9 col-md-8">
+                                                    <div class="input-group">
+                                                        <select id="categories" asp-for="bookModel.CategoryTagAssigment.CategoryId" class="form-control pull-right">
+                                                            <option value="-1">Seçiniz</option>
+                                                            @foreach (var item in Model.CategoryList)
+                                                            {
+                                                                <option value="@item.Id">@item.Name</option>
+                                                            }
+                                                        </select>
+                                                        <span class="input-group-btn">
+                                                            <a onclick="SaveCategory()" class="btn btn-outline btn-default"><i class="glyphicon glyphicon-plus"> </i></a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                        <select id="categories" asp-for="bookModel.CategoryTagAssigment.CategoryId" class="form-control  pull-right">
-                                            <option value="-1">Seçiniz</option>
-                                            @foreach (var item in Model.CategoryList)
-                                            {
-                                                <option value="@item.Id">@item.Name</option>
-                                            }
-                                        </select>
-                                        <span class="input-group-btn">
-                                            <a onclick="SaveCategory()" class="btn btn-outline btn-default"><i class="glyphicon glyphicon-plus"> </i></a>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 col-md-4 control-label">Etiket Adi </label>
-                                    <div class="col-sm-9 col-md-8">
-                                        <select id="AppTypeId" asp-for="bookModel.CategoryTagAssigment.Tags" multiple="multiple" class="form-control  pull-right ui fluid normal dropdown">
-                                            @foreach (var item in Model.TagList)
-                                            {
-                                                <option value="@item.Id" data-Name="@item.Name">@item.Name</option>
-                                            }
-                                        </select>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 col-md-4 control-label">Etiket Adi </label>
+                                                <div class="col-sm-9 col-md-8">
+                                                    <select id="AppTypeId" asp-for="bookModel.CategoryTagAssigment.Tags" multiple="multiple" class="form-control  pull-right ui fluid normal dropdown">
+                                                        @foreach (var item in Model.TagList)
+                                                        {
+                                                            <option value="@item.Id" data-Name="@item.Name">@item.Name</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btn btn-primary pull-right" style="margin-right:15px" value="Kaydet" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Kaydet" />
+                        </div>
                     </div>
                 </div>
-            </div>
         </form>
     </div>
 </div>
+
 <script>
     jQuery.validator.setDefaults({
         debug: true,
