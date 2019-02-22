@@ -5,8 +5,9 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class RequestManagerService {
- url = "https://api.diyarkitap.com/api/"
-  //url = "http://localhost:60088/api/"
+ // url = "https://elibraryapi.azurewebsites.net/api/"
+  // url = "http://localhost:60088/api/"
+  url = "http://api.diyarkitap.com/api/"
 
 
   constructor(private http: HttpClient) {
