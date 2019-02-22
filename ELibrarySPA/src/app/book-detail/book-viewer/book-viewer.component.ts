@@ -61,10 +61,10 @@ export class BookViewerComponent implements OnInit {
 
   getPageReaded(){
     this.setReadPage(false);
-    console.log('this.readPageres book',this.readPage);
+    //console.log('this.readPageres book',this.readPage);
 
     this.bookService.post('User/UserReadPage',this.readPage).subscribe(res =>{
-      console.log('res book',res);
+      //console.log('res book',res);
        this.readPage["id"] = (res) ? res["id"] : '';
       if(!this.epubViewerOn){
         setTimeout(() => {
@@ -84,7 +84,7 @@ export class BookViewerComponent implements OnInit {
 
   sendPageNumber(){
     this.bookService.post("User/ReadPage",this.readPage).subscribe(res => {
-      /* console.log('res',res); */
+      /* //console.log('res',res); */
     });
   }
   openEpubViewer() {

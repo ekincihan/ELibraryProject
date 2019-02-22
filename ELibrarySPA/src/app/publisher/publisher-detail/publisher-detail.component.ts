@@ -32,7 +32,7 @@ export class PublisherDetailComponent implements OnInit {
   confirmSelection(fav:Favorite) {
     let bookRate = this.newBookRate(fav);
     this.publisherService.post('User/Rate', bookRate).subscribe((res) => {
-     // console.log('rated book', res);
+     // //console.log('rated book', res);
 
     })
   }

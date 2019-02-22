@@ -15,7 +15,7 @@ export class AuthorComponent implements OnInit {
   ngOnInit() {
     this.authorService.getAll('Author/Alphabetically').subscribe((res:AuthorAlphabetically[])=>{
       this.authors=res;
-      console.log(this.authors)
+      //console.log(this.authors)
       }
     )
   }

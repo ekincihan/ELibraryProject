@@ -48,9 +48,9 @@ export class MixedBooksComponent implements OnInit {
   confirmSelection(book) {
     let bookRate = this.newBookRate(book,true);
     this.mixedService.post('User/Rate', bookRate).subscribe((addedBookId) => {
-      console.log('book 2', book);
+      //console.log('book 2', book);
       book["ratedBookId"] = addedBookId;
-      console.log('book 3', book);
+      //console.log('book 3', book);
 
     })
   }

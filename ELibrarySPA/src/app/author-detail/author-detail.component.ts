@@ -16,14 +16,14 @@ export class AuthorDetailComponent implements OnInit {
     ) { }
 
     authBooks: Book[];
-    author:Author[];
+    author:any;
 
     ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.authorService.get("/Author/Detail/"+ params["authorId"]).subscribe(res => {
-       // console.log("kitaplar istendi")
+       // //console.log("kitaplar istendi")
         this.author = res["value"];
-       // console.log('YAZAR BİLGİLERİ',res["value"]);
+       // //console.log('YAZAR BİLGİLERİ',res["value"]);
 
      });
      this.authorBook(params["authorId"]);
@@ -33,8 +33,8 @@ export class AuthorDetailComponent implements OnInit {
   authorBook(id: string) {
     this.authorService.get("/Author/Books/" + id).subscribe(res => {
        this.authBooks = res["value"];
-       //console.log('authbooks',this.authBooks)
-       //console.log("kitaplar geldi")
+       ////console.log('authbooks',this.authBooks)
+       ////console.log("kitaplar geldi")
     });
 
 }

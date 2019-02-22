@@ -12,7 +12,7 @@ export class CategoryFullComponent implements OnInit {
   constructor(private categoryService: CategoryService) { 
       this.categoryService.get("/Category/List").subscribe(res => {
         this.categories = res["value"];
-        console.log('this.categories',this.categories);
+        //console.log('this.categories',this.categories);
         
       });
   }

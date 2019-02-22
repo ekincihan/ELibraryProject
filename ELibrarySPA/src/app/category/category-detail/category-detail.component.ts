@@ -22,7 +22,7 @@ export class CategoryDetailComponent implements OnInit {
       
       this.categoryService.get("/Category/BookByCategory/" + params["categoryId"]).subscribe(res => {
         this.category = res[0];
-        console.log('this.categories',this.category);
+        //console.log('this.categories',this.category);
 
       });
     })
@@ -34,7 +34,7 @@ export class CategoryDetailComponent implements OnInit {
   confirmSelection(fav:Favorite) {
     let bookRate = this.newBookRate(fav);
     this.categoryService.post('User/Rate', bookRate).subscribe((res) => {
-     // console.log('rated book', res);
+     // //console.log('rated book', res);
 
     })
   }

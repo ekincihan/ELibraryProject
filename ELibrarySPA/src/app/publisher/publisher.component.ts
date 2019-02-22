@@ -15,7 +15,7 @@ export class PublisherComponent implements OnInit {
   ngOnInit() {
     this.publisherService.getAll('Publisher/Alphabetically').subscribe((res:PublisherUiModel[])=>{
       this.publisher=res;
-      //console.log(this.publisher)
+      ////console.log(this.publisher)
       }
     )
   }

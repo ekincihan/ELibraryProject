@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
   formSubmit() {
     if (this.signUp.valid) {
       // alert('valid');
-      // console.log('this.signUp.value',this.signUp.value);
+      // //console.log('this.signUp.value',this.signUp.value);
       // alert(JSON.stringify(this.signUp.value))
         delete this.signUp.value["confirmPassword"];
         delete this.signUp.value["privacy"];

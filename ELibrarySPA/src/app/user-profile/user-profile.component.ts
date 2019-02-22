@@ -28,7 +28,7 @@ export class UserProfileComponent implements OnInit {
       if(localStorage.getItem('user'))
         this.user = JSON.parse(localStorage.getItem('user'));
         this.user.birthdate = new Date(this.user.birthdate)
-      console.log('user.birthdate',new Date(this.user.birthdate));
+      //console.log('user.birthdate',new Date(this.user.birthdate));
 
       this.minDate.setDate(this.minDate.getDate());
       this.maxDate.setDate(this.maxDate.getDate());
@@ -46,7 +46,7 @@ export class UserProfileComponent implements OnInit {
   confirmSelection(fav:Favorite) {
     let bookRate = this.newBookRate(fav);
     this.service.post('User/Rate', bookRate).subscribe((res) => {
-     // console.log('rated book', res);
+     // //console.log('rated book', res);
 
     })
   }

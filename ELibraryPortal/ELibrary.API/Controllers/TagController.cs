@@ -26,39 +26,39 @@ namespace ELibrary.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
-        [Route("List")]
-        public async Task<Response<List<TagModel>>> AsyncGet()
-        {
-            Response<List<TagModel>> tagResponse = new Response<List<TagModel>>();
-            List<Tag> entityList = await _tag.GetListAsync(x => x.IsActive == true);
-            tagResponse.Value = _mapper.Map<List<TagModel>>(entityList);
-            return tagResponse;
-        }
-
-        [HttpPost]
-        [Route("Save")]
-        public async Task<Response<TagModel>> Post([FromBody]TagModel model)
-        {
-            Response<TagModel> tagResponseModel = new Response<TagModel>();
-
-            try
+            [HttpGet]
+            [Route("List")]
+            public async Task<Response<List<TagModel>>> AsyncGet()
             {
-                Tag entity = _mapper.Map<Tag>(model);
-                entity = await (model.Id != Guid.Empty ? _tag.UpdateAsync(entity) : _tag.AddAsync(entity));
-                tagResponseModel.Value = _mapper.Map<TagModel>(entity);
-                tagResponseModel.IsSuccess = true;
-
-            }
-            catch (Exception e)
-            {
-
-                tagResponseModel.Exception = e;
-                tagResponseModel.IsSuccess = false;
+                Response<List<TagModel>> tagResponse = new Response<List<TagModel>>();
+                List<Tag> entityList = await _tag.GetListAsync(x => x.IsActive == true);
+                tagResponse.Value = _mapper.Map<List<TagModel>>(entityList);
+                return tagResponse;
             }
 
-            return tagResponseModel;
-        }
+            [HttpPost]
+            [Route("Save")]
+            public async Task<Response<TagModel>> Post([FromBody]TagModel model)
+            {
+                Response<TagModel> tagResponseModel = new Response<TagModel>();
+
+                try
+                {
+                    Tag entity = _mapper.Map<Tag>(model);
+                    entity = await (model.Id != Guid.Empty ? _tag.UpdateAsync(entity) : _tag.AddAsync(entity));
+                    tagResponseModel.Value = _mapper.Map<TagModel>(entity);
+                    tagResponseModel.IsSuccess = true;
+
+                }
+                catch (Exception e)
+                {
+
+                    tagResponseModel.Exception = e;
+                    tagResponseModel.IsSuccess = false;
+                }
+
+                return tagResponseModel;
+            }
 
         [HttpGet]
         [Route("GetOne/{id}")]

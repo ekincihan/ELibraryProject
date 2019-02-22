@@ -1,0 +1,68 @@
+﻿@model AboutModel
+@{
+  Layout = "_Layout";
+}
+<style>
+  .ck-editor__editable {
+    min-height: 300px;
+  }
+</style>
+<script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
+
+<div class="col-md-9">
+  <div class="widget">
+    <div class="widget-heading">
+      <h3 class="widget-title">Basic Form</h3>
+    </div>
+      <div class="widget-body">
+        <form class="form-horizontal" method="post">
+          <div class="form-group">
+            <label for="textInputHor" class="col-sm-3 control-label">Başlık</label>
+            <div class="col-sm-9">
+              <input id="textInputHor" asp-for="Title" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="textAreaHor" class="col-sm-3 control-label">Açıklama</label>
+            <div class="col-sm-9">
+              <textarea id="editor" asp-for="Content" rows="10" cols="500" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <div class="radio-custom">
+                <input id="optionsRadios1Hor" type="radio" asp-for="IsActive" />
+                <label for="optionsRadios1Hor">Aktif</label>
+              </div>
+              <div class="radio-custom">
+                <input id="optionsRadios2Hor" type="radio" asp-for="IsActive" />
+                <label for="optionsRadios2Hor">Pasif</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <button type="submit" class="btn btn-outline btn-success">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+
+
+<script>
+
+  $(document).ready(function () {
+
+    ClassicEditor
+      .create(document.querySelector('#editor'))
+      .then(editor => {
+        console.log(editor);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  });
+
+</script>

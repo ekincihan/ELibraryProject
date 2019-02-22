@@ -15,7 +15,7 @@ export class IndexComponent implements OnInit {
   isLastAdded = true;
   ngOnInit() {
     this.indexService.getAll("Book/LastAdded").subscribe(res => {
-      console.log('last added',res["value"])
+      //console.log('last added',res["value"])
       this.lastAdded = res["value"];
     });
   }
@@ -29,7 +29,7 @@ export class IndexComponent implements OnInit {
     }else{
       this.isLastAdded = true;
       this.indexService.getAll("Book/LastAdded").subscribe(res => {
-        console.log(res["value"])
+        //console.log(res["value"])
 
         this.lastAdded = res["value"];
       });

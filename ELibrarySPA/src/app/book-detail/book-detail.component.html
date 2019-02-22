@@ -10,7 +10,7 @@
               <span (click)="favBook(book)" class="selected w-100 h-100 d-inline-block"></span>
             </div>
             <div class="cover position-relative min-h-auto h-auto">
-              <img src="{{book?.thumbnail?.signUrl}}" class="position-relative w-100 h-auto d-block" alt="cover">
+              <img src="{{book?.Thumbnail?.SignUrl}}" class="position-relative w-100 h-auto d-block" alt="cover">
             </div>
           </div>
           <button class="btn btn-lg btn-green text-left w-100 mt-4 mb-2 pl-5 text-truncate read-it" routerLink="/kitap-oku/{{book?.id}}"
@@ -22,23 +22,23 @@
             <div class="row">
   
               <div class="col-12 col-sm-12 col-md-7 general-info">
-                <h6 class="mt-0 mb-3 text-capitalize color-green">{{book?.bookName}}</h6>
-                <div class="mb-1">Yazar: <b class="text-capitalize">{{book?.author?.name}}</b></div>
-                <div class="mb-3">Yayınevi: <b class="text-capitalize">{{book?.publisher?.name}}</b></div>
+                <h6 class="mt-0 mb-3 text-capitalize color-green">{{book?.BookName}}</h6>
+                <div class="mb-1">Yazar: <b class="text-capitalize">{{book?.Author?.Name}}</b></div>
+                <div class="mb-3">Yayınevi: <b class="text-capitalize">{{book?.Publisher?.Name}}</b></div>
               </div>
             </div>
             <div class="info-text">
-              <p>{{book?.bookSummary}}</p>
+              <p>{{book?.BookSummary}}</p>
               </div>
               <div class="more-info">
                 <div class="mb-1">
-                  Kitap Adı: <b>{{book?.bookName}}</b>
+                  Kitap Adı: <b>{{book?.BookName}}</b>
                 </div>
                 <div class="mb-1">
-                  Yazar: <b>{{book?.author?.name}}</b>
+                  Yazar: <b>{{book?.Author?.Name}}</b>
                 </div>
                 <div class="mb-1">
-                  Yayınevi: <b>{{book?.publisher?.name}}</b>
+                  Yayınevi: <b>{{book?.Publisher?.Name}}</b>
                 </div>
                 <div class="mb-1">
                   Dili: <b>Türkçe</b>

@@ -51,7 +51,7 @@ export class CategoryComponent implements OnInit {
   confirmSelection(fav:Favorite) {
     let bookRate = this.newBookRate(fav);
     this.categoryService.post('User/Rate', bookRate).subscribe((res) => {
-     // console.log('rated book', res);
+     // //console.log('rated book', res);
 
     })
   }
@@ -99,12 +99,12 @@ export class CategoryComponent implements OnInit {
   }
 
   filter(){
-    console.log('this.filterCategory',this.filterCategory);
+    //console.log('this.filterCategory',this.filterCategory);
     // TODO: Servis entegrasyonu buraya gelecek,
     // seçili yazar,kategori ve yayınevini alıyoruz.servis yine kategori tipinde dönmeli
     
     this.categoryService.post('CategoryTagAssignment/Filter',this.filterCategory).subscribe(res =>{
-      console.log('res',res);
+      //console.log('res',res);
         //this.headerCategories
     }) 
     

@@ -8,7 +8,7 @@ import { SearchService } from '../shared/search.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  results: Object;
+  results: any;
   searchTerm$ = new Subject<string>();
 
   constructor(private searchService: SearchService) {

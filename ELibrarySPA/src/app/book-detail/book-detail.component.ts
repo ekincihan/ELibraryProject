@@ -44,7 +44,7 @@ export class BookDetailComponent implements OnInit {
   getPageReaded(){
     this.setReadPage(false);
     this.bookService.post('User/UserReadPage',this.readPage).subscribe(res =>{
-      console.log('res book',res);
+      //console.log('res book',res);
       if(res &&  res["page"] > 0){
         this.isReading = true;
       }
@@ -52,19 +52,19 @@ export class BookDetailComponent implements OnInit {
   }
 
   beginReading(book){
-      //console.log(book["id"])
-      //console.log('this.createFavoriteModel(book);',this.createFavoriteModel(book));
+      ////console.log(book["id"])
+      ////console.log('this.createFavoriteModel(book);',this.createFavoriteModel(book));
       this.bookService.post("User/ReadBook",this.createFavoriteModel(book)).subscribe(res => {
-       // console.log('res',res);
+       // //console.log('res',res);
       });
       this.bookService.post("Book/ReadBook",book["id"]).subscribe(res => {
-        // console.log('res',res);
+        // //console.log('res',res);
        });
   }
 
   favBook(book){
     this.bookService.post("/User/Favorite",this.createFavoriteModel(book)).subscribe(res => {
-       console.log('res',res);
+       //console.log('res',res);
       this.snotifyService.success('Başarılı', 'Favoriledin', {
         timeout: 2000,
         showProgressBar: true,
@@ -77,7 +77,7 @@ export class BookDetailComponent implements OnInit {
 
 
   createFavoriteModel(book){
-    console.log(book)
+    //console.log(book)
     let favorite: Favorite = new Favorite();
     favorite.bookId = book.id;
     favorite.authorId = book.authorId;
