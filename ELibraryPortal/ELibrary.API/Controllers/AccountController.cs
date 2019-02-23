@@ -23,16 +23,19 @@ namespace ELibrary.API.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
+        //private readonly RoleManager<IdentityRole<string>> _roleManager;
         private readonly IConfiguration _configuration;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
+            //RoleManager<IdentityRole<string>> roleManager,
             IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
+            //_roleManager = roleManager;
         }
 
         [HttpPost("Login")]
@@ -54,15 +57,24 @@ namespace ELibrary.API.Controllers
         [HttpPost("PortalLogin")]
         public async Task<Response<ApplicationUser>> PortalLogin([FromBody]LoginModel model)
         {
-            var response = new Response<ApplicationUser>();
-            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
-
-            if (result.Succeeded)
+            try
             {
-                var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
-                return new Response<ApplicationUser> { IsSuccess = true, Value = appUser };
+                var response = new Response<ApplicationUser>();
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+
+                if (result.Succeeded)
+                {
+                    var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
+                    appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
+                    return new Response<ApplicationUser> { IsSuccess = true, Value = appUser };
+                }
             }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+
+            
 
             return new Response<ApplicationUser> { IsSuccess = false, Message = "Kullanıcı Adı veya Şifre yanlış" };
         }
@@ -84,13 +96,11 @@ namespace ELibrary.API.Controllers
 
             if (result.Succeeded)
             {
-                var code = await _userManager.GenerateEmailConfirmationTokenAsync(identityUser);
-                var callbackUrl = Url.Action("ConfirmEmail", "Main", new { userId = identityUser.Id, code = code },
-                      protocol: HttpContext.Request.Scheme);
-                //await
-                    //_emailSend.SendEmailAsync(model.Username, "Confirm Account",
-                    //    $"Please Confirm your account by " +
-                    //    $"clicking this link:<a href='{callbackUrl}'>Link</a>");
+                //string role = "basic user";
+                //await _userManager.AddToRoleAsync(identityUser, role);
+                //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("userName", identityUser.UserName));
+                //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("email", identityUser.Email));
+                //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("role", role));
 
                 var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
                 appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);

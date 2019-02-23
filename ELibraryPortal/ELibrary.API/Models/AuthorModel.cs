@@ -27,7 +27,7 @@ namespace ELibrary.API.Models
             Id = Guid.Empty;
             _appFile = new EFAppFile();
             _mapper = DIManager.Instance.Provider.GetService<IMapper>();
-         //   _books = new EFBook();
+            //_books = new EFBook();
         }
         [Required]
         public string Name { get; set; }
