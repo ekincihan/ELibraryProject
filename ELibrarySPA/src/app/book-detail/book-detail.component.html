@@ -10,7 +10,7 @@
               <span (click)="favBook(book)" class="selected w-100 h-100 d-inline-block"></span>
             </div>
             <div class="cover position-relative min-h-auto h-auto">
-              <img src="{{book?.Thumbnail?.SignUrl}}" class="position-relative w-100 h-auto d-block" alt="cover">
+              <img src="{{book?.thumbnail?.signUrl}}" class="position-relative w-100 h-auto d-block" alt="cover">
             </div>
           </div>
           <button class="btn btn-lg btn-green text-left w-100 mt-4 mb-2 pl-5 text-truncate read-it" routerLink="/kitap-oku/{{book?.id}}"
