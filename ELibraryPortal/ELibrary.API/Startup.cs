@@ -65,6 +65,7 @@ namespace ELibrary.API
             services.AddTransient<ICategoryTagAssignment, EFCategoryTagAssigment>();
             services.AddTransient<IUserReadPage, EFUserReadPage>();
             services.AddTransient<IContact, EFContact>();
+            services.AddTransient<IAbout, EFAbout>();
 
             services.Configure<IISOptions>(options =>
             {

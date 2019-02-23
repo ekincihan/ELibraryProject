@@ -62,7 +62,8 @@ namespace ELibrary.API.Models
                         ModuleId = f.ModuleId,
                         ModuleType = Enum.Enum.Module.Publication,
                         Name = f.Name,
-                        UniqueName = f.UniqueName
+                        UniqueName = f.UniqueName,
+                        SignUrl = f.SignUrl
                     }).FirstOrDefault();
 
             }
@@ -82,7 +83,8 @@ namespace ELibrary.API.Models
                         ModuleId = f.ModuleId,
                         ModuleType = Enum.Enum.Module.Publication,
                         Name = f.Name,
-                        UniqueName = f.UniqueName
+                        UniqueName = f.UniqueName,
+                        SignUrl = f.SignUrl
                     }).ToList();
             }
         }

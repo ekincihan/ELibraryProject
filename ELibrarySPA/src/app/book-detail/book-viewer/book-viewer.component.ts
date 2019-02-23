@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import Epub from 'epubjs';
 import { BookService } from '../shared/book.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../../models/Book';
 
 @Component({
@@ -23,6 +23,7 @@ export class BookViewerComponent implements OnInit {
 
   @ViewChild('pdfView') pdfView: ElementRef;
   constructor(private bookService: BookService,
+      private router: Router,
     private activatedRoute: ActivatedRoute) {
     
   }
@@ -40,6 +41,7 @@ export class BookViewerComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.bookService.get("/Book/Detail/" + params["bookId"]).subscribe(res => {
         this.book = res["value"];
+        console.log(this.book)
         this.getPageReaded();
         let ext = res["value"]["appFiles"][0].extension;
 
@@ -64,9 +66,8 @@ export class BookViewerComponent implements OnInit {
     //console.log('this.readPageres book',this.readPage);
 
     this.bookService.post('User/UserReadPage',this.readPage).subscribe(res =>{
-      //console.log('res book',res);
-       this.readPage["id"] = (res) ? res["id"] : '';
-      if(!this.epubViewerOn){
+       this.readPage["id"] = (res) ? res["id"] : '00000000-0000-0000-0000-000000000000';
+      if(!this.epubViewerOn && res){
         setTimeout(() => {
           document.getElementById("pageNumber")["value"] = res["page"];
           var event = new Event('change');
@@ -84,7 +85,10 @@ export class BookViewerComponent implements OnInit {
 
   sendPageNumber(){
     this.bookService.post("User/ReadPage",this.readPage).subscribe(res => {
-      /* //console.log('res',res); */
+      console.log('res',res);
+      if(res['bookId']){
+          this.router.navigate(['/kitap-detay/'+res['bookId']]);
+      }
     });
   }
   openEpubViewer() {

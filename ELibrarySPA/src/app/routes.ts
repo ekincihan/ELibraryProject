@@ -11,6 +11,7 @@ import { CategoryFullComponent } from "./category/category-full/category-full.co
 import { PublisherDetailComponent } from "./publisher/publisher-detail/publisher-detail.component";
 import { AuthorComponent } from "./Author/Author.component";
 import { ContactComponent } from "./contact/contact.component";
+import { AboutComponent } from "./footer/about/about.component";
 
 
 export const appRoutes: Routes = [
@@ -26,5 +27,6 @@ export const appRoutes: Routes = [
   { path: "profil", component: UserProfileComponent },
   { path: "iletisim", component: ContactComponent },
   { path: "yazarlar", component: AuthorComponent },
+  { path: "hakkımızda", component: AboutComponent },
   { path: "**", redirectTo: "Anasayfa", pathMatch: "full" }
 ];

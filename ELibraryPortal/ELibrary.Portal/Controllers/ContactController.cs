@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using ELibrary.API.Models;
 using ELibrary.API.Type;
@@ -22,11 +23,12 @@ namespace ELibrary.Portal.Controllers
         }
 
         [HttpPost]
-        public JsonResult Delete(Guid id)
+        public JsonResult Delete(ContactModel model)
         {
-            StatusCodeResult responseSaving = JsonConvert.DeserializeObject<StatusCodeResult>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(id)));
+            Response<ContactModel> responseSaving = new Response<ContactModel>();
+            UiRequestManager.Instance.Post("Contact", "Delete", JsonConvert.SerializeObject(model));
 
-            return Json(responseSaving.StatusCode);
+            return Json(responseSaving.IsSuccess=true);
         }
     }
 }

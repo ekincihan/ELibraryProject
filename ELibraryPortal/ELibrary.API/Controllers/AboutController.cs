@@ -2,48 +2,99 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using ELibrary.API.Base;
+using ELibrary.API.Models;
+using ELibrary.API.Type;
+using ELibrary.DAL.Abstract;
+using ELibrary.Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ELibrary.API.Controllers
 {
+    [ApiController]
     [Route("api/About")]
-    public class AboutController : Controller
+    [Produces("application/json")]
+    [AllowAnonymous]
+    public class AboutController : APIControllerBase
     {
-        //[HttpGet]
-        //[Route("List")]
-        //public async Task<Response<List<TagModel>>> AsyncGet()
-        //{
-        //    Response<List<TagModel>> tagResponse = new Response<List<TagModel>>();
-        //    List<Tag> entityList = await _tag.GetListAsync(x => x.IsActive == true);
-        //    tagResponse.Value = _mapper.Map<List<TagModel>>(entityList);
-        //    return tagResponse;
-        //}
+        private readonly IAbout _about;
+        private readonly IMapper _mapper;
 
-        //[HttpPost]
-        //[Route("Save")]
-        //public async Task<Response<TagModel>> Post([FromBody]TagModel model)
-        //{
-        //    Response<TagModel> tagResponseModel = new Response<TagModel>();
 
-        //    try
-        //    {
-        //        Tag entity = _mapper.Map<Tag>(model);
-        //        entity = await (model.Id != Guid.Empty ? _tag.UpdateAsync(entity) : _tag.AddAsync(entity));
-        //        tagResponseModel.Value = _mapper.Map<TagModel>(entity);
-        //        tagResponseModel.IsSuccess = true;
+        public AboutController(IAbout about, IMapper mapper)
+        {
+            _about = about;
+            _mapper = mapper;
+        }
 
-        //    }
-        //    catch (Exception e)
-        //    {
+        [HttpGet]
+        [Route("List")]
+        public async Task<Response<List<AboutModel>>> AsyncGet()
+        {
+            Response<List<AboutModel>> aboutResponse = new Response<List<AboutModel>>();
+            List<About> entityList = await _about.GetListAsync();
+            aboutResponse.Value = _mapper.Map<List<AboutModel>>(entityList);
+            return aboutResponse;
+        }
 
-        //        tagResponseModel.Exception = e;
-        //        tagResponseModel.IsSuccess = false;
-        //    }
+        [HttpPost]
+        [Route("Save")]
+        public async Task<Response<AboutModel>> Post([FromBody]AboutModel model)
+        {
+            Response<AboutModel> aboutesponseModel = new Response<AboutModel>();
 
-        //    return tagResponseModel;
-        //}
+            try
+            {
+                About entity = _mapper.Map<About>(model);
+                entity = await (model.Id != Guid.Empty ? _about.UpdateAsync(entity) : _about.AddAsync(entity));
+                aboutesponseModel.Value = _mapper.Map<AboutModel>(entity);
+                aboutesponseModel.IsSuccess = true;
+
+            }
+            catch (Exception e)
+            {
+
+                aboutesponseModel.Exception = e;
+                aboutesponseModel.IsSuccess = false;
+            }
+
+            return aboutesponseModel;
+        }
+
+        [HttpGet]
+        [Route("GetOne/{id}")]
+        public async Task<Response<AboutModel>> GetOne(Guid id)
+        {
+            Response<AboutModel> aboutResponse = new Response<AboutModel>();
+            About entityList = await _about.GetTAsync(x => x.Id == id);
+            aboutResponse.Value = _mapper.Map<AboutModel>(entityList);
+
+            return aboutResponse;
+        }
+
+        [HttpPost]
+        [Route("Delete")]
+        public ActionResult Delete(ContactModel model)
+        {
+            _about.Delete(_about.GetT(x => x.Id == model.Id));
+
+            return StatusCode(200);
+        }
+
+        [HttpGet]
+        [Route("GetAbout")]
+        public AboutModel GetAbout()
+        {
+            AboutModel aboutResponse = new AboutModel();
+            List<About> entityList = _about.GetList();
+            List<AboutModel> models = _mapper.Map<List<AboutModel>>(entityList);
+            aboutResponse = models.Take(1).First();
+            return aboutResponse;
+        }
 
     }
 }

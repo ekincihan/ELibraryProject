@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using ELibrary.API.Base;
 using ELibrary.API.Models;
 using ELibrary.DAL.Abstract;
 using ELibrary.Entities.Concrete;
@@ -16,7 +17,7 @@ namespace ELibrary.API.Controllers
     [Route("api/Contact")]
     [Produces("application/json")]
     [AllowAnonymous]
-    public class ContactController : ControllerBase
+    public class ContactController : APIControllerBase
     {
         private readonly IContact _contact;
         private readonly IMapper _mapper;
@@ -49,11 +50,11 @@ namespace ELibrary.API.Controllers
             return models;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("Delete")]
-        public ActionResult GetMails(Guid id)
+        public ActionResult Delete(ContactModel model)
         {
-            _contact.Delete(_contact.GetT(x => x.Id == id));
+            _contact.Delete(_contact.GetT(x => x.Id == model.Id));
 
             return StatusCode(200);
         }

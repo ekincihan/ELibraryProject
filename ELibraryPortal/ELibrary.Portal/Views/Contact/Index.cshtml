@@ -23,8 +23,8 @@
                             <td class="text-center">@item.Message</td>
                             <td class="text-center">
                                 <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
-                                    <a id="delete" data-id="@item.Id" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
-                                </div>
+                                  <a id="delete" data-model="@(Newtonsoft.Json.JsonConvert.SerializeObject(item))" data-id="@item.Id" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
+                                  </div>
                             </td>
                         </tr>
                     }
@@ -51,7 +51,7 @@
 
         $("td div #delete").click(function () {
 
-            var id = $(this).attr("data-id");
+          var model = JSON.parse($(this).attr('data-model'));
 
             var btn = this;
             swal({
@@ -70,10 +70,10 @@
                             type: "POST",
                             url: '/Contact/Delete',
                             content: "application/json; charset=utf-8",
-                            data: JSON.stringify({ id: $(this).attr("data-id") }),
+                            data: model,
                             dataType: 'json',
                             success: function (d) {
-                                if (d.success) {
+                                if (d) {
                                     swal("Basarili!", "Kayıt silindi", "success");
                                     table.row($(btn).parents('tr')).remove().draw(false);
                                 }

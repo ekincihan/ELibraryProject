@@ -54,6 +54,8 @@ import { SearchService } from './index/shared/search.service';
 import { ContactService } from './contact/shared/contact.service';
 import { AuthorService } from './Author/shared/author.service';
 import { BookService } from './book-detail/shared/book.service';
+import { AboutComponent } from './footer/about/about.component';
+import { AboutService } from './footer/about/shared/about.service';
 
 @NgModule({
    declarations: [
@@ -77,7 +79,8 @@ import { BookService } from './book-detail/shared/book.service';
        BookViewerComponent,
        CategoryFullComponent,
        AuthorComponent,
-       ContactComponent
+       ContactComponent,
+       AboutComponent
    ],
    imports: [
        BrowserModule,
@@ -105,6 +108,7 @@ import { BookService } from './book-detail/shared/book.service';
        BookService,
        UserProfileService,
        ContactService,
+       AboutService,
        [
            { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
            SnotifyService

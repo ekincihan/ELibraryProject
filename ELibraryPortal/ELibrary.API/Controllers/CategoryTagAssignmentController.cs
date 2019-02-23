@@ -83,7 +83,7 @@ namespace ELibrary.API.Controllers
                 CategoryModel categoryModel = new CategoryModel();
                 if (model.CategoryIds.Count(x => x.Equals(item.CategoryId)) > 0 || model.AuthorIds.Count(y => y.Equals(item.AuthorId)) > 0 || model.PublisherId == item.PublisherId)
                 {
-                    if (models.Count==0)
+                    if (models.FirstOrDefault(x => x.Id == item.CategoryId) == null)
                     {
                         categoryModel.Id = item.CategoryId;
                         categoryModel.Name = item.CategoryName;
@@ -95,18 +95,32 @@ namespace ELibrary.API.Controllers
                         book.BookName = item.BookName;
                         book.BookId = item.BookId;
                         book.SignUrl = item.SignUrl;
-
-                        //gelen filtreye göre category ve onun kitaplarını listele sorun şu ki hangi kategorinin kitaplarının hangi sırayla geleceğni bilmiyoruz.
-                        //    düzenlemek gerekiyor.
-
+                        categoryModel.Books.Add(book);
+                        models.Add(categoryModel);
                     }
                     else
                     {
-                        
+
+                        categoryModel.Id = item.CategoryId;
+                        categoryModel.Name = item.CategoryName;
+
+                        MongoBookModel book = new MongoBookModel();
+                        book.AuthorId = item.AuthorId;
+                        book.AuthorName = item.AuthorName;
+                        book.AuthorSurname = item.AuthorSurname;
+                        book.BookName = item.BookName;
+                        book.BookId = item.BookId;
+                        book.SignUrl = item.SignUrl;
+                        var currentCategory = models.FirstOrDefault(x => x.Id == item.CategoryId);
+                        models.Remove(currentCategory);
+                        currentCategory.Books.Add(book);
+                        models.Add(currentCategory);
+
+
                     }
                 }
             }
-            return null;
+            return models;
         }
     }
 }

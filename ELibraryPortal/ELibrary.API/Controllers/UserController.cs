@@ -143,7 +143,7 @@ namespace ELibrary.API.Controllers
                     readModel.AuthorId = entity.AuthorId;
                     readModel.AuthorName = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Name;
                     readModel.AuthorSurname = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Surname;
-                    readModel.SignUrl = "https://elibrarystorage.blob.core.windows.net/" + files.FirstOrDefault(x => x.ModuleId == entity.Id).BlobPath;
+                    readModel.SignUrl =  files.FirstOrDefault(x => x.ModuleId == entity.Id).SignUrl;
                     reads.Add(readModel);
                 }
             }
@@ -159,7 +159,7 @@ namespace ELibrary.API.Controllers
                     favoriteModel.AuthorId = entity.AuthorId;
                     favoriteModel.AuthorName = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Name;
                     favoriteModel.AuthorSurname = authors.FirstOrDefault(x => x.Id == entity.AuthorId).Surname;
-                    favoriteModel.SignUrl = files.FirstOrDefault(x => x.ModuleId == entity.Id).BlobPath;
+                    favoriteModel.SignUrl = files.FirstOrDefault(x => x.ModuleId == entity.Id).SignUrl;
                     favorites.Add(favoriteModel);
                 }
             }
