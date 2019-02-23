@@ -12,9 +12,9 @@ namespace ELibrary.API.Models
         {
             Id = Guid.Empty;
         }
+        public string Contnent { get; set; }
         public string Title { get; set; }
-        public string Content { get; set; }
-        public bool IsActive { get; set; }
+        //public bool IsActive { get; set; }
     }
 }
  

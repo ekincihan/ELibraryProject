@@ -66,35 +66,44 @@ namespace ELibrary.API.Controllers
 
             return new Response<ApplicationUser> { IsSuccess = false, Message = "Kullanıcı Adı veya Şifre yanlış" };
         }
+
         [HttpPost("Register")]
         public async Task<Response<ApplicationUser>> Register([FromBody]RegisterModel model)
         {
             var response = new Response<ApplicationUser>();
-
-            var identityUser = new ApplicationUser
+            try
             {
-                UserName = model.Email,
-                Email = model.Email,
-                PhoneNumber = model.PhoneNumber,
-                Name = model.Name,
-                Gender = model.Gender,
-                Birthdate = model.Birthdate,
-            };
-            var result = await _userManager.CreateAsync(identityUser, model.Password);
+                var identityUser = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber,
+                    Name = model.Name,
+                    Gender = model.Gender,
+                    Birthdate = model.Birthdate,
+                };
+                var result = await _userManager.CreateAsync(identityUser, model.Password);
 
-            if (result.Succeeded)
-            {
-                var code = await _userManager.GenerateEmailConfirmationTokenAsync(identityUser);
-                var callbackUrl = Url.Action("ConfirmEmail", "Main", new { userId = identityUser.Id, code = code },
-                      protocol: HttpContext.Request.Scheme);
-                //await
+                if (result.Succeeded)
+                {
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(identityUser);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Main", new { userId = identityUser.Id, code = code },
+                        protocol: HttpContext.Request.Scheme);
+                    //await
                     //_emailSend.SendEmailAsync(model.Username, "Confirm Account",
                     //    $"Please Confirm your account by " +
                     //    $"clicking this link:<a href='{callbackUrl}'>Link</a>");
 
-                var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
-                return new Response<ApplicationUser>(appUser);
+                    var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
+                    appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
+                    return new Response<ApplicationUser>(appUser);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
             }
 
             throw new ApplicationException("INVALID_LOGIN_ATTEMPT");

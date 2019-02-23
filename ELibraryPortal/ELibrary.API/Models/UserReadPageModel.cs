@@ -10,6 +10,6 @@ namespace ELibrary.API.Models
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
         public Guid BookId { get; set; }
-        public int Page { get; set; }
+        public int Page { get; set; } = 0;
     }
 }

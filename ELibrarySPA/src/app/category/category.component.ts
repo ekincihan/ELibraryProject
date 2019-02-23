@@ -103,9 +103,9 @@ export class CategoryComponent implements OnInit {
     // TODO: Servis entegrasyonu buraya gelecek,
     // seçili yazar,kategori ve yayınevini alıyoruz.servis yine kategori tipinde dönmeli
     
-    this.categoryService.post('CategoryTagAssignment/Filter',this.filterCategory).subscribe(res =>{
+    this.categoryService.post('CategoryTagAssignment/Filter',this.filterCategory).subscribe((res:Category[]) =>{
       //console.log('res',res);
-        //this.headerCategories
+      this.categories=res;
     }) 
     
   }

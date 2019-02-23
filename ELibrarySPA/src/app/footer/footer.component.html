@@ -1,12 +1,17 @@
 <footer>
   <div class="container">
     <div class="row">
-
-      <div class="col-6 col-sm-6">
+      <div class="col-12 col-sm-12 col-md-3 text-center-sm">
         <h1 class="m-0 p-0"><a class="navbar-brand m-0 p-0 d-inline-block" href="#">E-Library</a></h1>
       </div>
-
-      <div class="col-6 col-sm-6">
+      <div class="col-12 col-sm-12 col-md-6 text-center-sm">
+        <ul class="nav justify-content-center">
+          <li class="nav-item"><a class="nav-link" [routerLink]="['/hakkımızda']">Hakkımızda</a></li>
+          <li class="nav-item"><a class="nav-link w-100" [routerLink]="['/iletisim']">İletişim</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-12 col-md-3 text-center-sm">
         <div class="socialized text-right">
           <a href="#" class="fb" target="_blank">facebook</a>
           <a href="#" class="tw" target="_blank">twitter</a>
