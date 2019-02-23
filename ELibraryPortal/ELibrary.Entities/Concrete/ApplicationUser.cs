@@ -18,7 +18,7 @@ namespace ELibrary.Entities.Concrete
         public string BearerToken { get; set; }
         public int? Gender { get; set; }
     }
-    public class AppIdentityRole : IdentityRole, IEntity
+    public class AppIdentityRole : IdentityRole<string>, IEntity
     {
 
     }

@@ -257,7 +257,7 @@
     });
 
     $('form').submit(function (e) {
-
+        SpinLoader(true);
         e.preventDefault();
         var formData = new FormData(this);
         formData.set('bookModel.CategoryTagAssigment.CategoryName', ($("#categories option:selected").text()));
@@ -278,11 +278,14 @@
                 }
             },
             error: function () {
+                SpinLoader(false);
                 swal("Hata!", "Bir sorun olustu!", "error");
             },
             cache: false,
             contentType: false,
             processData: false
+        }).done(function () {
+            SpinLoader(false);
         });
     });
 

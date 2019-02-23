@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Security;
-using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using ELibrary.API.Configuration;
@@ -11,18 +8,14 @@ using ELibrary.DAL.Concrete.EntityFramework;
 using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 using AutoMapper;
-using ELibrary.Core.DataAccess.MongoDB;
 using ELibrary.DAL.Concrete.MongoDB;
 
 namespace ELibrary.API
@@ -53,7 +46,7 @@ namespace ELibrary.API
                 c.SwaggerDoc("v1", new Info { Title = "ELibrayAPI", Version = "v1" });
             });
             services.AddDbContext<ELibraryDBContext>(
-                options => options.UseSqlServer(@"server=d89.252.185.90\MSSQLSERVER2012;user id=baltazzar;password=Angel4you!;initial catalog=DiyarKitapDB"));
+                options => options.UseSqlServer(@"server=diyarkitap.com\MSSQLSERVER2012;user id=baltazzar;password=Angel4you!;initial catalog=DiyarKitapDB"));
             services.AddIdentity<ApplicationUser, AppIdentityRole>()
                 .AddEntityFrameworkStores<ELibraryDBContext>()
                 .AddDefaultTokenProviders();
