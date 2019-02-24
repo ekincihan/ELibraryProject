@@ -94,6 +94,7 @@
 
 
     $('form').submit(function (e) {
+        SpinLoader(true);
         e.preventDefault();
         var formData = new FormData(this);
         $.ajax({
@@ -109,15 +110,19 @@
                     document.getElementById("txtWebsite").value = "";
                 }
                 else {
+                    SpinLoader(false);
                     swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
                 }
             },
             error: function () {
+                SpinLoader(false);
                 swal("Hata!", "Bir sorun oluştu!", "error");
             },
             cache: false,
             contentType: false,
             processData: false
+        }).done(function () {
+            SpinLoader(false);
         });
     });
     function objectifyForm(formArray) {//serialize data function

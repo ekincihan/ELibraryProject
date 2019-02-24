@@ -35,6 +35,7 @@
 
 <script>
     $('form').submit(function (e) {
+        SpinLoader(true);
         e.preventDefault();
         $.ajax({
             url: '/Tag/Save',
@@ -51,8 +52,11 @@
                 }
             },
             error: function () {
+                SpinLoader(false);
                 swal("Hata!", "Bir sorun oluştu!", "error");
             }
+        }).done(function () {
+            SpinLoader(false);
         });
     });
 

@@ -25,7 +25,12 @@ namespace ELibrary.Portal.Controllers
                 return View(model);
             Response<ApplicationUser> responseSaving = JsonConvert.DeserializeObject<Response<ApplicationUser>>(UiRequestManager.Instance.Post("Account", "PortalLogin", JsonConvert.SerializeObject(model)));
 
-            return RedirectToAction("Index", "Home");
+            
+            if (responseSaving.IsSuccess && responseSaving.Value != null)
+                return RedirectToAction("Index", "Home");
+
+            ModelState.AddModelError(string.Empty, "Kullanıcı adı veya şifre hatalı.");
+            return View(model);
         }
     }
 }

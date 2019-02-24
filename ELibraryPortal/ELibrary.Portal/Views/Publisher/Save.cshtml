@@ -41,6 +41,7 @@
 
 <script>
     $('form').submit(function (e) {
+        SpinLoader(true);
         e.preventDefault();
         $.ajax({
             url: '/Publisher/Save',
@@ -57,9 +58,10 @@
                     swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
                 }
             },
-            error : function() {
+            error: function () {
+                SpinLoader(false);
                 swal("Hata!", "Bir sorun oluştu!", "error");
             }
-        });
+        }).done(function () { SpinLoader(false); });
     });
 </script>

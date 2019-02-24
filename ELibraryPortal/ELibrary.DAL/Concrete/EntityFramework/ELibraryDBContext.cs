@@ -47,7 +47,7 @@ namespace ELibrary.DAL.Concrete.EntityFramework
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"server=89.252.185.90\MSSQLSERVER2012;user id=baltazzar;password=Angel4you!;initial catalog=DiyarKitapDB");
+                optionsBuilder.UseSqlServer(@"server=diyarkitap.com\MSSQLSERVER2012;user id=baltazzar;password=Angel4you!;initial catalog=DiyarKitapDB");
             }
         }
     }

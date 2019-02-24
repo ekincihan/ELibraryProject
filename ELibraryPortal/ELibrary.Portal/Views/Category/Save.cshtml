@@ -71,6 +71,7 @@
 
 <script>
     $('form').submit(function (e) {
+        SpinLoader(true);
         e.preventDefault();
         $.ajax({
             url: '/Category/Save',
@@ -83,12 +84,14 @@
                     document.getElementById("CategoryName").value = "";
                 }
                 else {
+                    SpinLoader(false);
                     swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
                 }
             },
             error: function () {
+                SpinLoader(false);
                 swal("Hata!", "Bir sorun oluştu!", "error");
             }
-        });
+        }).done(function () { SpinLoader(false); });
     });
 </script>

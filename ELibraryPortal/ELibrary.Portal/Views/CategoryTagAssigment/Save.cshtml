@@ -72,7 +72,7 @@
 
 
     $(document).on('click', '.saveBTN', function () {
-
+        SpinLoader(true);
         $('#dropDownId :selected').text();
 
         var tags = [];
@@ -102,9 +102,10 @@
                 }
             },
             error: function () {
+                SpinLoader(false);
                 swal("Hata!", "Bir sorun oluştu!", "error");
             }
-        });
+        }).done(function () { SpinLoader(false); });
     });
 
 </script>

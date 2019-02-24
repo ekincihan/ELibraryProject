@@ -37,8 +37,7 @@
 
     <!-- Bootstrap File Input-->
     <link rel="stylesheet" type="text/css" href="~/Umega/plugins/bootstrap-fileinput/css/fileinput.min.css">
-
-
+    <link href="~/css/page-loader.css" rel="stylesheet" />
 
     <link href="~/css/sweetalert.css" rel="stylesheet" />
     <script src="~/js/sweetalert.min.js"></script>
@@ -90,15 +89,21 @@
 
     <script src="~/jquery-cookie-master/src/jquery.cookie.js"></script>
     <script src="~/Umega/build/css/daterangepicker.js"></script>
+    <script src="~/js/sLoader.js"></script>
     <script>
+        $(window).load(function () {
+            $('.ecd').fadeIn(); // will first fade out the loading animation
+            $('.ecd').delay(210).fadeOut('slow'); // will fade out the white DIV that covers the website.
+        });
+
         $(document).ready(function () {
             $('.dtPicker').daterangepicker({
                 singleDatePicker: true,
-                dateFormat: 'dd/mm/yy',
-                timePicker: false,
-                timePicker24Hour: false,
+                timePicker: true,
+                timePicker24Hour: true,
+                timePickerIncrement: 15,
                 locale: {
-                    format: 'DD/MM/YYYY HH:MM',
+                    format: 'DD/MM/YYYY H:mm',
                     daysOfWeek: ["pa", "pzt", "sa", "çar", "per", "cum", "cmt"],
                     monthNames: ["Ocak", "Subat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
                     firstDay: 1,
@@ -106,8 +111,38 @@
                     cancelLabel: "İptal",
                 }
             });
+
+            $('.dtPicker').val('');
         });
     </script>
+    <style>
+        .ecd {
+            /*display: none;*/
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(255, 255, 255, 1) 50% 50% no-repeat;
+        }
+
+        .new-basket-item {
+            background-color: antiquewhite;
+        }
+
+        /* When the body has the loading class, we turn
+        the scrollbar off with overflow:hidden */
+        body.loading {
+            overflow: hidden;
+        }
+
+            /* Anytime the body has the loading class, our
+        modal element will be visible */
+            body.loading .ecd {
+                display: block;
+            }
+    </style>
 </head>
 <body data-sidebar-color="sidebar-light" class="sidebar-light">
     <!-- Header start-->
@@ -118,11 +153,32 @@
         <!-- Main Sidebar end-->
         <div class="page-container container-fluid">
             @await Component.InvokeAsync("Navigation")
-            @RenderBody()
+
+               <div class="row">
+                   <div class="page-content container-fluid">
+                       <div class="ecd">
+                           <div class="sk-fading-circle">
+                               <div class="sk-circle1 sk-circle"></div>
+                               <div class="sk-circle2 sk-circle"></div>
+                               <div class="sk-circle3 sk-circle"></div>
+                               <div class="sk-circle4 sk-circle"></div>
+                               <div class="sk-circle5 sk-circle"></div>
+                               <div class="sk-circle6 sk-circle"></div>
+                               <div class="sk-circle7 sk-circle"></div>
+                               <div class="sk-circle8 sk-circle"></div>
+                               <div class="sk-circle9 sk-circle"></div>
+                               <div class="sk-circle10 sk-circle"></div>
+                               <div class="sk-circle11 sk-circle"></div>
+                               <div class="sk-circle12 sk-circle"></div>
+                           </div>
+                       </div>
+                       @RenderBody()
+                       </div>
+                   </div>
+            </div>
         </div>
         <!-- Right Sidebar start-->
         <!-- Right Sidebar end-->
-    </div>
     <!-- Demo Settings start-->
     <!-- Demo Settings end-->
   
