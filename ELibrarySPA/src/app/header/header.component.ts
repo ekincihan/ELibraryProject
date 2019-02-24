@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private tokenService: TokenService
   ) {
-    
+
     if (localStorage.getItem('token'))
       this.isLogin = true;
     this.tokenService.isLoginChange.subscribe(() => {
@@ -57,6 +57,7 @@ export class HeaderComponent implements OnInit {
     this.tokenService.isLogin = false;
     this.tokenService.isLoginChange.emit(false);
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.router.navigate(["./index"])
   }
 }

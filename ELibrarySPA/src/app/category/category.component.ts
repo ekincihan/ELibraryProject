@@ -6,6 +6,7 @@ import { Author } from '../models/Author';
 import { Favorite } from 'src/app/book-detail/shared/favorite';
 import { BookRate } from 'src/app/mixed-books/shared/book-rate';
 import _ from 'underscore';
+import { BookRateService } from '../service/book-rate.service';
 @Component({
   selector: 'category',
   templateUrl: './category.component.html',
@@ -13,7 +14,7 @@ import _ from 'underscore';
 })
 export class CategoryComponent implements OnInit {
   user:any;
-  constructor(private categoryService : CategoryService) { 
+  constructor(private categoryService : CategoryService) {
     if(localStorage.getItem('user'))
       this.user = JSON.parse(localStorage.getItem('user'));
 
@@ -31,20 +32,29 @@ export class CategoryComponent implements OnInit {
   max = 5;
 
   filterCategory: any;
-  ngOnInit() { 
+  ngOnInit() {
       this.categoryService.getAll("Category/List").subscribe(res => {
         this.headerCategories = res["value"];
       })
-  
+
       this.categoryService.getAll("Publisher/List").subscribe(rest => {
         this.publishers = rest["value"];
       });
-      
+
       this.categoryService.getAll("Author/List").subscribe(rest => {
         this.authors = rest["value"];
       });
       this.categoryService.getAll('Category/CategoryBook').subscribe((res:Category[])=>{
         this.categories=res;
+        this.categories.forEach(cat => {
+          console.log('cat',cat);
+
+          let bookrateService = new BookRateService();
+          bookrateService.bookList  = cat['books'];
+          bookrateService.service = this.categoryService;
+          cat['books'] = bookrateService.getBooks();
+        });
+
       });
   }
 
@@ -102,13 +112,13 @@ export class CategoryComponent implements OnInit {
     //console.log('this.filterCategory',this.filterCategory);
     // TODO: Servis entegrasyonu buraya gelecek,
     // seçili yazar,kategori ve yayınevini alıyoruz.servis yine kategori tipinde dönmeli
-    
+
     this.categoryService.post('CategoryTagAssignment/Filter',this.filterCategory).subscribe((res:Category[]) =>{
       //console.log('res',res);
       this.categories=res;
-    }) 
-    
+    })
+
   }
-  
+
 
 }

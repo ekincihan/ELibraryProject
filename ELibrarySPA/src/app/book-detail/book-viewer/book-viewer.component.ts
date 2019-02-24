@@ -25,7 +25,7 @@ export class BookViewerComponent implements OnInit {
   constructor(private bookService: BookService,
       private router: Router,
     private activatedRoute: ActivatedRoute) {
-    
+
   }
 
   setReadPage(isAtHere: boolean){
@@ -41,7 +41,6 @@ export class BookViewerComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.bookService.get("/Book/Detail/" + params["bookId"]).subscribe(res => {
         this.book = res["value"];
-        console.log(this.book)
         this.getPageReaded();
         let ext = res["value"]["appFiles"][0].extension;
 
@@ -72,7 +71,7 @@ export class BookViewerComponent implements OnInit {
           document.getElementById("pageNumber")["value"] = res["page"];
           var event = new Event('change');
           document.getElementById("pageNumber").addEventListener('change', function (e) { /* ... */ }, false);
-            document.getElementById("pageNumber").dispatchEvent(event);      
+            document.getElementById("pageNumber").dispatchEvent(event);
         }, 2000);
       }
     })
@@ -85,7 +84,6 @@ export class BookViewerComponent implements OnInit {
 
   sendPageNumber(){
     this.bookService.post("User/ReadPage",this.readPage).subscribe(res => {
-      console.log('res',res);
       if(res['bookId']){
           this.router.navigate(['/kitap-detay/'+res['bookId']]);
       }

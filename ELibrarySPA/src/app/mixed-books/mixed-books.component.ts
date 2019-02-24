@@ -1,3 +1,4 @@
+import { BookRateService } from './../service/book-rate.service';
 import { Component, OnInit, Input, ChangeDetectorRef } from "@angular/core";
 import { MixedBooksService } from "./shared/mixedBooksService.service";
 import { TokenService } from "../service/token.service";
@@ -10,7 +11,7 @@ import { User } from "../signin/shared/user";
   styleUrls: ["./mixed-books.component.css"]
 })
 export class MixedBooksComponent implements OnInit {
-  @Input("data") data: Array<any>[];
+  @Input("data") data: any;
   max = 5;
   isLogin = false;
   ratedBooks: BookRate[];
@@ -26,24 +27,12 @@ export class MixedBooksComponent implements OnInit {
 
   }
   ngOnInit() {
-    if (this.user) {
-      this.mixedService.get('User/Rate/' + this.user.id).subscribe((res: any) => {
-        this.setRatedBooks(res);
-      })
-    }
+      let bookrateService = new BookRateService();
+      bookrateService.bookList  = this.data;
+      bookrateService.service = this.mixedService;
+      this.data = bookrateService.getBooks();
   }
 
-  setRatedBooks(ratedBooks) {
-    this.ratedBooks = new Array<BookRate>();
-    this.data.forEach(book => {
-      ratedBooks.forEach(ratedBook => {
-          if(ratedBook["bookId"] == book["id"]){
-            book["rate"] = ratedBook["rate"];
-            book["ratedBookId"] = ratedBook["id"];
-          }
-      });
-    });
-  }
 
   confirmSelection(book) {
     let bookRate = this.newBookRate(book,true);

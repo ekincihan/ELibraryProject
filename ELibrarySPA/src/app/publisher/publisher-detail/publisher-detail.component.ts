@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PublisherService } from '../../publisher/shared/publisher.service';
 import { Favorite } from '../../book-detail/shared/favorite';
 import { BookRate } from '../../mixed-books/shared/book-rate';
+import { BookRateService } from '../../service/book-rate.service';
 
 @Component({
   selector: 'publisher-detail',
@@ -19,7 +20,13 @@ export class PublisherDetailComponent implements OnInit {
       this.publisherService.get("/Publisher/GetOne/" + params["publisherId"]).subscribe(res => {
         this.publisher = res["value"];
         this.publisherService.get("/Publisher/BookByPublisher/" + this.publisher.id).subscribe(res => {
-            this.publisherBooks =res[0].books;            
+            this.publisherBooks =res[0].books;
+            if(this.publisherBooks){
+              let bookrateService = new BookRateService();
+              bookrateService.bookList  = this.publisherBooks;
+              bookrateService.service = this.publisherService;
+              this.publisherBooks = bookrateService.getBooks();
+            }
         });
 
       });
@@ -33,7 +40,6 @@ export class PublisherDetailComponent implements OnInit {
     let bookRate = this.newBookRate(fav);
     this.publisherService.post('User/Rate', bookRate).subscribe((res) => {
      // //console.log('rated book', res);
-
     })
   }
 

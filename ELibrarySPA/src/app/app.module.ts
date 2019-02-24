@@ -56,6 +56,7 @@ import { AuthorService } from './Author/shared/author.service';
 import { BookService } from './book-detail/shared/book.service';
 import { AboutComponent } from './footer/about/about.component';
 import { AboutService } from './footer/about/shared/about.service';
+import { BookRateService } from './service/book-rate.service';
 
 @NgModule({
    declarations: [
@@ -109,6 +110,7 @@ import { AboutService } from './footer/about/shared/about.service';
        UserProfileService,
        ContactService,
        AboutService,
+       BookRateService,
        [
            { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
            SnotifyService
