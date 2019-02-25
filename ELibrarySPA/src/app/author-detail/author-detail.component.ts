@@ -23,6 +23,8 @@ export class AuthorDetailComponent implements OnInit {
       this.authorService.get("/Author/Detail/"+ params["authorId"]).subscribe(res => {
        // //console.log("kitaplar istendi")
         this.author = res["value"];
+        console.log('this.author',this.author);
+
        // //console.log('YAZAR BİLGİLERİ',res["value"]);
 
      });

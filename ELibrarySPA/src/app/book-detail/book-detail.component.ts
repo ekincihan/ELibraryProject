@@ -71,7 +71,7 @@ export class BookDetailComponent implements OnInit {
         closeOnClick: false,
         pauseOnHover: true
       });
-         
+
      });
   }
 

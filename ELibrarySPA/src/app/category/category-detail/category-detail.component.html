@@ -1,5 +1,7 @@
 <app-header></app-header>
 <navigation [pageName]="'Kategori Detay'"></navigation>
+<ng-snotify></ng-snotify>
+
 <div class="main-content">
   <div class="container">
 
@@ -13,9 +15,9 @@
             <div class="b-box d-inline-block position-relative mb-5 w-100">
               <div class="cover position-relative mb-4" [ngStyle]="{'background-image':'url('+item?.signUrl+')'}">
                 <div class="caption text-center">
-    
+
                   <div class="favourite position-absolute text-center">
-                    <span class="selected d-inline-block w-100 h-100"></span>
+                    <span class="selected d-inline-block w-100 h-100" (click)="favBook(item)"></span>
                   </div>
                   <div class="more w-100 position-absolute">
                     <a href="#" routerLink="/kitap-detay/{{item?.bookId}}" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-2"></span></b></a>
@@ -31,7 +33,7 @@
                 <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{item?.authorId}}">{{item?.authorName}}
                   {{item?.authorSurname}}</div>
               </a>
-              <rating [(ngModel)]="item.rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(item)"></rating> 
+              <rating [(ngModel)]="item.rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(item)"></rating>
             </div>
 
         <nav *ngIf="categories?.length > 0" class="mt-3">

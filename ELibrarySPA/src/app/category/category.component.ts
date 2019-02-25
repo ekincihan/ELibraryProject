@@ -1,3 +1,4 @@
+import { SnotifyService } from 'ng-snotify';
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from './shared/category-service';
 import { Category } from '../models/Category';
@@ -14,7 +15,8 @@ import { BookRateService } from '../service/book-rate.service';
 })
 export class CategoryComponent implements OnInit {
   user:any;
-  constructor(private categoryService : CategoryService) {
+  constructor(private categoryService : CategoryService,
+      private snotifyService: SnotifyService) {
 
     this.filterCategory = {
       publisherId: '00000000-0000-0000-0000-000000000000',
@@ -45,8 +47,6 @@ export class CategoryComponent implements OnInit {
       this.categoryService.getAll('Category/CategoryBook').subscribe((res:Category[])=>{
         this.categories=res;
         this.categories.forEach(cat => {
-          console.log('cat',cat);
-
           let bookrateService = new BookRateService();
           bookrateService.bookList  = cat['books'];
           bookrateService.service = this.categoryService;
@@ -54,6 +54,39 @@ export class CategoryComponent implements OnInit {
         });
 
       });
+  }
+
+
+  favBook(book){
+    this.categoryService.post("/User/Favorite",this.createFavoriteModel(book)).subscribe(res => {
+       //console.log('res',res);
+      this.snotifyService.success('Başarılı', 'Favoriledin', {
+        timeout: 2000,
+        showProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true
+      });
+
+     });
+  }
+
+
+  createFavoriteModel(book){
+
+    let favorite: Favorite = new Favorite();
+    favorite.bookId = book.bookId;
+    favorite.authorId = book.authorId;
+    favorite.authorName = book.authorName;
+    favorite.authorSurname = book.authorSurname;
+    favorite.bookName = book.bookName;
+    favorite.categoryId = book.categoryId;
+    favorite.categoryName = book.categoryName;
+    favorite.publisherId = book.publisherId;
+    favorite.publisherName = book.publisherName;
+    favorite.signUrl = book.signUrl;
+    favorite.token = localStorage.getItem('token');
+    favorite.userId = JSON.parse(localStorage.getItem('user'))["id"];
+    return favorite;
   }
 
   confirmSelection(fav:Favorite) {
