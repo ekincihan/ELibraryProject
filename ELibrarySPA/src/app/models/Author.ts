@@ -3,12 +3,12 @@ import { AppFileFilter } from "./AppFileFilter";
 
 export class Author {
   id: string;
-  Name: string;
-  Surname: string;
-  Biography: string;
-  Gender: number;
-  PublisherId: string;
-  IsActive: boolean;
-  AppFileFilterModel: AppFileFilter;
-  Books:Book[];
+  name: string;
+  surname: string;
+  biography: string;
+  gender: number;
+  publisherId: string;
+  isActive: boolean;
+  appFileFilterModel: AppFileFilter;
+  books:Book[];
 }

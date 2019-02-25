@@ -1,6 +1,6 @@
 export class Publisher {
     id:string;
-    Email:string;
-    Name:string;
-    IsActive:boolean;
+    email:string;
+    name:string;
+    isActive:boolean;
 }
