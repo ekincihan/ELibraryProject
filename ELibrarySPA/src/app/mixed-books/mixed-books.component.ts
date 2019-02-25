@@ -3,7 +3,6 @@ import { Component, OnInit, Input, ChangeDetectorRef } from "@angular/core";
 import { MixedBooksService } from "./shared/mixedBooksService.service";
 import { TokenService } from "../service/token.service";
 import { BookRate } from "../mixed-books/shared/book-rate";
-import { User } from "../signin/shared/user";
 
 @Component({
   selector: "mixed-books",
@@ -15,12 +14,10 @@ export class MixedBooksComponent implements OnInit {
   max = 5;
   isLogin = false;
   ratedBooks: BookRate[];
-  user: User;
   constructor(
     private mixedService: MixedBooksService,
     public tokenService: TokenService) {
 
-    this.user = (localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : null;
     this.tokenService.isLoginChange.subscribe(() => {
       this.isLogin = this.tokenService.getIsLogin();
     })
@@ -47,9 +44,10 @@ export class MixedBooksComponent implements OnInit {
 
   newBookRate(bookRate, isNew: boolean) {
     let rateBookModel: BookRate = new BookRate();
+    const user = JSON.parse(localStorage.getItem('user'));
     rateBookModel.bookId =  bookRate["id"];
     rateBookModel.token = localStorage.getItem('token');
-    rateBookModel.userId = this.user.id;
+    rateBookModel.userId = user.id;
     rateBookModel.id =  (bookRate["ratedBookId"]) ? bookRate["ratedBookId"] : null;
     rateBookModel.rate = bookRate["rate"];
     return rateBookModel;

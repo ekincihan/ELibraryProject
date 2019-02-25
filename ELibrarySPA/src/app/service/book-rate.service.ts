@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 export class BookRateService {
     bookList: any;
     service: any;
-    user = (localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : null;
+    user = JSON.parse(localStorage.getItem('user'));
     constructor() {
 
     }

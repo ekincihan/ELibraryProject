@@ -15,11 +15,9 @@ import { BookRateService } from '../service/book-rate.service';
 export class CategoryComponent implements OnInit {
   user:any;
   constructor(private categoryService : CategoryService) {
-    if(localStorage.getItem('user'))
-      this.user = JSON.parse(localStorage.getItem('user'));
 
     this.filterCategory = {
-      publisherId: '',
+      publisherId: '00000000-0000-0000-0000-000000000000',
       categoryIds: [],
       authorIds: []
     }
@@ -70,9 +68,10 @@ export class CategoryComponent implements OnInit {
 
   newBookRate(fav:Favorite) {
     let rateBookModel: BookRate = new BookRate();
+    const user = JSON.parse(localStorage.getItem('user'));
     rateBookModel.bookId = fav["bookId"];
     rateBookModel.token = localStorage.getItem('token');
-    rateBookModel.userId = this.user.id;
+    rateBookModel.userId = user.id;
     rateBookModel.id = fav["id"];
     rateBookModel.rate = fav["rate"];
     return rateBookModel;

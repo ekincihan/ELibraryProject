@@ -13,11 +13,8 @@ import { BookRateService } from '../../service/book-rate.service';
 export class CategoryDetailComponent implements OnInit {
   category: any;
   categoryName: any;
-  user: any;
   constructor(private categoryService: CategoryService,
     private activatedRoute: ActivatedRoute) {
-      if(localStorage.getItem('user'))
-        this.user = JSON.parse(localStorage.getItem('user'));
 
     this.activatedRoute.params.subscribe(params => {
 
@@ -28,7 +25,6 @@ export class CategoryDetailComponent implements OnInit {
           bookrateService.bookList  = this.category['books'];
           bookrateService.service = this.categoryService;
           this.category['books'] = bookrateService.getBooks();
-        //console.log('this.categories',this.category);
         }
 
       });
@@ -40,9 +36,17 @@ export class CategoryDetailComponent implements OnInit {
 
   confirmSelection(fav:Favorite) {
     let bookRate = this.newBookRate(fav);
+    console.log('bookRate',bookRate);
+    
     this.categoryService.post('User/Rate', bookRate).subscribe((res) => {
-     // //console.log('rated book', res);
-
+     console.log('rated book', res);
+          this.category['books'].forEach(book => {
+              if(book["bookId"] == bookRate["bookId"]){
+                book["ratedId"] = res;
+              }
+          });
+          console.log('wdsdsd',this.category['books']);
+          
     })
   }
 
@@ -50,8 +54,8 @@ export class CategoryDetailComponent implements OnInit {
     let rateBookModel: BookRate = new BookRate();
     rateBookModel.bookId = fav["bookId"];
     rateBookModel.token = localStorage.getItem('token');
-    rateBookModel.userId = localStorage.getItem('user')["id"];
-    rateBookModel.id = fav["id"];
+    rateBookModel.userId = JSON.parse(localStorage.getItem('user'))["id"];
+    rateBookModel.id = (fav["ratedId"]) ? fav["ratedId"] : fav["id"];
     rateBookModel.rate = fav["rate"];
     return rateBookModel;
   }

@@ -47,7 +47,7 @@ export class PublisherDetailComponent implements OnInit {
     let rateBookModel: BookRate = new BookRate();
     rateBookModel.bookId = fav["bookId"];
     rateBookModel.token = localStorage.getItem('token');
-    rateBookModel.userId = localStorage.getItem('user')["id"];
+    rateBookModel.userId = JSON.parse(localStorage.getItem('user'))["id"];
     rateBookModel.id = fav["id"];
     rateBookModel.rate = fav["rate"];
     return rateBookModel;

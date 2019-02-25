@@ -7,6 +7,7 @@ import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { trLocale } from 'ngx-bootstrap/locale';
 import { BookRate } from '../mixed-books/shared/book-rate';
+import { BookRateService } from '../service/book-rate.service';
 defineLocale('tr', trLocale);
 
 @Component({
@@ -38,8 +39,14 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.service.get('/User/GetFavAndReads/'+this.user.id).subscribe(res =>{
-        this.favs = res["favorites"];
-        this.reads = res["reads"];
+        let bookRateService = new BookRateService();
+        bookRateService.bookList =  res["favorites"];
+        bookRateService.service = this.service;
+        this.favs = bookRateService.getBooks();
+        let bookRateServiceReads = new BookRateService();
+        bookRateServiceReads.bookList =  res["reads"];
+        bookRateServiceReads.service = this.service;
+        this.reads = bookRateServiceReads.getBooks();
     });
   }
 
@@ -55,9 +62,10 @@ export class UserProfileComponent implements OnInit {
 
   newBookRate(fav:Favorite) {
     let rateBookModel: BookRate = new BookRate();
+    const user = JSON.parse(localStorage.getItem('user'));
     rateBookModel.bookId = fav["bookId"];
     rateBookModel.token = localStorage.getItem('token');
-    rateBookModel.userId = this.user.id;
+    rateBookModel.userId = user.id;
     rateBookModel.id = fav["id"];
     rateBookModel.rate = fav["rate"];
     return rateBookModel;
