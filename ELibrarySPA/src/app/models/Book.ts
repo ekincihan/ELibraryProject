@@ -4,18 +4,18 @@ import { AppFile } from "./AppFile";
 
 export class Book {
     id:string;
-    BookName:string;
-    BookSummary:string;
-    AuthorId:string;
-    EditionDate:Date;
-    NumberPage:number
-    ISBN:string;
-    PublisherId:string;
-    IsActive:boolean;
-    Publisher:Publisher;
-    Author:Author;
-    ReadCount:number;
-    BookPhoto:string;
-    Thumbnail:AppFile;
-    AppFiles:AppFile[];
+    bookName:string;
+    bookSummary:string;
+    authorId:string;
+    editionDate:Date;
+    numberPage:number
+    isbn:string;
+    publisherId:string;
+    isActive:boolean;
+    publisher:Publisher;
+    author:Author;
+    readCount:number;
+    bookPhoto:string;
+    thumbnail:AppFile;
+    appFiles:AppFile[];
 }

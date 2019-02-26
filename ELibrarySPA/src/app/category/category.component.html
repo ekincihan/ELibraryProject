@@ -1,4 +1,6 @@
 <navigation [pageName]="'Kategoriler'"></navigation>
+<ng-snotify></ng-snotify>
+
 <div class="main-content">
     <div class="container">
       <div class="row">
@@ -32,7 +34,7 @@
                 <option *ngFor="let publisher of publishers" [value]="publisher.id">{{publisher?.name}} </option>
               </select>
             </div>
-  
+
           </div>
           <button class="btn btn-brown mt-1 w-100 text-truncate"
           (click)="filter()">Filtrele</button>
@@ -44,10 +46,10 @@
             <div class="col-6 col-sm-4 col-md-6 col-lg-3 col-xl-3" *ngFor="let book of item?.books| slice:0:4; let i=index" >
               <div class="b-box d-inline-block position-relative mb-5 w-100">
                 <div class="cover position-relative mb-4" [ngStyle]="{'background-image':'url('+book?.signUrl+')'}">
-                  
+
                   <div class="caption text-center">
                     <div class="favourite position-absolute text-center">
-                      <span class="selected d-inline-block w-100 h-100"></span>
+                      <span class="selected d-inline-block w-100 h-100" (click)="favBook(book)"></span>
                     </div>
                     <div class="more w-100 position-absolute">
                       <a href="#" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-2"></span></b></a>
@@ -65,7 +67,7 @@
 
               </div>
             </div>
-  
+
           </div>
           <div class="top-minus-1 position-relative text-right">
             <a href="javascript:void()" class="d-inline-block color-green"

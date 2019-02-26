@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   public bsModalRef: BsModalRef
   categories: Category[];
   publishers: Publisher[];
-
+  user: any;
 
   constructor(
     private headerService: HeaderService,
@@ -33,6 +33,8 @@ export class HeaderComponent implements OnInit {
     this.tokenService.isLoginChange.subscribe(() => {
       this.isLogin = this.tokenService.getIsLogin();
     })
+
+    this.user = JSON.parse(localStorage.getItem('user'));
 
   }
 

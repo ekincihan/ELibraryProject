@@ -1,3 +1,5 @@
+<ng-snotify></ng-snotify>
+
 <div class="tab-content pb-0">
   <div class="tab-pane fade show active" id="one" role="tabpanel" aria-labelledby="one">
     <div class="row">
@@ -7,7 +9,7 @@
             <div class="caption text-center">
 
               <div class="favourite position-absolute text-center">
-                <span class="selected d-inline-block w-100 h-100"></span>
+                <span class="selected d-inline-block w-100 h-100" (click)="favBook(item)" ></span>
               </div>
               <div class="more w-100 position-absolute">
                 <a href="#" routerLink="/kitap-detay/{{item?.id}}" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-2"></span></b></a>

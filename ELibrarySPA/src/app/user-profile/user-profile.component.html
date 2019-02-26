@@ -8,13 +8,13 @@
 
           <input type="file" class="file-input d-none" hidden>
           <div class="cover position-relative min-h-auto h-auto">
-            <img src="http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/square-profile-pic-2.jpg"
+            <img [src]="ppUrl"
               class="position-relative w-100 h-auto d-block" alt="cover">
           </div>
           <!--  alternatif file upload butonu -->
           <label for="picture-upload" class="btn btn-lg btn-brown text-left w-100 mt-4 mb-2 pl-5 picture-upload">Görseli
             Değiştir</label>
-          <input id="picture-upload" type="file" hidden class="d-none">
+          <input id="picture-upload"  #file type="file" (change)="readUrl($event)" hidden class="d-none" accept="image/*">
           <!-- -->
         </div>
 
@@ -33,8 +33,8 @@
 
               <div class="col-12 col-sm-6">
                 <div class="form-group">
-                  <label>Ad Soyad</label>
-                  <input type="text" class="form-control" [value]="user.name +' '+ user.surname">
+                  <label>Ad</label>
+                  <input type="text" class="form-control" [value]="user.name">
                 </div>
                 <div class="form-group">
                   <label>Doğum Tarihi</label>
@@ -44,11 +44,20 @@
                 </div>
               </div>
 
+
               <div class="col-12 col-sm-6">
-                <div class="form-group">
-                  <label>E-Mail</label>
-                  <input type="text" class="form-control" [value]="user.email">
+                      <div class="form-group">
+                        <label>Soyad</label>
+                        <input type="text" class="form-control" [value]="user.surname">
+                      </div>
+                      <div class="form-group">
+                          <label>E-Mail</label>
+                          <input type="text" class="form-control" [value]="user.email">
+                        </div>
                 </div>
+
+
+              <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label>Cep Telefonu</label>
                   <input type="text" class="form-control"
@@ -59,7 +68,7 @@
 
               <div class="col-12">
                 <div class="form-group text-right">
-                  <button class="btn btn-green">Kaydet</button>
+                  <button class="btn btn-green" (click)="saveUser()">Kaydet</button>
                 </div>
               </div>
 
@@ -76,9 +85,6 @@
               <div class="b-box d-inline-block position-relative mb-5 w-100">
                 <div class="cover position-relative mb-4" [ngStyle]="{'background-image':'url('+item?.signUrl+')'}">
                   <div class="caption text-center">
-                    <div class="favourite position-absolute text-center">
-                      <span class="selected d-inline-block w-100 h-100"></span>
-                    </div>
                     <div class="more w-100 position-absolute">
                       <a href="#" routerLink="/kitap-detay/{{item?.bookId}}" class="d-inline-block w-100 pt-1"><b>Detaylar <span class="arrow right white d-inline-block ml-2"></span></b></a>
                     </div>
@@ -93,7 +99,7 @@
                   <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{item?.authorId}}">{{item?.authorName}}
                     {{item?.authorSurname}}</div>
                 </a>
-                <rating [(ngModel)]="item.rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(item)"></rating> 
+                <rating [(ngModel)]="item.rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(item)"></rating>
               </div>
             </div>
           </div>
@@ -110,7 +116,7 @@
               <div class="b-box d-inline-block position-relative mb-5 w-100">
                 <div class="cover position-relative mb-4" [ngStyle]="{'background-image':'url('+item?.signUrl+')'}">
                   <div class="caption text-center">
-      
+
                     <div class="favourite position-absolute text-center">
                       <span class="selected d-inline-block w-100 h-100"></span>
                     </div>
@@ -128,16 +134,16 @@
                   <div class="writer mb-2 text-truncate" routerLink="/yazar-detay/{{item?.authorId}}">{{item?.authorName}}
                     {{item?.authorSurname}}</div>
                 </a>
-                 <rating [(ngModel)]="item.rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(item)"></rating> 
+                 <rating [(ngModel)]="item.rate" [max]="max" [readonly]="isReadonly" (click)="confirmSelection(item)"></rating>
               </div>
             </div>
           </div>
         <!-- <div class="top-minus-1 position-relative text-right">
                 <a href="kategori-tumu.html" class="d-inline-block color-green"><b>Tümünü Gör<span class="arrow right green d-inline-block ml-2"></span></b></a>
               </div> -->
-
       </div>
     </div>
 
   </div>
 </div>
+<ng-snotify></ng-snotify>

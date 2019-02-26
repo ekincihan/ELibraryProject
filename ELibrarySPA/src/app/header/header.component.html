@@ -47,7 +47,7 @@
                 <a href="javascript:void()" class="dropdown-toggle d-inline-block" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
                   <span class="arrow down d-none d-lg-inline-block position-relative mr-2"></span>
-                  <img src="http://www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/square-profile-pic-2.jpg"
+                  <img [src]="(user?.gender) ? 'assets/img/male.jpg' : 'assets/img/female.jpg'"
                     alt="profile picture">
                 </a>
 

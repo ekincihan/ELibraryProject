@@ -1,8 +1,8 @@
 export class AppFile {
-    Name:string;
-    UniqueName:string;
-    Extension:string;
-    ModuleId:string;
-    FilePath:string;
-    SignUrl:string;
+  name:string;
+  uniqueName:string;
+  extension:string;
+  moduleId:string;
+  filePath:string;
+  signUrl:string;
 }
