@@ -1,3 +1,4 @@
+import { LoaderService } from './../service/loader.service';
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
@@ -21,6 +22,7 @@ export class SignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     private localeService: BsLocaleService,
     private snotifyService: SnotifyService,
+    private loaderService:LoaderService,
     private tokenService: TokenService,
     private signUpService: SignUpService
   ) {
@@ -51,7 +53,9 @@ export class SignupComponent implements OnInit {
         delete this.signUp.value["confirmPassword"];
         delete this.signUp.value["privacy"];
         this.signUp.value["phoneNumber"] = "5" + this.signUp.value["phoneNumber"];
+        this.loaderService.show();
       this.signUpService.post('Account/Register', this.signUp.value).subscribe((res) => {
+        this.loaderService.hide();
         if (res["isSuccess"]) {
           this.bsModalRef.hide();
           this.tokenService.isLogin = true;

@@ -1,3 +1,4 @@
+import { LoaderService } from './../service/loader.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from './shared/book.service';
@@ -21,12 +22,15 @@ export class BookDetailComponent implements OnInit {
   isReading = false;
   constructor(private bookService: BookService,
     private activatedRoute: ActivatedRoute,
+    private loaderService: LoaderService,
     private snotifyService: SnotifyService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
+      this.loaderService.show();
       this.bookService.get("/Book/Detail/" + params["bookId"]).subscribe(res => {
         this.book = res["value"];
+        this.loaderService.hide();
         this.getPageReaded();
       });
     })
@@ -43,7 +47,9 @@ export class BookDetailComponent implements OnInit {
 
   getPageReaded(){
     this.setReadPage(false);
+    this.loaderService.show();
     this.bookService.post('User/UserReadPage',this.readPage).subscribe(res =>{
+      this.loaderService.hide();
       //console.log('res book',res);
       if(res &&  res["page"] > 0){
         this.isReading = true;
@@ -54,16 +60,22 @@ export class BookDetailComponent implements OnInit {
   beginReading(book){
       ////console.log(book["id"])
       ////console.log('this.createFavoriteModel(book);',this.createFavoriteModel(book));
+      this.loaderService.show();
       this.bookService.post("User/ReadBook",this.createFavoriteModel(book)).subscribe(res => {
+        this.loaderService.hide();
        // //console.log('res',res);
       });
+      this.loaderService.show();
       this.bookService.post("Book/ReadBook",book["id"]).subscribe(res => {
+        this.loaderService.hide();
         // //console.log('res',res);
        });
   }
 
   favBook(book){
+    this.loaderService.show();
     this.bookService.post("/User/Favorite",this.createFavoriteModel(book)).subscribe(res => {
+      this.loaderService.hide();
        //console.log('res',res);
       this.snotifyService.success('Başarılı', 'Favoriledin', {
         timeout: 2000,

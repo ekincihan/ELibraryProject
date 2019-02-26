@@ -5,6 +5,7 @@ import { MixedBooksService } from "./shared/mixedBooksService.service";
 import { TokenService } from "../service/token.service";
 import { BookRate } from "../mixed-books/shared/book-rate";
 import { Favorite } from '../book-detail/shared/favorite';
+import { LoaderService } from '../service/loader.service';
 
 @Component({
   selector: "mixed-books",
@@ -16,11 +17,13 @@ export class MixedBooksComponent implements OnInit {
   max = 5;
   isLogin = false;
   ratedBooks: BookRate[];
+  user: any;
   constructor(
     private mixedService: MixedBooksService,
     private snotifyService: SnotifyService,
+    private loaderService: LoaderService,
     public tokenService: TokenService) {
-
+        this.user = JSON.parse(localStorage.getItem('user'));
     this.tokenService.isLoginChange.subscribe(() => {
       this.isLogin = this.tokenService.getIsLogin();
     })
@@ -57,8 +60,10 @@ export class MixedBooksComponent implements OnInit {
   }
 
   favBook(book){
+    this.loaderService.show();
     this.mixedService.post("/User/Favorite",this.createFavoriteModel(book)).subscribe(res => {
        //console.log('res',res);
+       this.loaderService.hide();
       this.snotifyService.success('Başarılı', 'Favoriledin', {
         timeout: 2000,
         showProgressBar: true,

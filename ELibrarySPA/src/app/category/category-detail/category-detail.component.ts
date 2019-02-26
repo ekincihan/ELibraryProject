@@ -1,3 +1,4 @@
+import { LoaderService } from './../../service/loader.service';
 import { SnotifyService } from 'ng-snotify';
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../category/shared/category-service';
@@ -14,13 +15,16 @@ import { BookRateService } from '../../service/book-rate.service';
 export class CategoryDetailComponent implements OnInit {
   category: any;
   categoryName: any;
+  user: any;
   constructor(private categoryService: CategoryService,
     private snotifyService: SnotifyService,
+    private loaderService: LoaderService,
     private activatedRoute: ActivatedRoute) {
-
+      this.user = JSON.parse(localStorage.getItem('user'));
     this.activatedRoute.params.subscribe(params => {
-
+      this.loaderService.show();
       this.categoryService.get("/Category/BookByCategory/" + params["categoryId"]).subscribe(res => {
+        this.loaderService.hide();
         this.category = res[0];
         if(this.category && this.category['books']){
           let bookrateService = new BookRateService();
@@ -38,17 +42,14 @@ export class CategoryDetailComponent implements OnInit {
 
   confirmSelection(fav:Favorite) {
     let bookRate = this.newBookRate(fav);
-    console.log('bookRate',bookRate);
-
+    this.loaderService.show();
     this.categoryService.post('User/Rate', bookRate).subscribe((res) => {
-     console.log('rated book', res);
           this.category['books'].forEach(book => {
               if(book["bookId"] == bookRate["bookId"]){
                 book["ratedId"] = res;
               }
           });
-          console.log('wdsdsd',this.category['books']);
-
+          this.loaderService.hide();
     })
   }
 
@@ -64,8 +65,11 @@ export class CategoryDetailComponent implements OnInit {
 
 
   favBook(book){
+    this.loaderService.show();
     this.categoryService.post("/User/Favorite",this.createFavoriteModel(book)).subscribe(res => {
        //console.log('res',res);
+       this.loaderService.hide();
+
       this.snotifyService.success('Başarılı', 'Favoriledin', {
         timeout: 2000,
         showProgressBar: true,

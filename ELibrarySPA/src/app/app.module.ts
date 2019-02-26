@@ -57,6 +57,9 @@ import { BookService } from './book-detail/shared/book.service';
 import { AboutComponent } from './footer/about/about.component';
 import { AboutService } from './footer/about/shared/about.service';
 import { BookRateService } from './service/book-rate.service';
+import { NgxLoadingModule } from 'ngx-loading';
+import { LoaderComponent } from './loader/loader.component';
+import { LoaderService } from './service/loader.service';
 
 @NgModule({
    declarations: [
@@ -81,7 +84,8 @@ import { BookRateService } from './service/book-rate.service';
        CategoryFullComponent,
        AuthorComponent,
        ContactComponent,
-       AboutComponent
+       AboutComponent,
+       LoaderComponent
    ],
    imports: [
        BrowserModule,
@@ -94,6 +98,7 @@ import { BookRateService } from './service/book-rate.service';
        NgxMaskModule.forRoot(),
        RatingModule.forRoot(),
        NgxExtendedPdfViewerModule,
+       NgxLoadingModule.forRoot({}),
        SnotifyModule
    ],
    providers: [
@@ -111,6 +116,7 @@ import { BookRateService } from './service/book-rate.service';
        ContactService,
        AboutService,
        BookRateService,
+       LoaderService,
        [
            { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
            SnotifyService

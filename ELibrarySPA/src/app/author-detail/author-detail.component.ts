@@ -1,3 +1,4 @@
+import { LoaderService } from './../service/loader.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthorDetailService } from './shared/author-detail.service';
 import { ActivatedRoute } from '@angular/router';
@@ -13,6 +14,7 @@ export class AuthorDetailComponent implements OnInit {
 
   constructor(private authorService: AuthorDetailService,
     private activatedRoute: ActivatedRoute,
+    private loaderService:LoaderService
     ) { }
 
     authBooks: Book[];
@@ -20,11 +22,11 @@ export class AuthorDetailComponent implements OnInit {
 
     ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
+      this.loaderService.show();
       this.authorService.get("/Author/Detail/"+ params["authorId"]).subscribe(res => {
+        this.loaderService.hide();
        // //console.log("kitaplar istendi")
         this.author = res["value"];
-        console.log('this.author',this.author);
-
        // //console.log('YAZAR BİLGİLERİ',res["value"]);
 
      });
@@ -33,8 +35,10 @@ export class AuthorDetailComponent implements OnInit {
   }
 
   authorBook(id: string) {
+    this.loaderService.show();
     this.authorService.get("/Author/Books/" + id).subscribe(res => {
        this.authBooks = res["value"];
+       this.loaderService.hide();
        ////console.log('authbooks',this.authBooks)
        ////console.log("kitaplar geldi")
     });
