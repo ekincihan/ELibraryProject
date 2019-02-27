@@ -8,6 +8,7 @@ import { Favorite } from 'src/app/book-detail/shared/favorite';
 import { BookRate } from 'src/app/mixed-books/shared/book-rate';
 import _ from 'underscore';
 import { BookRateService } from '../service/book-rate.service';
+import { LoaderService } from '../service/loader.service';
 @Component({
   selector: 'category',
   templateUrl: './category.component.html',
@@ -16,6 +17,7 @@ import { BookRateService } from '../service/book-rate.service';
 export class CategoryComponent implements OnInit {
   user:any;
   constructor(private categoryService : CategoryService,
+    private loaderService: LoaderService,
       private snotifyService: SnotifyService) {
 
     this.filterCategory = {
@@ -33,19 +35,29 @@ export class CategoryComponent implements OnInit {
 
   filterCategory: any;
   ngOnInit() {
+    this.loaderService.show();
+
       this.categoryService.getAll("Category/List").subscribe(res => {
         this.headerCategories = res["value"];
+        this.loaderService.hide();
       })
 
+      this.loaderService.show();
       this.categoryService.getAll("Publisher/List").subscribe(rest => {
         this.publishers = rest["value"];
+        this.loaderService.hide();
       });
 
+      this.loaderService.show();
       this.categoryService.getAll("Author/List").subscribe(rest => {
         this.authors = rest["value"];
+        this.loaderService.hide();
       });
+
+      this.loaderService.show();
       this.categoryService.getAll('Category/CategoryBook').subscribe((res:Category[])=>{
         this.categories=res;
+        this.loaderService.hide();
         this.categories.forEach(cat => {
           let bookrateService = new BookRateService();
           bookrateService.bookList  = cat['books'];
@@ -58,8 +70,10 @@ export class CategoryComponent implements OnInit {
 
 
   favBook(book){
+    this.loaderService.show();
     this.categoryService.post("/User/Favorite",this.createFavoriteModel(book)).subscribe(res => {
        //console.log('res',res);
+       this.loaderService.hide();
       this.snotifyService.success('Başarılı', 'Favoriledin', {
         timeout: 2000,
         showProgressBar: true,
@@ -91,7 +105,9 @@ export class CategoryComponent implements OnInit {
 
   confirmSelection(fav:Favorite) {
     let bookRate = this.newBookRate(fav);
+    this.loaderService.show();
     this.categoryService.post('User/Rate', bookRate).subscribe((res) => {
+      this.loaderService.hide();
      // //console.log('rated book', res);
 
     })
@@ -144,10 +160,11 @@ export class CategoryComponent implements OnInit {
     //console.log('this.filterCategory',this.filterCategory);
     // TODO: Servis entegrasyonu buraya gelecek,
     // seçili yazar,kategori ve yayınevini alıyoruz.servis yine kategori tipinde dönmeli
-
+    this.loaderService.show();
     this.categoryService.post('CategoryTagAssignment/Filter',this.filterCategory).subscribe((res:Category[]) =>{
       //console.log('res',res);
       this.categories=res;
+      this.loaderService.hide();
     })
 
   }

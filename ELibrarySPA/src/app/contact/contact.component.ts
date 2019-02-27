@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { SnotifyService } from 'ng-snotify';
 import { ContactService } from './shared/contact.service';
+import { LoaderService } from '../service/loader.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,6 +15,7 @@ export class ContactComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private snotifyService: SnotifyService,
+    private loaderService:LoaderService,
     private contactService: ContactService
   ) { }
 
@@ -27,8 +29,9 @@ export class ContactComponent implements OnInit {
 
   formSubmit() {
     if (this.contact.valid) {
+      this.loaderService.show();
       this.contactService.post('Contact/SendMail', this.contact.value).subscribe((res) => {
-    
+        this.loaderService.hide();
           this.snotifyService.success('Mesajınız gönderildi.', ' Başarılı', {
             timeout: 2000,
             showProgressBar: true,

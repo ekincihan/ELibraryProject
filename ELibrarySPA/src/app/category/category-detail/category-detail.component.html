@@ -1,6 +1,7 @@
 <app-header></app-header>
 <navigation [pageName]="'Kategori Detay'"></navigation>
 <ng-snotify></ng-snotify>
+<app-loader></app-loader>
 
 <div class="main-content">
   <div class="container">
@@ -16,7 +17,7 @@
               <div class="cover position-relative mb-4" [ngStyle]="{'background-image':'url('+item?.signUrl+')'}">
                 <div class="caption text-center">
 
-                  <div class="favourite position-absolute text-center">
+                  <div *ngIf="user" class="favourite position-absolute text-center">
                     <span class="selected d-inline-block w-100 h-100" (click)="favBook(item)"></span>
                   </div>
                   <div class="more w-100 position-absolute">

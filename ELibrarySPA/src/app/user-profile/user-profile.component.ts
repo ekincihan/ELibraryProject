@@ -9,6 +9,7 @@ import { defineLocale } from 'ngx-bootstrap/chronos';
 import { trLocale } from 'ngx-bootstrap/locale';
 import { BookRate } from '../mixed-books/shared/book-rate';
 import { BookRateService } from '../service/book-rate.service';
+import { LoaderService } from '../service/loader.service';
 defineLocale('tr', trLocale);
 
 @Component({
@@ -28,6 +29,7 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private service: UserProfileService,
     private localeService: BsLocaleService,
+    private loaderService:LoaderService,
     private snotifyService: SnotifyService
     ) {
       if(localStorage.getItem('user'))
@@ -42,7 +44,9 @@ export class UserProfileComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.loaderService.show();
     this.service.get('/User/GetFavAndReads/'+this.user.id).subscribe(res =>{
+        this.loaderService.hide();
         let bookRateService = new BookRateService();
         bookRateService.bookList =  res["favorites"];
         bookRateService.service = this.service;
@@ -95,7 +99,9 @@ saveUser(){
 
   confirmSelection(fav:Favorite) {
     let bookRate = this.newBookRate(fav);
+    this.loaderService.show();
     this.service.post('User/Rate', bookRate).subscribe((res) => {
+      this.loaderService.hide();
      // //console.log('rated book', res);
 
     })

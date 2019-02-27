@@ -1,4 +1,6 @@
 
+<app-loader></app-loader>
+
 <div class="modal-header">
 
   <nav class="w-100">
@@ -21,7 +23,7 @@
           <div class="form-group">
             <label>E-Mail</label>
             <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
-            <input type="email" formControlName="email" class="form-control" 
+            <input type="email" formControlName="email" class="form-control"
             [ngClass]="{ 'is-invalid': signIn?.controls?.email?.touched && signIn?.controls?.email?.errors?.required }">
             <div class="text-danger small" *ngIf="signIn?.controls?.email?.touched && signIn?.controls?.email?.errors?.required">
               Bu alan boş geçilemez.</div>

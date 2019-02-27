@@ -3,6 +3,7 @@ import Epub from 'epubjs';
 import { BookService } from '../shared/book.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../../models/Book';
+import { LoaderService } from '../../service/loader.service';
 
 @Component({
   selector: 'app-book-viewer',
@@ -23,6 +24,7 @@ export class BookViewerComponent implements OnInit {
 
   @ViewChild('pdfView') pdfView: ElementRef;
   constructor(private bookService: BookService,
+    private loaderService: LoaderService,
       private router: Router,
     private activatedRoute: ActivatedRoute) {
 
@@ -39,7 +41,9 @@ export class BookViewerComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
+      this.loaderService.show();
       this.bookService.get("/Book/Detail/" + params["bookId"]).subscribe(res => {
+        this.loaderService.hide();
         this.book = res["value"];
         this.getPageReaded();
         let ext = res["value"]["appFiles"][0].extension;
@@ -63,8 +67,9 @@ export class BookViewerComponent implements OnInit {
   getPageReaded(){
     this.setReadPage(false);
     //console.log('this.readPageres book',this.readPage);
-
+    this.loaderService.show();
     this.bookService.post('User/UserReadPage',this.readPage).subscribe(res =>{
+      this.loaderService.hide();
        this.readPage["id"] = (res) ? res["id"] : '00000000-0000-0000-0000-000000000000';
       if(!this.epubViewerOn && res){
         setTimeout(() => {
@@ -83,7 +88,9 @@ export class BookViewerComponent implements OnInit {
   }
 
   sendPageNumber(){
+    this.loaderService.show();
     this.bookService.post("User/ReadPage",this.readPage).subscribe(res => {
+      this.loaderService.hide();
       if(res['bookId']){
           this.router.navigate(['/kitap-detay/'+res['bookId']]);
       }
