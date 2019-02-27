@@ -41,18 +41,17 @@ namespace ELibrary.Portal.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public JsonResult Save(PublisherModel model)
-        //{
-        //    Response<PublisherModel> responseSaving = JsonConvert.DeserializeObject<Response<PublisherModel>>(UiRequestManager.Instance.Post("Publisher", "Save", JsonConvert.SerializeObject(model)));
+        [HttpPost]
+        public JsonResult Save(PublisherModel model)
+        {
+            Response<PublisherModel> responseSaving = JsonConvert.DeserializeObject<Response<PublisherModel>>(UiRequestManager.Instance.Post("Publisher", "Save", JsonConvert.SerializeObject(model)));
 
-        //    if (_cache.Get<string>("BookName")!=null)
-        //    )
-        //    {
-                
-        //    }
-        //    return Json(responseSaving);
-        //}
+            if (_cache.Get<string>("BookName") != null || _cache.Get<string>("BookSummary")!=null || _cache.Get<int>("NumberPages") != 0)
+            {
+                responseSaving.Value.IsBookSaved = true;
+            }
+            return Json(responseSaving);
+        }
 
         [HttpPost]
         public JsonResult Delete(PublisherModel model)

@@ -53,6 +53,9 @@
                     swal("Basarili!", "Kaydedildi!", "success");
                     document.getElementById("PublisherName").value = "";
                     document.getElementById("PublisherMail").value = "";
+                  if (data.value.isBookSaved) {
+                    window.location.href  = '/book/save';
+                  }
                 }
                 else {
                     swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
