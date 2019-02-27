@@ -1,10 +1,10 @@
-<app-loader></app-loader>
 
 <app-header></app-header>
 <app-search></app-search>
 <div class="main-content">
   <div class="container">
     <div class="book-tab">
+      <app-loader></app-loader>
       <app-navbar (valueChange)="valueChange($event)"></app-navbar>
       <mixed-books *ngIf="isLastAdded && lastAdded" [data]="lastAdded"></mixed-books>
       <mixed-books *ngIf="!isLastAdded && mostReaded" [data]="mostReaded"></mixed-books>

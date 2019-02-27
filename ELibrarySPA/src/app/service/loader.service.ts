@@ -9,7 +9,8 @@ export interface LoaderState {
 export class LoaderService {
 private loaderSubject = new Subject<LoaderState>();
 loaderState = this.loaderSubject.asObservable();
-constructor() { }
+constructor() {
+}
 show() {
         this.loaderSubject.next(<LoaderState>{loading: true});
     }
