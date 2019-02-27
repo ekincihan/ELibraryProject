@@ -8,15 +8,19 @@
         <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 sidebar pr-4 mb-4">
           <div class="b-box d-inline-block position-relative w-100">
             <div class="favourite m-0 position-absolute" data-trigger="hover" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true">
-              <span (click)="favBook(book)" class="selected w-100 h-100 d-inline-block"></span>
+              <span *ngIf="user" (click)="favBook(book)" class="selected w-100 h-100 d-inline-block"></span>
             </div>
             <div class="cover position-relative min-h-auto h-auto">
               <img src="{{book?.thumbnail?.signUrl}}" class="position-relative w-100 h-auto d-block" alt="cover">
             </div>
           </div>
-          <button class="btn btn-lg btn-green text-left w-100 mt-4 mb-2 pl-5 text-truncate read-it" routerLink="/kitap-oku/{{book?.id}}"
+          <button *ngIf="user" class="btn btn-lg btn-green text-left w-100 mt-4 mb-2 pl-5 text-truncate read-it" routerLink="/kitap-oku/{{book?.id}}"
            (click)="beginReading(book)">
-           {{(isReading) ? 'Okumaya devam et' : 'Okumaya Başla'}} </button>
+           {{(isReading) ? 'Okumaya devam et' : 'Okumaya Başla'}}
+          </button>
+          <button *ngIf="!user" disabled class="btn btn-lg btn-green text-left w-100 mt-4 mb-2 pl-5 text-truncate read-it">
+           Üye ol ve Oku
+          </button>
           </div>
         <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9 conteSignUrlntbar mb-3">
           <div class="detailed">

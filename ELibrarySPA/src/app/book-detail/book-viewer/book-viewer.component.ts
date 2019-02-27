@@ -14,6 +14,7 @@ export class BookViewerComponent implements OnInit {
   book: Book;
   epubBook: any;
   url: string;
+  epubUrl: string;
   epubViewerOn = false;
   readPage = {
     userId: '',
@@ -45,6 +46,8 @@ export class BookViewerComponent implements OnInit {
       this.bookService.get("/Book/Detail/" + params["bookId"]).subscribe(res => {
         this.loaderService.hide();
         this.book = res["value"];
+        console.log('this.book',this.book);
+
         this.getPageReaded();
         let ext = res["value"]["appFiles"][0].extension;
 
@@ -57,6 +60,7 @@ export class BookViewerComponent implements OnInit {
         if (isPdf) {
           this.url = res["value"]["appFiles"][0].signUrl;
         } else {
+          this.epubUrl = res["value"]["appFiles"][0].signUrl;
           this.openEpubViewer();
         }
       });
@@ -99,11 +103,13 @@ export class BookViewerComponent implements OnInit {
   openEpubViewer() {
     this.epubViewerOn = true;
     var params = URLSearchParams && new URLSearchParams(document.location.search.substring(1));
-    var url = params && params.get("url") && decodeURIComponent(params.get("url"));
+
+    //var url = params && params.get("url") && decodeURIComponent(params.get("url"));
     var currentSectionIndex = (params && params.get("loc")) ? params.get("loc") : undefined;
+    console.log('this.epubUrl',this.epubUrl);
 
     // Load the opf
-    var book = Epub(url || "https://s3.amazonaws.com/moby-dick/moby-dick.epub");
+    var book = Epub(this.epubUrl);
     var rendition = book.renderTo("viewer", {
       width: "100%",
       height: 600,
