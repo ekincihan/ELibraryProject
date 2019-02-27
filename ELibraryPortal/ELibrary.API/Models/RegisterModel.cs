@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace ELibrary.API.Models
 {
@@ -15,5 +16,6 @@ namespace ELibrary.API.Models
         public string PhoneNumber { get; set; }
         public int? Gender { get; set; }
         public DateTime? Birthdate { get; set; }
+        public IFormFile File { get; set; }
     }
 }

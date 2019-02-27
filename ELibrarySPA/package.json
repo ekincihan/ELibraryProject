@@ -31,7 +31,7 @@
     "rxjs": "~6.2.0",
     "underscore": "^1.9.1",
     "web-animations-js": "^2.3.1",
-    "zone.js": "~0.8.26"
+    "zone.js": "^0.8.29"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",

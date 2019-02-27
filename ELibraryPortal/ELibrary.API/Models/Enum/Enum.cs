@@ -13,7 +13,7 @@ namespace ELibrary.API.Models.Enum
             BookThumbnail = 1001,
             UserThumbnail = 1002,
             AuthorThumbnail = 1003,
-            Publication = 1004
+            Publication = 1004,
         }
     }
 }

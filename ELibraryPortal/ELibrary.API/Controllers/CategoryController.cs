@@ -45,7 +45,7 @@ namespace ELibrary.API.Controllers
         [HttpGet("CategoryBook")]
         public List<CategoryModel> CategoryBook()
         {
-            List<CategoryTagAssigment> categoriesBook = _categoryAssigment.GetList();
+            List<CategoryTagAssigment> categoriesBook = _categoryAssigment.GetList(x => x.IsActive == true);
             var categoriesId = categoriesBook.GroupBy(x => x.CategoryId).Select(x => x.FirstOrDefault()).ToList();
 
             List<CategoryModel> returnModel = new List<CategoryModel>();
@@ -82,7 +82,7 @@ namespace ELibrary.API.Controllers
         [Route("BookByCategory/{id}")]
         public List<CategoryModel> BookByCategory(Guid id)
         {
-            List<CategoryTagAssigment> categoriesBook = _categoryAssigment.GetList(x => x.CategoryId == id);
+            List<CategoryTagAssigment> categoriesBook = _categoryAssigment.GetList(x => x.CategoryId == id && x.IsActive == true);
             var categoriesId = categoriesBook.GroupBy(x => x.CategoryId).Select(x => x.FirstOrDefault()).ToList();
 
             List<CategoryModel> returnModel = new List<CategoryModel>();
@@ -90,7 +90,7 @@ namespace ELibrary.API.Controllers
             foreach (var category in categoriesId.ToList())
             {
                 CategoryModel categoryModel = new CategoryModel();
-                foreach (var item in categoriesBook.Where(x => x.CategoryId == category.CategoryId))
+                foreach (var item in categoriesBook.Where(x => x.CategoryId == category.CategoryId && x.IsActive == true))
                 {
                     MongoBookModel model = new MongoBookModel();
                     model.CategoryId = item.CategoryId;

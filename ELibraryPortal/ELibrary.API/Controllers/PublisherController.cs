@@ -190,7 +190,7 @@ namespace ELibrary.API.Controllers
 
             #endregion
 
-            List<CategoryTagAssigment> categoriesBook = _categoryAssigment.GetList(x => x.PublisherId == id);
+            List<CategoryTagAssigment> categoriesBook = _categoryAssigment.GetList(x => x.PublisherId == id && x.IsActive == true);
             var categoriesId = categoriesBook.GroupBy(x => x.CategoryId).Select(x => x.FirstOrDefault()).ToList();
 
             List<CategoryModel> returnModel = new List<CategoryModel>();

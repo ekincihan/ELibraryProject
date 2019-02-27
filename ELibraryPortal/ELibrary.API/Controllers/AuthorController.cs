@@ -49,7 +49,7 @@ namespace ELibrary.API.Controllers
         public Response<AuthorModel> AuthorDetail(Guid id)
         {
             Response<AuthorModel> authorResponse = new Response<AuthorModel>();
-            Author entity = _author.GetT(x => x.Id==id);
+            Author entity = _author.GetT(x => x.Id == id);
             authorResponse.Value = _mapper.Map<AuthorModel>(entity);
 
             return authorResponse;
@@ -62,7 +62,7 @@ namespace ELibrary.API.Controllers
         {
 
             Response<List<BookModel>> bookResponse = new Response<List<BookModel>>();
-            List<Book> entityList =  _book.GetList(x => x.AuthorId == id);
+            List<Book> entityList = _book.GetList(x => x.AuthorId == id && x.IsActive == true);
             bookResponse.Value = _mapper.Map<List<BookModel>>(entityList.OrderByDescending(f => f.CreatedDate)).ToList();
 
             return bookResponse;

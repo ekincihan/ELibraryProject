@@ -7,12 +7,20 @@ using ELibrary.API.Type;
 using ELibrary.Portal.Custom;
 using ELibrary.Portal.Manager;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
     public class PublisherController : Controller
     {
+        private IMemoryCache _cache;
+
+        public PublisherController(IMemoryCache cache)
+        {
+            _cache = cache;
+        }
+
         public ActionResult Index()
         {
             var publishers = JsonConvert.DeserializeObject<Response<List<PublisherModel>>>(UiRequestManager.Instance.Get("Publisher", "List"));
@@ -33,13 +41,18 @@ namespace ELibrary.Portal.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public JsonResult Save(PublisherModel model)
-        {
-            Response<PublisherModel> responseSaving = JsonConvert.DeserializeObject<Response<PublisherModel>>(UiRequestManager.Instance.Post("Publisher", "Save", JsonConvert.SerializeObject(model)));
+        //[HttpPost]
+        //public JsonResult Save(PublisherModel model)
+        //{
+        //    Response<PublisherModel> responseSaving = JsonConvert.DeserializeObject<Response<PublisherModel>>(UiRequestManager.Instance.Post("Publisher", "Save", JsonConvert.SerializeObject(model)));
 
-            return Json(responseSaving);
-        }
+        //    if (_cache.Get<string>("BookName")!=null)
+        //    )
+        //    {
+                
+        //    }
+        //    return Json(responseSaving);
+        //}
 
         [HttpPost]
         public JsonResult Delete(PublisherModel model)

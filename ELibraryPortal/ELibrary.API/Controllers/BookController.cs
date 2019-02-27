@@ -32,7 +32,7 @@ namespace ELibrary.API.Controllers
         {
             Response<List<BookModel>> bookResponse = new Response<List<BookModel>>();
             List<Book> entityList = await _book.GetListAsync(x => x.IsActive == true);
-            bookResponse.Value = _mapper.Map<List<BookModel>>(entityList.OrderByDescending(f=> f.CreatedDate));
+            bookResponse.Value = _mapper.Map<List<BookModel>>(entityList.OrderByDescending(f => f.CreatedDate));
             return bookResponse;
         }
 
@@ -75,7 +75,7 @@ namespace ELibrary.API.Controllers
             {
                 bookResponseModel.Exception = e;
                 bookResponseModel.IsSuccess = false;
-                
+
             }
 
             return bookResponseModel;
@@ -86,7 +86,7 @@ namespace ELibrary.API.Controllers
         public async Task<Response<BookModel>> GetOne(Guid id)
         {
             Response<BookModel> bookResponse = new Response<BookModel>();
-            Book entityList = await _book.GetTAsync(x => x.Id == id);
+            Book entityList = await _book.GetTAsync(x => x.Id == id && x.IsActive == true);
             bookResponse.Value = _mapper.Map<BookModel>(entityList);
 
             return bookResponse;
@@ -97,7 +97,7 @@ namespace ELibrary.API.Controllers
         public async Task<Response<BookModel>> BookDetail(Guid id)
         {
             Response<BookModel> bookResponse = new Response<BookModel>();
-            Book entityList = await _book.GetTAsync(x => x.Id == id);
+            Book entityList = await _book.GetTAsync(x => x.Id == id && x.IsActive == true);
             bookResponse.Value = _mapper.Map<BookModel>(entityList);
 
             return bookResponse;

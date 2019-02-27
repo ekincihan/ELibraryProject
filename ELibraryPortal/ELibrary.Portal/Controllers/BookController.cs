@@ -100,6 +100,7 @@ namespace ELibrary.Portal.Controllers
             model.bookModel.CategoryTagAssigment.AuthorSurname = model.bookModel.Author.Surname;
             model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.PublisherId;
             model.bookModel.CategoryTagAssigment.BookSummary = model.bookModel.BookSummary;
+            model.bookModel.CategoryTagAssigment.IsActive = model.bookModel.IsActive;
 
             JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.bookModel.CategoryTagAssigment)));
 
@@ -110,6 +111,11 @@ namespace ELibrary.Portal.Controllers
         public async Task<JsonResult> Delete(BookModel model)
         {
             Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(await UiRequestManager.Instance.PostAsync("Book", "Save", JsonConvert.SerializeObject(model)));
+
+            CategoryTagAssigmentModel categoryTagAssigmentModel = new CategoryTagAssigmentModel();
+            categoryTagAssigmentModel.IsActive = false;
+            categoryTagAssigmentModel.BookId = model.Id;
+            JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(categoryTagAssigmentModel)));
 
             return Json(new ResultJson { Message = responseSaving.Message, Success = responseSaving.IsSuccess });
         }

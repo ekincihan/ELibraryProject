@@ -57,10 +57,14 @@ namespace ELibrary.API.Controllers
                     _categoryAssigment.Delete(isAny);
                 }
 
-                CategoryTagAssigment entity = _mapper.Map<CategoryTagAssigment>(model);
-                entity = await _categoryAssigment.AddAsync(entity);
-                CategoryTagAssigmentModel.Value = _mapper.Map<CategoryTagAssigmentModel>(entity);
-                CategoryTagAssigmentModel.IsSuccess = true;
+                if (model.IsActive == true)
+                {
+                    CategoryTagAssigment entity = _mapper.Map<CategoryTagAssigment>(model);
+                    entity = await _categoryAssigment.AddAsync(entity);
+                    CategoryTagAssigmentModel.Value = _mapper.Map<CategoryTagAssigmentModel>(entity);
+                    CategoryTagAssigmentModel.IsSuccess = true;
+                }
+
             }
             catch (Exception e)
             {
