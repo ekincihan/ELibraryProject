@@ -10,6 +10,7 @@ import { trLocale } from 'ngx-bootstrap/locale';
 import { BookRate } from '../mixed-books/shared/book-rate';
 import { BookRateService } from '../service/book-rate.service';
 import { LoaderService } from '../service/loader.service';
+import { Factory } from '../signin/factory';
 defineLocale('tr', trLocale);
 
 @Component({
@@ -86,12 +87,25 @@ saveUser(){
   formData.append("File",file,name);
   console.log('formData',formData);
   //console.log('user',this.user);
-  this.service.post('Account/Update',this.user).subscribe(item => {
-    // burdada dönen urlle birlikte user bilgilerini güncellicez
-    // this.service.post(this.user).subscribe(item => {
-    // });
+  console.log(this.user)
+  this.service.post('Account/Register',this.user).subscribe(item => {
+    let factory: Factory = new Factory(item["value"]);
   }); 
 
+  // this.service.post('Account/Uploadmage',this.user).subscribe(res => {
+  //   if(res['success']){
+  //     this.service.post('Account/Register',this.user).subscribe(item => {
+    
+  //     }); 
+  //   }else{
+  //     this.snotifyService.error('Fotoğraf yüklenirken bir hata oluştu', 'Oops...', {
+  //       timeout: 2000,
+  //       showProgressBar: true,
+  //       closeOnClick: false,
+  //       pauseOnHover: true
+  //     });
+  //   }
+ 
 
 }
 

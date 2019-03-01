@@ -11,14 +11,14 @@
           <div class="form-group">
             <label>Ad</label>
             <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
-            <input type="text" formControlName="name" class="form-control">
+            <input type="text" tabIndex="1"  formControlName="name" class="form-control">
             <div class="text-danger small" *ngIf="signUp?.controls?.name?.touched && signUp?.controls?.name?.errors?.required">
               Bu alan boş geçilemez.</div>
           </div>
           <div class="form-group">
             <label>E-Mail</label>
             <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
-            <input type="email" formControlName="email" class="form-control">
+            <input type="email"  tabIndex="3" formControlName="email" class="form-control">
             <div class="text-danger small" *ngIf="signUp?.controls?.email?.touched && signUp?.controls?.email?.errors?.required">
               Bu alan boş geçilemez.</div>
             <div class="text-danger small" *ngIf="signUp?.controls?.email?.touched && signUp?.controls?.email?.errors?.email">
@@ -28,7 +28,7 @@
           <div class="form-group">
             <label>Şifre</label>
             <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
-            <input type="password" formControlName="password" class="form-control">
+            <input type="password"  tabIndex="5" formControlName="password" class="form-control">
             <div class="text-danger small" *ngIf="signUp?.controls?.password?.touched && signUp?.controls?.password?.errors?.required">
               Bu alan boş geçilemez.</div>
               <div class="text-danger small" *ngIf="signUp?.controls?.password?.touched && signUp?.controls?.password?.errors?.passwordStrength">
@@ -40,13 +40,13 @@
           <div class="form-group">
             <label>Soyad</label>
             <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
-            <input type="text" formControlName="surname" class="form-control">
+            <input type="text" tabIndex="2"  formControlName="surname" class="form-control">
             <div class="text-danger small" *ngIf="signUp?.controls?.surname?.touched && signUp?.controls?.surname?.errors?.required">
               Bu alan boş geçilemez.</div>
           </div>
           <div class="form-group">
             <label>Cep Telefonu</label>
-            <input type="text" formControlName="phoneNumber" mask='00) 000-0000' prefix="(5" [showMaskTyped]="true"
+            <input type="text"  tabIndex="4" formControlName="phoneNumber" mask='00) 000-0000' prefix="(5" [showMaskTyped]="true"
               class="form-control">
             <div class="text-danger small" *ngIf="signUp?.controls?.phoneNumber?.touched && signUp?.controls?.phoneNumber?.errors?.required">
               Bu alan boş geçilemez.</div>
@@ -56,7 +56,7 @@
           <div class="form-group">
             <label>Şifre Tekrar</label>
             <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
-            <input type="password" formControlName="confirmPassword" class="form-control">
+            <input type="password"  tabIndex="6" formControlName="confirmPassword" class="form-control">
             <div class="text-danger small" *ngIf="signUp?.controls?.confirmPassword?.touched && signUp?.controls?.confirmPassword?.errors?.required">
               Bu alan boş geçilemez.</div>
             <div class="text-danger small" *ngIf="signUp?.controls?.confirmPassword?.errors?.mustMatch">
@@ -69,7 +69,7 @@
           <div class="form-group">
             <label>Doğum Tarihi</label>
             <!-- <div class="feedback position-absolute d-none"><b>Hata!</b></div> -->
-            <input type="text" formControlName="birthdate" placeholder="Doğum Tarihi" class="form-control" bsDatepicker>
+            <input type="text"  tabIndex="7" formControlName="birthdate" placeholder="Doğum Tarihi" class="form-control" bsDatepicker>
             <div class="text-danger small" *ngIf="signUp?.controls?.birthdate?.touched && signUp?.controls?.birthdate?.errors?.required">
               Bu alan boş geçilemez.</div>
           </div>
@@ -77,7 +77,7 @@
         <div class="col-6">
           <div class="form-group">
             <label for="gender">Cinsiyet</label>
-            <select class="form-control" id="gender" formControlName="gender">
+            <select class="form-control" id="gender"  tabIndex="8" formControlName="gender">
               <option value="" disabled selected>Seçiniz</option>
               <option value="1">Erkek</option>
               <option value="0">Kadın</option>

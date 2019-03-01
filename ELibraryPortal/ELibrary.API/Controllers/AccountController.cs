@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using ELibrary.API.Base;
 using ELibrary.API.Models;
@@ -8,6 +9,7 @@ using ELibrary.API.Security;
 using ELibrary.API.Type;
 using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -25,16 +27,18 @@ namespace ELibrary.API.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         //private readonly RoleManager<IdentityRole<string>> _roleManager;
         private readonly IConfiguration _configuration;
+        private IHostingEnvironment _hostingEnvironment;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             //RoleManager<IdentityRole<string>> roleManager,
-            IConfiguration configuration)
+            IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
+            _hostingEnvironment = hostingEnvironment;
             //_roleManager = roleManager;
         }
 
@@ -80,53 +84,83 @@ namespace ELibrary.API.Controllers
         [HttpPost("Register")]
         public async Task<Response<ApplicationUser>> Register([FromBody]RegisterModel model)
         {
-            var response = new Response<ApplicationUser>();
-
-            var identityUser = new ApplicationUser
+            try
             {
-                UserName = model.Email,
-                Email = model.Email,
-                PhoneNumber = model.PhoneNumber,
-                Name = model.Name,
-                Surname = model.Surname,
-                Gender = model.Gender,
-                Birthdate = model.Birthdate,
-                Id = model.Id.ToString()
-            };
+                var identityUser = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber,
+                    Name = model.Name,
+                    Surname = model.Surname,
+                    Gender = model.Gender,
+                    Birthdate = model.Birthdate,
+                };
 
-            var result = await _userManager.CreateAsync(identityUser, model.Password);
+                if (model.Id != Guid.Empty)
+                {
+                    var updatedEntity = _userManager.Users.SingleOrDefault(r => r.Id == model.Id.ToString());
+                    updatedEntity.Name = model.Name;
+                    updatedEntity.Surname = model.Surname;
+                    updatedEntity.Birthdate = model.Birthdate;
+                    updatedEntity.Email = model.Email;
+                    updatedEntity.UserName = model.Email;
+                    updatedEntity.NormalizedEmail = model.Email;
+                    updatedEntity.PhoneNumber = model.PhoneNumber;
+                    var update = await _userManager.UpdateAsync(updatedEntity);
+                    return new Response<ApplicationUser>(updatedEntity);
 
-            if (result.Succeeded)
-            {
-                //string role = "basic user";
-                //await _userManager.AddToRoleAsync(identityUser, role);
-                //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("userName", identityUser.UserName));
-                //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("email", identityUser.Email));
-                //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("role", role));
+                }
+                else
+                {
+                    var result = await _userManager.CreateAsync(identityUser, model.Password);
 
-                var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
-                return new Response<ApplicationUser>(appUser);
+                    if (result.Succeeded)
+                    {
+                        //string role = "basic user";
+                        //await _userManager.AddToRoleAsync(identityUser, role);
+                        //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("userName", identityUser.UserName));
+                        //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("email", identityUser.Email));
+                        //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("role", role));
+
+                        var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
+                        appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
+                        return new Response<ApplicationUser>(appUser);
+                    }
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
 
             throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
         }
 
 
-        [HttpPost("Update")]
-        public bool Update([FromForm]RegisterModel model)
-        {
-            AppFileFilterModel appFileFilterModel = new AppFileFilterModel
-            {
-                AppFileModuleId = model.Id,
-                ModuleType = API.Models.Enum.Enum.Module.UserThumbnail,
-                File = model.File
-            };
+        //[HttpPost("Uploadmage")]
+        //public bool Update()
+        //{
+
+        //    HttpResponseMessage response = new HttpResponseMessage();
+        //    var httpRequest = HttpContext.Request;
+        //    var file = Request.Form.Files[0];
+        //    string folderName = "Upload";
+        //    string webRootPath = _hostingEnvironment.WebRootPath;
+        //    //string newPath = Path.Combine(webRootPath, folderName);
+        //    //AppFileFilterModel appFileFilterModel = new AppFileFilterModel
+        //    //{
+        //    //    AppFileModuleId = model.Id,
+        //    //    ModuleType = API.Models.Enum.Enum.Module.UserThumbnail,
+        //    //    //File = model.File
+        //    //};
 
 
-            return true;
+        //    return true;
 
-        }
+        //}
 
     }
 }

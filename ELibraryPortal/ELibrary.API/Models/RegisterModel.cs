@@ -16,6 +16,6 @@ namespace ELibrary.API.Models
         public string PhoneNumber { get; set; }
         public int? Gender { get; set; }
         public DateTime? Birthdate { get; set; }
-        public IFormFile File { get; set; }
+        public IFormFile formData { get; set; }
     }
 }
