@@ -10,5 +10,8 @@ namespace ELibrary.Entities.Concrete
         public string NameSurname { get; set; }
         public string Email { get; set; }
         public string Message { get; set; }
+        public string Adress { get; set; }
+        public string PhonuNumber { get; set; }
+        public string SiteMail { get; set; }
     }
 }
