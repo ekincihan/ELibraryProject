@@ -350,20 +350,24 @@
       content: "application/json; charset=utf-8",
       dataType: 'json',
       success: function (d) {
-        var cacheBook = d;
-        document.getElementById("bookName").value = cacheBook.bookName;
-        document.getElementById("bookSummary").value = cacheBook.bookSummary;
-        document.getElementById("numberPages").value = cacheBook.numberPages;
+        if (d.isSessionEmpty) {
 
-        var e = document.getElementById("publishers");
-        e.options[e.selectedIndex].value = cacheBook.publisherVal;
-        e.options[e.selectedIndex].text = cacheBook.publisherText == undefined ? "Seçiniz" : cacheBook.publisherText;
+          var cacheBook = d;
+          document.getElementById("bookName").value = cacheBook.bookName;
+          document.getElementById("bookSummary").value = cacheBook.bookSummary;
+          document.getElementById("numberPages").value = cacheBook.numberPages;
 
-        var e2 = document.getElementById("authors");
-        e2.options[e2.selectedIndex].value = cacheBook.authorVal;
-        e2.options[e2.selectedIndex].text = cacheBook.authorText == undefined ? "Seçiniz" : cacheBook.authorText;
+          var e = document.getElementById("publishers");
+          e.options[e.selectedIndex].value = cacheBook.publisherVal;
+          e.options[e.selectedIndex].text = cacheBook.publisherText == undefined ? "Seçiniz" : cacheBook.publisherText;
 
-        document.getElementById("etiketCache").innerHTML = cacheBook.etiketHtml;
+          var e2 = document.getElementById("authors");
+          e2.options[e2.selectedIndex].value = cacheBook.authorVal;
+          e2.options[e2.selectedIndex].text = cacheBook.authorText == undefined ? "Seçiniz" : cacheBook.authorText;
+
+          document.getElementById("etiketCache").innerHTML = cacheBook.etiketHtml;
+        }
+       
 
       }
     })

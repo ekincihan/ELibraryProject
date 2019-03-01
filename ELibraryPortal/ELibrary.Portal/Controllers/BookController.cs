@@ -163,6 +163,7 @@ namespace ELibrary.Portal.Controllers
 
         public JsonResult GetSession()
         {
+
             SessionModel model = new SessionModel();
             model.BookName = _cache.Get<string>("BookName");
             model.BookSummary = _cache.Get<string>("BookSummary");
@@ -173,6 +174,11 @@ namespace ELibrary.Portal.Controllers
             model.AuthorText = _cache.Get<string>("AuthorText");
             model.EtiketHtml = _cache.Get<string>("EtiketHtml");
 
+            if (_cache.Get<string>("BookName") != null || _cache.Get<string>("BookSummary") != null || _cache.Get<int>("NumberPages") != 0 ||
+                _cache.Get<string>("PublisherVal") != null || _cache.Get<string>("AuthorVal") != null)
+            {
+                model.IsSessionEmpty= true;
+            }
             return Json(model);
         }
 
