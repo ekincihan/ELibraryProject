@@ -27,6 +27,7 @@ namespace ELibrary.DAL.Concrete.EntityFramework
         public virtual DbSet<UserReadPage> UserReadPage { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<About> About { get; set; }
+        public virtual DbSet<BookTagAssignment> BookTagAssignments { get; set; }
 
         public ELibraryDBContext(DbContextOptions<ELibraryDBContext> options) : base(options)
         {

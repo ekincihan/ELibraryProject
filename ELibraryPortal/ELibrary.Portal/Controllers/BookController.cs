@@ -47,9 +47,11 @@ namespace ELibrary.Portal.Controllers
         public ActionResult Save(Guid? id)
         {
             BookPageModel bookPageModel = new BookPageModel();
-
-            Response<List<BookModel>> responseBooks = JsonConvert.DeserializeObject<Response<List<BookModel>>>(UiRequestManager.Instance.Get("Book", "List"));
-            bookPageModel.BookList = responseBooks.Value;
+            if (Guid.Empty != id && id.HasValue)
+            {
+                Response<BookModel> responseBooks = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Get("Book", "GetOne", id));
+                bookPageModel.BookModel= responseBooks.Value;
+            }
 
             Response<List<AuthorModel>> responseAuthor = JsonConvert.DeserializeObject<Response<List<AuthorModel>>>(UiRequestManager.Instance.Get("Author", "List"));
             bookPageModel.AuthorList = responseAuthor.Value;
@@ -62,11 +64,17 @@ namespace ELibrary.Portal.Controllers
 
             Response<List<CategoryModel>> responsecategory = JsonConvert.DeserializeObject<Response<List<CategoryModel>>>(UiRequestManager.Instance.Get("Category", "List"));
             bookPageModel.CategoryList = responsecategory.Value;
-
+            
             if (Guid.Empty != id && id.HasValue)
             {
                 Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Get("Book", "GetOne", id));
-                bookPageModel.bookModel = responseSaving.Value;
+                bookPageModel.BookModel = responseSaving.Value;
+
+                Response<List<CategoryTagAssigmentModel>> categoryTagAssignementModel = JsonConvert.DeserializeObject<Response<List<CategoryTagAssigmentModel>>>(UiRequestManager.Instance.Get("CategoryTagAssignment", "List"));
+                bookPageModel.BookModel.CategoryId = categoryTagAssignementModel.Value.Count > 0 ? categoryTagAssignementModel.Value.FirstOrDefault(x=>x.BookId == id).CategoryId : Guid.Empty;
+
+                Response<List<BookTagAssignmentModel>> bookTagAssignementModel = JsonConvert.DeserializeObject<Response<List<BookTagAssignmentModel>>>(UiRequestManager.Instance.Get("BookTagAssignment", "List", id));
+                bookPageModel.Tags = bookTagAssignementModel.Value.Select(f => f.TagId.ToString()).ToArray();
             }
 
             return View(bookPageModel);
@@ -75,8 +83,7 @@ namespace ELibrary.Portal.Controllers
         [HttpPost]
         public async Task<JsonResult> Save(BookPageModel model)
         {
-            Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model.bookModel)));
-
+            Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model.BookModel)));
 
             AppFileFilterModel appFileFilterModel = new AppFileFilterModel
             {
@@ -92,18 +99,32 @@ namespace ELibrary.Portal.Controllers
 
             await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
 
-            model.bookModel.CategoryTagAssigment.BookId = responseSaving.Value.Id;
-            model.bookModel.CategoryTagAssigment.BookName = model.bookModel.BookName;
-            model.bookModel.CategoryTagAssigment.BookSummary = model.bookModel.BookSummary;
-            model.bookModel.CategoryTagAssigment.SignUrl = thumbNail.Value.SignUrl;
-            model.bookModel.CategoryTagAssigment.AuthorId = model.bookModel.AuthorId;
-            model.bookModel.CategoryTagAssigment.AuthorSurname = model.bookModel.Author.Surname;
-            model.bookModel.CategoryTagAssigment.PublisherId = model.bookModel.PublisherId;
-            model.bookModel.CategoryTagAssigment.BookSummary = model.bookModel.BookSummary;
-            model.bookModel.CategoryTagAssigment.IsActive = model.bookModel.IsActive;
+            model.BookModel.CategoryTagAssigment.BookId = responseSaving.Value.Id;
+            model.BookModel.CategoryTagAssigment.BookName = model.BookModel.BookName;
+            model.BookModel.CategoryTagAssigment.BookSummary = model.BookModel.BookSummary;
+            model.BookModel.CategoryTagAssigment.SignUrl = thumbNail.Value != null ? thumbNail.Value.SignUrl : responseSaving.Value.Thumbnail.SignUrl;
+            model.BookModel.CategoryTagAssigment.AuthorId = model.BookModel.AuthorId;
+            model.BookModel.CategoryTagAssigment.AuthorSurname = model.BookModel.Author.Surname;
+            model.BookModel.CategoryTagAssigment.PublisherId = model.BookModel.PublisherId;
+            model.BookModel.CategoryTagAssigment.BookSummary = model.BookModel.BookSummary;
+            model.BookModel.CategoryTagAssigment.CategoryId = model.BookModel.CategoryId;
+            model.BookModel.CategoryTagAssigment.IsActive = model.BookModel.IsActive;
 
-            JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.bookModel.CategoryTagAssigment)));
+            JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.BookModel.CategoryTagAssigment)));
+            if (model.Tags.Count() > 0)
+            {
+                List<BookTagAssignmentModel> modelList = new List<BookTagAssignmentModel>();
+                foreach (var item in model.Tags)
+                {
+                    modelList.Add(new BookTagAssignmentModel
+                    {
+                        BookId = responseSaving.Value.Id,
+                        TagId = Guid.Parse(item)
+                    });
 
+                }
+                JsonConvert.DeserializeObject<Response<bool>>(UiRequestManager.Instance.Post("BookTagAssignment", "Save", JsonConvert.SerializeObject(modelList)));
+            }
             return Json(responseSaving);
         }
 

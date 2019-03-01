@@ -5,6 +5,7 @@ using ELibrary.API.Type;
 using ELibrary.DAL.Abstract;
 using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;

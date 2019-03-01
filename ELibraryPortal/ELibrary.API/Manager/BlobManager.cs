@@ -19,7 +19,14 @@ namespace ELibrary.API.Manager
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.Instance.GetConnectionString("StorageConnection"));
             //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(@"DefaultEndpointsProtocol=https;AccountName=elibrarystorage;AccountKey=de8S23KSTuWPjoblw0hZSbk3YwHueULe+22S2DI9+30TmDmczi+Yy2DVcQ8UWeH9tR+izRZl/X8BPxDM8287Vg==;EndpointSuffix=core.windows.net");
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                
             CloudBlobContainer container = blobClient.GetContainerReference("fileuploads");
+            await container.SetPermissionsAsync(
+                    new BlobContainerPermissions
+                    {
+                        PublicAccess = BlobContainerPublicAccessType.Blob,
+                    });
+
             await container.CreateIfNotExistsAsync();
 
             return container;

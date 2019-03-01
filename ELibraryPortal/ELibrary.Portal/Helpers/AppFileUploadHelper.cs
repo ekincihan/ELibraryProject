@@ -35,8 +35,8 @@ namespace ELibrary.Portal.Helpers
                     ModuleId = file.AppFileModuleId,
                     ModuleType = file.ModuleType,
                     Name = file.File.Name,
-                    UniqueName = $"{ Guid.NewGuid().ToString()}.{ file.File.ContentType.Split('/')[1]}",
-                    Extension = file.File.ContentType
+                    UniqueName = $"{ Guid.NewGuid().ToString()}.{ file.File.ContentType.Split('/')[1].Replace("+zip", "") }",
+                    Extension = file.File.ContentType.Replace("+zip", "")
                 };
                 file.File.CopyToAsync(stream).Wait();
             }

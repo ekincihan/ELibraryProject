@@ -14,7 +14,8 @@ namespace ELibrary.Portal.Models
         public List<AuthorModel> AuthorList { get; set; }
         public List<CategoryModel> CategoryList { get; set; }
         public List<TagModel> TagList { get; set; }
-        public BookModel bookModel { get; set; }
+        public string[] Tags { get; set; }
+        public BookModel BookModel { get; set; }
         public IFormFile Thumbnail { get; set; }
         public IFormFile Publication { get; set; }
     }

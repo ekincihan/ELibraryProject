@@ -17,7 +17,7 @@
         <div class="form-group">
             <a href="@Url.Action("Index", "Book")" style="float:right"> <input type="submit" class="btn btn-primary" value="Kitap Listele" /></a>
         </div>
-        <form id="form-tabs" class="form-horizontal tabcontrol clearfix">
+        <form asp-action="Save" method="post" asp-antiforgery="false" id="form-tabs" class="form-horizontal tabcontrol clearfix">
             <div class="bd-example bd-example-tabs">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li id="nav1" class="nav-item active">
@@ -36,24 +36,24 @@
                             <div class="widget">
                                 <div class="widget-body">
                                     <div class="row">
-                                        <input type="hidden" asp-for="bookModel.Id" />
+                                        <input type="hidden" asp-for="BookModel.Id" />
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="col-sm-3 col-md-4 control-label">Kitap Adi</label>
                                                 <div class="col-sm-9 col-md-8">
-                                                    <input id="bookName" asp-for="bookModel.BookName" required type="text" class="form-control">
+                                                    <input id="bookName" asp-for="BookModel.BookName"  required type="text" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 col-md-4 control-label">Kitap Ozet</label>
                                                 <div class="col-sm-9 col-md-8">
-                                                    <textarea id="bookSummary" asp-for="bookModel.BookSummary" class="form-control"></textarea>
+                                                    <textarea id="bookSummary" asp-for="BookModel.BookSummary" class="form-control"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 col-md-4 control-label">Sayfa Sayisi</label>
                                                 <div class="col-sm-9 col-md-8">
-                                                    <input id="numberPages" asp-for="bookModel.NumberPages" type="number" class="form-control">
+                                                    <input id="numberPages" asp-for="BookModel.NumberPages" type="number" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +62,7 @@
                                                 <label class="col-sm-3 col-md-4 control-label">Yayin Evi </label>
                                                 <div class="col-sm-9 col-md-8">
                                                     <div class="input-group">
-                                                        <select id="publishers" asp-for="bookModel.PublisherId" required placeholder="seçiniz..." class="form-control">
+                                                        <select id="publishers" asp-for="BookModel.PublisherId" required placeholder="seçiniz..." class="form-control">
                                                             <option value="">--Seçiniz--</option>
                                                             @foreach (var item in Model.PubLisherList)
                                                             {
@@ -80,7 +80,7 @@
                                                 <label class="col-sm-3 col-md-4 control-label">Yazar Adi </label>
                                                 <div class="col-sm-9 col-md-8">
                                                     <div class="input-group">
-                                                        <select id="authors" asp-for="bookModel.AuthorId" placeholder="seçiniz..." class="form-control">
+                                                        <select id="authors" asp-for="BookModel.AuthorId" placeholder="seçiniz..." class="form-control">
                                                             <option value="-1">--Seçiniz--</option>
                                                             @foreach (var item in Model.AuthorList)
                                                             {
@@ -129,9 +129,9 @@
                                                         <th>Islem</th>
                                                     </tr>
                                                     <tr>
-                                                        @if (Model.bookModel != null && Model.bookModel.AppFiles != null)
+                                                        @if (Model.BookModel != null && Model.BookModel.AppFiles != null)
                                                         {
-                                                            foreach (var item in Model.bookModel.AppFiles)
+                                                            foreach (var item in Model.BookModel.AppFiles)
                                                             {
                                                                 <td>@item.Name</td>
                                                                 <td>@item.Extension</td>
@@ -161,11 +161,11 @@
                                                 <label class="col-sm-3 col-md-4 control-label">Kategori Adı </label>
                                                 <div class="col-sm-9 col-md-8">
                                                     <div class="input-group">
-                                                        <select id="categories" asp-for="bookModel.CategoryTagAssigment.CategoryId" class="form-control pull-right">
+                                                        <select id="categories" asp-for="BookModel.CategoryId" class="form-control pull-right">
                                                             <option value="-1">Seçiniz</option>
                                                             @foreach (var item in Model.CategoryList)
                                                             {
-                                                                <option value="@item.Id">@item.Name</option>
+                                                                <option value="@item.Id" >@item.Name</option>
                                                             }
                                                         </select>
                                                         <span class="input-group-btn">
@@ -178,7 +178,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 col-md-4 control-label">Etiket Adi </label>
                                                 <div class="col-sm-9 col-md-8">
-                                                    <select id="AppTypeId" asp-for="bookModel.CategoryTagAssigment.Tags" multiple="multiple" class="form-control  pull-right ui fluid normal dropdown">
+                                                    <select id="AppTypeId" asp-for="Tags" multiple="multiple" class="form-control  pull-right ui fluid normal dropdown">
                                                         @foreach (var item in Model.TagList)
                                                         {
                                                             <option value="@item.Id" data-Name="@item.Name">@item.Name</option>
@@ -216,7 +216,7 @@
         $('#categories')
             .dropdown({ placeholder: 'Seçiniz' });
 
-        GetSessionValues();
+        //GetSessionValues();
 
     });
 
@@ -260,10 +260,10 @@
         SpinLoader(true);
         e.preventDefault();
         var formData = new FormData(this);
-        formData.set('bookModel.CategoryTagAssigment.CategoryName', ($("#categories option:selected").text()));
-        formData.set('bookModel.CategoryTagAssigment.AuthorName', ($("#authors option:selected").text()).split(" ")[0]);
-        formData.set('bookModel.CategoryTagAssigment.AuthorSurname', ($("#authors option:selected").text()).split(" ")[1]);
-        formData.set('bookModel.CategoryTagAssigment.PublisherName', ($("#publishers option:selected").text()));
+        formData.set('BookModel.CategoryTagAssigment.CategoryName', ($("#categories option:selected").text()));
+        formData.set('BookModel.CategoryTagAssigment.AuthorName', ($("#authors option:selected").text()).split(" ")[0]);
+        formData.set('BookModel.CategoryTagAssigment.AuthorSurname', ($("#authors option:selected").text()).split(" ")[1]);
+        formData.set('BookModel.CategoryTagAssigment.PublisherName', ($("#publishers option:selected").text()));
 
         $.ajax({
             url: "/Book/Save",

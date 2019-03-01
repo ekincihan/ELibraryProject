@@ -24,6 +24,7 @@ namespace ELibrary.API.Models
         private readonly IPublisher _publisher;
         private readonly IAuthor _author;
         private readonly ICategory _category;
+        private readonly ICategoryTagAssignment _categoryTagAssignment;
         private IMapper _mapper;
         //private ICollection<AppFileModel> _appFiles;
         //private ICollection<AppFileModel> _thumbnail;
@@ -33,6 +34,7 @@ namespace ELibrary.API.Models
             _publisher = new EFPublisher();
             _author = new EFAuthor();
             _category = new EFCategory();
+            _categoryTagAssignment = new EFCategoryTagAssigment();
             _mapper = DIManager.Instance.Provider.GetService<IMapper>();
         }
         [Required(ErrorMessage = "Bu alan boş bırakılamaz")]
@@ -44,6 +46,13 @@ namespace ELibrary.API.Models
         public DateTime ModifiedDate { get; set; }
         public int NumberPages { get; set; }
         public Base64FormattingOptions BookPhoto { get; set; }
+        public string [] TagIds
+        {
+            get
+            {
+                return _categoryTagAssignment.GetList(x => x.BookId == this.Id).Select(x => x.TagId).ToArray<string>();
+            }
+        }
         public bool IsActive { get; set; } = true;
         public AppFileModel Thumbnail
         {
@@ -89,6 +98,7 @@ namespace ELibrary.API.Models
             }
         }
         public Guid CategoryId { get; set; }
+        
         public int ReadCount { get; set; }
 
         public CategoryModel Category

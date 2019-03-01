@@ -11,6 +11,8 @@ namespace ELibrary.Entities.Concrete
     {
         public Guid CategoryId { get; set; }
         public string CategoryName { get; set; }
+        public string TagId { get; set; }
+        public string TagName { get; set; }
         public string SignUrl { get; set; }
         public string BookName { get; set; }
         public string BookSummary { get; set; }

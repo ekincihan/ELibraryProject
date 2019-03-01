@@ -78,6 +78,11 @@ namespace ELibrary.API.Helpers
             CreateMap<ContactModel, Contact>();
 
             #endregion
+            #region BookTagAssignment
+            CreateMap<BookTagAssignment, BookTagAssignmentModel>();
+            CreateMap<BookTagAssignmentModel, BookTagAssignment>();
+
+            #endregion
 
             #region FavoriteAndRate
             CreateMap<MongoBook, UserFavoriteAndReadModel>();

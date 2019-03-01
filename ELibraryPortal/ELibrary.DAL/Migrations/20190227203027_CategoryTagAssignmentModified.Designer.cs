@@ -4,14 +4,16 @@ using ELibrary.DAL.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ELibrary.DAL.Migrations
 {
     [DbContext(typeof(ELibraryDBContext))]
-    partial class ELibraryDBContextModelSnapshot : ModelSnapshot
+    [Migration("20190227203027_CategoryTagAssignmentModified")]
+    partial class CategoryTagAssignmentModified
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,34 +262,6 @@ namespace ELibrary.DAL.Migrations
                     b.HasIndex("PublisherId");
 
                     b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("ELibrary.Entities.Concrete.BookTagAssignment", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("BookId");
-
-                    b.Property<Guid?>("CreatedBy");
-
-                    b.Property<DateTime?>("CreatedDate");
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<Guid?>("ModifiedBy");
-
-                    b.Property<DateTime?>("ModifiedDate");
-
-                    b.Property<Guid>("TagId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("BookTagAssignments");
                 });
 
             modelBuilder.Entity("ELibrary.Entities.Concrete.Category", b =>
@@ -640,19 +614,6 @@ namespace ELibrary.DAL.Migrations
                     b.HasOne("ELibrary.Entities.Concrete.Publisher", "Publisher")
                         .WithMany()
                         .HasForeignKey("PublisherId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ELibrary.Entities.Concrete.BookTagAssignment", b =>
-                {
-                    b.HasOne("ELibrary.Entities.Concrete.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ELibrary.Entities.Concrete.Tag", "Tag")
-                        .WithMany()
-                        .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
