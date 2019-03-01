@@ -1,5 +1,5 @@
 export class Contact {
     siteMail:string;
-    address:string;
+    adress:string;
     phonuNumber:string;
 }
