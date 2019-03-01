@@ -97,7 +97,13 @@ namespace ELibrary.Portal.Controllers
             appFileFilterModel.File = model.Publication;
             appFileFilterModel.ModuleType = API.Models.Enum.Enum.Module.Publication;
 
-            await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+            var book = await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+
+            if ( model.BookModel.Id != Guid.Empty && (book != null || thumbNail != null))
+            {
+                
+                JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model.BookModel)));
+            }
 
             model.BookModel.CategoryTagAssigment.BookId = responseSaving.Value.Id;
             model.BookModel.CategoryTagAssigment.BookName = model.BookModel.BookName;
@@ -111,7 +117,7 @@ namespace ELibrary.Portal.Controllers
             model.BookModel.CategoryTagAssigment.IsActive = model.BookModel.IsActive;
 
             JsonConvert.DeserializeObject<Response<CategoryTagAssigmentModel>>(UiRequestManager.Instance.Post("CategoryTagAssignment", "Save", JsonConvert.SerializeObject(model.BookModel.CategoryTagAssigment)));
-            if (model.Tags.Count() > 0)
+            if (model.Tags != null && model.Tags.Count() > 0)
             {
                 List<BookTagAssignmentModel> modelList = new List<BookTagAssignmentModel>();
                 foreach (var item in model.Tags)

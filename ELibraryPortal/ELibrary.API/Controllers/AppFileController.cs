@@ -44,7 +44,14 @@ namespace ELibrary.API.Controllers
                     appFile.BlobPath = $"fileuploads/{appFile.BlobPath.Substring(0, appFile.BlobPath.Length - 1) }";
                 }
                 appFile.SignUrl = SignUrl(appFile);
+
+                var entity = _appFile.GetT(f => f.ModuleId == appFileModel.ModuleId && f.ModuleType == (int)appFileModel.ModuleType);
+
+                if (entity != null)
+                    _appFile.Delete(entity);
+
                 appFile = await (appFileModel.Id != Guid.Empty ? _appFile.UpdateAsync(appFile) : _appFile.AddAsync(appFile));
+              
                 AppFileModel model = _mapper.Map<AppFileModel>(appFile);
                 appFileModelResponse.Value = model;
             }

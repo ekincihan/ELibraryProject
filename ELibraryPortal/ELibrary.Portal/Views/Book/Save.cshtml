@@ -152,9 +152,11 @@
                         <h4>Kapak Resmi</h4>
                       </div>
                       <div class="widget-body">
-                        @*<div>
-                              <img src="~/images/no-cover.jpg" style="width:300px; height:300px" class="img-responsive" />
-                          </div>*@
+                        <div id="thumnailContent" class="form-group content hidden">
+                            <center>
+                                <img src="@(Model.BookModel != null && Model.BookModel.Thumbnail != null ? Model.BookModel.Thumbnail.SignUrl : "")" style="width:300px; height:300px" class="img-responsive" />
+                            </center>
+                          </div>
                         <div class="form-group">
                           <input class="FileBasic" id="FileThumnail" asp-for="Thumbnail" multiple="multiple" placeholder="PNG | JPG" type="file">
                         </div>
@@ -165,33 +167,35 @@
                         <h4>Içerik</h4>
                       </div>
                       <div class="widget-body">
-                        @*<table id="tblFiles" class="table table-hover">
-                              <tr>
-                                  <th>Dosya Adi</th>
-                                  <th>Dosya Türü</th>
-                                  <th>Islem</th>
-                              </tr>
-                              <tr>
-                                  @if (Model.BookModel != null && Model.BookModel.AppFiles != null)
-                                  {
-                                      foreach (var item in Model.BookModel.AppFiles)
-                                      {
-                                          <td>@item.Name</td>
-                                          <td>@item.Extension</td>
-                                          <td><a class="btn btn-sm btn-danger" data-content="@item.Id" id="btnRemove"><i class="glyphicon glyphicon-remove"></i></a> </td>
-                                      }
-                                  }
-                              </tr>
-                          </table>*@
-                        <div class="form-group">
-                          @*<label>içerik</label>*@
-                          <input class="FileBasic" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" id="FilePublication" asp-for="Publication" multiple="multiple" placeholder="PNG | JPG" type="file">
-                          <input type="submit" class="btn btn-primary pull-right" style="margin-right: 15px; margin-top: 31px;     background-color: #009da6;" value="Kaydet" />
-
+                          <div id="bookContent" class="form-group content hidden">
+                              <embed class="col-xs-12" src="@(Model.BookModel != null && Model.BookModel.AppFiles != null && Model.BookModel.AppFiles.Count > 0 ? Model.BookModel.AppFiles.FirstOrDefault().SignUrl: "")"  height="300">
+                          </div>
+                          @*<table id="tblFiles" class="table table-hover">
+            <tr>
+                <th>Dosya Adi</th>
+                <th>Dosya Türü</th>
+                <th>Islem</th>
+            </tr>
+            <tr>
+                @if (Model.BookModel != null && Model.BookModel.AppFiles != null)
+                {
+                    foreach (var item in Model.BookModel.AppFiles)
+                    {
+                        <td>@item.Name</td>
+                        <td>@item.Extension</td>
+                        <td><a class="btn btn-sm btn-danger" data-content="@item.Id" id="btnRemove"><i class="glyphicon glyphicon-remove"></i></a> </td>
+                    }
+                }
+            </tr>
+        </table>*@
+                          <div class="form-group">
+                              @*<label>içerik</label>*@
+                              <input class="FileBasic" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" id="FilePublication" asp-for="Publication" multiple="multiple" placeholder="PNG | JPG" type="file">
                           </div>
                       </div>
                     </div>
                   </div>
+                    <input type="submit" class="btn btn-primary pull-right" style="margin-right: 15px; margin-top: 31px;     background-color: #009da6;" value="Kaydet" />
                 </div>
               </div>
             </div>
@@ -207,22 +211,30 @@
     debug: true,
     success: "valid"
   });
-  $(document).ready(function () {
-    $('.FileBasic').fileinput({
-      maxFileCount: 1,
-      showUpload: false,
-      allowedFileTypes: ['image', 'video', 'pdf', '.epub']
+    $(document).ready(function () {
+        $('.FileBasic').fileinput({
+            maxFileCount: 1,
+            showUpload: false,
+            allowedFileTypes: ['image', 'video', 'pdf', '.epub']
+        });
+
+        $('#AppTypeId')
+            .dropdown({ placeholder: 'Seçiniz' });
+        $('#categories')
+            .dropdown({ placeholder: 'Seçiniz' });
+
+        GetSessionValues();
+        if (Boolean(@(Model.BookModel != null && Model.BookModel.Id != Guid.Empty ? "true" : "false" ))) {
+            $(".content").removeClass("hidden");
+        }
     });
 
-    $('#AppTypeId')
-      .dropdown({ placeholder: 'Seçiniz' });
-    $('#categories')
-      .dropdown({ placeholder: 'Seçiniz' });
-
-    GetSessionValues();
-
-  });
-
+    $('#FileThumnail').change(function () {
+        $('#thumnailContent').addClass("hidden");
+    });
+    $('#FilePublication').change(function () {
+        $('#bookContent').addClass("hidden");
+    });
   $("#btnRemove").click(function () {
     var model = {
       IsActive: false,

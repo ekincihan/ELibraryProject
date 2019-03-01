@@ -16,5 +16,6 @@ namespace ELibrary.API.Models
         public TagModel Tag { get; set; }
         public Guid BookId { get; set; }
         public BookModel Book { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }
