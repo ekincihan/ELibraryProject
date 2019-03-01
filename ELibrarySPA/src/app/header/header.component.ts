@@ -9,6 +9,7 @@ import { SigninComponent } from "../signin/signin.component";
 import { SignupComponent } from "../signup/signup.component";
 import { TokenService } from "../service/token.service";
 import { Router } from "../../../node_modules/@angular/router";
+import { LoaderService } from "../service/loader.service";
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
     private headerService: HeaderService,
     private modalService: BsModalService,
     private router: Router,
+    private loaderService:LoaderService,
     private tokenService: TokenService
   ) {
 
@@ -39,12 +41,15 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loaderService.show();
     this.headerService.getAll("Category/List").subscribe(res => {
       this.categories = res["value"];
+      this.loaderService.hide();
     });
-
+    this.loaderService.show();
     this.headerService.getAll("Publisher/List").subscribe(rest => {
       this.publishers = rest["value"];
+      this.loaderService.hide();
     });
   }
 

@@ -14,9 +14,11 @@ import { LoaderService } from '../../service/loader.service';
 export class PublisherDetailComponent implements OnInit {
   publisher: any;
   publisherBooks: any;
+  user: any;
   constructor(private publisherService: PublisherService,
     private loaderService:LoaderService,
     private activatedRoute: ActivatedRoute) {
+      this.user = JSON.parse(localStorage.getItem('user'));
     this.activatedRoute.params.subscribe(params => {
       this.loaderService.show();
       this.publisherService.get("/Publisher/GetOne/" + params["publisherId"]).subscribe(res => {
@@ -25,7 +27,7 @@ export class PublisherDetailComponent implements OnInit {
         this.loaderService.show();
         this.publisherService.get("/Publisher/BookByPublisher/" + this.publisher.id).subscribe(res => {
           this.loaderService.hide();
-            this.publisherBooks =res[0].books;
+            this.publisherBooks = (res[0]) ? res[0].books : null;
             if(this.publisherBooks){
               let bookrateService = new BookRateService();
               bookrateService.bookList  = this.publisherBooks;

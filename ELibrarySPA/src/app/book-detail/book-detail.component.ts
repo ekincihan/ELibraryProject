@@ -19,11 +19,14 @@ export class BookDetailComponent implements OnInit {
     page: 0,
   }
   book: Book;
+  user: any;
   isReading = false;
   constructor(private bookService: BookService,
     private activatedRoute: ActivatedRoute,
     private loaderService: LoaderService,
-    private snotifyService: SnotifyService) { }
+    private snotifyService: SnotifyService) {
+      this.user = JSON.parse(localStorage.getItem('user'));
+    }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
@@ -31,7 +34,9 @@ export class BookDetailComponent implements OnInit {
       this.bookService.get("/Book/Detail/" + params["bookId"]).subscribe(res => {
         this.book = res["value"];
         this.loaderService.hide();
-        this.getPageReaded();
+        if(this.user){
+          this.getPageReaded();
+        }
       });
     })
   }
@@ -58,17 +63,13 @@ export class BookDetailComponent implements OnInit {
   }
 
   beginReading(book){
-      ////console.log(book["id"])
-      ////console.log('this.createFavoriteModel(book);',this.createFavoriteModel(book));
       this.loaderService.show();
       this.bookService.post("User/ReadBook",this.createFavoriteModel(book)).subscribe(res => {
         this.loaderService.hide();
-       // //console.log('res',res);
       });
       this.loaderService.show();
       this.bookService.post("Book/ReadBook",book["id"]).subscribe(res => {
         this.loaderService.hide();
-        // //console.log('res',res);
        });
   }
 
