@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using ELibrary.API.Base;
 using ELibrary.API.Models;
+using ELibrary.API.Type;
 using ELibrary.DAL.Abstract;
 using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -59,6 +60,39 @@ namespace ELibrary.API.Controllers
             return StatusCode(200);
         }
 
+        [HttpPost]
+        [Route("Save")]
+        public async Task<Response<ContactModel>> Post([FromBody]ContactModel model)
+        {
+            Response<ContactModel> contactresponsemodel = new Response<ContactModel>();
 
+            try
+            {
+                Contact entity = _mapper.Map<Contact>(model);
+                entity = await (model.Id != Guid.Empty ? _contact.UpdateAsync(entity) : _contact.AddAsync(entity));
+                contactresponsemodel.Value = _mapper.Map<ContactModel>(entity);
+                contactresponsemodel.IsSuccess = true;
+
+            }
+            catch (Exception e)
+            {
+
+                contactresponsemodel.Exception = e;
+                contactresponsemodel.IsSuccess = false;
+            }
+
+            return contactresponsemodel;
+        }
+
+        [HttpGet]
+        [Route("GetOne/{id}")]
+        public async Task<Response<ContactModel>> GetOne(Guid id)
+        {
+            Response<ContactModel> contactResponse = new Response<ContactModel>();
+            Contact entityList = await _contact.GetTAsync(x => x.Id == id);
+            contactResponse.Value = _mapper.Map<ContactModel>(entityList);
+
+            return contactResponse;
+        }
     }
 }

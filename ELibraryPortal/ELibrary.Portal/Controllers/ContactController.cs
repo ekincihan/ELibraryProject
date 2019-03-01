@@ -22,6 +22,31 @@ namespace ELibrary.Portal.Controllers
             return View(response);
         }
 
+        [HttpGet]
+        public ActionResult Save(Guid? id)
+        {
+            if (Guid.Empty != id && id.HasValue)
+            {
+                Response<ContactModel> responseSaving = JsonConvert.DeserializeObject<Response<ContactModel>>(UiRequestManager.Instance.Get("Contact", "GetOne", id));
+                responseSaving.Value = responseSaving.Value;
+                return View(responseSaving.Value);
+
+            }
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult Save(ContactModel model)
+        {
+            Response<ContactModel> responseSaving = JsonConvert.DeserializeObject<Response<ContactModel>>(UiRequestManager.Instance.Post("Contact", "Save", JsonConvert.SerializeObject(model)));
+
+            return RedirectToAction("Index");
+        }
+
+
+
         [HttpPost]
         public JsonResult Delete(ContactModel model)
         {
