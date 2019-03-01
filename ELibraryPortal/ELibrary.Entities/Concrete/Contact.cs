@@ -13,5 +13,6 @@ namespace ELibrary.Entities.Concrete
         public string Adress { get; set; }
         public string PhonuNumber { get; set; }
         public string SiteMail { get; set; }
+        public int Type { get; set; }
     }
 }

@@ -14,5 +14,7 @@ namespace ELibrary.Portal.Models
         public string PublisherText { get; set; }
         public string AuthorVal { get; set; }
         public string AuthorText { get; set; }
+        public string EtiketHtml { get; set; }
+        public bool IsSessionEmpty { get; set; } = false;
     }
 }

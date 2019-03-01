@@ -83,16 +83,14 @@ saveUser(){
   var formData = new FormData();
   var file = files[0];
   var name = this.user.name+ ' ' +this.user.surname;
-  formData.append("selectedFile",file,name);
-  //önce image upload edecek
- /*  this.service.uploadImage('UPLOADIMAGE ADRESİ').subscribe(item => {
-    console.log('formData',formData);
-    console.log('user',this.user);
-    //burdada dönen urlle birlikte user bilgilerini güncellicez
-    this.service.post(this.user).subscribe(item => {
-
-    });
-  }); */
+  formData.append("File",file,name);
+  console.log('formData',formData);
+  //console.log('user',this.user);
+  this.service.post('Account/Update',this.user).subscribe(item => {
+    // burdada dönen urlle birlikte user bilgilerini güncellicez
+    // this.service.post(this.user).subscribe(item => {
+    // });
+  }); 
 
 
 }

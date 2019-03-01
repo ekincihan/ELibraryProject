@@ -23,18 +23,11 @@ namespace ELibrary.Portal.Controllers
         }
 
         [HttpGet]
-        public ActionResult Save(Guid? id)
+        public ActionResult Save()
         {
-            if (Guid.Empty != id && id.HasValue)
-            {
-                Response<ContactModel> responseSaving = JsonConvert.DeserializeObject<Response<ContactModel>>(UiRequestManager.Instance.Get("Contact", "GetOne", id));
-                responseSaving.Value = responseSaving.Value;
-                return View(responseSaving.Value);
-
-            }
-
-            return View();
-
+            Response<ContactModel> responseSaving = JsonConvert.DeserializeObject<Response<ContactModel>>(UiRequestManager.Instance.Get("Contact", "GetOne"));
+            responseSaving.Value = responseSaving.Value;
+            return View(responseSaving.Value);
         }
 
         [HttpPost]
@@ -42,7 +35,7 @@ namespace ELibrary.Portal.Controllers
         {
             Response<ContactModel> responseSaving = JsonConvert.DeserializeObject<Response<ContactModel>>(UiRequestManager.Instance.Post("Contact", "Save", JsonConvert.SerializeObject(model)));
 
-            return RedirectToAction("Index");
+            return View();
         }
 
 

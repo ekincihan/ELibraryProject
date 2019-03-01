@@ -88,9 +88,12 @@ namespace ELibrary.API.Controllers
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
                 Name = model.Name,
+                Surname = model.Surname,
                 Gender = model.Gender,
                 Birthdate = model.Birthdate,
+                Id = model.Id.ToString()
             };
+
             var result = await _userManager.CreateAsync(identityUser, model.Password);
 
             if (result.Succeeded)
@@ -109,46 +112,21 @@ namespace ELibrary.API.Controllers
             throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
         }
 
-        //[HttpPost("Update")]
-        //public async Task<Response<ApplicationUser>> Update([FromBody]RegisterModel model)
-        //{
 
-        //    AppFileFilterModel appFileFilterModel = new AppFileFilterModel
-        //    {
-        //        AppFileModuleId = model.Id,
-        //        ModuleType = API.Models.Enum.Enum.Module.UserThumbnail,
-        //        File = model.File
-        //    };
+        [HttpPost("Update")]
+        public bool Update([FromForm]RegisterModel model)
+        {
+            AppFileFilterModel appFileFilterModel = new AppFileFilterModel
+            {
+                AppFileModuleId = model.Id,
+                ModuleType = API.Models.Enum.Enum.Module.UserThumbnail,
+                File = model.File
+            };
 
 
-        //    var response = new Response<ApplicationUser>();
+            return true;
 
-        //    var identityUser = new ApplicationUser
-        //    {
-        //        UserName = model.Email,
-        //        Email = model.Email,
-        //        PhoneNumber = model.PhoneNumber,
-        //        Name = model.Name,
-        //        Gender = model.Gender,
-        //        Birthdate = model.Birthdate,
-        //    };
-        //    var result = await _userManager.CreateAsync(identityUser, model.Password);
-
-        //    if (result.Succeeded)
-        //    {
-        //        //string role = "basic user";
-        //        //await _userManager.AddToRoleAsync(identityUser, role);
-        //        //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("userName", identityUser.UserName));
-        //        //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("email", identityUser.Email));
-        //        //await _userManager.AddClaimAsync(identityUser, new System.Security.Claims.Claim("role", role));
-
-        //        var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-        //        appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
-        //        return new Response<ApplicationUser>(appUser);
-        //    }
-
-        //    throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
-        //}
+        }
 
     }
 }

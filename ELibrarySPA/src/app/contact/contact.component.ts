@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { SnotifyService } from 'ng-snotify';
 import { ContactService } from './shared/contact.service';
 import { LoaderService } from '../service/loader.service';
+import { Contact } from '../models/Contact';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +12,7 @@ import { LoaderService } from '../service/loader.service';
 })
 export class ContactComponent implements OnInit {
   contact: FormGroup;
-
+  contactInfo:Contact;
   constructor(
     private formBuilder: FormBuilder,
     private snotifyService: SnotifyService,
@@ -20,6 +21,11 @@ export class ContactComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.contactService.get("/Contact/GetOne").subscribe(res => {
+      
+      this.contactInfo = res["value"];
+    });
     this.contact = this.formBuilder.group({
       nameSurname: ['', Validators.required],
       message: ['', Validators.required],

@@ -62,5 +62,6 @@ namespace ELibrary.API.Models
         public DateTime? Birthdate { get; set; }
         public bool IsActive { get; set; } = true;
         public object book { get; private set; }
+        public bool IsBookSaved { get; set; }
     }
 }
