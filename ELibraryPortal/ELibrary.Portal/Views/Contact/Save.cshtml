@@ -1,0 +1,41 @@
+﻿@model ELibrary.API.Models.ContactModel
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+
+<div class="widget">
+  <div class="widget-heading">
+    <h3 class="widget-title">Yazar Ekleme</h3>
+  </div>
+  <div class="widget-body">
+    <div class="form-group">
+    </div>
+    <form asp-action="Save" method="post" asp-antiforgery="false" enctype="multipart/form-data">
+      <input asp-for="Id" type="hidden" />
+      <div class="col-xs-6">
+
+        <div class="form-group">
+          <label class="control-label">Telefon</label>
+          <input asp-for="PhonuNumber" class="form-control" id="AuthorSurname" />
+          <span asp-validation-for="PhonuNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label">E-mail</label>
+          <input asp-for="SiteMail" class="form-control" id="AuthorSurname" />
+          <span asp-validation-for="SiteMail" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Adres</label>
+          <input asp-for="Adress" class="form-control" placeholder="Adı" id="AuthorName" />
+          <span asp-validation-for="Adress" class="text-danger"></span>
+        </div>
+      </div>
+      <div class="row">
+        <button type="submit" name="btnSubmit" class="btn btn-raised btn-black pull-left">Kaydet</button>
+      </div>
+    </form>
+
+  </div>
+</div>

@@ -46,7 +46,8 @@ namespace ELibrary.Portal.Controllers
         {
             Response<PublisherModel> responseSaving = JsonConvert.DeserializeObject<Response<PublisherModel>>(UiRequestManager.Instance.Post("Publisher", "Save", JsonConvert.SerializeObject(model)));
 
-            if (_cache.Get<string>("BookName") != null || _cache.Get<string>("BookSummary")!=null || _cache.Get<int>("NumberPages") != 0)
+            if (_cache.Get<string>("BookName") != null || _cache.Get<string>("BookSummary")!=null || _cache.Get<int>("NumberPages") != 0 ||
+                    _cache.Get<string>("PublisherVal")!=null || _cache.Get<string>("AuthorVal")!=null )
             {
                 responseSaving.Value.IsBookSaved = true;
             }

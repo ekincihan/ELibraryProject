@@ -9,13 +9,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace ELibrary.Portal.Controllers
 {
-    
-  
     public class CategoryController : Controller
     {
+        private IMemoryCache _cache;
+
+        public CategoryController(IMemoryCache cache)
+        {
+            _cache = cache;
+        }
         [HttpGet]
         public ActionResult Index()
         {
@@ -58,6 +63,11 @@ namespace ELibrary.Portal.Controllers
         {
             Response<CategoryModel> responseSaving = JsonConvert.DeserializeObject<Response<CategoryModel>>(UiRequestManager.Instance.Post("Category", "Save", JsonConvert.SerializeObject(model.categoryModel)));
 
+            if (_cache.Get<string>("BookName") != null || _cache.Get<string>("BookSummary") != null || _cache.Get<int>("NumberPages") != 0 ||
+                _cache.Get<string>("PublisherVal") != null || _cache.Get<string>("AuthorVal") != null)
+            {
+                responseSaving.Value.IsBookSaved = true;
+            }
             return Json(responseSaving);
         }
 

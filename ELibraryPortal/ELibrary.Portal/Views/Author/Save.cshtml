@@ -108,6 +108,9 @@
                     document.getElementById("AuthorSurname").value = "";
                     document.getElementById("AuthorBirthDate").value = "";
                     document.getElementById("txtWebsite").value = "";
+                  if (data.value.isBookSaved) {
+                    window.location.href  = '/book/save';
+                  }
                 }
                 else {
                     SpinLoader(false);

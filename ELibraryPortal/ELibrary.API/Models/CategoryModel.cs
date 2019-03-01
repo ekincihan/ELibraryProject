@@ -22,6 +22,7 @@ namespace ELibrary.API.Models
         public bool IsActive { get; set; } = true;
         public BookModel Book { get; set; }
         public List<MongoBookModel> Books { get; set; }
+        public bool IsBookSaved { get; set; }
 
     }
 }

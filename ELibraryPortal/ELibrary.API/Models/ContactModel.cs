@@ -7,6 +7,10 @@ namespace ELibrary.API.Models
 {
     public class ContactModel
     {
+        public ContactModel()
+        {
+            Id=Guid.Empty;
+        }
         public Guid Id { get; set; }
         public string NameSurname { get; set; }
         public string Email { get; set; }

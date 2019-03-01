@@ -10,12 +10,20 @@ using ELibrary.Portal.Manager;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
     public class AuthorController :  Controller
     {
+        private IMemoryCache _cache;
+
+        public AuthorController(IMemoryCache cache)
+        {
+            _cache = cache;
+        }
+
         public IActionResult Index()
         {
             var authors = JsonConvert.DeserializeObject<Response<List<AuthorModel>>>(UiRequestManager.Instance.Get("Author", "List"));
@@ -50,6 +58,11 @@ namespace ELibrary.Portal.Controllers
                 };
 
                 await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+            }
+            if (_cache.Get<string>("BookName") != null || _cache.Get<string>("BookSummary") != null || _cache.Get<int>("NumberPages") != 0 ||
+                _cache.Get<string>("PublisherVal") != null || _cache.Get<string>("AuthorVal") != null)
+            {
+                responseSaving.Value.IsBookSaved = true;
             }
             return Json(responseSaving);
         }

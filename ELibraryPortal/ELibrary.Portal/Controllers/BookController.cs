@@ -151,13 +151,14 @@ namespace ELibrary.Portal.Controllers
         [HttpPost]
         public void SetSessionValues(SessionModel model)
         {
-            _cache.Set("BookName", model.BookName);
-            _cache.Set("BookSummary", model.BookSummary);
-            _cache.Set("NumberPages", model.NumberPages);
-            _cache.Set("PublisherVal", model.PublisherVal != null ? model.PublisherVal : "");
-            _cache.Set("PublisherText", model.PublisherText);
-            _cache.Set("AuthorVal", model.AuthorVal != null ? model.AuthorVal : "");
-            _cache.Set("AuthorText", model.AuthorText);
+            _cache.Set("BookName", model.BookName,TimeSpan.FromMinutes(4));
+            _cache.Set("BookSummary", model.BookSummary, TimeSpan.FromMinutes(4));
+            _cache.Set("NumberPages", model.NumberPages, TimeSpan.FromMinutes(4));
+            _cache.Set("PublisherVal", model.PublisherVal != null ? model.PublisherVal : "", TimeSpan.FromMinutes(4));
+            _cache.Set("PublisherText", model.PublisherText, TimeSpan.FromMinutes(4));
+            _cache.Set("AuthorVal", model.AuthorVal != null ? model.AuthorVal : "", TimeSpan.FromMinutes(4));
+            _cache.Set("AuthorText", model.AuthorText, TimeSpan.FromMinutes(4));
+            _cache.Set("EtiketHtml", model.EtiketHtml, TimeSpan.FromMinutes(4));
         }
 
         public JsonResult GetSession()
@@ -170,6 +171,7 @@ namespace ELibrary.Portal.Controllers
             model.PublisherText = _cache.Get<string>("PublisherText");
             model.AuthorVal = _cache.Get<string>("AuthorVal");
             model.AuthorText = _cache.Get<string>("AuthorText");
+            model.EtiketHtml = _cache.Get<string>("EtiketHtml");
 
             return Json(model);
         }

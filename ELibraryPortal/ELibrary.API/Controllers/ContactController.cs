@@ -65,10 +65,10 @@ namespace ELibrary.API.Controllers
         public async Task<Response<ContactModel>> Post([FromBody]ContactModel model)
         {
             Response<ContactModel> contactresponsemodel = new Response<ContactModel>();
-
             try
             {
                 Contact entity = _mapper.Map<Contact>(model);
+                entity.Type = 3;
                 entity = await (model.Id != Guid.Empty ? _contact.UpdateAsync(entity) : _contact.AddAsync(entity));
                 contactresponsemodel.Value = _mapper.Map<ContactModel>(entity);
                 contactresponsemodel.IsSuccess = true;
@@ -85,11 +85,11 @@ namespace ELibrary.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetOne/{id}")]
-        public async Task<Response<ContactModel>> GetOne(Guid id)
+        [Route("GetOne")]
+        public async Task<Response<ContactModel>> GetOne()
         {
             Response<ContactModel> contactResponse = new Response<ContactModel>();
-            Contact entityList = await _contact.GetTAsync(x => x.Id == id);
+            Contact entityList = await _contact.GetTAsync(x => x.Type == 3);
             contactResponse.Value = _mapper.Map<ContactModel>(entityList);
 
             return contactResponse;
