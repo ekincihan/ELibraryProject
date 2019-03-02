@@ -31,11 +31,11 @@ namespace ELibrary.Portal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(ContactModel model)
+        public JsonResult Save(ContactModel model)
         {
             Response<ContactModel> responseSaving = JsonConvert.DeserializeObject<Response<ContactModel>>(UiRequestManager.Instance.Post("Contact", "Save", JsonConvert.SerializeObject(model)));
 
-            return View();
+            return Json(responseSaving);
         }
 
 

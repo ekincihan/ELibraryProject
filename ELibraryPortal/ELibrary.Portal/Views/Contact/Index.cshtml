@@ -4,14 +4,13 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <a href="@Url.Action("Save", "Contact")" style="float:right"> <input type="submit" class="btn btn-primary" value="İletişim Bilgisi Ekle" /></a>
         <div class="widget no-border">
             <table id="order-table" style="width: 100%" class="table table-hover dt-responsive nowrap">
                 <thead>
                     <tr>
-                        <th style="width: 10%" class="text-center">Kimden</th>
+                        <th style="width: 10%" class="text-center">Telefon</th>
                         <th style="width: 15%" class="text-center">Email</th>
-                        <th style="width: 10%" class="text-center">Mesaj</th>
+                        <th style="width: 10%" class="text-center">Adres</th>
                         <th style="width: 15%" class="text-center">İşlemler</th>
                     </tr>
                 </thead>
@@ -19,11 +18,12 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td class="text-center">@item.NameSurname</td>
-                            <td class="text-center">@item.Email</td>
-                            <td class="text-center">@item.Message</td>
+                            <td class="text-center">@item.PhonuNumber</td>
+                            <td class="text-center">@item.SiteMail</td>
+                            <td class="text-center">@item.Adress</td>
                             <td class="text-center">
                                 <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
+                                    <a href="@Url.Action("Save", "Contact", new { id = item.Id })" id="update" class="btn btn-outline btn-success"><i class="ti-pencil"></i></a>
                                     <a id="delete" data-model="@(Newtonsoft.Json.JsonConvert.SerializeObject(item))" data-id="@item.Id" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
                                 </div>
                             </td>
