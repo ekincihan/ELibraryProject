@@ -39,3 +39,33 @@
 
   </div>
 </div>
+
+
+<script>
+    $('form').submit(function (e) {
+        SpinLoader(true);
+        e.preventDefault();
+        $.ajax({
+            url: '/Contacts/Save',
+            data: $(this).serialize(),
+            type: 'POST',
+            success: function (data) {
+                console.log(data);
+                if (data.isSuccess) {
+                    swal("Basarili!", "Kaydedildi!", "success");
+                    document.getElementById("TagName").value = "";
+                }
+                else {
+                    swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+                }
+            },
+            error: function () {
+                SpinLoader(false);
+                swal("Hata!", "Bir sorun oluştu!", "error");
+            }
+        }).done(function () {
+            SpinLoader(false);
+        });
+    });
+
+</script>
