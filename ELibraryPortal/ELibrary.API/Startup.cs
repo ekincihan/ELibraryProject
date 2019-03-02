@@ -47,7 +47,7 @@ namespace ELibrary.API
             });
             services.AddDbContext<ELibraryDBContext>(
                 options => options.UseSqlServer(@"server=diyarkitap.com\MSSQLSERVER2012;user id=baltazzar;password=Angel4you!;initial catalog=DiyarKitapDB"));
-            services.AddIdentity<ApplicationUser, AppIdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ELibraryDBContext>()
                 .AddDefaultTokenProviders();
 

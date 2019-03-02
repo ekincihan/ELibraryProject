@@ -13,7 +13,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : UIControllerBase
     {
         private IMemoryCache _cache;
 

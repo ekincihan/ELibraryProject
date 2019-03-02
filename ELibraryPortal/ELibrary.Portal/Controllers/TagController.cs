@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class TagController : Controller
+    public class TagController : UIControllerBase
     {
         public ActionResult Index()
         {

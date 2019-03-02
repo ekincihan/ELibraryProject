@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class PublisherController : Controller
+    public class PublisherController : UIControllerBase
     {
         private IMemoryCache _cache;
 

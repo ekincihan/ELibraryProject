@@ -5,24 +5,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using ELibrary.Portal.Helpers;
 
 namespace ELibrary.Portal.Manager
 {
     public static class UIStateManager
     {
+        private static HttpContextAccessor _httpContextAccessor = new HttpContextAccessor();
         public static ApplicationUser CurrentMember
         {
             get
             {
-                ApplicationUser currentMember = null; // HttpRequest .Session["CurrentMember"] as ApplicationUser;
+                ApplicationUser currentMember = _httpContextAccessor.HttpContext.Session.Get<ApplicationUser>("CurrentUser");
 
                 return currentMember;
             }
-
-            //set
-            //{
-            //    HttpContext.Current.Session["CurrentMember"] = value;
-            //}
+            set
+            {
+                _httpContextAccessor.HttpContext.Session.Set<ApplicationUser>("CurrentUser", value);
+            }
         }
     }
 }

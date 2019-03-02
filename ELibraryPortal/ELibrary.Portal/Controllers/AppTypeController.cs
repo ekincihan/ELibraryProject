@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 namespace ELibrary.Portal.Controllers
 {
-    public class AppTypeController : Controller
+    public class AppTypeController : UIControllerBase
     {
         public ActionResult Index()
         {

@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : UIControllerBase
     {
         public IActionResult Index()
         {

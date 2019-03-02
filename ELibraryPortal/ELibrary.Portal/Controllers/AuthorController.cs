@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class AuthorController :  Controller
+    public class AuthorController : UIControllerBase
     {
         private IMemoryCache _cache;
 

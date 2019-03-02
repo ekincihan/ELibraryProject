@@ -16,7 +16,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class BookController : Controller
+    public class BookController : UIControllerBase
     {
         private IMemoryCache _cache;
 

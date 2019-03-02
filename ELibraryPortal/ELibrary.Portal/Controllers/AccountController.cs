@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ELibrary.Portal.Helpers;
+using ELibrary.DAL.Concrete.EntityFramework;
 
 namespace ELibrary.Portal.Controllers
 {
@@ -33,11 +34,11 @@ namespace ELibrary.Portal.Controllers
             if (!TryValidateModel(model))
                 return View(model);
             Response<ApplicationUser> responseSaving = JsonConvert.DeserializeObject<Response<ApplicationUser>>(UiRequestManager.Instance.Post("Account", "PortalLogin", JsonConvert.SerializeObject(model)));
-
+            
 
             if (responseSaving.IsSuccess && responseSaving.Value != null)
             {
-                _httpContextAccessor.HttpContext.Session.Set<ApplicationUser>("CurrentUser", responseSaving.Value);
+                UIStateManager.CurrentMember = responseSaving.Value;
                 return RedirectToAction("Index", "Home");
             }
             ModelState.AddModelError(string.Empty, "Kullanıcı adı veya şifre hatalı.");

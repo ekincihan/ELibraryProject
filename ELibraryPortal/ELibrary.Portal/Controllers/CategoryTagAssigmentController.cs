@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ELibrary.API.Models;
 using ELibrary.API.Type;
+using ELibrary.Portal.Custom;
 using ELibrary.Portal.Manager;
 using ELibrary.Portal.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class CategoryTagAssigmentController : Controller
+    public class CategoryTagAssigmentController : UIControllerBase
     {
         public IActionResult Index()
         {

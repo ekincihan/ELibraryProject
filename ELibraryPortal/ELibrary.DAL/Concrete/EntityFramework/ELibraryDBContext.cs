@@ -9,11 +9,12 @@ using System.Text;
 
 namespace ELibrary.DAL.Concrete.EntityFramework
 {
-    public class ELibraryDBContext : IdentityDbContext<ApplicationUser>
+    public class ELibraryDBContext : IdentityDbContext<ApplicationUser, IdentityRole, string>
     {
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public virtual DbSet<AppIdentityRole> AppIdentityRoles { get; set; }
+        public virtual DbSet<IdentityRole> IdentityRoles { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
