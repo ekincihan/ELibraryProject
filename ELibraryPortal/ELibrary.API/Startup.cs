@@ -101,6 +101,7 @@ namespace ELibrary.API
             {
                 app.UseHsts();
             }
+            app.UseAuthentication();
             app.UseDeveloperExceptionPage();
 
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());

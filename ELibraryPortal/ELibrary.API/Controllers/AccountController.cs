@@ -25,21 +25,24 @@ namespace ELibrary.API.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-        //private readonly RoleManager<IdentityRole<string>> _roleManager;
+        private readonly RoleManager<AppIdentityRole> _roleManager;
+        private readonly RoleValidator<AppIdentityRole> _roleValidator;
         private readonly IConfiguration _configuration;
         private IHostingEnvironment _hostingEnvironment;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            //RoleManager<IdentityRole<string>> roleManager,
-            IConfiguration configuration, IHostingEnvironment hostingEnvironment)
+            RoleManager<AppIdentityRole> roleManager,
+            RoleValidator<AppIdentityRole> roleValidator,
+        IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
             _hostingEnvironment = hostingEnvironment;
-            //_roleManager = roleManager;
+            _roleManager = roleManager;
+            _roleValidator = roleValidator;
         }
 
         [HttpPost("Login")]
@@ -59,6 +62,7 @@ namespace ELibrary.API.Controllers
         }
 
         [HttpPost("PortalLogin")]
+        [Authorize(Roles ="admin")]
         public async Task<Response<ApplicationUser>> PortalLogin([FromBody]LoginModel model)
         {
             try
