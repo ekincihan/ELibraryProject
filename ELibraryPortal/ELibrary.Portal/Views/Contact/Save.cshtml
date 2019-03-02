@@ -1,7 +1,7 @@
 ﻿@model ELibrary.API.Models.ContactModel
 
 @{
-  ViewBag.Title = "title";
+  ViewBag.Title = "Save";
   Layout = "_Layout";
 }
 
@@ -10,11 +10,9 @@
     <h3 class="widget-title">Yazar Ekleme</h3>
   </div>
   <div class="widget-body">
-    <div class="form-group">
-    </div>
+      <div class="form-group">
     <form asp-action="Save" method="post" asp-antiforgery="false" enctype="multipart/form-data">
       <input asp-for="Id" type="hidden" />
-      <div class="col-xs-6">
 
         <div class="form-group">
           <label class="control-label">Telefon</label>
@@ -23,7 +21,7 @@
         </div>
         <div class="form-group">
           <label class="control-label">E-mail</label>
-          <input asp-for="SiteMail" class="form-control" id="AuthorSurname" />
+          <input asp-for="SiteMail" class="form-control" id="SiteMail" />
           <span asp-validation-for="SiteMail" class="text-danger"></span>
         </div>
         <div class="form-group">
@@ -31,11 +29,39 @@
           <input asp-for="Adress" class="form-control" placeholder="Adı" id="AuthorName" />
           <span asp-validation-for="Adress" class="text-danger"></span>
         </div>
-      </div>
-      <div class="row">
-        <button type="submit" name="btnSubmit" class="btn btn-raised btn-black pull-left">Kaydet</button>
+      <div class="form-group">
+          <input type="submit" value="Oluştur" class="btn btn-default" />
       </div>
     </form>
 
   </div>
 </div>
+
+
+<script>
+    $('form').submit(function (e) {
+        SpinLoader(true);
+        e.preventDefault();
+        $.ajax({
+            url: '/Contact/Save',
+            data: $(this).serialize(),
+            type: 'POST',
+            success: function (data) {
+                console.log(data);
+                if (data.isSuccess) {
+                    swal("Basarili!", "Kaydedildi!", "success");
+                }
+                else {
+                    swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+                }
+            },
+            error: function () {
+                SpinLoader(false);
+                swal("Hata!", "Bir sorun oluştu!", "error");
+            }
+        }).done(function () {
+            SpinLoader(false);
+        });
+    });
+
+</script>
