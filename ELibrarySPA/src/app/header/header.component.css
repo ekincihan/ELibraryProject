@@ -1,0 +1,124 @@
+header.scrolled .navbar-collapse, .collapsing {
+  transition: all .15s ease;
+}
+
+header .navbar-collapse {
+  padding-right: 0;
+}
+
+.navbar-collapse {
+  position: absolute;
+  padding: .5rem .8rem !important;
+  top: 67px;
+  left: 15px;
+  background: #F5F3F2 url(http://turgutkarahan.com/boox/img/body-bg.png) top left repeat;
+  width: calc(100% - 30px);
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+header.scrolled .navbar-collapse {
+  border-radius: 0 0 5px 5px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.08), 0 6px 12px rgba(0,0,0,.05);
+}
+.navbar-collapse .row {
+  margin: 0;
+}
+.navbar-collapse .main-menu {
+  padding: 0;
+  flex: none;
+  max-width: none;
+  text-align: left;
+}
+.navbar-collapse .main-menu .navbar-nav,
+.navbar-collapse .main-menu li {
+  width: 100%;
+  display: inline-block;
+}
+.navbar-collapse .main-menu li {
+  padding:0;
+  margin: 0 ;
+  text-align: left !important;
+}
+.navbar-collapse .main-menu li a {
+  padding:.5rem .35rem !important;
+}
+.navbar-collapse .btns {
+  text-align: left !important;
+  padding: .6rem .35rem .75rem .35rem !important;
+}
+.navbar-collapse .btns .btn-group {
+  box-shadow: none;
+  width: 100%;
+  margin: 0;
+}
+.navbar-collapse .btns .btn-group .btn {
+  min-width: auto;
+  width: 50%;
+  padding: 0 .6rem;
+}
+.navbar-collapse .dropdown-menu {
+  width: 100%;
+  box-shadow: none;
+  margin-bottom: 0;
+  margin-left: .35rem;
+  margin-top: 0 !important;
+  padding: 0 .45rem !important;
+  border-radius: 0;
+  border-left: 4px solid rgba(164,155,148,.15);
+  background-color: transparent;
+  position: static;
+}
+header .btns .in .dropdown-menu {
+  margin-top: 10px !important;
+  margin-left: 0;
+}
+.navbar-collapse .dropdown-menu .dropdown-item {
+  width: calc(50% - 3px) !important;
+  padding: .35rem !important
+}
+.navbar-collapse .dropdown-menu .last-item {
+  width: 100% !important;
+}
+
+.navbar-toggler {
+  background: url(http://turgutkarahan.com/boox/img/menu-icon.svg) center no-repeat;
+  width: 40px;
+  height: 40px;
+  background-size: 22px 19px;
+  padding: 0;
+  position: relative;
+  right: -8px;
+  top: 2px;
+  display: inline-block !important;
+}
+
+@media (max-width: 576px) {
+  .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7,
+  .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4,
+  .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .row {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+  .dropdown-menu {
+    padding: .6rem !important;
+  }
+  header, header .navbar {
+    min-height: 80px;
+  }
+  header .container {
+    padding: 0 6px !important;
+  }
+  .navbar-collapse {
+    top: 63px;
+  }
+  .b-box .cover {
+    height: 255px !important;
+  }
+  .sidebar .b-box .cover, .detailed .b-box .cover {
+    height: auto !important;
+  }
+}

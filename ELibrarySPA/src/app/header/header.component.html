@@ -6,7 +6,7 @@
       <div class="col-6 col-sm-3 col-md-3 col-lg-3">
         <h1 class="m-0 p-0"><a class="navbar-brand m-0 p-0 d-inline-block" href="javascript:void()" [routerLink]="['/index']">E-Library</a></h1>
       </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-9 collapse navbar-collapse" id="navbarCollapse">
+      <div  *ngIf="hamburgerOpened" class="col-12 col-sm-12 col-md-12 col-lg-9 collapse navbar-collapse" id="navbarCollapse">
         <div class="row w-100">
           <div class="col-6 col-sm-4 col-md-8 col-lg-8 main-menu">
             <ul class="navbar-nav justify-content-center">
@@ -67,7 +67,7 @@
       </div>
       <div class="col-6 col-sm-6 text-right">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
-          aria-expanded="false" aria-label="Toggle navigation">
+          aria-expanded="false" aria-label="Toggle navigation" (click)="close()">
         </button>
       </div>
     </div>

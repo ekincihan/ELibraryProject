@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   categories: Category[];
   publishers: Publisher[];
   user: any;
-
+  hamburgerOpened = false;
   constructor(
     private headerService: HeaderService,
     private modalService: BsModalService,
@@ -39,7 +39,9 @@ export class HeaderComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user'));
 
   }
-
+  close(){
+    this.hamburgerOpened = !this.hamburgerOpened;
+  }
   ngOnInit() {
     this.loaderService.show();
     this.headerService.getAll("Category/List").subscribe(res => {
