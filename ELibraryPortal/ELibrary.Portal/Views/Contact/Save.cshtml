@@ -11,28 +11,35 @@
   </div>
   <div class="widget-body">
       <div class="form-group">
-    <form asp-action="Save" method="post" asp-antiforgery="false" enctype="multipart/form-data">
-      <input asp-for="Id" type="hidden" />
+          <form asp-action="Save" method="post" asp-antiforgery="false" enctype="multipart/form-data">
+              <input asp-for="Id" type="hidden" />
 
-        <div class="form-group">
-          <label class="control-label">Telefon</label>
-          <input asp-for="PhonuNumber" class="form-control" id="AuthorSurname" />
-          <span asp-validation-for="PhonuNumber" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-          <label class="control-label">E-mail</label>
-          <input asp-for="SiteMail" class="form-control" id="SiteMail" />
-          <span asp-validation-for="SiteMail" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-          <label class="control-label">Adres</label>
-          <input asp-for="Adress" class="form-control" placeholder="Adı" id="AuthorName" />
-          <span asp-validation-for="Adress" class="text-danger"></span>
-        </div>
-      <div class="form-group">
-          <input type="submit" value="Oluştur" class="btn btn-default" />
-      </div>
-    </form>
+              <div class="form-group">
+                  <label class="control-label">Telefon</label>
+                  <input asp-for="PhonuNumber" class="form-control" id="AuthorSurname" />
+                  <span asp-validation-for="PhonuNumber" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">E-mail</label>
+                  <input asp-for="SiteMail" class="form-control" id="SiteMail" />
+                  <span asp-validation-for="SiteMail" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">Adres</label>
+                  <input asp-for="Adress" class="form-control" placeholder="Adı" id="AuthorName" />
+                  <span asp-validation-for="Adress" class="text-danger"></span>
+              </div>
+
+              <div class="form-group">
+                  <label class="control-label">Map Link</label>
+                  <input asp-for="Maps" class="form-control" placeholder="Adı" id="AuthorName" />
+                  <span asp-validation-for="Maps" class="text-danger"></span>
+              </div>
+
+              <div class="form-group">
+                  <input type="submit" value="Oluştur" class="btn btn-default" />
+              </div>
+          </form>
 
   </div>
 </div>

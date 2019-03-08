@@ -18,5 +18,6 @@ namespace ELibrary.API.Models
         public string Adress { get; set; }
         public string PhonuNumber { get; set; }
         public string SiteMail { get; set; }
+        public string Maps { get; set; }
     }
 }
