@@ -37,7 +37,7 @@
                             <td class="text-center">
                                 <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
                                     <a href="@Url.Action("Save", "Author", new { id = item.Id })" id="update" class="btn btn-outline btn-success"><i class="ti-pencil"></i></a>
-                                    @*<a id="delete" data-model="@(Newtonsoft.Json.JsonConvert.SerializeObject(item))" data-id="@item.Id" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>*@
+                                    <a id="delete" data-model="@(Newtonsoft.Json.JsonConvert.SerializeObject(item))" data-id="@item.Id" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
                                 </div>
                             </td>
                         </tr>

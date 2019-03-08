@@ -67,6 +67,7 @@ namespace ELibrary.API
             services.AddTransient<IContact, EFContact>();
             services.AddTransient<IAbout, EFAbout>();
             services.AddTransient<IBookTagAssignment, EFBookTagAssignment>();
+            services.AddTransient<IBanner, EFBanner>();
 
             services.Configure<IISOptions>(options =>
             {
