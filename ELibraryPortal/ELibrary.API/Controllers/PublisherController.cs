@@ -89,14 +89,31 @@ namespace ELibrary.API.Controllers
             Response<PublisherModel> publisherResponseModel = new Response<PublisherModel>();
             try
             {
+
                 Publisher entity = _mapper.Map<Publisher>(model);
-                entity = await (model.Id != Guid.Empty ? _publisher.UpdateAsync(entity) : _publisher.AddAsync(entity));
-                publisherResponseModel.Value = _mapper.Map<PublisherModel>(entity);
-                publisherResponseModel.IsSuccess = true;
+                Publisher entityT = _mapper.Map<Publisher>(model);
+                entityT = _publisher.GetT(x => x.Name.Trim() == entityT.Name.Trim());
+                if (model.Id!=Guid.Empty)
+                {
+                    entity = await (model.Id != Guid.Empty ? _publisher.UpdateAsync(entity) : _publisher.AddAsync(entity));
+                    publisherResponseModel.Value = _mapper.Map<PublisherModel>(entity);
+                    publisherResponseModel.IsSuccess = true;
+                }
+                else if (model.Id==Guid.Empty && entityT==null)
+                {
+                    entity = await (model.Id != Guid.Empty ? _publisher.UpdateAsync(entity) : _publisher.AddAsync(entity));
+                    publisherResponseModel.Value = _mapper.Map<PublisherModel>(entity);
+                    publisherResponseModel.IsSuccess = true;
+                }
+              else
+                {
+                    publisherResponseModel.Message = "Aynı Isimli Yayınevi Mevcut";
+                    publisherResponseModel.IsSuccess = false;
+                }
             }
             catch (Exception e)
             {
-                publisherResponseModel.Exception = e;
+                publisherResponseModel.Message = "Bir Hata Oluştu";
                 publisherResponseModel.IsSuccess = false;
             }
 

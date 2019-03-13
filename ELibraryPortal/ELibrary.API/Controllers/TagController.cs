@@ -45,15 +45,31 @@ namespace ELibrary.API.Controllers
                 try
                 {
                     Tag entity = _mapper.Map<Tag>(model);
+                    Tag entityT = _mapper.Map<Tag>(model);
+                   entityT = _tag.GetT(x => x.Name.Trim()==entityT.Name.Trim());
+                if (model.Id != Guid.Empty)
+                {
                     entity = await (model.Id != Guid.Empty ? _tag.UpdateAsync(entity) : _tag.AddAsync(entity));
                     tagResponseModel.Value = _mapper.Map<TagModel>(entity);
                     tagResponseModel.IsSuccess = true;
+                }
+                else if (model.Id == Guid.Empty && entityT == null)
+                {
 
+                    entity = await (model.Id != Guid.Empty ? _tag.UpdateAsync(entity) : _tag.AddAsync(entity));
+                    tagResponseModel.Value = _mapper.Map<TagModel>(entity);
+                    tagResponseModel.IsSuccess = true;
+                }
+                else
+                {
+                    tagResponseModel.Message = "Aynı Isimli Tag Mevcut";
+                    tagResponseModel.IsSuccess = false;
+                }
                 }
                 catch (Exception e)
                 {
 
-                    tagResponseModel.Exception = e;
+                    tagResponseModel.Message = "Bir Hata Oluştu";
                     tagResponseModel.IsSuccess = false;
                 }
 
