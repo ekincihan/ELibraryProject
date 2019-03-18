@@ -30,7 +30,7 @@ namespace ELibrary.API.Controllers
         public Response<List<BannerModel>> Get()
         {
             Response<List<BannerModel>> bannerResponse = new Response<List<BannerModel>>();
-            List<Banner> entityList = _banner.GetList(x => x.IsActive == false);
+            List<Banner> entityList = _banner.GetList();
             bannerResponse.Value = _mapper.Map<List<BannerModel>>(entityList);
 
             return bannerResponse;
@@ -41,6 +41,14 @@ namespace ELibrary.API.Controllers
         public async Task<Response<BannerModel>> Post([FromBody]BannerModel model)
         {
             Response<BannerModel> bannerResponseModel = new Response<BannerModel>();
+            if (model.IsActive)
+            {
+                Response<BannerModel> bannerResponse = new Response<BannerModel>();
+                Banner entityList = _banner.GetT(x => x.IsActive == true);
+                entityList.IsActive = false;
+                entityList = await _banner.UpdateAsync(entityList);
+                //bannerResponse.Value = _mapper.Map<BannerModel>(entityList);
+            }
             try
             {
                 Banner entity = _mapper.Map<Banner>(model);

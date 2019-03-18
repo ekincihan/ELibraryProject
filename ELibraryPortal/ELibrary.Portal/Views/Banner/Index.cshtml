@@ -24,7 +24,7 @@
                 {
                     <tr>
                         <td class="text-center">@item.Name</td>
-                        <td class="text-center">@item.SendUrl</td>
+                        <td class="text-center">@(item.AppFileModel != null ? item.AppFileModel.Name : "" )</td>
                         @*<td class="text-center"><span class="label label-warning">Pending</span></td>*@
                         <td class="text-center">
                             <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">

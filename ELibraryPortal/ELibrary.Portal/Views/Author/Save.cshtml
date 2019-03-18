@@ -97,6 +97,7 @@
         SpinLoader(true);
         e.preventDefault();
         var formData = new FormData(this);
+
         $.ajax({
             url: "/Author/Save",
             type: 'POST',

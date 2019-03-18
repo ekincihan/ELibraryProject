@@ -4,9 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="col-md-12">
-    <div class="widget">
 
+    <div class="widget">
         <div class="widget-heading">
             <h3 class="widget-title">Banner</h3>
         </div>
@@ -14,44 +13,69 @@
             <div class="form-group">
                 <a href="@Url.Action("Index", "Banner")" style="float:right"> <input type="submit" class="btn btn-primary" value="Banner Listele" /></a>
             </div>
-            <form asp-action="Save">
+            <form asp-action="Save" method="post" asp-antiforgery="false" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input asp-for="Id" type="hidden" />
-                <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" id="BannerName" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" id="BannerName" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="has-success">
+                            <div class="checkbox-custom">
+                                <input asp-for="IsActive" checked id="checkboxSuccess" type="checkbox">
+                                <label for="checkboxSuccess" class="checkbox-success">Aktif</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="SendUrl" class="control-label"></label>
-                    <input asp-for="SendUrl" class="form-control" id="BannerSendUrl" />
-                    <span asp-validation-for="SendUrl" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Oluştur" class="btn btn-default" />
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label class="control-label">Resim</label>
+                            <label></label>
+                            <input id="FileBasic" name="FormFile" asp-for="FormFile" placeholder="PNG | JPG" type="file" value="Resim Ekle">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Oluştur" class="btn btn-default" />
 
-                </div>
+                    </div>
 
             </form>
 
         </div>
     </div>
-</div>
+
 
 <script>
+    $(document).ready(function () {
+        $('#FileBasic').fileinput({
+            maxFileCount: 1,
+            showUpload: false,
+            allowedFileTypes: ['image', 'video']
+        });
+    });
+
     $('form').submit(function (e) {
         SpinLoader(true);
         e.preventDefault();
+        var formData = new FormData(this);
+        console.log(formData);
+
         $.ajax({
             url: '/Banner/Save',
-            data: $(this).serialize(),
+            data: formData,
             type: 'POST',
+            cache: false,
+            contentType: false,
+            processData: false,
             success: function (data) {
                 console.log(data);
                 if (data.isSuccess) {
                     swal("Basarili!", "Kaydedildi!", "success");
                     document.getElementById("BannerName").value = "";
-                    document.getElementById("BannerSendUrl").value = "";
                 }
                 else {
                     swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");

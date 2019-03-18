@@ -26,7 +26,7 @@ namespace ELibrary.Portal.Manager
 
         protected UiRequestManager()
         {
-            this.BaseApiUrl = "http://localhost:60088/api";
+            this.BaseApiUrl = "http://localhost:5001/api";
             //this.BaseApiUrl = "http://api.diyarkitap.com/api";
         }
 
