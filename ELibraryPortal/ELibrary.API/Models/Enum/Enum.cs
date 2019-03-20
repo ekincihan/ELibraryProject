@@ -14,6 +14,7 @@ namespace ELibrary.API.Models.Enum
             UserThumbnail = 1002,
             AuthorThumbnail = 1003,
             Publication = 1004,
+            Slider = 1005
         }
     }
 }
