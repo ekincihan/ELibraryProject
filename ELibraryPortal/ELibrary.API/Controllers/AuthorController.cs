@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using ELibrary.API.Base;
 using ELibrary.API.Models;
 using ELibrary.API.Type;
 using ELibrary.DAL.Abstract;
 using ELibrary.Entities.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ELibrary.API.Controllers
 {
@@ -76,14 +75,35 @@ namespace ELibrary.API.Controllers
             Response<AuthorModel> authorResponseModel = new Response<AuthorModel>();
             try
             {
+
+
                 Author entity = _mapper.Map<Author>(model);
-                entity = await (model.Id != Guid.Empty ? _author.UpdateAsync(entity) : _author.AddAsync(entity));
-                authorResponseModel.Value = _mapper.Map<AuthorModel>(entity);
-                authorResponseModel.IsSuccess = true;
+                Author entityT = _mapper.Map<Author>(model);
+                entityT = _author.GetT(x => x.Name.Trim() == entityT.Name.Trim() && x.Surname.Trim() == entityT.Surname.Trim());
+                if ((model.Id != Guid.Empty))
+                {
+                    
+                    entity = await (model.Id != Guid.Empty ? _author.UpdateAsync(entity) : _author.AddAsync(entity));
+                    authorResponseModel.Value = _mapper.Map<AuthorModel>(entity);
+                    authorResponseModel.IsSuccess = true;
+                }
+                else if (model.Id == Guid.Empty && entityT == null)
+                {
+                    entity = await (model.Id != Guid.Empty ? _author.UpdateAsync(entity) : _author.AddAsync(entity));
+                    authorResponseModel.Value = _mapper.Map<AuthorModel>(entity);
+                    authorResponseModel.IsSuccess = true;
+                }
+             
+                else
+                {
+                    authorResponseModel.IsSuccess = false;
+                    authorResponseModel.Message = "Aynı Isimli Yazar Mevcut";
+                }
+
             }
             catch (Exception e)
             {
-                authorResponseModel.Exception = e;
+                authorResponseModel.Message = "Bir Hata Oluştu";
                 authorResponseModel.IsSuccess = false;
             }
 

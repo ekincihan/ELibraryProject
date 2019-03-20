@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using ELibrary.API.Models;
 using ELibrary.API.Type;
 using ELibrary.DAL.Abstract;
 using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
 using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ELibrary.API.Controllers
 {
@@ -80,7 +78,7 @@ namespace ELibrary.API.Controllers
         public List<CategoryModel> FilterSearch([FromBody]CategorySearchModel model)
         {
             List<CategoryModel> models = new List<CategoryModel>();
-            var list = _categoryAssigment.GetList();
+            var list = _categoryAssigment.GetList(x => x.IsActive == true);
 
             foreach (var item in list)
             {

@@ -45,13 +45,29 @@ namespace ELibrary.API.Controllers
             try
             {
                 AppType entity = _mapper.Map<AppType>(model);
-                entity = await (model.Id != Guid.Empty ? _type.UpdateAsync(entity) : _type.AddAsync(entity));
-                typeResponseModel.Value = _mapper.Map<TypeModel>(entity);
-                typeResponseModel.IsSuccess = true;
+                AppType entityT = _mapper.Map<AppType>(model);
+                entityT = _type.GetT(x => x.Name.Trim() == entityT.Name.Trim());
+                if (model.Id != Guid.Empty)
+                {
+                    entity = await (model.Id != Guid.Empty ? _type.UpdateAsync(entity) : _type.AddAsync(entity));
+                    typeResponseModel.Value = _mapper.Map<TypeModel>(entity);
+                    typeResponseModel.IsSuccess = true;
+                }
+                else if (model.Id == Guid.Empty && entityT == null)
+                {
+                    entity = await (model.Id != Guid.Empty ? _type.UpdateAsync(entity) : _type.AddAsync(entity));
+                    typeResponseModel.Value = _mapper.Map<TypeModel>(entity);
+                    typeResponseModel.IsSuccess = true;
+                }
+                else
+                {
+                    typeResponseModel.Message = "Aynı Isımlı Tür Mevcut";
+                    typeResponseModel.IsSuccess = false;
+                }
             }
             catch (Exception e)
             {
-                typeResponseModel.Exception = e;
+                typeResponseModel.Message = "Bir Hata Oluştu";
                 typeResponseModel.IsSuccess = false;
             }
 

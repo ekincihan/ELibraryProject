@@ -44,13 +44,14 @@
             type: 'POST',
             success: function (data) {
                 console.log(data);
-                if (data.isSuccess) {
+                if (data.success) {
                     swal("Basarili!", "Kaydedildi!", "success");
                     document.getElementById("TypeName").value = "";
+                    SpinLoader(false);
                 }
                 else {
                     SpinLoader(false);
-                    swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+                    swal("Dikkat!", data.message, "warning");
                 }
             },
             error: function () {

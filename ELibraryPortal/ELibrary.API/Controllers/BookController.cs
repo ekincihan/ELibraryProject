@@ -67,14 +67,31 @@ namespace ELibrary.API.Controllers
             try
             {
                 Book entity = _mapper.Map<Book>(model);
-                entity = await (model.Id != Guid.Empty ? _book.UpdateAsync(entity) : _book.AddAsync(entity));
-                bookResponseModel.Value = _mapper.Map<BookModel>(entity);
-                bookResponseModel.IsSuccess = true;
+                Book entityT = _mapper.Map<Book>(model);
+                entityT = _book.GetT(x => x.BookName.Trim() == entityT.BookName.Trim());
+                if (model.Id != Guid.Empty)
+                {
+                    entity = await (model.Id != Guid.Empty ? _book.UpdateAsync(entity) : _book.AddAsync(entity));
+                    bookResponseModel.Value = _mapper.Map<BookModel>(entity);
+                    bookResponseModel.IsSuccess = true;
+                }
+                else if (model.Id == Guid.Empty && entityT == null)
+                {
+                    entity = await (model.Id != Guid.Empty ? _book.UpdateAsync(entity) : _book.AddAsync(entity));
+                    bookResponseModel.Value = _mapper.Map<BookModel>(entity);
+                    bookResponseModel.IsSuccess = true;
+                }
+                else
+                {
+                    bookResponseModel.Message = "Aynı Isimli Kitap Mevcut";
+                    bookResponseModel.IsSuccess = false;
+
+                }
 
             }
             catch (Exception e)
             {
-                bookResponseModel.Exception = e;
+                bookResponseModel.Message = "Bir Hata Oluştu";
                 bookResponseModel.IsSuccess = false;
 
             }

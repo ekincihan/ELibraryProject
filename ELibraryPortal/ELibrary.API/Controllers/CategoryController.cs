@@ -122,14 +122,32 @@ namespace ELibrary.API.Controllers
             {
 
                 Category entity = _mapper.Map<Category>(model);
-                entity = await (model.Id != Guid.Empty ? _category.UpdateAsync(entity) : _category.AddAsync(entity));
-                categoryResponseModel.Value = _mapper.Map<CategoryModel>(entity);
-                categoryResponseModel.IsSuccess = true;
+
+                Category entityT = _mapper.Map<Category>(model);
+                entityT = _category.GetT(x => x.Name.Trim()== entityT.Name.Trim());
+
+                if (model.Id != Guid.Empty)
+                {
+                    entity = await (model.Id != Guid.Empty ? _category.UpdateAsync(entity) : _category.AddAsync(entity));
+                    categoryResponseModel.Value = _mapper.Map<CategoryModel>(entity);
+                    categoryResponseModel.IsSuccess = true;
+                }
+                else if (model.Id == Guid.Empty && entityT == null)
+                {
+                    entity = await (model.Id != Guid.Empty ? _category.UpdateAsync(entity) : _category.AddAsync(entity));
+                    categoryResponseModel.Value = _mapper.Map<CategoryModel>(entity);
+                    categoryResponseModel.IsSuccess = true;
+                }
+                else
+                {
+                    categoryResponseModel.IsSuccess = false;
+                    categoryResponseModel.Message = "Aynı Isimli Kategori Mevcut";
+                }
 
             }
             catch (Exception e)
             {
-                categoryResponseModel.Exception = e;
+                categoryResponseModel.Message = "Bir Hata Oluştu";
                 categoryResponseModel.IsSuccess = false;
             }
 

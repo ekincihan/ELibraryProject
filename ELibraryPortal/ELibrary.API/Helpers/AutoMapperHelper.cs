@@ -94,6 +94,11 @@ namespace ELibrary.API.Helpers
             CreateMap<About, AboutModel>();
             CreateMap<AboutModel, About>();
             #endregion
+
+            #region Banner
+            CreateMap<Banner, BannerModel>();
+            CreateMap<BannerModel, Banner>();
+            #endregion
         }
     }
 }

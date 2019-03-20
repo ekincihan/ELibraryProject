@@ -49,16 +49,17 @@
             type: 'POST',
             success: function (data) {
                 console.log(data);
-                if (data.isSuccess) {
+                if (data.success) {
                     swal("Basarili!", "Kaydedildi!", "success");
                     document.getElementById("PublisherName").value = "";
                     document.getElementById("PublisherMail").value = "";
+                    SpinLoader(false);
                   if (data.value.isBookSaved) {
                     window.location.href  = '/book/save';
                   }
                 }
                 else {
-                    swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+                    swal("Dikkat!", data.message, "warning");
                 }
             },
             error: function () {

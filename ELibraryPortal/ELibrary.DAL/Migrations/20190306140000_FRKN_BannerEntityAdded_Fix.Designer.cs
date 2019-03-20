@@ -4,14 +4,16 @@ using ELibrary.DAL.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ELibrary.DAL.Migrations
 {
     [DbContext(typeof(ELibraryDBContext))]
-    partial class ELibraryDBContextModelSnapshot : ModelSnapshot
+    [Migration("20190306140000_FRKN_BannerEntityAdded_Fix")]
+    partial class FRKN_BannerEntityAdded_Fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -235,6 +237,8 @@ namespace ELibrary.DAL.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(100);
 
+                    b.Property<string>("SendUrl");
+
                     b.HasKey("Id");
 
                     b.ToTable("Banners");
@@ -404,8 +408,6 @@ namespace ELibrary.DAL.Migrations
                     b.Property<string>("Email");
 
                     b.Property<bool>("IsActive");
-
-                    b.Property<string>("Maps");
 
                     b.Property<string>("Message");
 

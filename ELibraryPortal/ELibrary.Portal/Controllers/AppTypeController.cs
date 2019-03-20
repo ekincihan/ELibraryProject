@@ -37,7 +37,7 @@ namespace ELibrary.Portal.Controllers
         {
             Response<TypeModel> responseSaving = JsonConvert.DeserializeObject<Response<TypeModel>>(UiRequestManager.Instance.Post("Type", "Save", JsonConvert.SerializeObject(model)));
 
-            return Json(responseSaving);
+            return Json(new ResultJson { Message=responseSaving.Message,Success=responseSaving.IsSuccess });
         }
 
         [HttpPost]
