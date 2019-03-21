@@ -97,24 +97,30 @@
         SpinLoader(true);
         e.preventDefault();
         var formData = new FormData(this);
+
         $.ajax({
             url: "/Author/Save",
             type: 'POST',
             data: formData,
             success: function (data) {
-                if (data.isSuccess) {
+                if (data.success) {
                     swal("Basarili!", "Kaydedildi!", "success");
                     document.getElementById("AuthorName").value = "";
                     document.getElementById("AuthorSurname").value = "";
                     document.getElementById("AuthorBirthDate").value = "";
                     document.getElementById("txtWebsite").value = "";
-                  if (data.value.isBookSaved) {
+                    SpinLoader(false);
+                    if (data.value.isBookSaved) {
+
                     window.location.href  = '/book/save';
                   }
                 }
+               
                 else {
+
                     SpinLoader(false);
-                    swal("Dikkat!", "Kayıt oluşturulamadı!", "warning");
+
+                    swal("Dikkat!", data.message, "warning");
                 }
             },
             error: function () {

@@ -47,7 +47,7 @@ namespace ELibrary.API
             });
             services.AddDbContext<ELibraryDBContext>(
                 options => options.UseSqlServer(@"server=diyarkitap.com\MSSQLSERVER2012;user id=baltazzar;password=Angel4you!;initial catalog=DiyarKitapDB"));
-            services.AddIdentity<ApplicationUser, AppIdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ELibraryDBContext>()
                 .AddDefaultTokenProviders();
 
@@ -67,6 +67,7 @@ namespace ELibrary.API
             services.AddTransient<IContact, EFContact>();
             services.AddTransient<IAbout, EFAbout>();
             services.AddTransient<IBookTagAssignment, EFBookTagAssignment>();
+            services.AddTransient<IBanner, EFBanner>();
 
             services.Configure<IISOptions>(options =>
             {
@@ -101,6 +102,7 @@ namespace ELibrary.API
             {
                 app.UseHsts();
             }
+            app.UseAuthentication();
             app.UseDeveloperExceptionPage();
 
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());

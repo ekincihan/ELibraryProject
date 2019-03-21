@@ -13,10 +13,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
+using ELibrary.Entities.Concrete;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class BookController : Controller
+    public class BookController : UIControllerBase
     {
         private IMemoryCache _cache;
 
@@ -85,6 +86,11 @@ namespace ELibrary.Portal.Controllers
         {
             Response<BookModel> responseSaving = JsonConvert.DeserializeObject<Response<BookModel>>(UiRequestManager.Instance.Post("Book", "Save", JsonConvert.SerializeObject(model.BookModel)));
 
+            if (responseSaving.Value==null)
+            {
+                return Json(new ResultJson { Message = responseSaving.Message, Success = responseSaving.IsSuccess });
+            }
+
             AppFileFilterModel appFileFilterModel = new AppFileFilterModel
             {
                 AppFileModuleId = responseSaving.Value.Id,
@@ -92,12 +98,16 @@ namespace ELibrary.Portal.Controllers
                 File = model.Thumbnail
             };
 
+
             var thumbNail = await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
 
             appFileFilterModel.File = model.Publication;
             appFileFilterModel.ModuleType = API.Models.Enum.Enum.Module.Publication;
 
             var book = await AppFileUploadHelper.Instance.UploadFile(appFileFilterModel);
+
+          
+
 
             if ( model.BookModel.Id != Guid.Empty && (book != null || thumbNail != null))
             {
@@ -131,7 +141,7 @@ namespace ELibrary.Portal.Controllers
                 }
                 JsonConvert.DeserializeObject<Response<bool>>(UiRequestManager.Instance.Post("BookTagAssignment", "Save", JsonConvert.SerializeObject(modelList)));
             }
-            return Json(responseSaving);
+            return Json(new ResultJson { Message=responseSaving.Message,Success=responseSaving.IsSuccess});
         }
 
         [HttpPost]

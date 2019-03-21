@@ -41,7 +41,7 @@ namespace ELibrary.Portal
             services.AddSession(options =>
             {
                 // Set a short timeout for easy testing.
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromMinutes(40);
                 options.Cookie.HttpOnly = true;
             });
 
@@ -54,6 +54,8 @@ namespace ELibrary.Portal
             services.AddTransient<IPublisher, EFPublisher>();
             services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddHttpContextAccessor();
+
             services.AddMemoryCache();
 
         }
@@ -73,6 +75,8 @@ namespace ELibrary.Portal
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

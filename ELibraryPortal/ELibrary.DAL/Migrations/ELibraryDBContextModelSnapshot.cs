@@ -217,6 +217,29 @@ namespace ELibrary.DAL.Migrations
                     b.ToTable("Authors");
                 });
 
+            modelBuilder.Entity("ELibrary.Entities.Concrete.Banner", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid?>("CreatedBy");
+
+                    b.Property<DateTime?>("CreatedDate");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<Guid?>("ModifiedBy");
+
+                    b.Property<DateTime?>("ModifiedDate");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Banners");
+                });
+
             modelBuilder.Entity("ELibrary.Entities.Concrete.Book", b =>
                 {
                     b.Property<Guid>("Id")
@@ -381,6 +404,8 @@ namespace ELibrary.DAL.Migrations
                     b.Property<string>("Email");
 
                     b.Property<bool>("IsActive");
+
+                    b.Property<string>("Maps");
 
                     b.Property<string>("Message");
 

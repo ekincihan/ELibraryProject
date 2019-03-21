@@ -7,6 +7,7 @@ using ELibrary.API.Base;
 using ELibrary.API.Models;
 using ELibrary.API.Security;
 using ELibrary.API.Type;
+using ELibrary.DAL.Concrete.EntityFramework;
 using ELibrary.Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +15,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace ELibrary.API.Controllers
 {
@@ -25,21 +27,21 @@ namespace ELibrary.API.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-        //private readonly RoleManager<IdentityRole<string>> _roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
         private IHostingEnvironment _hostingEnvironment;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            //RoleManager<IdentityRole<string>> roleManager,
-            IConfiguration configuration, IHostingEnvironment hostingEnvironment)
+            RoleManager<IdentityRole> roleManager,
+        IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
             _hostingEnvironment = hostingEnvironment;
-            //_roleManager = roleManager;
+            _roleManager = roleManager;
         }
 
         [HttpPost("Login")]
@@ -59,18 +61,32 @@ namespace ELibrary.API.Controllers
         }
 
         [HttpPost("PortalLogin")]
+        [Authorize(Roles ="admin")]
         public async Task<Response<ApplicationUser>> PortalLogin([FromBody]LoginModel model)
         {
             try
             {
                 var response = new Response<ApplicationUser>();
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
-
                 if (result.Succeeded)
                 {
                     var appUser = _userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                    appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
-                    return new Response<ApplicationUser> { IsSuccess = true, Value = appUser };
+
+                    using (var context = new ELibraryDBContext())
+                    {
+                        var userRoles = context.UserRoles.SingleOrDefault(x => x.UserId == appUser.Id);
+
+                        if (userRoles != null)
+                        {
+                            var role = context.Roles.SingleOrDefault(f => f.Id == userRoles.RoleId);
+
+                            if (role != null && role.Name == "admin")
+                            {
+                                appUser.BearerToken = JWTAuth.Instance.GenerateJwtToken(model.Email, appUser);
+                                return new Response<ApplicationUser> { IsSuccess = true, Value = appUser };
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)

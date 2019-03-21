@@ -13,7 +13,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : UIControllerBase
     {
         private IMemoryCache _cache;
 
@@ -68,7 +68,7 @@ namespace ELibrary.Portal.Controllers
             {
                 responseSaving.Value.IsBookSaved = true;
             }
-            return Json(responseSaving);
+            return Json(new ResultJson { Message =responseSaving.Message,Success=responseSaving.IsSuccess });
         }
 
         [HttpPost]

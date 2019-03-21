@@ -10,10 +10,12 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using ELibrary.Portal.Components;
 using ELibrary.API.Models;
+using ELibrary.Portal.Custom;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class HomeController : Controller
+    [CustomAuthorizeAttribute]
+    public class HomeController : UIControllerBase
     {
         public IActionResult Index()
         {

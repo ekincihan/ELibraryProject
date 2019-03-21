@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ELibrary.API.Models;
 using ELibrary.API.Type;
+using ELibrary.Portal.Custom;
 using ELibrary.Portal.Manager;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -11,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class AboutController : Controller
+    public class AboutController : UIControllerBase
     {
         // GET: /<controller>/
         public IActionResult Index()

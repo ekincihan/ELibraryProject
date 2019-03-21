@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace ELibrary.Portal.Controllers
 {
-    public class TagController : Controller
+    public class TagController : UIControllerBase
     {
         public ActionResult Index()
         {
@@ -38,7 +38,7 @@ namespace ELibrary.Portal.Controllers
         {
             Response<TagModel> responseSaving = JsonConvert.DeserializeObject<Response<TagModel>>(UiRequestManager.Instance.Post("Tag", "Save", JsonConvert.SerializeObject(model)));
 
-            return Json(responseSaving);
+            return Json(new ResultJson { Message=responseSaving.Message,Success=responseSaving.IsSuccess});
         }
 
         [HttpPost]
