@@ -32,6 +32,7 @@ export class BookDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.loaderService.show();
       this.bookService.get("/Book/Detail/" + params["bookId"]).subscribe(res => {
+        console.log(res["value"])
         this.book = res["value"];
         this.loaderService.hide();
         if(this.user){
