@@ -48,7 +48,7 @@ namespace ELibrary.API.Controllers
         public Response<AuthorModel> AuthorDetail(Guid id)
         {
             Response<AuthorModel> authorResponse = new Response<AuthorModel>();
-            Author entity = _author.GetT(x => x.Id == id);
+            Author entity = _author.GetT(x => x.Id == id &&x.IsActive==true);
             authorResponse.Value = _mapper.Map<AuthorModel>(entity);
 
             return authorResponse;
