@@ -11,10 +11,8 @@
           <div class="col-12 col-sm-6">
             <div class="form-group"><b>E-Mail:</b> {{contactInfo?.siteMail}}</div>
             <div class="form-group"><b>Telefon:</b> {{contactInfo?.phonuNumber}}</div>
-            <div class="form-group"><b>Adres:</b> {{contactInfo?.adress}} </div>
-            <div class="map mb-4">
-            {{contactInfo?.maps}}
-            </div>
+            <div class="form-group" ><b>Adres:</b> <div [innerHTML]="contactInfo?.adress | sanitizeHtml"></div> </div>
+
           </div>
           <div class="col-12 col-sm-6">
             <div class="needs-validation validated">
