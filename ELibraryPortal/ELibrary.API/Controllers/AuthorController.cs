@@ -48,7 +48,7 @@ namespace ELibrary.API.Controllers
         public Response<AuthorModel> AuthorDetail(Guid id)
         {
             Response<AuthorModel> authorResponse = new Response<AuthorModel>();
-            Author entity = _author.GetT(x => x.Id == id);
+            Author entity = _author.GetT(x => x.Id == id &&x.IsActive==true);
             authorResponse.Value = _mapper.Map<AuthorModel>(entity);
 
             return authorResponse;
@@ -84,6 +84,21 @@ namespace ELibrary.API.Controllers
                 {
                     
                     entity = await (model.Id != Guid.Empty ? _author.UpdateAsync(entity) : _author.AddAsync(entity));
+
+
+                    if (model.Id != Guid.Empty && model.IsActive == false)
+                    {
+
+                        List<Book> entityList = await _book.GetListAsync(x => x.AuthorId == model.Id);
+
+                        foreach (var item2 in entityList)
+                        {
+                            item2.IsActive = false;
+                            _book.Update(item2);
+
+                        }
+                    }
+
                     authorResponseModel.Value = _mapper.Map<AuthorModel>(entity);
                     authorResponseModel.IsSuccess = true;
                 }
@@ -128,7 +143,7 @@ namespace ELibrary.API.Controllers
             List<AuthorAlphabeticallyModel> responseModel = new List<AuthorAlphabeticallyModel>();
             List<AuthorBasicModel> alphabeticList = new List<AuthorBasicModel>();
 
-            var list = _author.GetList().ToList();
+            var list = _author.GetList(x=>x.IsActive==true).ToList();
             var groupedByLetter =
                 from letter in Letters
                 join service in list on letter equals service.Name[0] into grouped

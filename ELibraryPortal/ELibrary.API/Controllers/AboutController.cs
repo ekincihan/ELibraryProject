@@ -50,6 +50,7 @@ namespace ELibrary.API.Controllers
             try
             {
                 About entity = _mapper.Map<About>(model);
+                entity.IsActive = true;
                 entity = await (model.Id != Guid.Empty ? _about.UpdateAsync(entity) : _about.AddAsync(entity));
                 aboutesponseModel.Value = _mapper.Map<AboutModel>(entity);
                 aboutesponseModel.IsSuccess = true;

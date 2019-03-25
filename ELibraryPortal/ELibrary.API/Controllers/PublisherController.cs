@@ -25,12 +25,14 @@ namespace ELibrary.API.Controllers
         private readonly ICategoryTagAssignment _categoryAssigment;
 
         private readonly IMapper _mapper;
+        private readonly IBooks _books;
 
-        public PublisherController(IPublisher publisher, IMapper mapper, ICategoryTagAssignment categoryAssigment)
+        public PublisherController(IPublisher publisher, IMapper mapper, ICategoryTagAssignment categoryAssigment,IBooks books)
         {
             _publisher = publisher;
             _mapper = mapper;
             _categoryAssigment = categoryAssigment;
+            _books = books;
         }
 
         [HttpGet]
@@ -51,7 +53,7 @@ namespace ELibrary.API.Controllers
             List<PublisherUiModel> responseModel = new List<PublisherUiModel>();
             List<PublisherModel> alphabeticList = new List<PublisherModel>();
 
-            var list = _publisher.GetList().ToList();
+            var list = _publisher.GetList(x=>x.IsActive==true).ToList();
             var groupedByLetter =
                 from letter in Letters
                 join service in list on letter equals service.Name[0] into grouped
@@ -96,6 +98,24 @@ namespace ELibrary.API.Controllers
                 if (model.Id!=Guid.Empty)
                 {
                     entity = await (model.Id != Guid.Empty ? _publisher.UpdateAsync(entity) : _publisher.AddAsync(entity));
+                    if (model.Id != Guid.Empty && model.IsActive == false)
+                    {
+                        List<Book> entityList = await _books.GetListAsync( x=>x.PublisherId == model.Id);
+                        List<CategoryTagAssigment> categoryTagAssigmentsentityList= await _categoryAssigment.GetListAsync(x=>x.PublisherId == model.Id);
+
+                        foreach (var item in entityList)
+                        {
+                            item.IsActive = false;
+                            _books.Update(item);
+
+                        }
+                        foreach (var item2 in categoryTagAssigmentsentityList)
+                        {
+                            item2.IsActive = false;
+                            _categoryAssigment.Update(item2);
+                            
+                        }
+                    }
                     publisherResponseModel.Value = _mapper.Map<PublisherModel>(entity);
                     publisherResponseModel.IsSuccess = true;
                 }
