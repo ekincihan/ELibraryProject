@@ -44,10 +44,15 @@ namespace ELibrary.API.Controllers
             if (model.IsActive)
             {
                 Response<BannerModel> bannerResponse = new Response<BannerModel>();
-                Banner entityList = _banner.GetT(x => x.IsActive == true);
-                entityList.IsActive = false;
-                entityList = await _banner.UpdateAsync(entityList);
-                //bannerResponse.Value = _mapper.Map<BannerModel>(entityList);
+                List<Banner> entityList = _banner.GetList(x => x.IsActive == true);
+                if (entityList.Count>0)
+                {
+                    foreach (var entity in entityList)
+                    {
+                        entity.IsActive = false;
+                        await _banner.UpdateAsync(entity);
+                    }
+                }
             }
             try
             {
@@ -78,13 +83,14 @@ namespace ELibrary.API.Controllers
 
         [HttpGet]
         [Route("Current")]
-        public Response<BannerModel> Current()
+        public BannerModel Current()
         {
             Response<BannerModel> bannerResponse = new Response<BannerModel>();
-            Banner entityList = _banner.GetT(x => x.IsActive == true);
-            bannerResponse.Value = _mapper.Map<BannerModel>(entityList);
+            Banner entity = _banner.GetT(x => x.IsActive == true);
+            bannerResponse.Value = _mapper.Map<BannerModel>(entity);
 
-            return bannerResponse;
+            return bannerResponse.Value;
         }
     }
 }
+
