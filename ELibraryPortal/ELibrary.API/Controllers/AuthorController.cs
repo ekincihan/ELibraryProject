@@ -113,8 +113,8 @@ namespace ELibrary.API.Controllers
                 {
                     authorResponseModel.IsSuccess = false;
                     authorResponseModel.Message = "Aynı Isimli Yazar Mevcut";
+                    authorResponseModel.Value = model;
                 }
-
             }
             catch (Exception e)
             {

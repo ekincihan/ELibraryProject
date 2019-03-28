@@ -51,7 +51,7 @@ namespace ELibrary.Portal.Controllers
             {
                 responseSaving.Value.IsBookSaved = true;
             }
-            return Json(new ResultJson { Message=responseSaving.Message,Success=responseSaving.IsSuccess});
+            return Json(new ResultJson { Message=responseSaving.Message,Success=responseSaving.IsSuccess,IsBookSaved = responseSaving.Value.IsBookSaved});
         }
 
         [HttpPost]

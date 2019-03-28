@@ -129,6 +129,7 @@ namespace ELibrary.API.Controllers
                 {
                     publisherResponseModel.Message = "Aynı Isimli Yayınevi Mevcut";
                     publisherResponseModel.IsSuccess = false;
+                    publisherResponseModel.Value = model;
                 }
             }
             catch (Exception e)

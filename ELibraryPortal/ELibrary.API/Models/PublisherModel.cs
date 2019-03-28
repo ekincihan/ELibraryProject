@@ -19,6 +19,6 @@ namespace ELibrary.API.Models
         [EmailAddress(ErrorMessage = "Yanlış email formatı")]
         public string Email { get; set; }
         public bool IsActive { get; set; } = true;
-        public bool IsBookSaved { get; set; } = false;
+        public bool IsBookSaved { get; set; }
     }
 }

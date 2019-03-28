@@ -83,7 +83,7 @@
                     swal("Basarili!", "Kaydedildi!", "success");
                     document.getElementById("CategoryName").value = "";
                     SpinLoader(false);
-                  if (data.value.isBookSaved) {
+                  if (data.isBookSaved) {
                     window.location.href  = '/book/save';
                   }
                 }

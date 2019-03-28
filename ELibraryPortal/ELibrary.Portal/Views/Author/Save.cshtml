@@ -110,8 +110,7 @@
                     document.getElementById("AuthorBirthDate").value = "";
                     document.getElementById("txtWebsite").value = "";
                     SpinLoader(false);
-                    if (data.value.isBookSaved) {
-
+                  if (data.isBookSaved) {
                     window.location.href  = '/book/save';
                   }
                 }
