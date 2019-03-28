@@ -75,5 +75,16 @@ namespace ELibrary.API.Controllers
 
             return bannerResponse;
         }
+
+        [HttpGet]
+        [Route("Current")]
+        public Response<BannerModel> Current()
+        {
+            Response<BannerModel> bannerResponse = new Response<BannerModel>();
+            Banner entityList = _banner.GetT(x => x.IsActive == true);
+            bannerResponse.Value = _mapper.Map<BannerModel>(entityList);
+
+            return bannerResponse;
+        }
     }
 }
