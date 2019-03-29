@@ -19,7 +19,7 @@ namespace ELibrary.API.Controllers
     public class PublisherController : APIControllerBase
     {
         private static readonly char[] Letters =
-            "ABCÇDEFGHIİJKLMNOÖPQRSTUÜVWXYZ".ToCharArray();
+            "ABCÇDEFGHIİJKLMNOÖPQRSŞTUÜVWXYZabcçdefghıijklmnoöprsştuüvwxyz".ToCharArray();
 
         private readonly IPublisher _publisher;
         private readonly ICategoryTagAssignment _categoryAssigment;
@@ -146,7 +146,7 @@ namespace ELibrary.API.Controllers
         public Response<PublisherModel> GetOne(Guid id)
         {
             Response<PublisherModel> publisherResponse = new Response<PublisherModel>();
-            Publisher entityList = _publisher.GetT(x => x.Id == id);
+            Publisher entityList = _publisher.GetT(x => x.Id == id &&x.IsActive==true);
             publisherResponse.Value = _mapper.Map<PublisherModel>(entityList);
 
             return publisherResponse;

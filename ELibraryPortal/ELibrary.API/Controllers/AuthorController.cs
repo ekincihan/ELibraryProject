@@ -23,7 +23,7 @@ namespace ELibrary.API.Controllers
         private IMapper _mapper;
 
         private static readonly char[] Letters =
-            "ABCÇDEFGHIİJKLMNOÖPQRSTUÜVWXYZ".ToCharArray();
+            "ABCÇDEFGHIİJKLMNOÖPQRSTUÜVWXYZabcçdefghıijklmnoöprsştuüvwxyz".ToCharArray();
 
         public AuthorController(IAuthor author, IMapper mapper, IBooks book)
         {
