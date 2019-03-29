@@ -129,6 +129,20 @@ namespace ELibrary.API.Controllers
                 if (model.Id != Guid.Empty)
                 {
                     entity = await (model.Id != Guid.Empty ? _category.UpdateAsync(entity) : _category.AddAsync(entity));
+
+                    if (model.Id != Guid.Empty && model.IsActive == false)
+                    {
+                       
+                        List<CategoryTagAssigment> categoryTagAssigmentsentityList = await _categoryAssigment.GetListAsync(x => x.CategoryId == model.Id);
+
+                        foreach (var item2 in categoryTagAssigmentsentityList)
+                        {
+                            item2.IsActive = false;
+                            _categoryAssigment.Update(item2);
+
+                        }
+                    }
+
                     categoryResponseModel.Value = _mapper.Map<CategoryModel>(entity);
                     categoryResponseModel.IsSuccess = true;
                 }

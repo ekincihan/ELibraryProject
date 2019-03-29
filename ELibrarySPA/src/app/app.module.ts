@@ -60,6 +60,7 @@ import { BookRateService } from './service/book-rate.service';
 import { NgxLoadingModule } from 'ngx-loading';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './service/loader.service';
+import { SanitizeHtmlPipe }  from './contact/shared/sanitize';
 
 @NgModule({
    declarations: [
@@ -85,7 +86,8 @@ import { LoaderService } from './service/loader.service';
        AuthorComponent,
        ContactComponent,
        AboutComponent,
-       LoaderComponent
+       LoaderComponent,
+       SanitizeHtmlPipe
    ],
    imports: [
        BrowserModule,
@@ -99,7 +101,7 @@ import { LoaderService } from './service/loader.service';
        RatingModule.forRoot(),
        NgxExtendedPdfViewerModule,
        NgxLoadingModule.forRoot({}),
-       SnotifyModule
+       SnotifyModule,
    ],
    providers: [
        IndexService,
