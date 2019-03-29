@@ -26,8 +26,8 @@ namespace ELibrary.Portal.Manager
 
         protected UiRequestManager()
         {
-            this.BaseApiUrl = "http://localhost:5001/api";
-            //this.BaseApiUrl = "http://api.diyarkitap.com/api";
+            //this.BaseApiUrl = "http://localhost:5001/api";
+            this.BaseApiUrl = "http://api.diyarkitap.com/api";
         }
 
         public string Get(string ControllerName, string actionName, Guid? Id = null)
